@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ua">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lesson 02</title>
+</head>
+
+<body>
+	<header>
+		<!-- ? В цьому блоці, можливо div взагалі не потрібен, просто залишити тег p та стилізувати його, томущо він теж блоковий -->
+		<div class="text  text-color">
+			<p>Біографічна сторінка</p>
+		</div>
+
+		<ul id="up">
+			<li>
+				<a href="#about">Біографія</a>
+				<ol>
+					<li>
+						<a href="#education">Освіта</a>
+					</li>
+					<li>
+						<a href="#hobby">Захоплення</a>
+					</li>
+				</ol>
+			<li>
+				<a href="#contacts">Контакти</a>
+			</li>
+			</li>
+		</ul>
+	</header>
+
+	<main>
+		<div>
+			<h1 id="about">Біографія</h1>
+			<p>
+				Привіт ), мене звати Андрій, 42 роки, живу в місті Черкаси. <br> Раніше працював системним
+				адміністратором. <br>
+				Вирішив підняти свій рівень кваліфікації та займатися програмуванням.
+			</p>
+			<img src="img/foto.jpg" alt="моє фото">
+		</div>
+
+		<div>
+			<h2 id="education">Освіта</h2>
+			<p>
+				В 2006 році закінчів технологічний університет нашого міста <a title="На сайт ЧДТУ"
+					href="https://chdtu.edu.ua/" target="_blank">ЧДТУ</a>, <span>факультет ФІТІС</span> за
+				спеціальністю ПЗ (програмне
+				забезпечення).
+			</p>
+			<a title="На сайт ЧДТУ" href="https://chdtu.edu.ua/" target="_blank">
+				<img src="img/cdtu.jpg" alt="фото университета">
+			</a>
+		</div>
+
+		<div>
+			<h2 id="hobby">Захоплення</h2>
+			<p>
+				Колись займався плаванням, люблю читати книжки, а ще сильніше подобається дивитися фільми: <br>
+				<mark>світову класику, арт-хаус, авторське та фестивальне кіно</mark> (тобто мейнстрім і попсу не
+				пропонувати).
+				Viva la cinema!
+			</p>
+		</div>
+
+		<a href="#up">Наверх</a>
+	</main>
+
+	<footer>
+		<!-- ? Можливо, в цьому блоці, замість div краще використати UL+LI (маркований список)? -->
+		<div>
+			<h3 id="contacts">Контакти</h3>
+			<div>
+				<a title="На мою соціальну мережу" href="https://www.linkedin.com/in/andrii-stoliarov-0289991b4/"
+					target="_blank">
+					LinkedIn
+				</a>
+			</div>
+			<div>
+				<a title="На моє портфолио" href="https://github.com/AndriiStoliarov" target="_blank">
+					GitHub
+				</a>
+			</div>
+		</div>
+	</footer>
+</body>
+
+</html>
