@@ -1,0 +1,218 @@
+/* Підключення фрифтів */
+
+/* Google Fonts */
+/* @import url("https://fonts.googleapis.com/css2?family=Carme&display=swap"); */
+/* Google Fonts (Plugin) */
+
+/* Локальне підключення шрифтів */
+@import url("fonts.css");
+
+/* Скидання стилів */
+@import url("reset.css");
+
+/* Основні стилі */
+
+/* CSS-властивості шрифтів  */
+body {
+	font-family: "Carme", sans-serif;
+	font-size: 17px;
+	color: #2c2c2c;
+}
+
+/* 
+Встановлює родину шрифту
+font-family: "Ім'я шрифту", "Ім'я шрифту",..., тип шрифту;
+успадковується
+
+Типи шрифтів:
+serif — шрифт з зарубками (засічками)
+sans-serif — рублений (без зарубок)
+cursive - курсивні шрифти
+fantasy — декоративні
+monospace — моноширинні
+*/
+
+.title {
+	font-family: "KoPubBatang", serif;
+	/* font-family: "Manrope", sans-serif; */
+	/* font-family: "Times New Roman", serif; */
+}
+
+/*
+Встановлює розмір шрифту
+font-size: цифрове значення одиниця виміру;
+(за замовчунням 16px, якщо в браузері не вказано іншого)
+успадковується
+*/
+
+.title {
+	font-size: 70px;
+}
+
+/*
+Встановлює стиль шрифту
+font-style: назва стилю;
+успадковується
+
+normal (за замовчуванням) - звичайний (не змінений, стандартний) стиль 
+italic - курсив
+oblique - нахилення літер
+*/
+
+.title {
+	/* font-style: italic; */
+}
+
+/*
+Встановлює насиченість (товщину, вагу) шрифту
+font-weight: цифрове значення або 
+значення словом (словесне);
+успадковується
+
+100 - thin 
+200 - extralight (ultralight)
+300 - light 
+400 - Regular (normal) (за замовчуванням)
+500 - medium 
+600 - semibold 
+700 - bold 
+800 - extrabold (heavy)
+900 - black
+*/
+.title {
+	font-weight: 300;
+}
+
+/* CSS-властивості тексту  */
+
+/*
+Встановлює колір тексту
+color: слово або код кольору;
+успадковується
+*/
+.title {
+	/* 
+	color: #999999;
+	color: rgba(76, 17, 17, 0.5); */
+}
+
+/*
+Встановлює вирівнювання тексту 
+(та рядкових, блочно-рядкових елементів)
+text-align: значення;
+успадковується (текстом)
+
+center - вирівнює по центру
+left - (за замовченням) вирівнює по лівому краю
+right - вирівнює по правому краю
+justify - вирівнює текст по ширині об'єкту 
+в якому він знаходиться 
+автоматично змінюючи пробіли між словами
+*/
+.title {
+	text-align: center;
+}
+p {
+	/* text-align: justify; */
+}
+
+/*
+Додає тексту певне оформлення 
+text-decoration: значення;
+line-through - закреслює текст
+overline - лінія над текстом
+underline - лінія під текстом
+none - (за замовченням) відміняє змінений раніше параметр
+
+text-decoration-color - змінює колір лінії
+text-decoration-style -  змінює стиль лінії 
+(wavy, dashed, dotted, double)
+*/
+.link {
+	/*
+	color: yellowgreen;
+	text-decoration: line-through;
+	text-decoration-color: red;
+	text-decoration-style: wavy;
+	*/
+}
+
+/*
+Додає тексту тінь
+text-shadow: горизонтальне_зміщення вертикальне_зміщення розмір колір;
+успадковується (текстом)
+Може бути мульти-тінь 
+(значення через кому - text-shadow: 2px 2px 5px #000, 5px -2px 10px red;)
+*/
+
+p {
+	/*
+	text-shadow:
+		5px 5px 2px red,
+		3px 3px 1px green;
+		*/
+}
+
+/*
+Встановлює тип (регістр) літер (прописні або заглавні)
+text-transform: значення;
+успадковується (текстом)
+capitalize - кожне слово починається з заглавної літери
+lowercase - усі літери прописні (нижній регістр)
+uppercase - усі літери заглавні (верхній регістр)
+none - (за замовчунням) не змінює (або відмініє) значення
+*/
+
+.title {
+	/* text-transform: capitalize; */
+}
+.menu {
+	/* text-transform: uppercase; */
+}
+
+/*
+Визначає висоту рядка
+line-height: значення;
+Перевести пікселі в частини:
+значення line-height поділити на значення font-size
+успадковується (текстом, лише якщо задані частини)
+*/
+
+p {
+	line-height: 1.37;
+	/* line-height: 1.5; */
+}
+
+/*
+Встановлює інтервал між літерами (символами)
+letter-spacing: значення;
+успадковується (текстом)
+*/
+
+.title {
+	/* text-transform: uppercase;
+	letter-spacing: 20px; */
+}
+
+/*
+Встановлює інтервал між словами
+word-spacing: значення;
+успадковується (текстом)
+*/
+
+p {
+	/* word-spacing: 5px; */
+}
+
+/*
+Керує поведінкою пробілів між словами
+white-space: значення;
+nowrap - забороняє переніс рядка
+normal - (за замовчунням) 
+не змінює (або відмініє) значення
+успадковується (текстом)
+*/
+
+p {
+	/* white-space: nowrap; */
+}

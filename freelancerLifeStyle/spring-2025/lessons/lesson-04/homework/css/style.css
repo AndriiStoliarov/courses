@@ -1,0 +1,72 @@
+/* Скидання стилів */
+@import url("reset.css");
+
+
+* {
+	color: #000;
+}
+
+p {
+	color: #696969;
+}
+
+h2 {
+	color: #8A2BE2;
+}
+
+.title {
+	color: #A52A2A;
+}
+
+[class*="paragraph"] {
+	color: #FF7F50;
+}
+
+[title*="Пл"] {
+	color: #00008B;
+}
+
+p.text {
+	color: #FF8C00;
+}
+
+.information.text-1 {
+	color: #DDA0DD;
+}
+
+.paragraph-1, 
+.paragraph-2 {
+	color: #FF1493;
+}
+
+.info,
+span {
+	color: #ADFF2F;
+}
+
+div h4 {
+	color: #4B0082;
+}
+
+.block .text-part {
+	color: #00FFFF;
+}
+
+.chapter * {
+	color: #556B2F;
+}
+
+/* Усі прямі нащадки (дочірній елементи) */
+.chapter-2 > p {
+	color: #E9967A;
+}
+
+/* Усі рідні (на одному рівні) елементи, які знаходяться після елементу .chapter-3*/
+.chapter-3 ~ p {
+	color: #8FBC8F;
+}
+
+/* Сусід (на одному рівні) елементи. */
+.chapter-4 + p {
+	color: #B22222;
+}
