@@ -1,0 +1,34 @@
+/* Скидання стилів */
+@import url("reset.css");
+
+ul > li {
+	color: red;
+}
+
+ul > li ~ li {
+	color: green;
+}
+
+ul > li > ul > li {
+	color: blue;
+}
+
+ul > li > ul > li ~ li {
+	color: orange;
+}
+
+ul > li > ul span {
+	color: #a0f0fc;
+}
+
+ul > li > ul > li > ol > li {
+	color: #4597f7;
+}
+
+ul > li > ul > li > ol > li ~ li {
+	color: #5d5d5d;
+}
+
+ul > li > ul > li > ol > li span {
+	color: #5d5d5d;
+}
