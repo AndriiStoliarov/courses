@@ -17,7 +17,7 @@ ul > li > ul > li ~ li {
 	color: orange;
 }
 
-ul > li > ul span {
+ul > li > ul > li > span {
 	color: #a0f0fc;
 }
 
