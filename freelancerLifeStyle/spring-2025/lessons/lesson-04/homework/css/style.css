@@ -74,8 +74,8 @@ h1 {
 .deer-plot-title {
 	font-weight: 700;
 	color: rgba(0, 0, 255, 0.5);
-	text-decoration: underline;
 	text-decoration-style: dashed;
+	text-decoration-line: underline;
 	text-decoration-thickness: 3px;
 	text-underline-offset: 4px;
 }
@@ -87,11 +87,11 @@ h1 {
 }
 
 .deer-plot-text {
-	text-decoration: line-through;
-	text-decoration-style: solid;
-	text-decoration-color: red;
-
 	text-align: right;
+}
+
+.deer-plot-text span{
+	text-decoration: line-through solid red;
 }
 
 .lobster-cast-title,
@@ -107,7 +107,7 @@ h1 {
 	font-size: 20px;
 	color: #00008B;
 	
-	text-decoration: overline;
+	text-decoration-line: overline;
 	text-decoration-thickness: 5px;
 	
 	text-align: right;
@@ -117,19 +117,17 @@ h1 {
 
 .lobster-cast-list,
 .deer-cast-list {
-	text-decoration-line: underline;
+	/* text-decoration-color: #DC143C;
 	text-decoration-style: wavy;
-	text-decoration-color: #DC143C;
+	text-decoration-line: underline; */
+	text-decoration: #DC143C wavy underline;
 	text-underline-offset: 4px;
 }
 
 .lobster-production-title {
 	color: #006400;
-	text-decoration-line: underline overline;
-	text-decoration-style: dotted;
-	text-decoration-color: #DC143C;
+	text-decoration: underline overline dotted #DC143C 5px;
 	text-underline-offset: 4px;
-	text-decoration-thickness: 5px;
 
 	text-transform: uppercase;
 }
@@ -144,11 +142,8 @@ h1 {
 .deer-preception-title {
 	color: #4B0082;
 	
-	text-decoration-line: underline overline;
-	text-decoration-style: double;
-	text-decoration-color: #FFD700;
+	text-decoration: #FFD700 double underline overline 2px;
 	text-underline-offset: 6px;
-	text-decoration-thickness: 2px;
 
 	letter-spacing: 20px;
 	text-transform: lowercase;
