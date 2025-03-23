@@ -87,6 +87,8 @@ h1 {
 }
 
 .deer-plot-text {
+	text-decoration: line-through;
+
 	text-align: right;
 }
 
