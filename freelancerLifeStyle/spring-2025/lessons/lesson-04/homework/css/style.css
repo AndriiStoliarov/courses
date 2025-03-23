@@ -5,10 +5,163 @@
 
 
 body {
-	font-family: "Poppins", "Arial", sans-serif;
-	/* font-family: "PTSerif", "Times New Roman", serif; */
-	/* font-size: 17px;
-	color: #2c2c2c; */
+	font-family: "Roboto", "Arial", sans-serif;
+	font-size: 18px;
+	color: #2C2C2C;
+}
+
+.title {
+	text-align: center;
+}
+
+.main-title {
+	font-size: 24px;
+
+	text-transform: capitalize;
+}
+
+.main-title > p {
+	text-shadow: 0 5px 5px #8A2BE2;
+}
+
+.main-title span {
+	color: rgb(138, 43, 226);
+}
+
+h1 {
+	font-family: "Roboto", sans-serif;;
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 2;
+	color: rgba(139, 0, 0, 0.4);
+
+	text-transform: uppercase;
+	letter-spacing: 5px;
+}
+
+.lobster,
+.deer {
+	font-weight: 400;
+	line-height: 1.5;
+}
+
+.deer {
+	font-family: "PTSerif", serif;
+}
+
+.lobster-title,
+.deer-title {
+	font-size: 20px;
+	font-weight: 700;
+	color: #006400;
+
+	text-transform: uppercase;
+	letter-spacing: 10px;
+
+	text-shadow:  0 5px 5px red, 0 -5px 5px #000;
+}
+
+.lobster-text,
+.deer-text {
+	text-align: justify;
+}
+
+.deer-text {
+	font-weight: 700;
+}
+
+.lobster-plot-title,
+.deer-plot-title {
+	font-weight: 700;
+	color: rgba(0, 0, 255, 0.5);
+	text-decoration: underline;
+	text-decoration-style: dashed;
+	text-decoration-thickness: 3px;
+	text-underline-offset: 4px;
+}
+
+.lobster-plot-text {
+	font-weight: 300;
+
+	text-align: right;
+}
+
+.deer-plot-text {
+	text-align: right;
+}
+
+.lobster-cast-title,
+.deer-cast-title {
+	font-size: 24px;
+	color: #FFF;
+	font-weight: 700;
+	text-shadow: 7px 0 20px #000, 7px 0 20px #000, 0 -7px 20px #000, 0 7px 20px #000;
+}
+
+.lobster-production-subtitle,
+.lobster-preception-subtitle {
+	font-size: 20px;
+	color: #00008B;
+	
+	text-decoration: overline;
+	text-decoration-thickness: 5px;
+	
+	text-align: right;
+
+	text-transform: lowercase;
+}
+
+.lobster-cast-list,
+.deer-cast-list {
+	text-decoration-line: underline;
+	text-decoration-style: wavy;
+	text-decoration-color: #DC143C;
+	text-underline-offset: 4px;
+}
+
+.lobster-production-title {
+	color: #006400;
+	text-decoration-line: underline overline;
+	text-decoration-style: dotted;
+	text-decoration-color: #DC143C;
+	text-underline-offset: 4px;
+	text-decoration-thickness: 5px;
+
+	text-transform: uppercase;
+}
+
+.lobster-production-text {
+	text-align: center;
+
+	word-spacing: 7px;
+}
+
+.lobster-preception-title,
+.deer-preception-title {
+	color: #4B0082;
+	
+	text-decoration-line: underline overline;
+	text-decoration-style: double;
+	text-decoration-color: #FFD700;
+	text-underline-offset: 6px;
+	text-decoration-thickness: 2px;
+
+	letter-spacing: 20px;
+	text-transform: lowercase;
+}
+
+.lobster-preception-text {
+	font-style: oblique;
+}
+
+.deer-preception-text {
+	font-family: "PTSerif-Italic", serif;
+}
+
+.up {
+	color: darkred;
+
+	text-transform: lowercase;
 }
 
 .block-ecobazar {
@@ -25,4 +178,3 @@ body {
 	font-weight: 500;
 	color: #1A1A1A;
 }
-
