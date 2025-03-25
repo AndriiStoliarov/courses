@@ -5,7 +5,6 @@ https://www.photopea.com/
 https://www.w3.org/Style/Examples/007/fonts.uk.html
 
 
-
 Заняття 4. Основи роботи з Figma. Підключення шрифтів, CSS властивості шрифтів та тексту.
 
 🟢 Посилання на урок:
@@ -15,7 +14,7 @@ https://youtube.com/live/c6Dx9kpqUeg?feature=share
 https://meadow-manicure-24b.notion.site/4-google-fonts-1bc7e75cc02a801080cfc51646707f3b
 
 
-🤓  Домашнє завдання:
+🤓 Домашнє завдання:
 1) Вантажимо курсові макети у FIGMA (https://www.figma.com/). Посилання на макети: 
 https://drive.google.com/drive/folders/1yvSnym1Zu0OCkIQL_pJ1MT6X4FgKAf-J?usp=sharing
 2) Знайомимось з основними панелями сервісу

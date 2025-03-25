@@ -1,0 +1,84 @@
+@import url("reset.css");
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:500,700&display=swap");
+
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+/* стилі для шапки */
+.header {
+  text-align: center;
+  padding: 30px 0;
+  background-color: rgb(149, 192, 241);
+  margin-bottom: 30px;
+}
+/* стилі для заголовку шапки */
+.header h1 {
+  font-weight: 700;
+  font-size: 35px;
+}
+
+.main {
+  margin-bottom: 30px;
+}
+
+.cards {
+  padding: 100px 0;
+  background-color: #cac8c8;
+}
+
+/* стилі для центрування (центрування блоку) */
+.cards-container {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+/* стилі для заголовку */
+.cards-title {
+  font-family: "Roboto";
+  font-weight: 500;
+  text-transform: capitalize;
+  text-align: center;
+  font-size: 50px;
+  margin-bottom: 60px; /* відступ від заголовку до карток */
+}
+
+/* стилі для обгортки (списку) в якій картки */
+.cards-items {
+  margin: 0 -12px; /*відємні відступи margin з боків */
+  font-size: 0; /*прибирання фантомних відступів*/
+}
+
+/* стилі для карток */
+.cards-item {
+  display: inline-block;
+  padding: 12px 12px; /*встановлення padding для компенсації від'ємного margin і створення відступу між картками*/
+
+  font-size: 16px; /*встановлення розміру шрифту тому що ми для .cards-items встановили розмір шрифту 0*/
+}
+
+/* встановлюєм обмеження по ширині для посилання в якому картинка */
+.cards-link {
+  max-width: 200px;
+  display: inline-block;
+}
+
+/* встановлюємо розмір для картинки щоб при зміні картинки на більшу вона не виходила за батьківський блок */
+.cards-link img {
+  max-width: 100%;
+}
+
+/* стилі для підвалу */
+.footer {
+  text-align: center;
+  padding: 30px 0;
+  background-color: rgb(207, 171, 243);
+}
+.footer h2 {
+  font-weight: 700;
+  font-size: 35px;
+}
+.footer h2 span {
+  color: rgb(33, 108, 206);
+}
