@@ -1,166 +1,144 @@
-/* Локальне підключення шрифтів */
 @import url("fonts.css");
 @import url("reset.css");
 
 
-
 body {
 	font-family: "Roboto", "Arial", sans-serif;
-	font-size: 18px;
-	color: #2C2C2C;
-}
-
-.title {
-	text-align: center;
-}
-
-.main-title {
-	font-size: 24px;
-
-	text-transform: capitalize;
-}
-
-.main-title > p {
-	text-shadow: 0 5px 5px #8A2BE2;
-}
-
-.main-title span {
-	color: rgb(138, 43, 226);
-}
-
-h1 {
-	font-family: "Roboto", sans-serif;;
-	font-size: 24px;
-	font-weight: 700;
-	line-height: 2;
-	color: rgba(139, 0, 0, 0.4);
-
-	text-transform: uppercase;
-	letter-spacing: 5px;
-}
-
-.lobster,
-.deer {
-	font-weight: 400;
-	line-height: 1.5;
-}
-
-.deer {
-	font-family: "PTSerif", serif;
-}
-
-.lobster-title,
-.deer-title {
-	font-size: 20px;
-	font-weight: 700;
-	color: #006400;
-
-	text-transform: uppercase;
-	letter-spacing: 10px;
-
-	text-shadow:  0 5px 5px red, 0 -5px 5px #000;
-}
-
-.lobster-text,
-.deer-text {
-	text-align: justify;
-}
-
-.deer-text {
-	font-weight: 700;
-}
-
-.lobster-plot-title,
-.deer-plot-title {
-	font-weight: 700;
-	color: rgba(0, 0, 255, 0.5);
-	text-decoration-style: dashed;
-	text-decoration-line: underline;
-	text-decoration-thickness: 3px;
-	text-underline-offset: 4px;
-}
-
-.lobster-plot-text {
-	font-weight: 300;
-
-	text-align: right;
-}
-
-.deer-plot-text {
-	text-align: right;
-}
-
-.deer-plot-text span{
-	text-decoration: line-through solid red;
-}
-
-.lobster-cast-title,
-.deer-cast-title {
-	font-size: 24px;
+	font-size: 14px;
 	color: #FFF;
-	font-weight: 700;
-	text-shadow: 7px 0 20px #000, 7px 0 20px #000, 0 -7px 20px #000, 0 7px 20px #000;
 }
 
-.lobster-production-subtitle,
-.lobster-preception-subtitle {
-	font-size: 20px;
-	color: #00008B;
-	
-	text-decoration-line: overline;
-	text-decoration-thickness: 5px;
-	
-	text-align: right;
+.header {
+	padding: 20px 0;
 
-	text-transform: lowercase;
-}
-
-.lobster-cast-list,
-.deer-cast-list {
-	/* text-decoration-color: #DC143C;
-	text-decoration-style: wavy;
-	text-decoration-line: underline; */
-	text-decoration: #DC143C wavy underline;
-	text-underline-offset: 4px;
-}
-
-.lobster-production-title {
-	color: #006400;
-	text-decoration: underline overline dotted #DC143C 5px;
-	text-underline-offset: 4px;
-
-	text-transform: uppercase;
-}
-
-.lobster-production-text {
-	text-align: center;
-
-	word-spacing: 7px;
-}
-
-.lobster-preception-title,
-.deer-preception-title {
-	color: #4B0082;
-	
-	text-decoration: #FFD700 double underline overline 2px;
-	text-underline-offset: 6px;
-
-	letter-spacing: 20px;
-	text-transform: lowercase;
-}
-
-.lobster-preception-text {
-	font-style: oblique;
-}
-
-.deer-preception-text {
-	font-style: italic;
-}
-
-.up {
 	color: darkred;
 
-	text-transform: lowercase;
+	text-align: center;
+}
+
+.advantages {
+	padding: 100px 0;
+	background-color: #231F8B;
+}
+
+.container {
+	width: 100%;
+	max-width: 1050px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.advantages-subtitle {
+	margin-bottom: 10px;
+
+	font-family: "Montserrat", sans-serif;
+	font-weight: 700;
+	color: #5A54F2;
+	line-height: 1.71;
+	letter-spacing: 0.2px;
+}
+
+.advantages-title {
+	margin-bottom: 10px;
+
+	font-family: "Circular Std", sans-serif;
+	font-size: 36px;
+	font-weight: 700;
+}
+
+.advantages-text {
+	margin-bottom: 70px;
+
+	font-family: "Circular Std", sans-serif;
+	line-height: 1.43;
+	letter-spacing: 0.2px;
+}
+
+.cards {
+	width: 100%;
+	min-height: 360px;
+	margin: 0 -20px;
+
+	font-size: 0;
+}
+
+.cards-item {
+	width: 25%;
+	display: inline-block;
+	padding: 0 20px;
+
+	font-size: 14px;
+	color: #000;
+}
+
+.cards-content {
+	padding: 35px 40px;
+	background-color: #fff;
+}
+
+.cards-content img {
+	margin-bottom: 20px;
+	/* display: block; */
+	width: 100%;
+	max-width: 72px;
+	height: 72px;
+	/* height: auto; */
+}
+
+.cards-title {
+	margin-bottom: 20px;
+
+	font-family: "Circular Std", sans-serif;
+	font-size: 16px;
+	color: #252B42;
+	font-weight: 700;
+	line-height: 1.5;
+	letter-spacing: 0.1px;
+}
+
+.cards-line {
+	max-width: 50px;
+	height: 2px;
+	margin-bottom: 20px;
+
+	font-size: 0;
+	color: transparent;
+
+	background-color: #E74040;
+}
+
+.cards-text {
+	font-family: "Montserrat", sans-serif;
+	color: #737373;
+	line-height: 1.43;
+	letter-spacing: 0.2px;
+}
+
+/* .cards-content.cards--royal-blue > .cards-text {
+	color: #FFF;
+} */
+
+/* .cards--odd {
+	margin-bottom: 72px;
+} */
+
+/* .cards--even {
+	padding-top: 48px;
+} */
+
+/* .test {
+	margin-bottom: 50px;
+} */
+
+.cards--royal-blue {
+	color: #FFF;
+	background-color: #5A54F2;
+}
+
+.footer {
+	padding: 20px 0 20px 20px;
+
+	color: darkgreen;
 }
 
 .block-ecobazar {
