@@ -17,15 +17,17 @@ body {
 }
 
 .advantages {
-	padding: 100px 0;
+	padding: 112px 0;
+
 	background-color: #231F8B;
+
+	overflow: hidden;
 }
 
 .container {
 	width: 100%;
 	max-width: 1050px;
 	margin: 0 auto;
-	overflow: hidden;
 }
 
 .advantages-subtitle {
@@ -71,18 +73,23 @@ body {
 	color: #000;
 }
 
+.cards--padding-bottom {
+	padding: 31px 0;
+
+	font-size: 0;
+	color: transparent;
+}
+
 .cards-content {
 	padding: 35px 40px;
 	background-color: #fff;
 }
 
 .cards-content img {
-	margin-bottom: 20px;
-	/* display: block; */
 	width: 100%;
 	max-width: 72px;
 	height: 72px;
-	/* height: auto; */
+	margin-bottom: 20px;
 }
 
 .cards-title {
@@ -114,22 +121,6 @@ body {
 	letter-spacing: 0.2px;
 }
 
-/* .cards-content.cards--royal-blue > .cards-text {
-	color: #FFF;
-} */
-
-/* .cards--odd {
-	margin-bottom: 72px;
-} */
-
-/* .cards--even {
-	padding-top: 48px;
-} */
-
-/* .test {
-	margin-bottom: 50px;
-} */
-
 .cards--royal-blue {
 	color: #FFF;
 	background-color: #5A54F2;
@@ -139,19 +130,4 @@ body {
 	padding: 20px 0 20px 20px;
 
 	color: darkgreen;
-}
-
-.block-ecobazar {
-	font-family: "Poppins", sans-serif;;
-	font-size: 18px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 1.5;
-	color: #808080;
-}
-
-.title-ecobazar {
-	font-size: 20px;
-	font-weight: 500;
-	color: #1A1A1A;
 }
