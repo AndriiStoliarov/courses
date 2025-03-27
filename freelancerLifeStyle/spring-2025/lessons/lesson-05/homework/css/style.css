@@ -74,11 +74,12 @@ body {
 	color: #000;
 }
 
-.cards--padding-bottom {
-	padding: 31px 0;
+.cards--odd {
+	vertical-align: top;
+}
 
-	font-size: 0;
-	color: transparent;
+.cards--even {
+	margin-top: 48px;
 }
 
 .cards-content {
