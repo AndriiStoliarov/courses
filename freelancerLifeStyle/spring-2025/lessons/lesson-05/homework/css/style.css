@@ -16,6 +16,92 @@ body {
 	text-align: center;
 }
 
+.task {
+	padding: 50px 0;
+}
+
+.block-1 {
+	max-width: 400px;
+	padding: 50px 0;
+	margin-bottom: 50px;
+
+	background-color: #794f45;
+}
+
+.block-1-item {
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 15px;
+}
+
+.block-1-item-lust {
+	margin-bottom: 0;
+}
+
+.block-2 {
+	display: inline-block;
+	padding: 20px;
+	margin-bottom: 50px;
+
+	background-color: #794f45;
+}
+
+.block-2-item {
+	margin-right: 30px;
+}
+
+.text {
+	margin-right: 30px;
+
+	font-size: 24px;
+}
+
+.text--top {
+	vertical-align: top;
+}
+
+.text--middle {
+	vertical-align: middle;
+}
+
+.text--bottom {
+	margin-right: 0;
+
+	vertical-align: bottom;
+}
+
+.block-3 {
+	padding: 20px;
+
+	background-color: #794f45;
+}
+
+.block-3-item {
+	height: 240px;
+	background-color: #7a956b;
+}
+
+.content {
+	font-size: 24px;
+	padding: 20px;
+}
+
+.content > span {
+	color: darkred;
+}
+
+.overflow-auto {
+	overflow: auto;
+}
+
+.overflow-visible {
+	height: auto;
+}
+
+.overflow-hidden {
+	overflow: hidden;
+}
+
 .advantages {
 	padding: 112px 0;
 

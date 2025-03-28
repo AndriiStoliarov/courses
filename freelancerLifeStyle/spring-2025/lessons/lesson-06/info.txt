@@ -1,0 +1,29 @@
+Гайд по створенню сніпетів для Visual Studio Code:
+https://coal-xylocarp-4c7.notion.site/Visual-Studio-Code-1c3beece103b80faaf96fad8155ee9de
+
+Extension for Visual Studio Code - Wraps selected code with HTML tags:
+https://marketplace.visualstudio.com/items?itemName=bradgashler.htmltagwrap
+
+Extension for Visual Studio Code - VSCode plugin for extracting class names from HTML and generate CSS stylesheet for following work:
+https://marketplace.visualstudio.com/items?itemName=diz.ecsstractor-port
+
+Can I use: https://caniuse.com/
+
+
+Заняття 6. CSS властивості оформлення блоків, властивість background.
+
+🟢 Посилання на урок:
+https://youtube.com/live/rYOU6B9nsz8?feature=share
+
+🟢 Посилання на нотатки:
+https://meadow-manicure-24b.notion.site/1937e75cc02a800b95b8fcea9bbc5f29?v=1937e75cc02a815a9737000c8e659daf&p=1c37e75cc02a80ae9646c1744fbd5f32&pm=s
+
+
+🤓 Домашнє завдання:
+1) Відпрацьовуємо кожну пройдену на уроці властивість та їх значення
+2) На тій самі сторінці верстаємо частини макетів (На скрінах). Використовуємо обмежуючий контейнер.
+3) Експериментуємо!
+Сервіси які допоможуть:
+https://9elements.github.io/fancy-border-radius/
+https://cssgradient.io/
+https://fls.guru/cssbackground.html
