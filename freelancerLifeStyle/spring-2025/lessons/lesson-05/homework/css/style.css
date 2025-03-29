@@ -116,6 +116,10 @@ body {
 	margin: 0 auto;
 }
 
+.advantages-inner {
+	margin-bottom: 70px;
+}
+
 .advantages-subtitle {
 	margin-bottom: 10px;
 
@@ -136,7 +140,6 @@ body {
 
 .advantages-text {
 	max-width: 765px;
-	margin-bottom: 70px;
 
 	font-family: "Circular Std", sans-serif;
 	line-height: 1.43;

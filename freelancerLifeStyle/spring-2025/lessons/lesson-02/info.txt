@@ -1,3 +1,10 @@
+**Блочні теги** - div, header, main, footer, h1-h6, p, ul, ol, li
+
+**Рядкові теги** - span, mark, a, br
+
+**Блочно-рядковий** - img
+
+
 Інструкція з розміщення ДЗ на Git-Hub:
 https://meadow-manicure-24b.notion.site/1937e75cc02a800b95b8fcea9bbc5f29?v=1937e75cc02a815a9737000c8e659daf&p=1b57e75cc02a80bead52edcc8f51f19b&pm=s
 
