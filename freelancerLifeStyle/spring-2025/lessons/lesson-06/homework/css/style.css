@@ -3,8 +3,10 @@
 
 
 .wrapper {
-	min-width: 1440;
+	max-width: 1440px;
 	min-height: 100%;
+	margin: 0 auto;
+
 	overflow: clip;
 }
 
@@ -14,10 +16,6 @@
 	padding-left: 15px;
 	padding-right: 15px;
 }
-
-/* .page {
-	padding: 30px;
-} */
 
 body {
 	font-family: "Roboto", "Arial", sans-serif;
@@ -33,10 +31,13 @@ body {
 	text-align: center;
 }
 
-.descriptions {
-	max-width: 712px;
-	padding: 32px;
-	margin: 0 auto;
+.descriptions,
+.contacts {
+	margin-bottom: 50px;
+}
+
+.description-inner {
+	max-width: 648px;
 }
 
 .descriptions-text {
@@ -51,12 +52,64 @@ body {
 	line-height: 1.4;
 }
 
-.descriptions-list > li {
+.descriptions-item {
 	margin-bottom: 14px;
+	padding-left: 28px;
+
+	background: url("../img/tick.jpg") left center / 20px no-repeat;
 }
 
-.descriptions-list img {
-	margin-right: 4px;
+.contacts-items {
+	min-height: 167px;
+	padding: 25px 25px;
+	
+	font-family: "Montserrat", sans-serif;
+	color: #FFF;
+	font-size: 0;
+
+	vertical-align: top;
+
+	border-radius: 90px;
+	/* Значення з макету */
+	/* background: radial-gradient(2900.76% 50.13% at 50% 53.89%, rgba(58, 52, 86, 0.95) 0%, #211E2E 100%); */
+	/*! Need find it out */
+	background: radial-gradient(100% 50% at 50% 50%, rgba(58, 52, 86, 0.95) 0%, #211E2E 100%);
+	/* Значення з макету */
+	/* box-shadow: 0 4px 4px 0 rgba(192, 183, 232, 0.01); */
+	box-shadow: 0 4px 4px 0 rgba(192, 183, 232, 0.9);
+}
+
+.contacts-item {
+	display: inline-block;
+	padding: 24px 47px;
+}
+
+.contacts-item-borders {
+	border-left: 1px solid rgba(192, 183, 232, 0.33);
+	border-right: 1px solid rgba(192, 183, 232, 0.33);
+}
+
+.contacts-info {
+	display: inline-block;
+
+	vertical-align: middle;
+}
+
+.contacts-title {
+	margin-bottom: 10px;
+}
+
+.contacts-title {
+	font-size: 24px;
+	font-weight: 700;
+}
+
+.contacts-text {
+	font-size: 14px;
+}
+
+.about {
+	background-color: #302C42;
 }
 
 .footer {
@@ -72,4 +125,12 @@ body {
 
 .mb--0 {
 	margin-bottom: 0;
+}
+
+.pl--20 {
+	padding-left: 20px;
+}
+
+.pl--25 {
+	padding-left: 25px;
 }
