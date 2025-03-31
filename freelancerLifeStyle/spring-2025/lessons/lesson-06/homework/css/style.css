@@ -69,11 +69,14 @@ body {
 
 	vertical-align: top;
 
+	/* Порахував border-radius 90px у відсотках, виглядає фігово, мабудь замалий радійс*/
+	/* border-radius: 7.07% 7.07% 7.07% 7.07% / 53.89% 53.89% 53.89% 53.89%; */
 	border-radius: 90px;
+
+	/*! форма | розмір | положення | колір позиція градіента | колір позиція градіента */
 	/* Значення з макету */
 	/* background: radial-gradient(2900.76% 50.13% at 50% 53.89%, rgba(58, 52, 86, 0.95) 0%, #211E2E 100%); */
-	/*! Need find it out */
-	background: radial-gradient(100% 50% at 50% 50%, rgba(58, 52, 86, 0.95) 0%, #211E2E 100%);
+	background: radial-gradient(ellipse 400% 50% at 50% 50%, rgba(58, 52, 86, 0.95) 0%, #211E2E 100%);
 	/* Значення з макету */
 	/* box-shadow: 0 4px 4px 0 rgba(192, 183, 232, 0.01); */
 	box-shadow: 0 4px 4px 0 rgba(192, 183, 232, 0.9);

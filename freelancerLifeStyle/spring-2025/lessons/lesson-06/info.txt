@@ -1,11 +1,20 @@
 Гайд по створенню сніпетів для Visual Studio Code:
 https://coal-xylocarp-4c7.notion.site/Visual-Studio-Code-1c3beece103b80faaf96fad8155ee9de
 
+Відносний border-radius:
+https://coal-xylocarp-4c7.notion.site/border-radius-1c4beece103b805f9ce5e01631921ca8
+
 Extension for Visual Studio Code - Wraps selected code with HTML tags:
 https://marketplace.visualstudio.com/items?itemName=bradgashler.htmltagwrap
 
 Extension for Visual Studio Code - VSCode plugin for extracting class names from HTML and generate CSS stylesheet for following work:
 https://marketplace.visualstudio.com/items?itemName=diz.ecsstractor-port
+
+Extension for Visual Studio Code - Simple extension to change a mathematic expression to percent. Usefull in css's file where you can't use mathematic expression:
+https://marketplace.visualstudio.com/items?itemName=mrezechi3l.css-responsive
+
+The Figma for VS Code extension provides an easy way for developers to access and inspect...:
+https://help.figma.com/hc/en-us/articles/15023121296151-Figma-for-VS-Code
 
 Can I use: https://caniuse.com/
 
