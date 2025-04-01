@@ -115,6 +115,86 @@ body {
 	background-color: #302C42;
 }
 
+.about-inner {
+	font-size: 0;
+}
+
+.about-inner {
+	padding: 84px 0;
+}
+
+.about-image {
+	max-width: 100%;
+	margin-right: 108px;	
+	
+	/* border-radius: 230px 90px 230px 90px; */
+	/* border-radius: 230px 90px; */
+	/** Звичайний border-radius у відсотках: */
+	/* Горизонтальний радіус: 230px / 532px = 43.233083%; */
+	/* Вертикальний радіус: 90px / 562px = 16.014235%; */
+	/* border-radius: 43.23% 16.01% 43.23% 16.01%; */
+	/* border-radius: 43.23% 16.01%; */
+
+	/** Асиметричний border-radius: */
+	/* Горизонтальний радіус: верхній лівий і нижній правий кути оточені радіусом: 230px / 532px = 43.233083% ~ 43.23% від ширини елементу. */
+	/* Горизонтальний радіус: верхній правий і нижній лівий кути оточені радіусом: 90px / 532px = 16.927293% ~ 16.93% від ширини елементу. */
+	/* Вертикальний радіус: верхній лівий і нижній правий кути оточені радіусом: 230px / 562px = 40.925267% ~ 40.92 від висоти елементу.*/
+	/* Вертикальний радіус: верхній правий і нижній лівий кути оточені радіусом: 90px / 562px = 16.014235% ~ 16.01% від ширини елементу. */
+
+	/* border-radius: 43.23% 16.93% 43.23% 16.93% / 40.92% 16.01% 40.92% 16.01%; */
+	border-radius: 43.23% 16.93% / 40.92% 16.01%;
+
+	vertical-align: top;
+}
+
+.about-content {
+	max-width: 630px;
+	display: inline-block;
+	padding-top: 50px;
+
+	font-family: "Montserrat", sans-serif;
+	color: #FFF;
+}
+
+.about-title {
+	margin-bottom: 5px;
+
+	font-size: 36px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.about-subtitle {
+	padding-bottom: 42px;
+
+	font-size: 36px;
+	color: rgba(255, 255, 255, 0.95);
+	font-weight: 300;
+	text-transform: uppercase;
+}
+
+.about-text {
+	margin-bottom: 28px;
+
+	font-size: 16px;
+	line-height: 1.7;
+}
+
+.btn {
+	width: 214px;
+	height: 48px;
+
+	font-size: 12px;
+	color: #343045;
+	font-weight: 700;
+	text-decoration: none;
+	text-transform: uppercase;
+
+	border: 0;
+	border-radius: 40px;
+	background: linear-gradient(90deg, #8176AF 0%, #C0B7E8 100%);
+}
+
 .footer {
 	padding: 20px 0 20px 20px;
 
