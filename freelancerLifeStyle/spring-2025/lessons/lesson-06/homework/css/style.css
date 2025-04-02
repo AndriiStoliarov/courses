@@ -31,8 +31,102 @@ body {
 	text-align: center;
 }
 
+.block {
+	width: 100%;
+	min-height: 70px;
+	padding: 10px 0;
+	margin-bottom: 20px;
+
+	text-align: center;
+}
+
+.border {
+	border-top: 7px dashed purple;
+	border-bottom: 7px dashed purple;
+	border-left: 7px solid purple;
+	border-right: 7px solid purple;
+}
+
+.outline {
+	border: 7px solid darkolivegreen;
+
+	outline: 5px dotted darkorange;
+}
+
+.box-shadow {
+	border: 1px solid #000;
+	/*! довжина по осі X | довжина по осі Y | розмиття | колір */
+	box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.2);
+}
+
+.box-inset-shadow {
+	border: 1px solid #000;
+	box-shadow: inset 7px 7px 5px rgba(0, 0, 0, 0.2);
+}
+
+.box-multi-shadow {
+	border: 1px solid #000;
+	box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.2), inset 7px 7px 5px rgba(0, 0, 0, 0.2);
+}
+
+.background-image-lg {
+	background-image: linear-gradient(to right, #F70303 0%, #FAF305 50%, #1EE70F 100%);
+}
+
+.opacity-visibility {
+	border: 1px solid #000;
+}
+
+.o-v-discription {
+	margin-bottom: 20px;
+}
+
+.o-v-examples {
+	font-size: 0;
+}
+
+.o-v-examples span {
+	padding: 10px 20px;
+
+	font-size: 36px;
+	font-weight: 700;
+}
+
+.o-1 {
+	opacity: 1;
+}
+
+.o-05 {
+	opacity: 0.5;
+}
+
+.o-0 {
+	opacity: 0;
+}
+.vv {
+	visibility: visible;
+}
+
+.vh {
+	visibility: hidden;
+}
+
+.background-image-rg {
+	min-height: 210px;
+
+	background: radial-gradient(ellipse, rgba(254,255,83,1) 0%, rgba(254,205,77,1) 25%, rgba(250,145,35,1) 50%, rgba(255,63,38,1) 75%, rgba(255,0,0,1) 100%);
+}
+
+.background-attachment-fixed {
+	min-height: 420px;
+	/*! колір тла | картинка | позиція | розмір | повторювання | прокручування */
+	background: darksalmon url("../img/background.jpg") center / cover no-repeat fixed;
+	/* background-attachment: fixed; */
+}
+
 .descriptions,
-.contacts {
+.contacts,
+.tasks {
 	margin-bottom: 50px;
 }
 
