@@ -1,0 +1,313 @@
+@import url("fonts.css");
+@import url("reset.css");
+
+
+.wrapper {
+	max-width: 1440px;
+	min-height: 100%;
+	margin: 0 auto;
+
+	overflow: clip;
+}
+
+.container {
+	max-width: 1302px;
+	margin: 0 auto;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+body {
+	font-family: "Roboto", "Arial", sans-serif;
+	font-size: 14px;
+	color: #000;
+}
+
+.header {
+	padding: 20px 0;
+
+	color: darkred;
+
+	text-align: center;
+}
+
+.block {
+	width: 100%;
+	min-height: 70px;
+	padding: 10px 0;
+	margin-bottom: 20px;
+
+	text-align: center;
+}
+
+.border {
+	border-top: 7px dashed purple;
+	border-bottom: 7px dashed purple;
+	border-left: 7px solid purple;
+	border-right: 7px solid purple;
+}
+
+.outline {
+	border: 7px solid darkolivegreen;
+
+	outline: 5px dotted darkorange;
+}
+
+.box-shadow {
+	border: 1px solid #000;
+	/*! довжина по осі X | довжина по осі Y | розмиття | колір */
+	box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.2);
+}
+
+.box-inset-shadow {
+	border: 1px solid #000;
+	box-shadow: inset 7px 7px 5px rgba(0, 0, 0, 0.2);
+}
+
+.box-multi-shadow {
+	border: 1px solid #000;
+	box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.2), inset 7px 7px 5px rgba(0, 0, 0, 0.2);
+}
+
+.background-image-lg {
+	background-image: linear-gradient(to right, #F70303 0%, #FAF305 50%, #1EE70F 100%);
+}
+
+.opacity-visibility {
+	border: 1px solid #000;
+}
+
+.o-v-discription {
+	margin-bottom: 20px;
+}
+
+.o-v-examples {
+	font-size: 0;
+}
+
+.o-v-examples span {
+	padding: 10px 20px;
+
+	font-size: 36px;
+	font-weight: 700;
+}
+
+.o-1 {
+	opacity: 1;
+}
+
+.o-05 {
+	opacity: 0.5;
+}
+
+.o-0 {
+	opacity: 0;
+}
+.vv {
+	visibility: visible;
+}
+
+.vh {
+	visibility: hidden;
+}
+
+.background-image-rg {
+	min-height: 210px;
+
+	background: radial-gradient(ellipse, rgba(254,255,83,1) 0%, rgba(254,205,77,1) 25%, rgba(250,145,35,1) 50%, rgba(255,63,38,1) 75%, rgba(255,0,0,1) 100%);
+}
+
+.background-attachment-fixed {
+	min-height: 420px;
+	/*! колір тла | картинка | позиція | розмір | повторювання | прокручування */
+	background: darksalmon url("../img/background.jpg") center / cover no-repeat fixed;
+	/* background-attachment: fixed; */
+}
+
+.descriptions,
+.contacts,
+.tasks {
+	margin-bottom: 50px;
+}
+
+.description-inner {
+	max-width: 648px;
+}
+
+.descriptions-text {
+	margin-bottom: 20px;
+
+	font-family: "Poppins", sans-serif;
+	color: #808080;
+	line-height: 1.5;
+}
+
+.descriptions-list {
+	line-height: 1.4;
+}
+
+.descriptions-item {
+	margin-bottom: 14px;
+	padding-left: 28px;
+
+	background: url("../img/tick.jpg") left center / 20px no-repeat;
+}
+
+.contacts-items {
+	min-height: 167px;
+	padding: 25px 25px;
+	
+	font-family: "Montserrat", sans-serif;
+	color: #FFF;
+	font-size: 0;
+
+	vertical-align: top;
+
+	/* Порахував border-radius 90px у відсотках, виглядає фігово, мабудь замалий радійс*/
+	/* border-radius: 7.07% 7.07% 7.07% 7.07% / 53.89% 53.89% 53.89% 53.89%; */
+	border-radius: 90px;
+
+	/*! форма | розмір | положення | колір позиція градіента | колір позиція градіента */
+	/* Значення з макету */
+	/* background: radial-gradient(2900.76% 50.13% at 50% 53.89%, rgba(58, 52, 86, 0.95) 0%, #211E2E 100%); */
+	background: radial-gradient(ellipse 400% 50% at 50% 50%, rgba(58, 52, 86, 0.95) 0%, #211E2E 100%);
+	/* Значення з макету */
+	/* box-shadow: 0 4px 4px 0 rgba(192, 183, 232, 0.01); */
+	box-shadow: 0 4px 4px 0 rgba(192, 183, 232, 0.9);
+}
+
+.contacts-item {
+	display: inline-block;
+	padding: 24px 47px;
+}
+
+.contacts-item-borders {
+	border-left: 1px solid rgba(192, 183, 232, 0.33);
+	border-right: 1px solid rgba(192, 183, 232, 0.33);
+}
+
+.contacts-info {
+	display: inline-block;
+
+	vertical-align: middle;
+}
+
+.contacts-title {
+	margin-bottom: 10px;
+}
+
+.contacts-title {
+	font-size: 24px;
+	font-weight: 700;
+}
+
+.contacts-text {
+	font-size: 14px;
+}
+
+.about {
+	background-color: #302C42;
+}
+
+.about-inner {
+	font-size: 0;
+}
+
+.about-inner {
+	padding: 84px 0;
+}
+
+.about-image {
+	max-width: 100%;
+	margin-right: 108px;	
+	
+	/* border-radius: 230px 90px 230px 90px; */
+	/* border-radius: 230px 90px; */
+	/** Звичайний border-radius у відсотках: */
+	/* Горизонтальний радіус: 230px / 532px = 43.233083%; */
+	/* Вертикальний радіус: 90px / 562px = 16.014235%; */
+	/* border-radius: 43.23% 16.01% 43.23% 16.01%; */
+	/* border-radius: 43.23% 16.01%; */
+
+	/** Асиметричний border-radius: */
+	/* Горизонтальний радіус: верхній лівий і нижній правий кути оточені радіусом: 230px / 532px = 43.233083% ~ 43.23% від ширини елементу. */
+	/* Горизонтальний радіус: верхній правий і нижній лівий кути оточені радіусом: 90px / 532px = 16.927293% ~ 16.93% від ширини елементу. */
+	/* Вертикальний радіус: верхній лівий і нижній правий кути оточені радіусом: 230px / 562px = 40.925267% ~ 40.92 від висоти елементу.*/
+	/* Вертикальний радіус: верхній правий і нижній лівий кути оточені радіусом: 90px / 562px = 16.014235% ~ 16.01% від ширини елементу. */
+
+	/* border-radius: 43.23% 16.93% 43.23% 16.93% / 40.92% 16.01% 40.92% 16.01%; */
+	border-radius: 43.23% 16.93% / 40.92% 16.01%;
+
+	vertical-align: top;
+}
+
+.about-content {
+	max-width: 630px;
+	display: inline-block;
+	padding-top: 50px;
+
+	font-family: "Montserrat", sans-serif;
+	color: #FFF;
+}
+
+.about-title {
+	margin-bottom: 5px;
+
+	font-size: 36px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.about-subtitle {
+	padding-bottom: 42px;
+
+	font-size: 36px;
+	color: rgba(255, 255, 255, 0.95);
+	font-weight: 300;
+	text-transform: uppercase;
+}
+
+.about-text {
+	margin-bottom: 28px;
+
+	font-size: 16px;
+	line-height: 1.7;
+}
+
+.btn {
+	width: 214px;
+	height: 48px;
+
+	font-size: 12px;
+	color: #343045;
+	font-weight: 700;
+	text-decoration: none;
+	text-transform: uppercase;
+
+	border: 0;
+	border-radius: 40px;
+	background: linear-gradient(90deg, #8176AF 0%, #C0B7E8 100%);
+}
+
+.footer {
+	padding: 20px 0 20px 20px;
+
+	color: darkgreen;
+}
+
+/* Helpers */
+.mb--20 {
+	margin-bottom: 20px;
+}
+
+.mb--0 {
+	margin-bottom: 0;
+}
+
+.pl--20 {
+	padding-left: 20px;
+}
+
+.pl--25 {
+	padding-left: 25px;
+}

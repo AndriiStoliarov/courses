@@ -1,0 +1,438 @@
+/* Підключення фрифтів */
+
+/* Google Fonts (Plugin) */
+/* @import url("https://fonts.googleapis.com/css?family=Manrope:regular,500,600,700&display=swap"); */
+
+/* Локальне підключення шрифтів */
+@import url("fonts.css");
+
+/* Скидання стилів */
+@import url("reset.css");
+
+/* Основні стилі */
+body {
+	font-family: "Gilroy", sans-serif;
+	background-color: #333;
+	color: #fff;
+}
+.wrapper {
+	overflow: clip;
+	min-height: 100%;
+}
+
+.container {
+	max-width: 600px;
+	margin: 0 auto;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.page {
+	padding: 30px;
+}
+
+/* ============================================= */
+/* =============== Псевдокласи ================= */
+/* ============================================= */
+
+/* Анатомія псевдокласів */
+
+/*
+селектор:псевдоклас{
+}
+*/
+/*
+Вкладеність
+селектор#1:псевдоклас селектор#2{
+}
+*/
+
+/* Псевдокласи стану */
+
+/* Стан "в спокої" */
+.link {
+	color: yellow;
+}
+
+/*
+:hover
+Звернення до елемента у стані 
+"при наведенні курсору"
+Застосовується до будь-якого елемента
+*/
+.link:hover {
+	color: green;
+	text-decoration: underline;
+}
+
+.link:hover span {
+	/* ... */
+}
+
+.block {
+}
+.block__inner {
+	background-color: #7a956b;
+	width: 100px;
+	height: 100px;
+	visibility: hidden;
+}
+/* Непрацює */
+.block__inner:hover {
+	visibility: visible;
+}
+/* Працює */
+.block:hover .block__inner {
+	visibility: visible;
+}
+
+/*
+:active Звернення до елемента у стані 
+"при натиснутій клавіші миші"
+*/
+.link:active {
+	color: blue;
+}
+
+/*
+:visited Звернення до nеuу A 
+у стані "відвіданого посилання"
+обмежена кількість властивостей
+
+Варто зазначити, що через міркування безпеки 
+та конфіденційності браузери дозволяють 
+змінювати лише деякі властивості для псевдокласу :visited, такі як:
+• color (колір тексту),
+• background-color (колір фону),
+• border-color (колір рамки),
+• outline-color (колір обвідки),
+• column-rule-color (колір розділових ліній у колонках),
+• text-decoration-color (колір текстових прикрас).
+*/
+.link:visited {
+	/* color: rgb(95, 95, 49); */
+}
+
+/*
+:focus, :focus-visible Звернення до 
+елементу у стані "фокусу"
+*/
+/* Завжди коли взаємодіємо з об'єктом */
+/*
+.link:focus {
+	color: red;
+}
+*/
+/* Тільки коли на об'єкт перейшли (TAB) */
+.link:focus-visible {
+	outline: 1px dotted yellow;
+}
+/*
+.input {
+	padding: 5px;
+	width: 50px;
+	border: 1px solid yellow;
+	margin-bottom: 10px;
+	transition: all 0.3s;
+}
+.input:focus {
+	width: 200px;
+}
+*/
+
+/*
+:target
+Звернення до елемента у стані
+"ефекту від посилання з іншого об'єкту"
+*/
+
+.block__inner:target {
+	visibility: visible;
+}
+
+/* Псевдокласи положення у коді */
+
+.text {
+	background-color: #7a956b;
+	padding: 15px;
+}
+/*
+.text p {
+	margin-bottom: 10px;
+}
+.text p:last-child {
+	margin-bottom: 0;
+}
+*/
+
+/*
+:first-child
+Звернення до першого дочірнього елементу в коді
+*/
+/* якщо тег P перший */
+/*
+.text p:first-child {
+	color: #000;
+}*/
+
+/* Будь-який перший тег */
+/*
+.text *:first-child {
+	color: #000;
+}
+*/
+/* 
+:first-of-type
+Звернення до першого вказаного 
+об'єкту в коді
+*/
+/*
+.text p:first-of-type {
+	color: #000;
+}
+*/
+
+/*
+:last-child
+Звернення до останього 
+елементу в коді
+*/
+/* якщо тег P останній */
+/*
+.text p:last-child {
+	text-transform: uppercase;
+}
+*/
+/*
+:last-of-type
+Звернення до останього 
+вказаного об'єкту в коді
+*/
+
+/* останній тег P */
+/*
+.text p:last-of-type {
+	text-transform: uppercase;
+}
+*/
+
+/* Шукає елемент за номером */
+/*
+:nth-child(значення/алгоритм)
+Звернення до конкретного елементу (ів) в коді
+*/
+
+/*
+.text p:nth-child(2) {
+	color: #000;
+}
+*/
+/* Шукає вказаний селектор за номером */
+/* 
+:nth-of-type()
+*/
+
+/*
+.text p:nth-of-type(2) {
+	color: #000;
+}
+*/
+
+/* 
+	Алгоритми NTH
+
+	odd - через один не парні
+	even - через один парні
+
+*/
+/*
+.text p:nth-child(even) {
+	color: #000;
+}
+*/
+
+/* Алгоритм "кожен-через" */
+/* коженn + починаючи з */
+
+/* Кожен третій */
+/*
+.text p:nth-of-type(3n) {
+	color: #000;
+}*/
+
+/* Кожен третій починаючи з першого */
+/*
+.text p:nth-of-type(3n + 1) {
+	color: #000;
+}
+*/
+/* Кожен 4 починаючи з 2 */
+/*
+.text p:nth-of-type(4n + 2) {
+	color: #000;
+}*/
+/*
+.item:nth-of-type(even) {
+	padding-top: 48px;
+}
+*/
+/* Кожен 6 починаючи з 3 */
+/* та кожен 6 починаючи з 4 */
+/*
+.text p:nth-of-type(6n + 3),
+.text p:nth-of-type(6n + 4) {
+	color: #000;
+}
+*/
+
+/*
+:not(селектор або псевдоклас) 
+Псевдоклас виключення
+*/
+
+.text p:not(:last-child) {
+	margin-bottom: 10px;
+}
+/*
+.text p:not(.no) {
+	margin-bottom: 10px;
+}
+*/
+
+/* 
+:has(селектор або псевдоклас) 
+Псевдоклас присутності в коді
+*/
+/*
+.text:has(.yes) p {
+	color: #000;
+}*/
+
+/* Гарна практика */
+.some-block {
+	background-color: #7a956b;
+	padding: 15px;
+}
+.some-block > * {
+	margin-bottom: 15px;
+}
+.some-block h1 {
+}
+.some-block div {
+	margin-bottom: 20px;
+}
+.some-block div p:not(:last-child) {
+	margin-bottom: 5px;
+}
+.some-block img {
+}
+.some-block a:hover {
+	text-decoration: underline;
+}
+.some-block > *:last-child {
+	margin-bottom: 0;
+}
+
+/* 
+	Псевдокласи мають більший пріоритет
+	(уточнення)
+*/
+
+/* ============================================= */
+/* =============== Псевдоелементи ============== */
+/* ============================================= */
+
+/* Анатомія псевдоелементів */
+/*
+селектор::псевдоелемент{
+}
+
+Псевдоелементи не можна додати до 
+одинарних тегів (без зачиняючих елементів) (наприклад img,br), 
+тому що ці теги не можуть містити в собі контенту.
+*/
+
+/*
+::before{}
+::after{}
+
+!!!!! Псевдоелементи - рядкові (але в reset 
+доданий display: inline-block;) !!!!!
+Властивість content: ""; - Обов'язкова!
+*/
+/*
+.span::before {
+	content: "(";
+}
+.span::after {
+	content: ")";
+}*/
+
+.list {
+}
+.list__item {
+	padding-left: 40px;
+}
+.list__item::before {
+	width: 15px;
+	height: 15px;
+	vertical-align: top;
+	background-color: #7a956b;
+	border-radius: 50%;
+	margin-right: 5px;
+	content: "";
+}
+.list__item:hover::before {
+	width: 20px;
+	height: 20px;
+	margin-right: 10px;
+	border-radius: 40%;
+	background-color: #77608d;
+}
+
+.list__item:not(:last-child) {
+	margin-bottom: 10px;
+}
+.list__link {
+}
+.list__link:hover {
+	text-decoration: underline;
+}
+
+/*
+.link-image {
+	position: relative;
+}
+.link-image::after {
+	content: "";
+	background-color: #000;
+	width: 100%;
+	height: 100%;
+
+	opacity: 0.5;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	transition: all 0.3s;
+}
+
+.link-image:hover::after {
+	opacity: 0;
+}
+*/
+
+/*
+.title {
+	display: inline-block;
+}
+.title::after {
+	content: "";
+	height: 1px;
+	width: 60%;
+	background-color: #7a956b;
+	display: block;
+	margin-top: 3px;
+}
+*/
