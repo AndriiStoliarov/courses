@@ -66,8 +66,6 @@ body {
 
 .teachers__card {
 	width: 33.33333%;
-	/* height: 476px; */
-	
 	display: inline-block;
 	margin-bottom: 20px;
 	padding-left: 10px;
@@ -92,7 +90,7 @@ body {
 	background-color: #FFBE48;
 }
 
-.teachers__card-content div:not(:last-child) {
+.teachers__card-content >:not(:last-child) {
 	margin-bottom: 16px;
 }
 
