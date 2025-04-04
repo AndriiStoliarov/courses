@@ -554,7 +554,7 @@ bottom
 	font-size: 0;
 }
 .item {
-width: 33.333%;
+	width: 33.33333%;
 	display: inline-block;
 	margin-bottom: 10px;
 	padding-left: 5px;
