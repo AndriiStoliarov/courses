@@ -26,23 +26,190 @@ body {
 .header {
 	padding: 20px 0;
 
+	font-size: 24px;
 	color: darkred;
+
 	/* background: #FFF linear-gradient(90deg, rgba(139,0,0,1) 0%, rgba(139,0,0,0) 50%, rgba(139,0,0,1) 100%); */
+	/* box-shadow: inset -7px -7px 25px rgba(139, 0, 0, 0.2), inset 7px 7px 25px rgba(139, 0, 0, 0.2); */
 
 	text-align: center;
 }
 
-.teachers {
-	margin-bottom: 50px;
+/* Tasks
+========================================*/
+
+.tasks {
+}
+.container {
+}
+.tasks__inner {
 }
 
+/* Game
+========================================*/
+.game {
+	margin-bottom: 50px;
+	background-color: beige;
+}
+
+.game__inner {
+	padding: 50px 0;
+}
+
+.game__title {
+	margin-bottom: 20px;
+
+	font-size: 32px;
+	color: indigo;
+	text-align: center;
+}
+
+.sectors * {
+	font-size: 0;
+	color: transparent;
+
+	background-color: #FFD700;
+}
+
+.sectors :not(:first-child) {
+	visibility: hidden;
+}
+
+.sectors >:hover + [class*="sector"],
+.sectors >:hover {
+    visibility: visible;
+}
+
+
+.sector-start {
+	width: 80px;
+	height: 40px;
+	padding: 7px 0;
+
+	font-size: 24px;
+	color: #000;
+
+	background-color: darkred;
+
+	text-align: center;
+}
+
+.sector-finish {
+	width: 80px;
+	height: 40px;
+	padding: 7px 0;
+
+	background-color: darkgreen;
+
+	text-align: center;
+}
+
+.sector-finish a {
+	font-size: 24px;
+	color: #000;
+
+	background-color: darkgreen;
+}
+
+.sector-win {
+	width: 80px;
+	height: 80px;
+	padding: 25px 0;
+	margin-left: 1120px; 
+	
+	font-size: 34px;
+
+	border-radius: 50%;
+	background-color: darkgreen;
+	outline: 10px double darkgreen;
+	outline-offset: 4px;
+
+	text-align: center;
+
+	visibility: hidden;
+}
+
+.sector-win:target {
+	visibility: visible;
+}
+
+.sector-01 {
+	width: 40px;
+	height: 50px;
+	margin-left: 20px;
+}
+
+.sector-02 {
+	width: 20px;
+	height: 50px;
+	margin-left: 30px;
+}
+
+.sector-03 {
+	width: 250px;
+	height: 20px;
+	margin-left: 30px;
+}
+
+.sector-04 {
+	width: 10px;
+	height: 100px;
+	margin-left: 270px;
+}
+
+.sector-05 {
+	width: 600px;
+	height: 30px;
+	margin-left: 270px;
+}
+
+.sector-06 {
+	width: 20px;
+	height: 180px;
+	margin-left: 850px;
+}
+
+.sector-07 {
+	width: 300px;
+	height: 20px;
+	margin-left: 570px;
+}
+
+.sector-08 {
+	width: 40px;
+	height: 100px;
+	margin-left: 570px;
+}
+.sector-09 {
+	width: 600px;
+	height: 40px;
+	margin-left: 570px;
+}
+
+.sector-10 {
+	width: 20px;
+	height: 60px;
+	margin-left: 1150px;
+}
+
+.sector-finish {
+	width: 80px;
+	height: 40px;
+	margin-left: 1120px;
+}
+
+
+/* Teachers
+========================================*/
 .teachers {
+	background-color: #412672;
+}
+
+.teachers__inner {
 	padding-top: 61px;
 	padding-bottom: 102px;
 
 	font-family: "Inter", sans-serif;
-
-	background-color: #412672;
 }
 
 .teachers__title {
@@ -138,58 +305,61 @@ body {
 }
 
 
-/* 
-.outline {
-	border: 7px solid darkolivegreen;
-
-	outline: 5px dotted darkorange;
+/* Intro 
+========================================*/
+.intro {
+	background-color: #FFF;
 }
 
-.background-image-lg {
-	background-image: linear-gradient(to right, #F70303 0%, #FAF305 50%, #1EE70F 100%);
+.intro__inner {
+	max-width: 518px;
+	padding: 50px 0;
+
+	font-family: "Inter", sans-serif;
 }
 
-.opacity-visibility {
-	border: 1px solid #000;
+.intro__inner >:not(:last-child) {
+	margin-bottom: 20px;
 }
 
-.background-image-rg {
-	min-height: 210px;
-
-	background: radial-gradient(ellipse, rgba(254,255,83,1) 0%, rgba(254,205,77,1) 25%, rgba(250,145,35,1) 50%, rgba(255,63,38,1) 75%, rgba(255,0,0,1) 100%);
+.intro__title {
+	font-size: 34px;
+	color: #412672;
 }
 
-.background-attachment-fixed {
-	min-height: 420px;
-	колір тла | картинка | позиція | розмір | повторювання | прокручування
-	background: darksalmon url("../img/background.jpg") center / cover no-repeat fixed;
-} */
+.intro__title-name {
+	font-weight: 700;
+}
 
+.intro__text {
+	font-size: 22px;
+	color: #412672;
+}
 
+.intro__list {
+	font-size: 20px;
+	color: #4F4F4F;
+	line-height: 2.55;
+}
+
+.intro__item::before {
+	content: "";
+	width: 29px;
+	height: 29px;
+	margin-right: 10px;
+
+	background-image: url("../img/tick.svg");
+
+	vertical-align: middle;
+}
 
 .footer {
 	padding: 20px 0 20px 20px;
 
-	color: darkgreen;	
-	background: rgba(255, 255, 255, 1) linear-gradient(to right, rgba(0, 100, 0, 0) 0%, rgba(0, 100, 0, 1) 100%);
+	font-size: 18px;
+	color: darkgreen;
 
+	/* background: rgba(255, 255, 255, 1) linear-gradient(to right, rgba(0, 100, 0, 0) 0%, rgba(0, 100, 0, 1) 100%); */
 	/* color: indigo; */
 	/* background: rgba(255, 255, 255, 1) linear-gradient(to right, rgba(75, 0, 130, 0) 0%, rgba(75, 0, 130, 1) 100%); */
-}
-
-/* Helpers */
-.mb--20 {
-	margin-bottom: 20px;
-}
-
-.mb--0 {
-	margin-bottom: 0;
-}
-
-.pl--20 {
-	padding-left: 20px;
-}
-
-.pl--25 {
-	padding-left: 25px;
 }
