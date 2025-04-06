@@ -208,6 +208,13 @@ body {
 	background-color: #302C42;
 }
 
+.about-waves {
+	max-width: 1440px;
+	margin: 0 auto;
+
+	background: url("../img/wave-top.svg") 90% 0 / contain no-repeat, url("../img/wave-botom.svg") 0 90% / contain no-repeat;
+}
+
 .about-inner {
 	font-size: 0;
 }
@@ -230,8 +237,8 @@ body {
 	/* Вертикальний радіус: верхній лівий і нижній правий кути оточені радіусом: 230px / 562px = 40.925267% ~ 40.92 від висоти елементу.*/
 	/* Вертикальний радіус: верхній правий і нижній лівий кути оточені радіусом: 90px / 562px = 16.014235% ~ 16.01% від ширини елементу. */
 
-	/* border-radius: 43.23% 16.93% 43.23% 16.93% / 40.92% 16.01% 40.92% 16.01%; */
-	border-radius: 43.23% 16.93% / 40.92% 16.01%;
+	border-radius: 43.23% 16.93% 43.23% 16.93% / 40.92% 16.01% 40.92% 16.01%;
+	/* border-radius: 43.23% 16.93% / 40.92% 16.01%; */
 
 	vertical-align: top;
 }
