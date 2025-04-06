@@ -3,10 +3,7 @@
 
 
 .wrapper {
-	max-width: 1440px;
 	min-height: 100%;
-	margin: 0 auto;
-
 	overflow: clip;
 }
 
@@ -206,15 +203,13 @@ body {
 }
 
 .about {
+	padding: 84px 0;
+
 	background-color: #302C42;
 }
 
 .about-inner {
 	font-size: 0;
-}
-
-.about-inner {
-	padding: 84px 0;
 }
 
 .about-image {
@@ -251,20 +246,16 @@ body {
 }
 
 .about-title {
-	margin-bottom: 5px;
+	margin-bottom: 42px;
+
 
 	font-size: 36px;
-	font-weight: 700;
 	text-transform: uppercase;
 }
 
 .about-subtitle {
-	padding-bottom: 42px;
-
-	font-size: 36px;
-	color: rgba(255, 255, 255, 0.95);
 	font-weight: 300;
-	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.95);
 }
 
 .about-text {
@@ -275,16 +266,13 @@ body {
 }
 
 .btn {
-	width: 214px;
-	height: 48px;
+	padding: 18px 43px;
 
 	font-size: 12px;
 	color: #343045;
 	font-weight: 700;
-	text-decoration: none;
 	text-transform: uppercase;
 
-	border: 0;
 	border-radius: 40px;
 	background: linear-gradient(90deg, #8176AF 0%, #C0B7E8 100%);
 }
