@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:regular,700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
-	<title>Lesson 06</title>
+	<title>Lesson 07</title>
 </head>
 
 <body>
@@ -20,6 +20,85 @@
 			<div class="tasks">
 				<div class="container">
 					<div class="tasks__inner">
+						<div class="items  not">
+							<div class="item">відступ для всіх елементів крім останнього :not(:last-child)</div>
+							<div class="item">text</div>
+							<div class="item">text</div>
+						</div>
+						<div class="items">
+							<div class="item">фоновій колір для елемента, який всередині має блок з классом unique :has(.unique)</div>
+							<div class="item  unique">text</div>
+							<div class="item">text</div>
+						</div>
+						<div class="items  nth-child-odd">
+							<div class="item">зміна кольору парних елементів :nth-child(odd)</div>
+							<div class="item">text</div>
+							<div class="item">text</div>
+							<div class="item">text</div>
+							<div class="item">text</div>
+						</div>
+						<div class="items  nth-child-3n">
+							<div class="item">зміна кольору кожного третього елементу :nth-child(3n)</div>
+							<div class="item">text</div>
+							<div class="item">text</div>
+							<div class="item">text</div>
+							<div class="item">text</div>
+							<div class="item">text</div>
+							<div class="item">text</div>
+						</div>
+						<div class="items  nth-child-3n-1">
+							<div class="item">зміна кольору кожного третього елементу починаючи з другого (3 - 1) :nth-child(3n-1)</div>
+							<div class="item">text</div>
+							<div class="item">text</div>
+							<div class="item">text</div>
+							<div class="item">text</div>
+							<div class="item">text</div>
+						</div>
+						<div class="items  nth-child-3n1">
+							<div class="item">зміна кольору кожного третього елементу починаючи з першого :nth-child(3n+1)</div>
+							<div class="item">text</div>
+							<div class="item">text</div>
+							<div class="item">text</div>
+							<div class="item">text</div>
+						</div>
+						<div class="items  nth-child-4n">
+							<div class="item">зміна кольору кожного четвертого елементу :nth-child(4n)</div>
+							<div class="item">text</div>
+							<div class="item">text</div>
+							<div class="item">text</div>
+							<div class="item">text</div>
+							<div class="item">text</div>
+							<div class="item">text</div>
+							<div class="item">text</div>
+							<div class="item">text</div>
+						</div>
+						<div class="items  nth-child-n4">
+							<div class="item">зміна кольору всіх елементів починаючи з четвертого :nth-child(n+4)</div>
+							<div class="item">text</div>
+							<div class="item">text</div>
+							<div class="item">text</div>
+							<div class="item">text</div>
+						</div>
+						<ul class="list">
+							<li class="list-item">
+								<a class="link-hover" href="#">link-hover</a>
+							</li>
+							<li class="list-item">
+								<a class="link-active" href="#">link-active</a>
+							</li>
+							<li class="list-item">
+								<a class="link-visited" href="#">link-visited</a>
+							</li>
+							<li class="list-item">
+								<a class="link-focus" href="#">link-focus</a>
+							</li>
+							<li class="list-item">
+								<a class="link-target" href="#target-block">link-target</a>
+							</li>
+							<li class="list-item">
+								<div class="target-block" id="target-block">target-block</div>
+							</li>
+						</ul>
 					</div><!-- ./tasks__inner -->
 				</div><!-- ./container -->
 			</div><!-- ./tasks-->
@@ -90,7 +169,7 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div><!-- ./teachers__cards" -->
 					</div><!-- ./teacher__inner -->
 				</div><!-- ./container -->
 			</div><!-- ./teachers -->
