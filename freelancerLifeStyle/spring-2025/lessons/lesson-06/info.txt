@@ -25,7 +25,11 @@ Can I use: https://caniuse.com/
 https://youtube.com/live/rYOU6B9nsz8?feature=share
 
 🟢 Посилання на нотатки:
-https://meadow-manicure-24b.notion.site/1937e75cc02a800b95b8fcea9bbc5f29?v=1937e75cc02a815a9737000c8e659daf&p=1c37e75cc02a80ae9646c1744fbd5f32&pm=s
+https://meadow-manicure-24b.notion.site/6-CSS-background-1c37e75cc02a80ae9646c1744fbd5f32?pvs=25
+
+Як вирахувати border-radius з пікселів у відсотки та що таке асиметричний border-radius.
+https://meadow-manicure-24b.notion.site/border-radius-border-radius-1937e75cc02a8100bbbcfab1031e9080?pvs=25
+
 
 
 🤓 Домашнє завдання:

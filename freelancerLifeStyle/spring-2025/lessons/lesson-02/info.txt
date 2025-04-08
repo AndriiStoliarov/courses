@@ -5,13 +5,6 @@
 **Блочно-рядковий** - img
 
 
-Інструкція з розміщення ДЗ на Git-Hub:
-https://meadow-manicure-24b.notion.site/1937e75cc02a800b95b8fcea9bbc5f29?v=1937e75cc02a815a9737000c8e659daf&p=1b57e75cc02a80bead52edcc8f51f19b&pm=s
-
-Інформація: Як правильно писати HTML заголовки сайту:
-https://meadow-manicure-24b.notion.site/1937e75cc02a800b95b8fcea9bbc5f29?v=1937e75cc02a815a9737000c8e659daf&p=1937e75cc02a81f88deecdd2a5ba02d3&pm=s&pvs=31
-
-
 Безкоштовний генератор альтернативного тексту для зображень, є можливість обрати будь-яку мову:
 https://ahrefs.com/writing-tools/img-alt-text-generator
 
@@ -25,8 +18,13 @@ https://gemini.google.com/app
 https://youtube.com/live/TI3tJk-xluA?feature=share
 
 🟢 Посилання на нотатки:
-https://meadow-manicure-24b.notion.site/1937e75cc02a800b95b8fcea9bbc5f29?v=1937e75cc02a815a9737000c8e659daf&p=1937e75cc02a814dbf27df4cd67a824d&pm=s
+https://meadow-manicure-24b.notion.site/2-HTML-1937e75cc02a814dbf27df4cd67a824d?pvs=25
 
+Інструкція з розміщення ДЗ на Git-Hub.
+https://meadow-manicure-24b.notion.site/Git-Hub-1b57e75cc02a80bead52edcc8f51f19b?pvs=25
+
+Інформація: Як правильно писати HTML заголовки сайту.
+https://meadow-manicure-24b.notion.site/HTML-1937e75cc02a81f88deecdd2a5ba02d3?pvs=25
 
 🤓 Домашнє завдання:
 1) Вивчити пройдені HTML-теги.

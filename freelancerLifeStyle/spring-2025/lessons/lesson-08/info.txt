@@ -1,0 +1,29 @@
+Free online image optimizer for faster websites! Reduce the file size of your AVIF, WEBP, JPEG and PNG images while preserving the image quality.
+https://tinypng.com/
+
+Squoosh is the ultimate image optimizer that allows you to compress and compare images with different codecs in your browser.
+https://squoosh.app/editor
+
+This free online tool is all you need for optimizing SVG images. In just two simple steps it will take care of lossless SVG optimization for you.
+https://svgoptimizer.com/
+
+
+Заняття 8. Веб графіка, формати зображень.
+
+🟢 Посилання на урок:
+https://youtube.com/live/CllFi_y0vBs?feature=share
+
+🟢 Посилання на нотатки:
+https://meadow-manicure-24b.notion.site/8-1ce7e75cc02a802e866ec2eb32c3e9b4?pvs=25
+
+Favicon що це таке, як використовувати та які розміри й формати підтримуються.
+https://meadow-manicure-24b.notion.site/Favicon-1ce7e75cc02a80368438c6894edadb02?pvs=25
+
+
+🤓 Домашнє завдання:
+Вивчити теорію про категорії та формати зображень.
+Вивантажити усі зображення з макету у відповідному форматі.
+2.1. Оптимізувати зображення та конвертувати у формат WEBP/AVIF  https://tinypng.com/
+2.2 Додати зображення за допомогою тегу IMG (або CSS background за потреби) та підписати що це за категорія зображення та формат 
+☝️ ПРИКЛАД - https://danilofreelancer.github.io/lessons/lesson_10/
+Додати конструкцію для будь якого зображення де буде виводитись окремий файл для 2x та 3x екранів (щільність пікселів)

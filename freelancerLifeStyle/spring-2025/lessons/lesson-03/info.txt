@@ -1,14 +1,13 @@
-Часто використовувані слова для назв класів:
-https://meadow-manicure-24b.notion.site/1937e75cc02a800b95b8fcea9bbc5f29?v=1937e75cc02a815a9737000c8e659daf&p=1bb7e75cc02a80759715e806f6ee676c&pm=s
-
-
 Заняття 3. Введення в CSS обнулення стилів.
 
 🟢 Посилання на урок:
 https://youtube.com/live/-O5_p31C-vg?feature=share
 
 🟢 Посилання на нотатки:
-https://meadow-manicure-24b.notion.site/1937e75cc02a800b95b8fcea9bbc5f29?v=1937e75cc02a815a9737000c8e659daf&p=1b97e75cc02a80b3a673e371f7105db2&pm=s&pvs=31
+https://meadow-manicure-24b.notion.site/3-CSS-1b97e75cc02a80b3a673e371f7105db2?pvs=25
+
+Часто використовувані слова для назв класів.
+https://meadow-manicure-24b.notion.site/1bb7e75cc02a80759715e806f6ee676c?pvs=25
 
 
 🤓 Домашнє завдання:

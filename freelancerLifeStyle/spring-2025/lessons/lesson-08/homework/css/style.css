@@ -1,0 +1,70 @@
+@import url("reset.css");
+
+
+.wrapper {
+	min-height: 100%;
+
+	overflow: clip;
+}
+
+.container {
+	max-width: 1230px;
+	margin: 0 auto;
+	padding-left: 15px;
+	padding-right: 15px;
+} 
+
+body {
+	font-family: "Roboto", "Arial", sans-serif;
+	font-size: 24px;
+	color: #000;
+}
+
+.header {
+	padding: 20px 0;
+
+	font-size: 24px;
+	color: darkred;
+
+	text-align: center;
+}
+
+/* Tasks
+========================================*/
+
+/* .tasks {
+	margin-bottom: 50px;
+} */
+
+/* .tasks__inner {
+	padding: 20px;
+} */
+
+/* .tasks__inner :last-child {
+	margin-bottom: 0;
+} */
+
+.items {
+	/* margin-bottom: 20px; */
+	padding: 20px;
+
+	/* color: transparent; */
+	background-color:  #7a956b;
+	/* border: 1px solid #000; */
+}
+
+.items :not(:last-child) {
+	margin-bottom: 20px;
+}
+
+/* .item {
+	padding: 0 20px;
+	background-color:  #7a956b;
+} */
+
+.footer {
+	padding: 20px 0 20px 20px;
+
+	font-size: 18px;
+	color: darkgreen;
+}
