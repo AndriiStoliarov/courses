@@ -33,12 +33,21 @@ body {
 ========================================*/
 
 .items {
-	/* margin-bottom: 20px; */
 	padding: 20px;
 
-	/* color: transparent; */
 	background-color:  #7a956b;
-	/* border: 1px solid #000; */
+}
+
+.image--bdrd {
+	/* border-radius: 150px 0 150px 0; */
+	/* width: 557px; */
+	/* height: 549px; */
+	/* 150/557 = 26.929982%; */
+	border-radius: 26.92% 0 26.92% 0;
+}
+
+.image--blur {
+	filter: blur(2.2px);
 }
 
 .items :not(:last-child) {
