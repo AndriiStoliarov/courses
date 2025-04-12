@@ -1,0 +1,73 @@
+@import url("reset.css");
+
+
+.wrapper {
+	min-height: 100%;
+
+	overflow: clip;
+}
+
+.container {
+	max-width: 1230px;
+	margin: 0 auto;
+	padding-left: 15px;
+	padding-right: 15px;
+} 
+
+body {
+	font-family: "Roboto", "Arial", sans-serif;
+	font-size: 24px;
+	color: #000;
+}
+
+.header {
+	padding: 20px 0;
+
+	font-size: 24px;
+	color: #8b0000;
+
+	text-align: center;
+}
+
+/* Tasks
+========================================*/
+
+/* .items {
+	padding: 20px;
+
+	background-color:  #7a956b;
+}
+
+.items :not(:last-child) {
+	margin-bottom: 20px;
+} */
+
+.up {
+	padding-right: 20px;
+	text-align: right;
+}
+
+.up__link {
+	font-size: 18px;
+	color: indigo;
+
+	text-transform: lowercase;
+}
+
+.up__link:hover {
+	
+	text-decoration: underline;
+}
+
+.footer {
+	padding: 20px 0 20px 20px;
+}
+
+.footer__link {
+	font-size: 18px;
+	color: #006400;
+}
+
+.footer__link:hover {
+	text-decoration: underline;
+}

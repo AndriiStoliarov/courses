@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<!-- Коди мов https://html-css.co.ua/html/lang-kodu-mov/ -->
+<html lang="en">
+	<head>
+		<!-- Кодування тексту -->
+		<meta charset="UTF-8">
+		<!-- Налаштування в'юпорту (адаптиву, масштабу тощо) -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Підключення окремого файлу стилів -->
+		<link rel="stylesheet" href="css/style.css">
+		<!-- Заголовок сторінки в браузері -->
+		<title>Lesson 09</title>
+	</head>
+	<body>
+		<div class="wrapper">
+			<header class="header">
+			</header>
+			<main class="page">
+				<div class="container">
+
+					<!-- Компонентний підхід у верстці -->
+					<!-- 
+						Створюємо окремі незалежні частини, 
+						потім складаємо сторінку як конструктор 
+						та перевикористовуємо готові блоки
+					-->
+
+					<!-- Б.Е.М. -->
+					<!-- БЕМ-Блок -->
+					<!-- 
+						НЕЗАЛЕЖНИЙ, САМОДОСТАТНІЙ об'єкт.
+						НЕ має впливати на оточення (сусідні об'єкти).
+
+						І'мя класу БЕМ-блоку:
+						1) І'мя класу має відповідати змісту або конструкції БЕМ-блоку. 
+							Перевірочне питання - "Що це?"
+						2) Англійска мова (Латиниця)
+						3) Нижній регістр
+						4) Якщо слів декілька, розділяємо дефісом (-).
+						5) При формуванні імені класу не має бути спроби ієрархії
+
+						Дозволяється вкладення будь якого рівня та будь-якої кількості 
+						БЕМ-блоків один в одного.
+					-->
+
+					<!-- Що це? (загальне, конструкція) -->
+					<a href="#" class="button">Some Text</a>
+
+					<!-- Що це? (загальне, конструкція) -->
+					<div class="block-header">
+						<!-- ... -->
+					</div>
+					<!-- or -->
+					<div class="section-header">
+						<!-- ... -->
+					</div>
+
+					<!-- Що це? (конкретне, зміст) -->
+					<div class="reviews"></div>
+
+					<!-- Спроба ієрархії: -->
+					<div class="reviews">
+						<!-- БЕМ-Блок (але прив'язаний, спроба ієрархії) -->
+						<a href="#" class="reviews-item">Some Text</a>
+						<!-- як вийти з положення? -->
+						<!-- БЕМ-Блок (загальна назва, без спроби ієрархії) -->
+						<a href="#" class="item">Some Text</a>
+						<!-- або -->
+						<!-- БЕМ-Блок (назва без прив'язки, без спроби ієрархії) -->
+						<a href="#" class="item-reviews">Some Text</a>
+					</div>
+
+					<!-- Приклади -->
+					<!-- БЕМ-Блок -->
+					<div class="section-header">
+						<!-- Контент БЕМ-блоку -->
+						<!-- ... -->
+						<!-- Ще БЕМ-блоки -->
+						<div class="label"></div>
+						<h2 class="title"></h2>
+						<div class="text">
+							<p></p>
+							<p></p>
+							<p></p>
+							<p></p>
+						</div>
+						<a href="#" class="link"></a>
+					</div>
+
+					<!-- Ще приклади БЕМ-блоку -->
+					<div class="row">
+						<div class="column">
+							<h2 class="title"></h2>
+						</div>
+					</div>
+
+					<!-- БЕМ-Елемент -->
+					<!-- 
+						ЗАЛЕЖНИЙ об'єкт від СВОГО БЕМ-блоку
+						ЗАВЖДИ знаходиться всередені СВОГО БЕМ-блоку (вкладений)
+						МОЖЕ впливати на оточення (сусідні об'єкти).
+
+						І'мя класу БЕМ-елементу:
+						0) ЗАВЖДИ починається з імені першого в ієрархії 
+							батьківського БЕМ-блоку 
+							і відокремлюється двома підкресленнями (__).
+						1) І'мя має відповідати змісту або конструкції блоку.
+							Перевірочне питання - "Що це?"
+						2) Англійска мова (Латиниця)
+						3) Нижній регістр
+						4) Якщо слів декілька, розділяємо дефісом (-).
+						5) При формуванні імені не має бути ієрархії.
+
+						БЕМ-елементи можна вкладати в інші БЕМ-елементи свого БЕМ-блоку
+					-->
+
+					<!-- Це БЕМ-блок section-header -->
+					<div class="section-header">
+						<!-- Це БЕМ-елемент з назвою label БЕМ-блоку section-header -->
+						<h2 class="section-header__label"></h2>
+						<!-- Це БЕМ-елемент з назвою title БЕМ-блоку section-header -->
+						<h3 class="section-header__title"></h3>
+						<!-- Це БЕМ-елемент з назвою text БЕМ-блоку section-header -->
+						<div class="section-header__text">
+							<p></p>
+						</div>
+					</div>
+					<!-- ПОМИЛКА, БЕМ-елемент не може знаходитись за межами свого БЕМ-блоку -->
+					<a href="#" class="section-header__link"></a>
+
+					<!-- БЕМ-Модифікатор -->
+					<!-- 
+						Дозволяє вносити відмінності
+						для БЕМ-блоків або БЕМ-елементів
+						МОЖЕ впливати на оточення (сусідні об'єкти)
+
+						І'мя класу БЕМ-модифікатора:
+						0) ДОДАЄТЬСЯ до існуючого БЕМ-класу блоку або елементу.
+						1) ЗАВЖДИ починається з існуючого БЕМ-класу блоку або елементу 
+							і відокремлюється подвійним дфісом (--)
+						2) І'мя має відповідати модифікаціям. 
+							Перевірочне питання - "Який? Що змінено?"
+						3) Англійска мова (Латиниця)
+						4) Нижній регістр
+						5) Якщо слів декілька, розділяємо дефісом (-).
+						6) При формуванні імені не має бути ієрархії
+					-->
+
+					<!-- Приклади -->
+					<!-- Це БЕМ-блок section-header -->
+					<div class="section-header">
+						<!-- Це БЕМ-елемент з назвою label БЕМ-блоку section-header -->
+						<h2 class="section-header__label"></h2>
+						<!-- Це БЕМ-елемент з назвою title БЕМ-блоку section-header -->
+						<!-- Доданий модифікатор під назвою white -->
+						<h3 class="section-header__title section-header__title--white"></h3>
+						<!-- Це БЕМ-елемент з назвою text БЕМ-блоку section-header -->
+						<div class="section-header__text">
+							<p></p>
+						</div>
+					</div>
+
+					<!-- Це БЕМ-блок section-header -->
+					<!-- Доданий модифікатор під назвою center -->
+					<div class="section-header section-header--center">
+						<!-- Це БЕМ-елемент з назвою label БЕМ-блоку section-header -->
+						<h2 class="section-header__label"></h2>
+						<!-- Це БЕМ-елемент з назвою title БЕМ-блоку section-header -->
+						<!-- Доданий модифікатор під назвою white -->
+						<h3 class="section-header__title section-header__title--white"></h3>
+						<!-- Це БЕМ-елемент з назвою text БЕМ-блоку section-header -->
+						<div class="section-header__text">
+							<p></p>
+						</div>
+					</div>
+
+					<!-- Це БЕМ-блок section-header -->
+					<!-- Додані модифікатори під назвою center та margin -->
+					<div class="section-header section-header--center section-header--margin">
+						<!-- Це БЕМ-елемент з назвою label БЕМ-блоку section-header -->
+						<h2 class="section-header__label"></h2>
+						<!-- Це БЕМ-елемент з назвою title БЕМ-блоку section-header -->
+						<h3 class="section-header__title"></h3>
+						<!-- Це БЕМ-елемент з назвою text БЕМ-блоку section-header -->
+						<div class="section-header__text">
+							<p></p>
+						</div>
+					</div>
+
+					<!-- Приклад -->
+					<div class="gallery">
+						<div class="gallery__container">
+							<div class="gallery__items">
+								<div class="gallery__column">
+									<div class="gallery__item">
+										<a href="#" class="gallery__link">
+											<img src="#" alt="#" class="gallery__image">
+										</a>
+										<h4 class="gallery__title"></h4>
+										<div class="gallery__text">
+											<p></p>
+										</div>
+									</div>
+								</div>
+								<div class="gallery__column">
+									<div class="gallery__item">
+										<a href="#" class="gallery__link">
+											<img src="#" alt="#" class="gallery__image">
+										</a>
+										<h4 class="gallery__title"></h4>
+										<div class="gallery__text">
+											<p></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- БЕМ-Мікс -->
+					<!-- 
+						Після того як ви опануєте блок елемент модифікатор, 
+						саме час використовувати мікси
+						Мікс - це одночасне використання і БЕМ-блоку 
+						і БЕМ-елементу для одного об'єкту.
+
+						Переваги міксу:
+						- вивільнення зрозумілих слів для нових елементів
+						- можливість викорістання CSS-властивостей, 
+							які впливають на оточення, фактично для БЕМ-блоку (БЕМ-елемент в ролі модифікатора)
+						- паралельне відокремлення певної структури в БЕМ-блок
+					-->
+
+					<!-- Приклад -->
+					<!-- Це БЕМ-блок about -->
+					<div class="about">
+						<!-- .... -->
+						<!-- 
+							Це БЕМ-блок section-header  
+							та БЕМ-елемент БЕМ-блоку about 
+							одночасно
+						-->
+						<div class="about__section-header section-header">
+							<h2 class="section-header__label"></h2>
+							<h3 class="section-header__title"></h3>
+							<!-- .... -->
+						</div>
+						<!-- ... -->
+					</div>
+					<!-- .... -->
+					<!-- .... -->
+					<!-- .... -->
+					<!-- Це БЕМ-блок service -->
+					<div class="service">
+						<!-- .... -->
+						<!-- 
+							Це БЕМ-блок section-header 
+							та БЕМ-елемент БЕМ-блоку service 
+							одночасно 
+						-->
+						<div class="service__section-header section-header"></div>
+						<!-- ... -->
+					</div>
+
+					<!-- Приклад #2 -->
+					<div class="about">
+						<div class="about__container">
+							<h2 class="about__title"></h2>
+							<div class="about__items">
+								<!-- 
+									Це БЕМ-блок item-about
+									та БЕМ-елемент БЕМ-блоку about 
+									одночасно
+								-->
+								<div class="about__item item-about">
+									<h4 class="item-about__title"></h4>
+									<!-- ... -->
+								</div>
+								<div class="about__item item-about">
+									<h4 class="item-about__title"></h4>
+									<!-- ... -->
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Часті слова -->
+					<!-- 
+						container - обмежуючий контейнер (block__container)
+						body, content - головна частина блоку (block__body)
+						row - рядок
+						column - колонка
+						link - посилання
+						title - заголовок
+						sub-title - підзаголовок
+						label - ще заголовок
+						text - текст
+						list - список
+						items - багато якихось елементів
+						item - будь-що
+						menu
+						block
+						button
+						picture, image, img
+						section
+						article
+						unit
+						actions, action
+						value
+						search
+						form
+						page
+						box
+					-->
+
+					<!-- Обмежуючий контейнер -->
+					<div class="about">
+						<div class="about__container">
+							<div class="about__title"></div>
+							<!-- ... -->
+							<div class="about__inner-container">
+								<!-- .... -->
+							</div>
+						</div>
+					</div>
+					<div class="services">
+						<div class="services__container">
+							<div class="services__title"></div>
+						</div>
+					</div>
+
+					<!-- Практика -->
+					<!-- Гра №1 -->
+					<!-- 
+						Вірно, але в назвах БЕМ-блоків 
+						краще уникати характеризуючих слів 
+					-->
+					<div class="red-box"></div>
+					<!-- І тут явно щось не так :))) -->
+					<div class="red-box red-box--white"></div>
+
+					<!-- Гра №2 -->
+					<!-- (-) Невірно -->
+					<div class="about">
+						<div class="about__container">
+							<div class="about__body">
+								<!-- БЕМ-Елемент неіснуючого БЕМ-блоку body-->
+								<h2 class="body__title"></h2>
+								<a href="#" class="body__link"></a>
+							</div>
+						</div>
+					</div>
+					<!-- (+) Вірно -->
+					<div class="about">
+						<div class="about__container">
+							<!-- Або Мікс -->
+							<div class="about__body body">
+								<h2 class="body__title"></h2>
+								<a href="#" class="body__link"></a>
+							</div>
+							<!-- Або просто БЕМ-блок -->
+							<div class="body">
+								<h2 class="body__title"></h2>
+								<a href="#" class="body__link"></a>
+							</div>
+						</div>
+					</div>
+
+					<!-- Гра №3 -->
+					<!-- (-) Невірно -->
+					<div class="contacts">
+						<div class="title"></div>
+						<div class="content">
+							<!-- 
+								Назва елементу починається не 
+								з першого батькісвького БЕМ-блоку,
+								або не вірна вкладеність
+							-->
+							<a href="#" class="contacts__link"></a>
+							<div class="contacts__text"></div>
+						</div>
+					</div>
+					<!-- (+) Вірно -->
+					<div class="contacts">
+						<div class="title"></div>
+						<div class="content">
+							<!-- Або назва елементів має починатись з поточного БЕМ-блоку -->
+							<a href="#" class="content__link"></a>
+							<div class="content__text"></div>
+						</div>
+						<!-- 
+							Або змінити конструкцію - елементи мають знаходитись 
+							безпосередньо в блоці contacts 
+						-->
+						<a href="#" class="contacts__link"></a>
+						<div class="contacts__text"></div>
+					</div>
+
+					<!-- Гра №4 -->
+					<!-- (+) Вірно -->
+					<h2 class="title">
+						<a href="#" class="title__link-title"></a>
+					</h2>
+					<div class="body">
+						<div class="body__text"></div>
+					</div>
+
+					<!-- Гра №5 -->
+					<!-- (-) Невірно -->
+					<div class="body">
+						<!-- 
+							модифікатор вказаний неіснуючому блоку title
+						-->
+						<h2 class="body__title title--white"></h2>
+						<div class="body__text">
+							<a href="#" class="body__link"></a>
+						</div>
+					</div>
+					<!-- (+) Вірно -->
+					<div class="body">
+						<h2 class="body__title body__title--white"></h2>
+						<div class="body__text">
+							<a href="#" class="body__link"></a>
+						</div>
+					</div>
+
+					<!-- Гра №6 -->
+					<!-- (-) Невірно -->
+					<div class="contacts">
+						<div class="contacts__container">
+							<div class="contacts__items">
+								<!-- Спроба ієрархії contacts-item -->
+								<div class="contacts__item contacts-item">
+									<h2 class="contacts-item__title"></h2>
+									<div class="contacts-item__body"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- (+) Вірно -->
+					<div class="contacts">
+						<div class="contacts__container">
+							<div class="contacts__items">
+								<div class="contacts__item item-contacts">
+									<h2 class="item-contacts__title"></h2>
+									<div class="item-contacts__body"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Гра №7 -->
+					<!-- (+) Вірно -->
+					<div class="about">
+						<div class="about__container">
+							<div class="contacts">
+								<div class="contacts__body"></div>
+								<div class="contacts__items">
+									<div class="contacts__item item-contacts">
+										<div class="item-contacts__image">
+											<img src="img/check.svg" alt="girl">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="about__body">
+								<h2 class="about__title about__title--white"></h2>
+								<div class="about__items">
+									<div class="about__column">
+										<div class="about__item"></div>
+									</div>
+									<div class="about__column about__column--big">
+										<div class="about__item"></div>
+									</div>
+									<div class="about__column">
+										<div class="about__item"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Часті помилки -->
+					<!-- (-) Помилка, об'єкт не може бути одночосно двома БЕМ-блоками -->
+					<div class="title label"></div>
+					<div class="title section-title"></div>
+					<!-- etc. -->
+					<!-- (+) Вірно: -->
+					<div class="title"></div>
+					<!-- ...aбо -->
+					<div class="label"></div>
+					<!-- ...aбо (мікс) -->
+					<div class="some-block">
+						<div class="some-block__item label"></div>
+					</div>
+
+					<!-- (-) Помилка, об'єкт не може бути одночосно двома БЕМ-елементами -->
+					<div class="title__item label__link"></div>
+					<!-- (+) Вірно: -->
+					<div class="title__item"></div>
+					<!-- ...aбо -->
+					<div class="label__link"></div>
+					<!-- ...aбо (мікс) -->
+					<div class="some-block label__link"></div>
+
+					<!-- (-) Використання БЕМ-модифікатора без БЕМ-блоку/БЕМ-елементу -->
+					<div class="title label--white"></div>
+					<div class="label--white"></div>
+					<div class="about__title--white"></div>
+
+					<!-- (+) Вірно: -->
+					<div class="title title--white"></div>
+					<div class="label label--white"></div>
+					<div class="about__title about__title--white"></div>
+
+				</div>
+			</main>
+			<footer class="footer">
+			</footer>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,61 @@
+/* Підключення фрифтів */
+
+/* Google Fonts (Plugin) */
+/* @import url("https://fonts.googleapis.com/css?family=Manrope:regular,500,600,700&display=swap"); */
+
+/* Локальне підключення шрифтів */
+@import url("fonts.css");
+
+/* Скидання стилів */
+@import url("reset.css");
+
+/* Компоненти */
+@import url("button.css");
+/* .... */
+
+/* Основні стилі */
+body {
+	font-family: "Gilroy", sans-serif;
+	background-color: #333;
+	color: #fff;
+}
+.wrapper {
+	overflow: clip;
+	min-height: 100%;
+}
+
+[class*="__container"] {
+	max-width: 600px;
+	margin: 0 auto;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.page {
+	padding: 30px;
+}
+
+/* Так не можна робити, вплаває на інші об'єкти */
+/* .section-header {
+	margin-bottom: 50px;
+} */
+
+/* Можна, не вплаває на інші об'єкти */
+/* .section-header {
+	padding-bottom: 50px;
+} */
+
+.section-header--center {
+	text-align: center;
+}
+
+.section-header--margin {
+	margin-bottom: 50px;
+}
+
+.about__section-header {
+	margin-bottom: 30px;
+}
+.service__section-header {
+	margin-bottom: 50px;
+}

@@ -7,6 +7,15 @@ https://squoosh.app/editor
 This free online tool is all you need for optimizing SVG images. In just two simple steps it will take care of lossless SVG optimization for you.
 https://svgoptimizer.com/
 
+Как создавать иконки сайтов в 2022 году — всё о favicon.
+https://habr.com/ru/articles/672844/
+
+Favicon Generator:
+https://favicon.io/
+
+Generate your favicon.ico
+https://www.favicon-generator.org/
+
 
 Заняття 8. Веб графіка, формати зображень.
 
