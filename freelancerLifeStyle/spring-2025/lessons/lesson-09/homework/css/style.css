@@ -8,7 +8,7 @@
 }
 
 .container {
-	max-width: 1230px;
+	max-width: 1350px;
 	margin: 0 auto;
 	padding-left: 15px;
 	padding-right: 15px;
@@ -20,28 +20,19 @@ body {
 	color: #000;
 }
 
+/* Header
+========================================*/
 .header {
 	padding: 20px 0;
 
 	font-size: 24px;
-	color: #8b0000;
+	color: #8b0000; /* darkred */
 
 	text-align: center;
 }
 
-/* Tasks
+/* Section name
 ========================================*/
-
-/* .items {
-	padding: 20px;
-
-	background-color:  #7a956b;
-}
-
-.items :not(:last-child) {
-	margin-bottom: 20px;
-} */
-
 .up {
 	padding-right: 20px;
 	text-align: right;
@@ -49,7 +40,7 @@ body {
 
 .up__link {
 	font-size: 18px;
-	color: indigo;
+	color: #4b0082; /* indigo */
 
 	text-transform: lowercase;
 }
@@ -59,13 +50,15 @@ body {
 	text-decoration: underline;
 }
 
+/* Footer
+========================================*/
 .footer {
 	padding: 20px 0 20px 20px;
 }
 
 .footer__link {
 	font-size: 18px;
-	color: #006400;
+	color: #006400; /* darkgreen */
 }
 
 .footer__link:hover {
