@@ -7,12 +7,12 @@
 	overflow: clip;
 }
 
-.container {
+[class*="__container"] {
 	max-width: 1350px;
 	margin: 0 auto;
 	padding-left: 15px;
 	padding-right: 15px;
-} 
+}
 
 body {
 	font-family: "Roboto", "Arial", sans-serif;
