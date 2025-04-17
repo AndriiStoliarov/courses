@@ -1,0 +1,327 @@
+/* Підключення фрифтів */
+
+/* Google Fonts (Plugin) */
+/* @import url("https://fonts.googleapis.com/css?family=Manrope:regular,500,600,700&display=swap"); */
+
+/* Локальне підключення шрифтів */
+@import url("fonts.css");
+
+/* Скидання стилів */
+@import url("reset.css");
+
+/* Компоненти */
+@import url("button.css");
+/* .... */
+
+/* Основні стилі */
+body {
+	font-family: "Gilroy", sans-serif;
+	background-color: #333;
+	color: #fff;
+}
+.wrapper {
+	overflow: clip;
+	min-height: 100%;
+}
+
+[class*="__container"] {
+	max-width: 600px;
+	margin: 0 auto;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.page {
+	padding: 30px;
+}
+/* ------------------------------------------------------------------- */
+
+.blocks {
+}
+.blocks--margin {
+	margin-bottom: 30px;
+}
+.blocks__item {
+	text-align: center;
+	padding: 15px;
+}
+.blocks__item--brown {
+	background-color: #794f45;
+}
+.blocks__item--puprule {
+	background-color: #77608d;
+}
+.blocks__item--green {
+	background-color: #7a956b;
+}
+/* ------------------------------------------------------------------- */
+
+/*
+Різне CSS позиціонування дуже часто 
+використовується при верстці макетів 
+і відкриває для нас нові цікаві можливості 
+розташування елементів у потоці. 
+Але треба бути обережними та вміти поводитися 
+з цими можливостями грамотно.
+
+!Вправа!
+Дуже важливо розуміти відносно 
+чого ви позіціонуєте об'єкт
+
+Модуль позіціонування:
+Основна властивість - position
+
+А також властивості розташування
+top,
+left,
+right,
+bottom
+а також z-index
+
+Значення властивості position
+static - (за замовченням) статичне позиціонування
+relative - відносне позіціонування
+absolute - абсолютне позіціонування
+fixed - фіксоване позіціонування
+sticky - липке позіціонування 
+(гібрідне поєднання значень static та fixed)
+
+(!) Властивості top, left, right, bottom та z-index 
+працюють тільки зі значеннями position
+відмінними від static
+
+При позиціонуванні елементу вказавши значення для top, 
+bottom перестає працювати. 
+Так само це працює з left та right. При цьому, 
+якщо таки ж вказати обидві властивості то 
+пріоритетними будуть: 
+по Y top, а по X left. 
+Гарною практикою є вказання значень лише для 
+однієї властивості на вісь. 
+
+z-index - керує положенням об'єкту по осі Z
+auto - (за замовченням) ближчим буде об'єкт який 
+нижче по коду число 
+від 0 до 9999(?) - порядковий номер на осі Z
+Не впливає на позіціонування батьківського об'єкту у якого 
+position відмінний від static
+
+Від'ємний z-index "сховає" об'єкт на задній план
+(не статичний об'єкт "сховається" за статичні/не статичні)
+*/
+
+/* ------------------------------------------------------------------- */
+
+/*
+relative - відносне позиціонування. 
+Об'єкт позіціонується відносно свого 
+поточного місця положення.
+(відносно свого положення в коді)
+
+Відсоткові значення
+
+Горизонталь
+Відсоток від ширини батьківського елементу
+
+Вертикаль
+Для позиціонування об'єкту (з position: relative;) 
+по вертикалі використовуючи відсотки неможливе 
+без чіткої вказанної висоти для батьківського елементу
+Наприклад: top: 20% не спрацює 
+без вказання висоти для батьківського елементу
+
+*/
+.blocks {
+	/* height: 138px; */
+}
+.blocks__item--puprule {
+	/* position: relative; */
+	/* top: 20px;
+	left: 30px; */
+	/*
+	z-index: 1;
+	left: 10%;
+	top: 20%;
+	*/
+}
+/*
+.blocks__item--green {
+	position: relative;
+	z-index: 2;
+}
+*/
+
+/* z-index та батьківськи елементи */
+
+/* Елемент статичний (не приймає участь в батлі) */
+.section-1 {
+}
+/* Елемент "виграє" (z-index: 3;) */
+.section-1__item {
+	padding: 20px;
+	background-color: #77608d;
+
+	position: relative;
+	top: 30px;
+	z-index: 3;
+}
+
+/* Батьківський елемент "програє" (z-index: 2;) */
+.section-2 {
+	position: relative;
+	z-index: 2;
+}
+/* 
+Дочірній елемент "програвшего" батьківськго 
+вже не може бути ближчим (перемогти)
+*/
+.section-2__item {
+	padding: 20px;
+	background-color: #7a956b;
+
+	position: relative;
+	z-index: 9999;
+}
+
+/*
+absolute - абсолютне позиціонування.
+1) Разом з position: absolute; обов'язково використовуйте 
+	властивості для позіціонування (left або right, top або bottom)
+2) Об'єкт позіціонується відносно першого батьківського елементу, 
+	position якого відмінний від static. Або від тегу BODY
+3) Об'єкт втрачає свою блочну сутність. Також втрачає 
+	своє положення в коді, та простір який він займав
+4) Не можемо вказувати для БЕМ-блоків
+
+Для позиціонування об'єкту (з position: absolute;) 
+по вертикалі,використовуючи відсотки, відсоток 
+буде братись від висоти батьківського елементу
+*/
+.blocks {
+	/* position: relative; */
+}
+.blocks__item--puprule {
+	/* position: absolute; */
+	/*
+	top: 10%;
+	left: 20%;
+	*/
+	/*
+	top: 20px;
+	left: 30px;
+	*/
+}
+
+/*
+fixed - фіксоване позіціанування
+1) Разом з position: fixed; обов'язково використовуйте 
+	властивості для позіціонування (left або right, top або bottom)
+2) Об'єкт втрачає свою блочну сутність. 
+	Також втрачає своє положення в коді, та простір який він займав.
+3) Завжди позіціонується відносно вікна браузера (в'юпорт).
+4) Не приймає участі у скролі.
+5) (спірне питання) Не можемо вказувати для БЕМ-блоків 
+*/
+.blocks__item--puprule {
+	/*
+	position: fixed;
+	left: 0px;
+	right: 0px;
+	*/
+	/* width: 100%; */
+	/* top: 0; */
+	/* bottom: 0; */
+	/* z-index: 50; */
+}
+
+/*
+sticky - Це гібридне поєднання значень static та fixed. 
+Спочатку елемент веде себе як static але після того 
+як скролл доходить до його кордону він стає 
+fixed та прилипає до зазначеної позиції top bottom left right.
+Рухається лише в середені свого батьківського елементу (статік/не статік)
+
+!!! Не працює, якщо у батьківських об'єктах присутній 
+overflow: hidden;
+*/
+/*
+.blocks__item {
+	position: sticky;
+	top: 0px;
+}
+*/
+
+/* Приклад з псевдоелементом */
+
+/* .list {
+}
+.list__item {
+	min-height: 30px;
+	position: relative;
+	padding-left: 40px;
+	padding-top: 8px;
+}
+.list__item::before {
+	content: "";
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: url("../img/check.svg") 0 0 / 30px no-repeat;
+}
+.list__item:not(:last-child) {
+	margin-bottom: 15px;
+} */
+
+/* Випадаюче меню */
+
+.menu {
+	background-color: #7a956b;
+}
+.menu__item {
+	display: inline-block;
+	position: relative;
+}
+.menu__item:hover .menu__link {
+	background-color: #77608d;
+}
+.menu__item:hover .sub-menu {
+	opacity: 1;
+	visibility: visible;
+}
+
+.menu__item:not(:last-child) {
+	margin-right: 5px;
+}
+.menu__link {
+	padding: 20px;
+	font-size: 20px;
+}
+.menu__sub-menu {
+	position: absolute;
+	left: 0;
+	top: 100%;
+	opacity: 0;
+	visibility: hidden;
+}
+.sub-menu {
+	padding-top: 10px;
+}
+.sub-menu__item {
+	background-color: #77608d;
+}
+.sub-menu__item:first-child {
+	padding-top: 10px;
+}
+.sub-menu__item:last-child {
+	padding-bottom: 10px;
+}
+
+.sub-menu__link {
+	width: 100%;
+	padding: 10px 20px;
+}
+.sub-menu__link:hover {
+	background-color: #7a956b;
+}

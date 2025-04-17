@@ -1,0 +1,66 @@
+@import url("reset.css");
+
+
+.wrapper {
+	min-height: 100%;
+
+	overflow: clip;
+}
+
+[class*="__container"] {
+	max-width: 1350px;
+	margin: 0 auto;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+body {
+	font-family: "Roboto", "Arial", sans-serif;
+	font-size: 24px;
+	color: #000;
+}
+
+/* Header
+========================================*/
+.header {
+	padding: 20px 0;
+
+	font-size: 24px;
+	color: #8b0000; /* darkred */
+
+	text-align: center;
+}
+
+/* Section name
+========================================*/
+.up {
+	padding-right: 20px;
+	text-align: right;
+}
+
+.up__link {
+	font-size: 18px;
+	color: #4b0082; /* indigo */
+
+	text-transform: lowercase;
+}
+
+.up__link:hover {
+	
+	text-decoration: underline;
+}
+
+/* Footer
+========================================*/
+.footer {
+	padding: 20px 0 20px 20px;
+}
+
+.footer__link {
+	font-size: 18px;
+	color: #006400; /* darkgreen */
+}
+
+.footer__link:hover {
+	text-decoration: underline;
+}
