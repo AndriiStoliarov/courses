@@ -343,7 +343,9 @@ body {
 }
 
 .button:hover {
-	color: #000;
+	background-color: #FFF;
+	color: #F35B09;
+
 }
 
 .up {
