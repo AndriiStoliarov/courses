@@ -9,7 +9,7 @@
 }
 
 [class*="__container"] {
-	max-width: 1314px;
+	max-width: 1260px;
 	margin: 0 auto;
 	padding-left: 15px;
 	padding-right: 15px;
@@ -51,7 +51,7 @@ body {
 
 	position: relative;
 
-	transition: all 0.3s;
+	transition: all 0.3s; /* forbidden black magic */
 }
 
 .card:hover {
@@ -74,6 +74,16 @@ body {
 	margin-bottom: 6px;
 }
 
+.card__button {
+	border-radius: 50%;
+
+	transition: all 0.3s; /* forbidden black magic */
+}
+
+.card__button:hover {
+	box-shadow: 0 0 12px 0 rgba(181, 32, 32, 0.32);
+}
+
 .card:hover .card__buttons {
 	visibility: visible;
 	opacity: 1;
@@ -93,6 +103,10 @@ body {
 	font-size: 14px;
 	color: #2C742F;
 	line-height: 1.5;
+}
+
+.card__link:hover {
+	text-decoration-line: underline;
 }
 
 /* .card__price {
@@ -130,10 +144,17 @@ body {
 ========================================*/
 
 .info {
-	background: url("../img/bg-info.png") center / contain no-repeat;
+	background: url("../img/bg-info.png") center / 100% 100% no-repeat;
 }
+
+.info__before,
+.info__after {
+	font-size: 0;
+	color: transparent;
+}
+
 .info__decoration {
-	max-width: 1540px;
+	max-width: 1594px;
 	margin: 0 auto;
 
 	position: relative;
@@ -153,7 +174,7 @@ body {
 
 	position: absolute;
 	top: 127px;
-	left: 0;
+	left: 54px;
 	z-index: 2;
 }
 
@@ -165,7 +186,7 @@ body {
 
 	position: absolute;
 	top: 172px;
-	left: 20px;
+	left: 74px;
 	z-index: 2;
 }
 
@@ -177,7 +198,7 @@ body {
 
 	position: absolute;
 	top: 380px;
-	left: 33px;
+	left: 87px;
 	z-index: 1;
 }
 
@@ -226,7 +247,6 @@ body {
 }
 
 .info__row-bottom {
-	padding-right: 55px;
 	text-align: right;
 }
 
@@ -317,6 +337,12 @@ body {
 	background-color: #F35B09;
 
 	text-align: center;
+
+	transition: all 0.3s; /* forbidden black magic */
+}
+
+.button:hover {
+	color: #000;
 }
 
 .up {
