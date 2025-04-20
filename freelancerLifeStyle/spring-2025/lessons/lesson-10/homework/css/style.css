@@ -9,7 +9,7 @@
 }
 
 [class*="__container"] {
-	max-width: 1260px;
+	max-width: 1314px;
 	margin: 0 auto;
 	padding-left: 15px;
 	padding-right: 15px;
@@ -151,6 +151,86 @@ body {
 .info__decoration {
 	max-width: 1540px;
 	margin: 0 auto;
+
+	position: relative;
+}
+
+.info__decoration-before,
+.info__decoration-after {
+	font-size: 0;
+	color: transparent;
+}
+
+.info__decoration-small-circle::before {
+	content: "";
+	background-image: url("../img/small-circle.svg");
+	width: 65px;
+	height: 65px;
+
+	position: absolute;
+	top: 127px;
+	left: 0;
+	z-index: 2;
+}
+
+.info__decoration-big-circle::before {
+	content: "";
+	background-image: url("../img/big-circle.svg");
+	width: 401px;
+	height: 401px;
+
+	position: absolute;
+	top: 172px;
+	left: 20px;
+	z-index: 2;
+}
+
+.info__decoration-vertical-dots::before {
+	content: "";
+	background-image: url("../img/vertical-dots.svg");
+	width: 214px;
+	height: 472px;
+
+	position: absolute;
+	top: 380px;
+	left: 33px;
+	z-index: 1;
+}
+
+.info__decoration-small-circle::after {
+	content: "";
+	background-image: url("../img/small-circle.svg");
+	width: 65px;
+	height: 65px;
+
+	position: absolute;
+	bottom: 531px;
+	right: 456px;
+	z-index: 4;
+}
+
+.info__decoration-middle-circle::after {
+	content: "";
+	background-image: url("../img/middle-circle.svg");
+	width: 262px;
+	height: 262px;
+
+	position: absolute;
+	bottom: 312px;
+	right: 54px;
+	z-index: 2;
+}
+
+.info__decoration-horizontal-dots::after {
+	content: "";
+	background-image: url("../img/horizontal-dots.svg");
+	width: 472px;
+	height: 214px;
+
+	position: absolute;
+	bottom: 145px;
+	right: 0;
+	z-index: 1;
 }
 
 .info__inner {
@@ -162,6 +242,7 @@ body {
 }
 
 .info__row-bottom {
+	padding-right: 55px;
 	text-align: right;
 }
 
@@ -185,10 +266,19 @@ body {
 	background: #5A54F2 url("../img/two-girls.jpeg") center / cover no-repeat;
 
 	vertical-align: bottom;
+	position: relative;
+	top: 0;
+	left: 0;
+	z-index: 3;
 }
 
 .info__image--team {
 	background: #5A54F2 url("../img/team.jpeg") center / cover no-repeat;
+
+	position: relative;
+	bottom: 0;
+	right: 0;
+	z-index: 3;
 }
 
 .info__content {
