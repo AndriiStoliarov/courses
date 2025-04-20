@@ -126,22 +126,6 @@ body {
 	right: 16px;
 }
 
-.up {
-	padding-right: 20px;
-	text-align: right;
-}
-
-.up__link {
-	font-size: 18px;
-	color: #4b0082; /* indigo */
-
-	text-transform: lowercase;
-}
-
-.up__link:hover {
-	text-decoration: underline;
-}
-
 /* Info
 ========================================*/
 
@@ -333,6 +317,22 @@ body {
 	background-color: #F35B09;
 
 	text-align: center;
+}
+
+.up {
+	padding-right: 20px;
+	text-align: right;
+}
+
+.up__link {
+	font-size: 18px;
+	color: #4b0082; /* indigo */
+
+	text-transform: lowercase;
+}
+
+.up__link:hover {
+	text-decoration: underline;
 }
 
 /* Footer
