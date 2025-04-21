@@ -35,11 +35,90 @@ body {
 	color: #8b0000; /* darkred */
 }
 
+/* Tasks
+========================================*/
+
+.tasks__inner .blocks:not(:last-child) {
+	margin-bottom: 20px;
+}
+
+.blocks {
+	padding: 20px;
+
+	border: 1px solid #000;
+
+	position: relative;
+}
+
+.blocks__item {
+	text-align: center;
+	padding: 15px;
+}
+
+.blocks__item--brown {
+	background-color: #794f45;
+}
+
+.blocks__item--puprule {
+	background-color: #77608d;
+}
+
+.blocks__item--green {
+	background-color: #7a956b;
+}
+
+.blocks__item--relative {
+	position: relative;
+	top: 20px;
+	left: 50px;
+}
+
+.blocks__item--absolute {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.blocks__item--fixed {
+	position: fixed;
+	top: 70px;
+	right: 50px;
+	z-index: 10;
+}
+
+.blocks__item--sticky {
+	position: sticky;
+	top: 0;
+	left: 0;
+}
+
+.blocks__item--z-index-1 {
+	position: relative;
+	top: 10px;
+	left: 0;
+	z-index: 1;
+}
+
+.blocks__item--z-index-2 {
+	position: relative;
+	top: 0;
+	left: 20px;
+	z-index: 2;
+}
+.blocks__item--z-index-3 {
+	position: relative;
+	top: -10px;
+	left: 0;
+	z-index: 1;
+}
+
+
 /* Products
 ========================================*/
 
 .products,
-.info {
+.info,
+.tasks {
 	margin-bottom: 100px;
 }
 
