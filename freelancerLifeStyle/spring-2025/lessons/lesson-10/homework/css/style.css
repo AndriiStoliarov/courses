@@ -81,7 +81,7 @@ body {
 
 .blocks__item--fixed {
 	position: fixed;
-	top: 70px;
+	top: 50px;
 	right: 50px;
 	z-index: 10;
 }
