@@ -1,0 +1,438 @@
+/* Підключення фрифтів */
+
+/* Google Fonts (Plugin) */
+/* @import url("https://fonts.googleapis.com/css?family=Manrope:regular,500,600,700&display=swap"); */
+
+/* Локальне підключення шрифтів */
+@import url("fonts.css");
+
+/* Скидання стилів */
+@import url("reset.css");
+
+/* Компоненти */
+@import url("button.css");
+/* .... */
+
+/* Основні стилі */
+body {
+	font-family: "Gilroy", sans-serif;
+	background-color: #333;
+	color: #fff;
+}
+.wrapper {
+	overflow: clip;
+	min-height: 100%;
+}
+
+[class*="__container"] {
+	max-width: 600px;
+	margin: 0 auto;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.page {
+	padding: 30px;
+}
+/* ============================================ */
+
+/*
+За допомогою 2D та 3D трансформації 
+ми зможемо зрушувати, повертати, масштабувати 
+елементи та робити багато іншого!
+Задається трансформація властивістю
+transform та її значеннями
+
+transform: функція(ї)-значення властивості;
+
+При вказанні відсоткових значень, 
+відсоток вираховується від розмірів самого об'єкту
+x - від ширини, y - від висоти
+
+При використанні transform, об'єкт стає ближче (вище)
+по осі z. Тобто накриє собою інші об'єкти без влатстивості 
+transform та position. Стає на передній план. 
+Але керувати об'єктами за допомогою z-index ми не можемо
+
+!!!!! НЕ ПРАЦЮЄ з рядковими об'єктами !!!!!!!!
+*/
+
+/*=========== 2D ============= */
+
+.block {
+	width: 300px;
+	height: 300px;
+	margin: 0 auto;
+	background-color: rgba(255, 255, 255, 0.2);
+}
+.block__item {
+	padding: 10px;
+	width: 300px;
+	height: 300px;
+	background-color: #7a956b;
+}
+
+/*
+translate (x, y)
+Зміщує елемент на нове місце,
+переміщаючи відносно початкового 
+положення об'єкта вправо та вниз,
+використовуючи координати X та Y. 
+Записується так translate (x,y).
+*/
+
+.block__item {
+	/* transform: translate(20px, 30px); */
+	/* transform: translate(-20px, -30px); */
+
+	/* transform: translate(20px, 0); */
+	/* або */
+	/* transform: translateX(20px); */
+
+	/* transform: translate(0, 30px); */
+	/* або */
+	/* transform: translateY(30px); */
+
+	/*
+	position: relative;
+	top: 30px;
+	left: 20px;
+	*/
+
+	/* Різниця */
+
+	/*
+	position: relative;
+	top: 10%;
+	left: 10%;
+	*/
+	/* + z-index */
+
+	/* transform: translate(10%, 10%); */
+}
+
+/* 
+Різниця між 
+margin 
+position: relative 
+transform: translate(x, y) 
+*/
+
+.position-dif {
+	background-color: #77608d;
+	padding: 20px;
+	max-width: 200px;
+
+	/*
+	position: relative;
+	top: -20px;
+	left: 0;
+	*/
+
+	/* transform: translate(0px, -20px); */
+	/* або*/
+	/* transform: translateY(-20px); */
+
+	/* Тягне за собою усі об'єкти які нижчі по коду */
+	/*
+	position: relative;
+	margin-top: -20px;
+	*/
+}
+
+/* Не працює */
+/*
+span {
+	transform: translate(100px, 1000px);
+}
+*/
+
+/*  
+Scale (x, y)
+Масштабує елементи,
+роблячи їх більшими або меншими.
+1 - це початковий розмір об'єкту
+*/
+
+.block__item {
+	/* transform: scale(2); */
+
+	/* transform: scale(1, 2); */
+
+	/* Дзеркало */
+	/* transform: scale(-1, 1); */
+}
+/*
+.block:hover .block__item {
+	transform: scale(0.8);
+}
+*/
+
+/*
+Rotate (n + deg)
+Повертає елементи.
+*/
+.block__item {
+	/* По год. стрілці */
+	/* transform: rotate(20deg); */
+	/* Прооти год. стрілці */
+	/* transform: rotate(-20deg); */
+
+	/* transform: rotateX(60deg); */
+	/* transform: rotateY(60deg); */
+}
+/*
+.block:hover .block__item {
+	transform: rotate(360deg);
+}
+*/
+
+/* 
+Skew (x + deg, y + deg)
+Деформує (нахиляє) елементи.
+*/
+
+.block__item {
+	/* transform: skew(10deg, 10deg); */
+	/* transform: skewX(10deg); */
+	/* transform: skewY(10deg); */
+}
+
+/* 
+Matrix (a, c, b, d, x, y)
+Дозволяє об'єднати кілька 
+функцій 2D-трансформацій в одній.
+*/
+
+.block__item {
+	/* transform: matrix(1, 2, 5, 1, 10, 50); */
+}
+
+/* 
+Множинні 2D трансформації 
+значення розділяються пробілом
+*/
+
+.block__item {
+	/* transform: translate(20px, 20px) scale(0.5) rotate(-45deg) skew(-30deg); */
+}
+
+/*
+Transform-origin
+Дозволяє змістити центр трансформації,
+щодо якого відбувається зміна 
+положення/розміру/форми елемента.
+За замовченням:
+transform-origin: 50% 50%;
+transform-origin: 50%;
+transform-origin: center;
+*/
+/*
+.block__item {
+	transform: rotate(-45deg);
+	transform-origin: top right;
+}
+*/
+/*=========== 3D ============= */
+
+.block3d {
+	width: 300px;
+	height: 300px;
+	margin: 0 auto;
+	background-color: rgba(255, 255, 255, 0.2);
+}
+.block3d__item {
+	padding: 10px;
+	width: 300px;
+	height: 300px;
+	background-color: #77608d;
+}
+
+/*  
+Perspective,
+perspective-origin
+Встановлення глибини та зміна 
+точки початку координат.
+!! Задаються батьківському елементу!
+perspective-origin: center (за замовченням)
+perspective - не можна вказати у відсотках
+*/
+
+/* Пояснення перспективи */
+/* 
+Значення властивості perspective вказує 
+відстань від точки вказаної у perspective-origin (за замовченням сентр об'єкту)
+до екрану.
+І ефект перспективи (нахил, масштаб тощо) має вміститись у цю відстань.
+*/
+
+.block3d {
+	perspective: 300px;
+	perspective-origin: center;
+}
+.block3d__item {
+	/* transform: rotateX(60deg); */
+	/* transform: rotateY(60deg); */
+}
+
+/* translate3D 
+За аналогією зі своїм 2D братом,
+це значення визначає переміщення елемента,
+але в 3D-просторі. Крім осі X та Y 
+додається вісь Z.
+!! вісь Z працює лише з перспективою (perspective)
+*/
+
+.block3d__item {
+	/* transform: translate3D(30px, 30px, 30px); */
+}
+
+.block3d__item {
+	/* transform: scale3D(1, 1, 1); */
+}
+
+/* rotate3D (x,y,z,n+deg) */
+.block3d__item {
+	/* transform: rotate3d(30, 20, 80, 40deg); */
+	/* transform: rotateY(10deg); */
+	/* transform: rotate3d(50, 50, 200, 50deg); */
+	/* transform: rotate3d(50, 0, 0, 50deg); */
+}
+
+/* matrix3d */
+
+/* Multi3D */
+.block3d__item {
+	/* transform: translate3d(20px, 20px, 40px) rotate3d(1, 1, 1, 20deg); */
+}
+
+/*
+Transform-style
+Визначає, як дочірні елементи мають відображатися у 3D-просторі.
+!!! Задається батьківському елементу разом з perspective!
+transform-style: flat; - за замовченням
+*/
+
+.block3d {
+	/* transform-style: preserve-3d; */
+}
+.block3d__item {
+	/* transform: rotateX(45deg); */
+	/* transform: rotateY(45deg); */
+}
+
+/*
+Backface-visibility
+Відображення зворотного боку об'єкта.
+
+backface-visibility: visible; за замовченням
+*/
+/*
+.block3d__item {
+	backface-visibility: hidden;
+	transform: rotateY(120deg);
+}
+*/
+/* ------------------- */
+/* Окремі властивості (значення як властивість) */
+/* ------------------- */
+
+.block3d__item {
+	/* transform: translate(20px, 20px); */
+	/*transform: scale(1);*/
+
+	/* translate: 20px 20px; */
+}
+.block3d__item:hover {
+	/* scale: 2; */
+	/* transform: translate(20px, 20px) scale(2); */
+}
+
+/* ------------------- */
+/* ------------------- */
+
+/* Flipper */
+/*
+.card {
+	display: inline-block;
+}
+.card__body {
+	position: relative;
+	perspective: 800px;
+}
+
+.card__back,
+.card__front {
+	transition: all 0.3s;
+	border-radius: 30px;
+	overflow: hidden;
+}
+.card__back {
+	transform: rotateX(180deg);
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.card__front {
+	backface-visibility: hidden;
+	transform: rotateX(0deg);
+}
+
+.card__body:hover .card__back {
+	transform: rotateX(0deg);
+}
+.card__body:hover .card__front {
+	transform: rotateX(-180deg);
+}
+	*/
+
+/*
+.text {
+	transform: scale(1.1);
+	transition: all 0.3s;
+}
+.text:hover {
+	transform: scale(1.1999);
+}*/
+.weels {
+	max-width: 500px;
+	position: relative;
+	height: 150px;
+}
+.weel {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	background-color: #eee;
+	border: 10px dashed #000;
+	position: absolute;
+}
+.weel:first-child {
+	left: 20px;
+	bottom: 0;
+}
+.weel:last-child {
+	right: 20px;
+	bottom: 0;
+}
+
+.weel::after {
+	content: "";
+	width: 50px;
+	height: 50px;
+	background-color: #000;
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/*
+.box {
+	display: inline-block;
+	position: relative;
+	padding-bottom: 50px;
+}
+
+*/

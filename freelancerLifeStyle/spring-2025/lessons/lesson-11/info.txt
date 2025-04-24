@@ -1,0 +1,25 @@
+Border Radius Generator. Generator to build organic shapes with CSS3 border-radius.
+https://amr3k.github.io/fancy-border-radius/full-control.html
+
+
+Заняття 11. Трансформації.
+
+🟢 Посилання на урок:
+https://youtube.com/live/_QIT2L9e80o?feature=share
+
+🟢 Посилання на нотатки:
+
+
+🤓 Домашнє завдання:
+1) Пропрацьовуємо кожну властивість та її значення (шпаргалка https://fls.guru/transform.html)
+2) Створюємо транспортний засіб! 
+
+Приклад:
+Спортивний автомобіль - https://arkanit7.github.io/lessons/lesson_11/
+Вантажівка (Truck) - https://dmpidlisnyi.github.io/lessons/lesson_11/
+Вітрильна яхта - https://dmitriyaa.github.io/lessons/lesson11/
+
+Автівка з хом'яком - https://vladd16.github.io/lessons/lesson_11/
+Автівка Volkswagen New Beetle - https://kukuliaka.github.io/lessons/lesson_11/
+Спортивне авто - https://gh0ti.github.io/lessons/lesson_11/
+Автівка - https://yershovart.github.io/lessons/lesson_11/
