@@ -1,3 +1,7 @@
+Border Radius Generator. Generator to build organic shapes with CSS3 border-radius.
+https://amr3k.github.io/fancy-border-radius/full-control.html
+
+
 Заняття 10. Позиціонування.
 
 🟢 Посилання на урок:
