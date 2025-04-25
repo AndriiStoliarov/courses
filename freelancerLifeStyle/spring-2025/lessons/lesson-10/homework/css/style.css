@@ -293,8 +293,14 @@ body {
 	height: 472px;
 
 	position: absolute;
-	top: 380px;
-	left: 87px;
+	/* top: 380px; */
+	/* left: 87px; */
+	/* size: wight: 1594px, height: 1110px*/
+	/* top: (380 / 1110) * 100 = 34,234234234%*/
+	/* left: (87 / 1594) * 100 = 5,457967378%*/
+	top: 34.23%;
+	left: 5.46%;
+
 	z-index: 1;
 }
 
