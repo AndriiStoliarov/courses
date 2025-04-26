@@ -81,9 +81,25 @@ body {
 }
 
 .cybertruck__body,
-.car-arches {
+.car-arches,
+.cybertruck__headlights,
+car-windows {
 	font-size: 0;
 	color: transparent;
+}
+
+.cybertruck__body::before {
+	content: "";
+	width: 100px;
+	height: 30px;
+	background: #FFF;
+
+	transform: rotate(-77deg);
+
+	position: absolute;
+	top: 180px;
+	left: 954px;
+	z-index: 2;
 }
 
 .cybertruck__body::after {
@@ -101,8 +117,8 @@ body {
 
 .cybertruck__body-top {
 	width: 1000px;
-	/* width: 0; */
-	/* height: 0; */
+	height: 0;
+
 	border-bottom: 140px solid #67727F; /* Satin Steel Gray */
 	border-left: 591px solid transparent;
 	border-right: 400px solid transparent;
@@ -112,7 +128,126 @@ body {
 	position: relative;
 }
 
-.cybertruck__body-bottom-horizontal-line-top {
+.car-window-3-mask {
+	width: 84px;
+	height: 0;
+
+	border-bottom: 34px solid #000;
+	border-left: 0 solid transparent;
+	border-right: 6px solid transparent;
+
+	position: absolute;
+	top: 54px;
+	left: -100px;
+
+	transform: rotate(-93deg);
+}
+
+.car-window-3 {
+}
+
+.car-window-4-mask {
+	width: 93px;
+	height: 0;
+
+	border-bottom: 34px solid #000;
+	border-left: 0 solid transparent;
+	border-right: 6px solid transparent;
+
+	position: absolute;
+	top: 45px;
+	left: -61px;
+
+	transform: rotate(-93deg);
+}
+
+.car-window-4 {
+	width: 90px;
+	height: 0;
+
+	border-bottom: 34px solid gray;
+	border-left: 0 solid transparent;
+	border-right: 6px solid transparent;
+
+	position: absolute;
+	top: 1px;
+	left: 1.5px;
+}
+
+.car-window-5-mask {
+	width: 93px;
+	height: 0;
+
+	border-bottom: 78px solid #000;
+	border-left: 30px solid transparent;
+	border-right: 0 solid transparent;
+
+	position: absolute;
+	top: 20px;
+	left: -6px;
+
+	transform: rotate(-273deg);
+}
+
+.car-window-5 {
+	width: 90px;
+	height: 0;
+
+	border-bottom: 76px solid gray;
+	border-left: 30px solid transparent;
+	border-right: 0 solid transparent;
+
+	position: absolute;
+	top: 2px;
+	left: -28.5px;
+}
+
+.car-window-6 {
+	width: 64px;
+	height: 0;
+
+	border-bottom: 30px solid #000;
+	border-left: 13px solid transparent;
+	border-right: 0 solid transparent;
+
+	position: absolute;
+	top: 56px;
+	left: 63px;
+
+	transform: rotate(-273deg);
+}
+
+.car-window-7-mask {
+	width: 0;
+	height: 0;
+
+	border-bottom: 52px solid #000;
+	border-left: 0 solid transparent;
+	border-right: 140px solid transparent;
+
+	position: absolute;
+	top: 50px;
+	left: 107px;
+
+	/* transform: rotate(0deg); */
+}
+
+.car-window-7 {
+	width: 100px;
+	height: 0;
+
+	border-bottom: 48px solid gray;
+	border-left: 0 solid transparent;
+	border-right: 118px solid transparent;
+
+	position: absolute;
+	top: 0px;
+	left: 2px;
+
+	transform: rotate(-2deg);
+}
+
+.line-top {
 	width: 950px;
 	height: 1.5px;
 
@@ -140,7 +275,7 @@ body {
 	transform: rotate(180deg);
 }
 
-.cybertruck__body-bottom-horizontal-line-bottom {
+.line-bottom {
 	width: 380px;
 	height: 2px;
 
@@ -149,6 +284,19 @@ body {
 	position: absolute;
 	bottom: -60px;
 	right: 280px;
+}
+
+.line-front {
+	width: 80px;
+	height: 1.5px;
+
+	background-color: #000;
+
+	position: absolute;
+	top: 98px;
+	left: 27px;
+
+	transform: rotate(81deg);
 }
 
 .car-arches {
@@ -235,17 +383,6 @@ body {
 	transform: rotate(180deg);
 }
 
-.car-fender-middle-line {
-	width: 380px;
-	height: 20px;
-
-	background-color: #000;
-
-	position: absolute;
-	bottom: -20px;
-	right: 280px;
-}
-
 .car-fender-back-line {
 	width: 90px;
 	height: 0;
@@ -259,6 +396,116 @@ body {
 	bottom: -40px;
 	right: -20px;
 }
+
+.car-fender-middle-line {
+	width: 380px;
+	height: 20px;
+
+	background-color: #000;
+
+	position: absolute;
+	bottom: -20px;
+	right: 280px;
+}
+
+.car-fender-front-line {
+	width: 80px;
+	height: 0;
+
+	border-bottom: 40px solid #000;
+	border-left: 10px solid transparent;
+	border-right: 0 solid transparent;
+	border-radius: 24px 0 0 10px;
+
+	position: absolute;
+	top: 0;
+	left: -20px;
+}
+
+.cybertruck__headlight-back-mask {
+	width: 88px;
+	height: 0;
+
+	border-bottom: 14px solid #000;
+	border-left: 0 solid transparent;
+	border-right: 4px solid transparent;
+
+	position: absolute;
+	top: 227px;
+	left: 24px;
+
+	transform: rotate(180deg);
+}
+
+.cybertruck__headlight-back {
+	width: 40px;
+	height: 0;
+
+	border-bottom: 12px solid #8B0000;
+	border-left: 0 solid transparent;
+	border-right: 4px solid transparent;
+
+	position: absolute;
+	top: 0;
+	left: 47px;
+}
+
+.cybertruck__headlight-front-mask {
+	width: 73px;
+	height: 0;
+
+	border-bottom: 14px solid #000;
+	border-left: 4px solid transparent;
+	border-right: 0 solid transparent;
+
+	position: absolute;
+	top: 227px;
+	left: 909px;
+
+	transform: rotate(180deg);
+}
+
+.cybertruck__headlight-front {
+	width: 30px;
+	height: 0;
+
+	border-bottom: 12px solid #FF4500;
+	border-left: 0 solid transparent;
+	border-right: 0 solid transparent;
+
+	position: absolute;
+	top: 0;
+	left: 37px;
+}
+
+.cybertruck__headlight-main-mask {
+	width: 110px;
+	height: 0;
+
+	border-bottom: 14px solid #000;
+	border-left: 0 solid transparent;
+	border-right: 9px solid transparent;
+
+	position: absolute;
+	top: 177px;
+	left: 893px;
+
+	transform: rotate(180deg) rotate(22.5deg);
+}
+
+.cybertruck__headlight-main {
+	width: 110px;
+	height: 0;
+
+	border-bottom: 10px solid beige;
+	border-left: 0 solid transparent;
+	border-right: 6px solid transparent;
+
+	position: absolute;
+	top: 2px;
+	left: -2px;
+}
+
 
 .cybertruck__weels {
 	width: 780px;
