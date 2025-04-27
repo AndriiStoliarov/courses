@@ -40,8 +40,9 @@ body {
 /* Tasks
 ========================================*/
 
-.tasks {
-	margin-bottom: 100px;
+.tasks,
+.cybertruck {
+	margin-bottom: 50px;
 }
 
 .tasks__inner .blocks:not(:last-child) {
@@ -49,28 +50,91 @@ body {
 }
 
 .blocks {
-	padding: 20px;
+	padding: 20px 0;
+	margin-left: -20px;
+	margin-right: -20px;
+
+	font-size: 0;
 
 	border: 1px solid #000;
+}
 
-	position: relative;
+.blocks__row:not(:last-child) {
+	margin-bottom: 20px;
+}
+
+.blocks__item-bg {
+	background-color: #D3D3D3; /* lightgray */
+
 }
 
 .blocks__item {
+	width: 25%;
+	display: inline-block;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.blocks__object {
+	min-height: 277px;
+	padding: 20px;
+
+	font-size: 24px;
+
 	text-align: center;
-	padding: 15px;
+
+
+	transition: all 0.3s; /* forbidden black magic */
 }
 
-.blocks__item--brown {
-	background-color: #794f45;
+.blocks__object--green {
+	background-color: #7A956B;
 }
 
-.blocks__item--puprule {
-	background-color: #77608d;
+.blocks__object--brown {
+	background-color: #794F45;
 }
 
-.blocks__item--green {
-	background-color: #7a956b;
+.blocks__object--puprule {
+	background-color: #77608D;
+}
+
+
+
+.blocks__item:hover .translate-x {
+	transform: translate(40px);
+}
+
+.blocks__item:hover .translate {
+	transform: translate(20px, 30px);
+}
+
+.blocks__item:hover .translate-y {
+	transform: translate(0, 30%);
+}
+
+.blocks__item:hover .scale {
+	transform: scale(1.5);
+}
+
+.blocks__item:hover .scale-x {
+	transform: scaleX(1.6);
+}
+
+.blocks__item:hover .scale-y {
+	transform: scaleY(0.5);
+}
+
+.blocks__item:hover .rotate {
+	transform: rotate(-45deg);
+}
+
+.blocks__item:hover .rotate-x {
+	transform: rotateX(90deg);
+}
+
+.blocks__item:hover .rotate-y {
+	transform: rotateY(55deg);
 }
 
 /* Vehicle
@@ -81,11 +145,15 @@ body {
 }
 
 .cybertruck__body,
-.car-arches,
 .cybertruck__headlights,
-car-windows {
+.cybertruck__charger,
+.cybertruck__weels {
 	font-size: 0;
 	color: transparent;
+}
+
+.cybertruck__body {
+	overflow: clip;
 }
 
 .cybertruck__body::before {
@@ -106,13 +174,13 @@ car-windows {
 	content: "";
 	width: 600px;
 	height: 60px;
-	background: #FFF;
-
-	transform: rotate(22.4deg);
+	background-color: #FFF;
 
 	position: relative;
 	top: -227px;
 	left: 500px;
+
+	transform: rotate(22.4deg);
 }
 
 .cybertruck__body-top {
@@ -123,131 +191,71 @@ car-windows {
 	border-left: 591px solid transparent;
 	border-right: 400px solid transparent;
 
-	transform: rotate(3deg) translate(4px, 26px);
-
 	position: relative;
+
+	transform: rotate(3deg) translate(4px, 26px);
 }
 
-.car-window-3-mask {
-	width: 84px;
+.car-window__first {
+	width: 94px;
 	height: 0;
 
-	border-bottom: 34px solid #000;
+	border-bottom: 204px solid #000;
 	border-left: 0 solid transparent;
-	border-right: 6px solid transparent;
+	border-right: 36px solid transparent;
 
 	position: absolute;
-	top: 54px;
-	left: -100px;
+	top: -36px;
+	left: -146.5px;
 
 	transform: rotate(-93deg);
 }
 
-.car-window-3 {
-}
-
-.car-window-4-mask {
-	width: 93px;
+.car-window__second {
+	width: 94px;
 	height: 0;
 
-	border-bottom: 34px solid #000;
-	border-left: 0 solid transparent;
-	border-right: 6px solid transparent;
-
-	position: absolute;
-	top: 45px;
-	left: -61px;
-
-	transform: rotate(-93deg);
-}
-
-.car-window-4 {
-	width: 90px;
-	height: 0;
-
-	border-bottom: 34px solid gray;
-	border-left: 0 solid transparent;
-	border-right: 6px solid transparent;
-
-	position: absolute;
-	top: 1px;
-	left: 1.5px;
-}
-
-.car-window-5-mask {
-	width: 93px;
-	height: 0;
-
-	border-bottom: 78px solid #000;
-	border-left: 30px solid transparent;
+	border-bottom: 106px solid #000;
+	border-left: 42px solid transparent;
 	border-right: 0 solid transparent;
 
 	position: absolute;
-	top: 20px;
-	left: -6px;
+	top: 5px;
+	left: 8px;
 
 	transform: rotate(-273deg);
 }
 
-.car-window-5 {
-	width: 90px;
-	height: 0;
-
-	border-bottom: 76px solid gray;
-	border-left: 30px solid transparent;
-	border-right: 0 solid transparent;
-
-	position: absolute;
-	top: 2px;
-	left: -28.5px;
-}
-
-.car-window-6 {
-	width: 64px;
-	height: 0;
-
-	border-bottom: 30px solid #000;
-	border-left: 13px solid transparent;
-	border-right: 0 solid transparent;
-
-	position: absolute;
-	top: 56px;
-	left: 63px;
-
-	transform: rotate(-273deg);
-}
-
-.car-window-7-mask {
+.car-window__third {
 	width: 0;
 	height: 0;
 
-	border-bottom: 52px solid #000;
-	border-left: 0 solid transparent;
+	border-bottom: 52px solid #000; 
 	border-right: 140px solid transparent;
 
 	position: absolute;
-	top: 50px;
-	left: 107px;
-
-	/* transform: rotate(0deg); */
-}
-
-.car-window-7 {
-	width: 100px;
-	height: 0;
-
-	border-bottom: 48px solid gray;
-	border-left: 0 solid transparent;
-	border-right: 118px solid transparent;
-
-	position: absolute;
-	top: 0px;
-	left: 2px;
+	top: 48px;
+	left: 108px;
 
 	transform: rotate(-2deg);
 }
 
-.line-top {
+.cybertruck__body-bottom {
+	height: 0;
+	width: 1000px;
+
+	border-bottom: 140px solid #67727F; /* Satin Steel Gray */
+	border-left: 30px solid transparent;
+	border-right: 40px solid transparent;
+
+	position: relative;
+	top: 0;
+	left: 0;
+
+	transform: rotate(180deg);
+}
+
+.line__top {
 	width: 950px;
 	height: 1.5px;
 
@@ -260,22 +268,7 @@ car-windows {
 	transform: rotate(1deg);
 }
 
-.cybertruck__body-bottom {
-	/* height: 190px; */
-	/* width: 588px; */
-	height: 0;
-	width: 1000px;
-
-	border-bottom: 140px solid #67727F; /* Satin Steel Gray */
-	border-left: 30px solid transparent;
-	border-right: 40px solid transparent;
-	
-	position: relative;
-
-	transform: rotate(180deg);
-}
-
-.line-bottom {
+.line__bottom {
 	width: 380px;
 	height: 2px;
 
@@ -286,7 +279,7 @@ car-windows {
 	right: 280px;
 }
 
-.line-front {
+.line__front {
 	width: 80px;
 	height: 1.5px;
 
@@ -297,6 +290,78 @@ car-windows {
 	left: 27px;
 
 	transform: rotate(81deg);
+}
+
+.line__door-first {
+	width: 200px;
+	height: 1.5px;
+
+	background-color: #000;
+
+	position: absolute;
+	top: 168px;
+	left: 292px;
+	z-index: 2;
+
+	transform: rotate(90deg);
+}
+
+.line__door-second {
+	width: 130px;
+	height: 1.5px;
+
+	background-color: #000;
+
+	position: absolute;
+	top: 200px;
+	left: 482px;
+	z-index: 2;
+
+	transform: rotate(90deg);
+}
+
+.line__door-third {
+	width: 130px;
+	height: 1.5px;
+
+	background-color: #000;
+
+	position: absolute;
+	top: 200px;
+	left: 636px;
+	z-index: 2;
+
+	transform: rotate(90deg);
+}
+
+.handle__door-first {
+	width: 40px;
+	height: 7px;
+
+	background-color: transparent;
+	border: 1.5px solid #000;
+
+	position: absolute;
+	top: 151px;
+	left: 400px;
+	z-index: 2;
+
+	transform: rotate(1deg);
+}
+
+.handle__door-second {
+	width: 40px;
+	height: 7px;
+
+	background-color: transparent;
+	border: 1.5px solid #000;
+
+	position: absolute;
+	top: 154px;
+	left: 555px;
+	z-index: 2;
+
+	transform: rotate(1deg);
 }
 
 .car-arches {
@@ -441,7 +506,7 @@ car-windows {
 	width: 40px;
 	height: 0;
 
-	border-bottom: 12px solid #8B0000;
+	border-bottom: 12px solid #8B0000; /* darkred */
 	border-left: 0 solid transparent;
 	border-right: 4px solid transparent;
 
@@ -469,7 +534,7 @@ car-windows {
 	width: 30px;
 	height: 0;
 
-	border-bottom: 12px solid #FF4500;
+	border-bottom: 12px solid #D34410;
 	border-left: 0 solid transparent;
 	border-right: 0 solid transparent;
 
@@ -488,7 +553,7 @@ car-windows {
 
 	position: absolute;
 	top: 177px;
-	left: 893px;
+	left: 892px;
 
 	transform: rotate(180deg) rotate(22.5deg);
 }
@@ -497,23 +562,33 @@ car-windows {
 	width: 110px;
 	height: 0;
 
-	border-bottom: 10px solid beige;
+	border-bottom: 10px solid #F5F5DC; /* beige */
 	border-left: 0 solid transparent;
 	border-right: 6px solid transparent;
 
 	position: absolute;
 	top: 2px;
-	left: -2px;
+	left: -3px;
 }
 
+.cybertruck__charger {
+	width: 50px;
+	height: 26px;
+
+	background-color: transparent;
+
+	border: 1.5px solid #000;
+
+	position: absolute;
+	top: 160px;
+	left: 110px;
+	z-index: 2;
+}
 
 .cybertruck__weels {
 	width: 780px;
-	/* height: 150px; */
+	height: 0;
 
-	font-size: 0;
-	color: transparent;	
-	
 	position: relative;
 	top: 0;
 	left: 120px;
@@ -522,8 +597,7 @@ car-windows {
 .cybertruck__weel {
 	width: 150px;
 	height: 150px;
-	
-	/* background-color: #eee; */
+
 	background-color: #D3D3D3; /* lightgray */
 
 	border-radius: 50%;
@@ -549,9 +623,7 @@ car-windows {
 	height: 80px;
 
 	background-color: #000;
-
 	border-radius: 50%;
-	/* outline: 9px dashed #000; */
 
 	position: absolute;
 	top: 50%;
@@ -567,7 +639,7 @@ car-windows {
 
 .up__link {
 	font-size: 18px;
-	color: #4b0082; /* indigo */
+	color: #4B0082; /* indigo */
 
 	text-transform: lowercase;
 }
@@ -583,11 +655,7 @@ car-windows {
 	padding: 20px 0 20px 20px;
 }
 
-.footer__link {
+.footer__text {
 	font-size: 18px;
 	color: #006400; /* darkgreen */
-}
-
-.footer__link:hover {
-	text-decoration: underline;
 }

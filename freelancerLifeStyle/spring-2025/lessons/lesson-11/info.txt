@@ -1,5 +1,14 @@
-Border Radius Generator. Generator to build organic shapes with CSS3 border-radius.
-https://amr3k.github.io/fancy-border-radius/full-control.html
+Example of lesson by arkanit7
+https://arkanit7.github.io/lessons/lesson_11/
+
+Создание различных геометрических фигур при помощи CSS
+https://webmasters.by/html-coding/3198-create-different-shapes-css
+
+Геометрические фигуры на CSS
+https://habr.com/ru/articles/126207/
+
+The Shapes of CSS
+https://css-tricks.com/the-shapes-of-css/
 
 
 Заняття 11. Трансформації.
@@ -8,6 +17,7 @@ https://amr3k.github.io/fancy-border-radius/full-control.html
 https://youtube.com/live/_QIT2L9e80o?feature=share
 
 🟢 Посилання на нотатки:
+https://meadow-manicure-24b.notion.site/11-transform-1e07e75cc02a800991d5f457e04feb4a?pvs=25
 
 
 🤓 Домашнє завдання:

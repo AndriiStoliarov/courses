@@ -352,8 +352,8 @@ backface-visibility: visible; за замовченням
 /* ------------------- */
 
 /* Flipper */
-/*
-.card {
+
+/* .card {
 	display: inline-block;
 }
 .card__body {
@@ -383,17 +383,17 @@ backface-visibility: visible; за замовченням
 }
 .card__body:hover .card__front {
 	transform: rotateX(-180deg);
-}
-	*/
+} */
+	
 
-/*
-.text {
+
+/* .text {
 	transform: scale(1.1);
 	transition: all 0.3s;
 }
 .text:hover {
 	transform: scale(1.1999);
-}*/
+} */
 .weels {
 	max-width: 500px;
 	position: relative;
