@@ -65,7 +65,6 @@ body {
 
 .blocks__item-bg {
 	background-color: #D3D3D3; /* lightgray */
-
 }
 
 .blocks__item {
@@ -76,13 +75,11 @@ body {
 }
 
 .blocks__object {
-	min-height: 277px;
 	padding: 20px;
 
 	font-size: 24px;
 
 	text-align: center;
-
 
 	transition: all 0.3s; /* forbidden black magic */
 }
@@ -98,8 +95,6 @@ body {
 .blocks__object--puprule {
 	background-color: #77608D;
 }
-
-
 
 .blocks__item:hover .translate-x {
 	transform: translate(40px);
@@ -135,6 +130,48 @@ body {
 
 .blocks__item:hover .rotate-y {
 	transform: rotateY(55deg);
+}
+
+.blocks__item:hover .skew {
+	transform: skew(30deg, 20deg);
+}
+
+.blocks__item:hover .skew-x {
+	transform: skewX(-15deg);
+}
+
+.blocks__item:hover .skew-y {
+	transform: skewY(30deg);
+}
+
+.blocks__item:hover .transform {
+	transform: translate(20%, 20%) scale(0.5) rotate(30deg) skew(20deg, 20deg);
+}
+
+.blocks__item-bg--perspective {
+	perspective: 180px;
+	perspective-origin: center;
+}
+
+.blocks__item-bg-gray-alfa {
+	background-color: rgba(211, 211, 211, 0.5);
+}
+
+.blocks__item-bg--transform-style {
+	transform-style: preserve-3d;
+}
+
+.blocks__item:hover .transform-style {
+	transform: rotateY(35deg);
+}
+
+.blocks__item:hover .transform-origin {
+	transform-origin: bottom left;
+	transform: rotate(20deg);
+}
+
+.blocks__item:hover .perspective {
+	transform: rotateX(60deg);
 }
 
 /* Vehicle
