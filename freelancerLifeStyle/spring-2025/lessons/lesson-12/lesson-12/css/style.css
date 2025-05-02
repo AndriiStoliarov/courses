@@ -1,0 +1,580 @@
+/* Підключення фрифтів */
+
+/* Google Fonts (Plugin) */
+/* @import url("https://fonts.googleapis.com/css?family=Manrope:regular,500,600,700&display=swap"); */
+
+/* Локальне підключення шрифтів */
+@import url("fonts.css");
+
+/* Скидання стилів */
+@import url("reset.css");
+
+/* Компоненти */
+@import url("button.css");
+/* .... */
+
+/* Основні стилі */
+body {
+	font-family: "Gilroy", sans-serif;
+	background-color: #333;
+	color: #fff;
+}
+.wrapper {
+	overflow: clip;
+	min-height: 100%;
+}
+
+[class*="__container"] {
+	max-width: 600px;
+	margin: 0 auto;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.page {
+	padding: 30px;
+}
+/* ============================================ */
+
+/*
+	Веб-анімація для (пріорітети):
+	1. Привернення уваги до... -> продажі (бенефітів)
+	2. Викликати цікавість, забезпечити зручність
+	3. WOW-ефекту (крутість)
+	4. Руху (Мультиплікації, ігри)
+*/
+
+/*
+Основна задача веб-анімації - це створити 
+влучний настрій (атмоферу) на сайті відповідно дизайну, 
+потенційному настрою відвідувачів (клієнтів), типу продукту тощо
+Для привернення уваги конкретним елементам з подальшою дією
+*/
+
+/* ============================== */
+/* CSS – переходи */
+/* ============================== */
+
+/*
+CSS – переходи чи CSS – transitions
+Використовуються для пожвавлення нашої 
+інтерфейсу та підкреслення акцентів.
+Можуть застосовуватися всім елементам 
+і навіть до псевдоэлементам. 
+Що, у свою чергу, призводить до поліпшення 
+взаємодії з користувачем,як правило шляхом приємної 
+анімованої реакції на його дії. 
+Наприклад – наведення та натискання на кнопку.
+Також властивості transition можна використовувати для 
+побудови нескладних сценаріїв анімації. Фактично,
+CSS – переходи забезпечують зміну значень властивостей 
+із певною анімацією та сценарієм.
+
+!! Анімувати ми можемо лише ті значення,
+	які можна представити у вигляді числа
+*/
+
+/*
+transition-duration
+Визначає проміжок часу, 
+протягом якого має здійснюватись перехід. 
+Власне - тут ми вказуємо час за яке 
+одне значення властивості переходить (анімується)
+в інше. Властивість не успадковується.
+
+transition-duration: 0;
+*/
+
+/* 1000ms = 1s */
+/* 300ms = 0.3s */
+
+/*
+Зазвичай, плавний перехід налаштовую у межах:
+Від 0.2 до 0.8s (200 - 800ms)
+Беспечні межі (не зробити біду):
+Від 0.3 до 0.5s (300 - 500ms)
+*/
+
+/* .link {
+	color: #fff;
+	transition-duration: 0.3s;
+}
+.link:hover {
+	color: yellow;
+} */
+
+/* 
+Від того куди саме ми вказуємо час переходу, 
+змінюється поведінка
+ */
+/*
+.link {
+	color: #fff;
+	transition-duration: 0.3s;
+}
+.link:hover {
+	color: #000;
+	transition-duration: 0.8s;
+}
+*/
+.block {
+	background-color: #7a956b;
+	padding: 15px;
+	width: 300px;
+	font-size: 20px;
+	height: 250px;
+}
+.block--margin {
+	margin-bottom: 50px;
+}
+/*
+	transition-property
+	Містить назву CSS-властивостей,
+	до яких буде використано ефект переходу. 
+	Значення властивості може містити як одну 
+	властивість, так і список властивостей 
+	через кому. Властивість не успадковується.
+
+	За замовченням
+	transition-property: all; 
+*/
+
+.block {
+	background-color: #7a956b;
+	padding: 15px;
+	width: 300px;
+	font-size: 20px;
+	/* transition-duration: 0.5s, 2s;
+	transition-property: width, background-color; */
+}
+/*
+.block:hover {
+	padding: 20px;
+	width: 400px;
+	font-size: 25px;
+	background-color: #77608d;
+}
+*/
+/*
+	transition-delay
+	Затримка виконання переходу. Дозволяє зробити 
+	так, щоб зміна якості відбувалася не миттєво,
+	а з деякою затримкою. Час затримки переходу 
+	вказується у секундах або мілісекундах. 
+	Властивість не успадковується.
+*/
+.block {
+	/*
+	transition-duration: 1s, 1.5s;
+	transition-property: width, height;
+	transition-delay: 0s, 1s;
+	*/
+	/*
+	transition-property: all;
+	transition-duration: 0.3s;
+	transition-delay: 1s;
+	*/
+}
+/*
+.block:hover {
+	width: 500px;
+	height: 500px;
+}
+*/
+/*
+	transition-timing-function
+	Задає стиль нашого переходу,
+	тобто якийсь сценарій,
+	за яким здійсняться анімація.
+
+	Генератор:
+	https://cubic-bezier.com/
+*/
+
+.block {
+	/* transition-duration: 60s; */
+	/* transition-timing-function: ease; */
+	/* transition-timing-function: linear; */
+	/* transition-timing-function: steps(60, start); */
+}
+/*
+.block:hover {
+	width: 500px;
+}
+*/
+/*
+	Універсальний запис
+	transition
+
+	Порядок запису значень через пробіл:
+	transition-property
+	transition-duration
+	transition-timing-function
+	transition-delay
+*/
+
+.block {
+	/* transition: all 0.5s ease 0s; */
+	/*
+	transition:
+		width 0.3s linear 0.5s,
+		background-color 0.5s ease 0.1s;
+	*/
+	/* transition: width 0.3s; */
+}
+/*
+.block:hover {
+	width: 500px;
+	background-color: #77608d;
+}
+*/
+/*
+will-change - допомагає браузеру краще віпрацювати анімацію
+*/
+/*
+.block {
+	will-change: width, background-color;
+	transition:
+		width,
+		background-color 0.3s,
+		0.3s;
+}
+.block:hover {
+	width: 500px;
+	background-color: #77608d;
+}
+*/
+
+/* ========================== */
+/* CSS animation & @keyframes */
+/* ========================== */
+
+.circle {
+	position: relative;
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	background-color: #794f45;
+
+	border: 10px dashed #000;
+}
+
+/*
+Як і CSS властивість плавних переходів transition,
+про яку ми говорили в уроці,
+властивість animation покликана зробити наш інтерфейс 
+динамічніший, оживити його для кращої взаємодії з 
+користувачем та створення WOW ефекту. 
+
+Але на відміну від CSS переходів,
+створення анімації базується на ключових кадрах @keyframes,
+які дозволяють автоматично відтворювати та повторювати 
+ефекти протягом заданого часу, а також зупиняти 
+анімацію за певною подією. 
+
+Іншими словами, використання конструкції animation 
+та @keyframes дозволяє нам створювати більш складні 
+сценарії анімацій.
+*/
+
+/* Сценарії @keyframes (ключові кадри) */
+
+/* 
+name (ім'я сценарію) не може містити 
+пробіли та інші знаки крім дефісу (-) 
+*/
+
+@keyframes color-change {
+	0% {
+		background-color: #794f45;
+	}
+	50% {
+		background-color: #77608d;
+	}
+	100% {
+		background-color: #7a956b;
+	}
+}
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+@keyframes move {
+	0% {
+		left: 0;
+	}
+	100% {
+		left: 200px;
+	}
+}
+
+/*
+	animation-name
+	Визначає список анімацій (ключових кадрів),
+	що застосовуються до елемента. Можна вказати через кому. 
+	Причому пріоритет останній запис.
+	*/
+/* animation-name: none; */
+
+.circle {
+	/* animation-name: color-change; */
+	/* animation-name: move, color-change, rotate; */
+}
+
+/*
+	animation-duration
+	Відповідає за тривалість анімації.
+*/
+.circle {
+	/* animation-duration: 2s; */
+}
+
+/*
+	animation-timing-function
+	Встановлює сценарій розвитку анімації між ключовими кадрами.
+*/
+
+.circle {
+	/* animation-timing-function: linear; */
+	/* animation-timing-function: cubic-bezier(0, -0.47, 0.82, 0); */
+}
+
+/*
+	animation-delay
+	Відповідає за затримку перед відтворенням.
+*/
+.circle {
+	/* animation-delay: 1s; */
+}
+
+/*
+	animation-iteration-count
+	Відповідає за повтор відтворення ключових кадрів.
+*/
+.circle {
+	/* animation-iteration-count: 3; */
+	/* animation-iteration-count: infinite; */
+}
+
+/*
+	animation-direction
+	Визначає напрямок та тип відтворення ключових кадрів.
+	normal - за замовченням
+	reverse -  в зворотньому напрямку
+	alternate - кожна парна ітерація буде відбуватись 
+	у зворотньому напрямку
+	alternate-reverse - кожна непарна ітерація буде 
+	відбуватись у зворотньому напрямку
+*/
+
+.circle {
+	/* animation-direction: alternate; */
+}
+
+/*
+	animation-play-state
+	Дозволяє запускати або зупиняти анімацію за подією.
+	animation-play-state: running;
+*/
+
+.circle:hover {
+	/* animation-play-state: paused; */
+}
+
+/*
+	animation-fill-mode
+	Визначає,
+	які значення анімованих css властивостей 
+	застосовуються до об'єкта після завершення анімації.
+*/
+
+.circle {
+	/* animation-fill-mode: forwards; */
+}
+
+/*
+	Універсальний запис
+	animation
+
+	Порядок запису властивостей:
+	animation-name
+	animation-duration
+	animation-timing-function
+	animation-iteration-count
+	animation-direction
+	animation-play-state
+	animation-delay
+	animation-fill-mode
+
+*/
+
+.circle {
+	/* animation: move 1s linear 5 normal running 0s forwards; */
+	/*
+	animation:
+		move 1s linear 5 normal running 0s forwards,
+		color-change 5s ease forwards,
+		rotate 1s infinite;
+	*/
+}
+
+/* Приклади */
+/* 3D */
+
+.newton {
+}
+.newton__body {
+	perspective: 300px;
+	width: 300px;
+	height: 300px;
+	margin: 0 auto;
+	border-top: 10px solid yellowgreen;
+	position: relative;
+	transform: rotateY(20deg);
+}
+.newton__body:hover .newton__item {
+	animation-play-state: paused;
+}
+.newton__item {
+	position: absolute;
+	top: -2px;
+	height: 100%;
+	width: 33.333%;
+	left: 33.333%;
+	transform-origin: top;
+}
+.newton__item:nth-child(1) {
+	animation: left-item 1s infinite ease-in alternate;
+	z-index: 3;
+}
+.newton__item:nth-child(1)::after {
+	bottom: -8%;
+	scale: 1.2;
+}
+.newton__item:nth-child(2) {
+	z-index: 2;
+}
+.newton__item:nth-child(3) {
+	z-index: 1;
+	animation: right-item 1s infinite ease-out alternate;
+}
+.newton__item:nth-child(3)::after {
+	bottom: 8%;
+	scale: 0.8;
+}
+.newton__item::before {
+	content: "";
+	width: 5px;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	height: 100%;
+	margin-left: -2.5px;
+	background-color: #fff;
+}
+.newton__item::after {
+	content: "";
+	width: 100px;
+	height: 100px;
+	background: radial-gradient(circle at top, yellowgreen, black);
+	border-radius: 50%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	box-shadow: 0px 30px 20px 1px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes left-item {
+	0% {
+		transform: rotateX(45deg);
+	}
+	50%,
+	100% {
+		transform: rotateX(0deg);
+	}
+}
+@keyframes right-item {
+	0%,
+	50% {
+		transform: rotateX(0deg);
+	}
+	100% {
+		transform: rotateX(-45deg);
+	}
+}
+
+/*
+.newton {
+}
+.newton__body {
+	width: 300px;
+	height: 300px;
+	margin: 0 auto;
+	position: relative;
+}
+.newton__body::before {
+	width: 100%;
+	content: "";
+	height: 5px;
+	position: absolute;
+	top: 0;
+	background-color: #794f45;
+	z-index: 2;
+}
+.newton__item {
+	position: absolute;
+	height: 100%;
+	inset-block-start: 0;
+	transform-origin: top;
+}
+.newton__item:nth-child(1) {
+	inset-inline-start: 50px;
+	animation: left-item 1s infinite ease-in alternate;
+}
+.newton__item:nth-child(2) {
+	inset-inline-start: 148px;
+}
+.newton__item:nth-child(3) {
+	inset-inline-end: 50px;
+	animation: right-item 1s infinite ease-out alternate;
+}
+.newton__item::before {
+	content: "";
+	height: 200px;
+	width: 5px;
+	background-color: #77608d;
+}
+.newton__item::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	height: 100px;
+	width: 100px;
+	border-radius: 50%;
+	background-color: #7a956b;
+	transform: translate(-52.5px, 0px);
+}
+
+@keyframes left-item {
+	0% {
+		transform: rotate(15deg);
+	}
+	50%,
+	100% {
+		transform: rotate(0deg);
+	}
+}
+@keyframes right-item {
+	0%,
+	50% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(-15deg);
+	}
+}
+*/

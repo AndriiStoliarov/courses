@@ -1,4 +1,3 @@
-@import url("fonts.css");
 @import url("reset.css");
 
 
@@ -19,6 +18,8 @@ body {
 	font-family: "Roboto", "Arial", sans-serif;
 	font-size: 24px;
 	color: #000;
+
+	background-color: #FFF;
 }
 
 /* Header
@@ -38,205 +39,658 @@ body {
 /* Tasks
 ========================================*/
 
+.tasks,
+.cybertruck {
+	margin-bottom: 50px;
+}
+
 .tasks__inner .blocks:not(:last-child) {
 	margin-bottom: 20px;
 }
 
 .blocks {
-	padding: 20px;
+	padding: 20px 0;
+	margin-left: -20px;
+	margin-right: -20px;
+
+	font-size: 0;
 
 	border: 1px solid #000;
+}
 
-	position: relative;
+.blocks__row:not(:last-child) {
+	margin-bottom: 20px;
+}
+
+.blocks__item-bg {
+	background-color: #D3D3D3; /* lightgray */
 }
 
 .blocks__item {
+	width: 25%;
+	display: inline-block;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.blocks__object {
+	padding: 20px;
+
+	font-size: 24px;
+
 	text-align: center;
-	padding: 15px;
+
+	transition: all 0.3s; /* forbidden black magic */
 }
 
-.blocks__item--brown {
-	background-color: #794f45;
+.blocks__object--green {
+	background-color: #7A956B;
 }
 
-.blocks__item--puprule {
-	background-color: #77608d;
+.blocks__object--brown {
+	background-color: #794F45;
 }
 
-.blocks__item--green {
-	background-color: #7a956b;
+.blocks__object--puprule {
+	background-color: #77608D;
 }
 
-.blocks__item--relative {
-	position: relative;
-	top: 20px;
-	left: 50px;
+.blocks__item:hover .translate-x {
+	transform: translate(40px);
 }
 
-.blocks__item--absolute {
-	position: absolute;
-	top: 0;
-	left: 0;
+.blocks__item:hover .translate {
+	transform: translate(20px, 30px);
 }
 
-.blocks__item--fixed {
-	position: fixed;
-	top: 50px;
-	right: 50px;
-	z-index: 10;
+.blocks__item:hover .translate-y {
+	transform: translate(0, 30%);
 }
 
-.blocks__item--sticky {
-	position: sticky;
-	top: 0;
-	left: 0;
+.blocks__item:hover .scale {
+	transform: scale(1.5);
 }
 
-.blocks__item--z-index-1 {
-	position: relative;
-	top: 10px;
-	left: 0;
-	z-index: 1;
+.blocks__item:hover .scale-x {
+	transform: scaleX(1.6);
 }
 
-.blocks__item--z-index-2 {
-	position: relative;
-	top: 0;
-	left: 20px;
-	z-index: 2;
-}
-.blocks__item--z-index-3 {
-	position: relative;
-	top: -10px;
-	left: 0;
-	z-index: 1;
+.blocks__item:hover .scale-y {
+	transform: scaleY(0.5);
 }
 
-/* Products
+.blocks__item:hover .rotate {
+	transform: rotate(-45deg);
+}
+
+.blocks__item:hover .rotate-x {
+	transform: rotateX(90deg);
+}
+
+.blocks__item:hover .rotate-y {
+	transform: rotateY(55deg);
+}
+
+.blocks__item:hover .skew {
+	transform: skew(30deg, 20deg);
+}
+
+.blocks__item:hover .skew-x {
+	transform: skewX(-15deg);
+}
+
+.blocks__item:hover .skew-y {
+	transform: skewY(30deg);
+}
+
+.blocks__item:hover .transform {
+	transform: translate(20%, 20%) scale(0.5) rotate(30deg) skew(20deg, 20deg);
+}
+
+.blocks__item-bg--perspective {
+	perspective: 180px;
+	perspective-origin: center;
+}
+
+.blocks__item-bg-gray-alfa {
+	background-color: rgba(211, 211, 211, 0.5);
+}
+
+.blocks__item-bg--transform-style {
+	transform-style: preserve-3d;
+}
+
+.blocks__item:hover .transform-style {
+	transform: rotateY(35deg);
+}
+
+.blocks__item:hover .transform-origin {
+	transform-origin: bottom left;
+	transform: rotate(20deg);
+}
+
+.blocks__item:hover .perspective {
+	transform: rotateX(60deg);
+}
+
+/* Vehicle
 ========================================*/
 
-.products,
-.info,
-.tasks {
-	margin-bottom: 100px;
+.cybertruck {
+	position: relative;
 }
 
-.product-card {
-	max-width: 264px;
+.cybertruck__body,
+.cybertruck__headlights,
+.cybertruck__charger,
+.cybertruck__weels {
+	font-size: 0;
+	color: transparent;
+}
 
-	border: 1px solid #E6E6E6;
+.cybertruck__body {
+	overflow: clip;
+}
+
+/* .cybertruck__body::before {
+	content: "";
+	width: 100px;
+	height: 30px;
+	background: #FFF;
+
+	transform: rotate(-77deg);
+
+	position: absolute;
+	top: 180px;
+	left: 954px;
+	z-index: 2;
+} */
+
+.cybertruck__body::after {
+	content: "";
+	width: 600px;
+	height: 60px;
 	background-color: #FFF;
 
 	position: relative;
+	top: -227px;
+	left: 500px;
 
-	transition: all 0.3s; /* forbidden black magic */
+	transform: rotate(22.4deg);
 }
+.cybertruck__body-top-test {
+	width: 0;
+	height: 0;
 
-.product-card:hover {
-	border-color: #2C742F;
-	box-shadow: 0 0 12px 0 rgba(32, 181, 38, 0.32);
-}
-
-.product-card__buttons {
-	visibility: hidden;
-	opacity: 0;
+	border-left: 450px solid transparent;
+	border-right: 250px solid transparent;
+	border-bottom: 100px solid green;
 
 	position: absolute;
-	top: 16px;
-	right: 16px;
+	top: 40px;
+	left: 0;
 
-	transition: all 0.3s; /* forbidden black magic */
+	z-index: 1;
+
+	/* transform: rotate(3deg) translate(4px, 26px); */
 }
 
-.product-card__buttons :not(:last-child) {
-	margin-bottom: 6px;
+.cybertruck__body-top {
+	width: 1000px;
+	height: 0;
+
+	border-bottom: 140px solid #67727F; /* Satin Steel Gray */
+	border-left: 591px solid transparent;
+	border-right: 400px solid transparent;
+
+	position: relative;
+
+	transform: rotate(3deg) translate(4px, 26px);
 }
 
-.product-card__button {
-	display: block;
+.car-window__first {
+	width: 94px;
+	height: 0;
+
+	border-bottom: 204px solid #000;
+	border-left: 0 solid transparent;
+	border-right: 36px solid transparent;
+
+	position: absolute;
+	top: -36px;
+	left: -146.5px;
+
+	transform: rotate(-93deg);
+}
+
+.car-window__second {
+	width: 94px;
+	height: 0;
+
+	border-bottom: 106px solid #000;
+	border-left: 42px solid transparent;
+	border-right: 0 solid transparent;
+
+	position: absolute;
+	top: 5px;
+	left: 8px;
+
+	transform: rotate(-273deg);
+}
+
+.car-window__third {
+	width: 0;
+	height: 0;
+
+	border-bottom: 52px solid #000; 
+	border-right: 140px solid transparent;
+
+	position: absolute;
+	top: 48px;
+	left: 108px;
+
+	transform: rotate(-2deg);
+}
+
+.cybertruck__body-bottom {
+	height: 0;
+	width: 1000px;
+
+	border-bottom: 140px solid #67727F; /* Satin Steel Gray */
+	border-left: 30px solid transparent;
+	border-right: 40px solid transparent;
+
+	position: relative;
+	top: 0;
+	left: 0;
+
+	transform: rotate(180deg);
+}
+
+.line__top {
+	width: 950px;
+	height: 1.5px;
+
+	background-color: #000;
+
+	position: absolute;
+	bottom: -132px;
+	right: -39px;
+
+	transform: rotate(1deg);
+}
+
+.line__bottom {
+	width: 380px;
+	height: 2px;
+
+	background-color: #000;
+
+	position: absolute;
+	bottom: -60px;
+	right: 280px;
+}
+
+.line__front {
+	width: 80px;
+	height: 1.5px;
+
+	background-color: #000;
+
+	position: absolute;
+	top: 98px;
+	left: 27px;
+
+	transform: rotate(81deg);
+}
+
+.line__door-first {
+	width: 200px;
+	height: 1.5px;
+
+	background-color: #000;
+
+	position: absolute;
+	top: 168px;
+	left: 292px;
+	z-index: 2;
+
+	transform: rotate(90deg);
+}
+
+.line__door-second {
+	width: 130px;
+	height: 1.5px;
+
+	background-color: #000;
+
+	position: absolute;
+	top: 200px;
+	left: 482px;
+	z-index: 2;
+
+	transform: rotate(90deg);
+}
+
+.line__door-third {
+	width: 130px;
+	height: 1.5px;
+
+	background-color: #000;
+
+	position: absolute;
+	top: 200px;
+	left: 636px;
+	z-index: 2;
+
+	transform: rotate(90deg);
+}
+
+.handle__door-first {
 	width: 40px;
-	height: 40px;
-	padding: 5px 10px;
+	height: 7px;
 
-	background-color: #FFF;	
-	border-radius: 50%;
-	border: 2px solid #F2F2F2;
+	background-color: transparent;
+	border: 1.5px solid #000;
 
-	transition: all 0.3s; /* forbidden black magic */
+	position: absolute;
+	top: 151px;
+	left: 400px;
+	z-index: 2;
+
+	transform: rotate(1deg);
 }
 
-.product-card__button:hover {
-	background-color: #00B207;
-	border-color: transparent;
+.handle__door-second {
+	width: 40px;
+	height: 7px;
+
+	background-color: transparent;
+	border: 1.5px solid #000;
+
+	position: absolute;
+	top: 154px;
+	left: 555px;
+	z-index: 2;
+
+	transform: rotate(1deg);
 }
 
-.product-card:hover .product-card__buttons {
-	visibility: visible;
-	opacity: 1;
-}
-
-.product-card__image {
-	padding: 5px;
-}
-
-.product-card__body {
-	padding: 12px 16px 12px 12px;
-
+.car-arches {
 	position: relative;
 }
 
-.product-card__title {
-	max-width: 130px;
+.car-arche-front {
+	width: 170px;
+	height: 50px;
 
-	font-family: "Poppins", sans-serif;
-	font-size: 14px;
-	color: #4D4D4D;
-	line-height: 1.5;
+	background-color: #A9A9A9; /* darkgray */
 
-	transition: all 0.3s; /* forbidden black magic */
-}
-
-.product-card:hover .product-card__title {
-	color: #2C742F;
-}
-
-.product-card__title:hover a {
-	text-decoration-line: underline;
-}
-
-/* .card__price {
-	margin-bottom: 6px;
-} */
-
-.price {
-	font-family: "Poppins", sans-serif;
-	font-size: 16px;
-	line-height: 1.5;
-}
-
-.price__current {
-	display: inline-block;
-
-	font-weight: 500;
-	color: #1A1A1A;
-}
-
-.price__old {
-	display: inline-block;
-
-	color: #999;
-
-	text-decoration-line: line-through;
-}
-
-.product-card__icon {
 	position: absolute;
-	bottom: 23px;
-	right: 16px;
+	top: 0;
+	left: 80px;
+	z-index: 2;
 }
 
-/* Some section
-========================================*/
+.car-arche-back {
+	width: 170px;
+	height: 50px;
+
+	background-color: #A9A9A9; /* darkgray */
+
+	position: absolute;
+	bottom: -50px;
+	right: 90px;
+	z-index: 2;
+}
+
+.car-arche-front::after,
+.car-arche-back::after {
+	content: "";
+	height: 0;
+	width: 170px;
+
+	border-bottom: 50px solid #A9A9A9;
+	border-left: 40px solid transparent;
+	border-right: 40px solid transparent;
+
+	position: absolute;
+	top: 50px;
+	right: 0;
+
+	transform: rotate(180deg);
+}
+
+.car-fender-front {
+	width: 210px;
+	height: 60px;
+
+	background-color: #000;
+
+	position: absolute;
+	top: 0;
+	left: 60px;
+}
+
+.car-fender-back {
+	width: 210px;
+	height: 60px;
+
+	background-color: #000;
+
+	position: absolute;
+	bottom: -60px;
+	right: 70px;
+}
+
+.car-fender-front::after,
+.car-fender-back::after {
+	content: "";
+	height: 0;
+	width: 210px;
+
+	border-bottom: 60px solid #000;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+
+	position: absolute;
+	top: 60px;
+	right: 0;
+
+	transform: rotate(180deg);
+}
+
+.car-fender-back-line {
+	width: 90px;
+	height: 0;
+
+	border-bottom: 40px solid #000;
+	border-left: 0 solid transparent;
+	border-right: 10px solid transparent;
+	border-radius: 0 24px 10px 0;
+
+	position: absolute;
+	bottom: -40px;
+	right: -20px;
+}
+
+.car-fender-middle-line {
+	width: 380px;
+	height: 20px;
+
+	background-color: #000;
+
+	position: absolute;
+	bottom: -20px;
+	right: 280px;
+}
+
+.car-fender-front-line {
+	width: 80px;
+	height: 0;
+
+	border-bottom: 40px solid #000;
+	border-left: 10px solid transparent;
+	border-right: 0 solid transparent;
+	border-radius: 24px 0 0 10px;
+
+	position: absolute;
+	top: 0;
+	left: -20px;
+}
+
+.cybertruck__headlight-back-mask {
+	width: 88px;
+	height: 0;
+
+	/* overflow: clip; */
+
+	border-bottom: 14px solid #000;
+	/* border-left: 0 solid transparent; */
+	border-right: 4px solid transparent;
+
+	position: absolute;
+	top: 227px;
+	left: 24px;
+
+	transform: rotate(180deg);
+}
+
+.cybertruck__headlight-back {
+	width: 40px;
+	height: 0;
+
+	border-bottom: 12px solid #8B0000; /* darkred */
+	/* border-left: 0 solid transparent; */
+	border-right: 0px solid transparent;
+	/* background-color: #8B0000; */
+	/* box-shadow: -20px 10px 80px 40px #8B0000; */
+
+	position: absolute;
+	top: 0;
+	left: 45px;
+
+	transform: skew(16deg);
+}
+
+.cybertruck__headlight-front-mask {
+	width: 73px;
+	height: 0;
+
+	border-bottom: 14px solid #000;
+	border-left: 4px solid transparent;
+	/* border-right: 0 solid transparent; */
+
+	position: absolute;
+	top: 227px;
+	left: 909px;
+
+	transform: rotate(180deg);
+}
+
+.cybertruck__headlight-front {
+	width: 30px;
+	height: 0;
+
+	border-bottom: 12px solid #D34410;
+	/* border-left: 0 solid transparent; */
+	border-right: 0 solid transparent;
+	/* box-shadow: -20px 10px 80px 25px #D34410; */
+
+	position: absolute;
+	top: 0;
+	left: 37px;
+}
+
+.cybertruck__headlight-main-mask {
+	width: 100px;
+	height: 0;
+
+	border-bottom: 14px solid #000;
+	/* border-left: 0 solid transparent; */
+	border-right: 9px solid transparent;
+
+	position: absolute;
+	top: 174.5px;
+	left: 892px;
+
+	transform: rotate(202.5deg);
+}
+
+.cybertruck__headlight-main {
+	width: 100px;
+	height: 0;
+
+	border-bottom: 10px solid #F5F5DC; /* beige */
+	/* border-left: 0px solid transparent; */
+	border-right: 6px solid transparent;
+	/* box-shadow: -120px 10px 60px 40px #F5F5DC; */
+
+	position: absolute;
+	top: 2px;
+	left: -1px;
+}
+
+.cybertruck__charger {
+	width: 50px;
+	height: 26px;
+
+	background-color: transparent;
+
+	border: 1.5px solid #000;
+
+	position: absolute;
+	top: 160px;
+	left: 110px;
+	z-index: 2;
+}
+
+.cybertruck__weels {
+	width: 780px;
+	height: 0;
+
+	position: relative;
+	top: 0;
+	left: 120px;
+}
+
+.cybertruck__weel {
+	width: 150px;
+	height: 150px;
+
+	background-color: #D3D3D3; /* lightgray */
+
+	border-radius: 50%;
+	border: 10px solid #000;
+	outline: 7px dashed #000;
+
+	position: absolute;
+}
+
+.cybertruck__weel:first-child {
+	left: 20px;
+	bottom: 0;
+}
+
+.cybertruck__weel:last-child {
+	right: 20px;
+	bottom: 0;
+}
+
+.cybertruck__weel::after {
+	content: "";
+	width: 80px;
+	height: 80px;
+
+	background-color: #000;
+	border-radius: 50%;
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+	transform: translate(-50%, -50%);
+}
 
 .up {
 	padding-right: 20px;
@@ -245,7 +699,7 @@ body {
 
 .up__link {
 	font-size: 18px;
-	color: #4b0082; /* indigo */
+	color: #4B0082; /* indigo */
 
 	text-transform: lowercase;
 }
@@ -259,15 +713,6 @@ body {
 
 .footer {
 	padding: 20px 0 20px 20px;
-}
-
-.footer__link {
-	font-size: 18px;
-	color: #006400; /* darkgreen */
-}
-
-.footer__link:hover {
-	text-decoration: underline;
 }
 
 .footer__text {
