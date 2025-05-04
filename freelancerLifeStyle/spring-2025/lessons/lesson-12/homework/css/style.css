@@ -79,28 +79,52 @@ body {
 	margin-bottom: 50px;
 
 	position: relative;
+	top: 0;
+	left: -1080px;
+	/* left: 480px; */
 
-	animation: move1 10s linear 1s forwards;
+	animation: move-direct 12s ease-out 1s, move-on-sides 12s ease-out 1s, stop 2s linear 13s, move-back 6s ease-in-out 15s forwards;
 }
 
-@keyframes move1 {
+@keyframes move-direct {
 	0% {
-		left: 0;
-	}
-	20% {
-		left: 168px;
-	}
-	40% {
-		left: 336px;
-	}
-	60% {
-		left: 504px;
-	}
-	80% {
-		left: 672px;
+		left: -1080px;
 	}
 	100% {
-		left: 880px;
+		left: 1680px;
+	}
+}
+
+@keyframes move-on-sides {
+	0% {
+		top: 0;
+	}
+	40% {
+		top: -80px;
+	}
+	60% {
+		top: 25px;
+	}
+	100% {
+		top: 0;
+	}
+}
+
+@keyframes stop {
+	0% {
+		left: 1680px;
+	}
+	100% {
+		left: 1680px;
+	}
+}
+
+@keyframes move-back {
+	0% {
+		left: 1680px;
+	}
+	100% {
+		left: 480px;
 	}
 }
 
@@ -480,12 +504,12 @@ body {
 
 	transform: skew(16deg);
 
-	/* animation: light 10s linear; */
+	animation: light-back 8s linear 14s;
 }
 
-@keyframes light {
+@keyframes light-back {
 	0% {
-		box-shadow: none;
+		box-shadow: -20px 10px 80px 40px #8B0000;
 	}
 	100% {
 		box-shadow: -20px 10px 80px 40px #8B0000;
@@ -592,18 +616,12 @@ body {
 	border-radius: 50%;
 	border: 10px solid #000;
 	outline: 7px dashed #000;
+	opacity: 1;
+	visibility: visible;
 
 	position: absolute;
 
-	/* animation-name: rotate; */
-	/* animation-duration: 10s; */
-	/* animation-timing-function: linear; */
-	/* animation-delay: 2s; */
-	/* animation-iteration-count: 2; */
-	/* animation-iteration-count: infinite; */
-	/* animation-fill-mode: forwards; */
-
-	animation: rotate 10s linear 1s, rotate-back 10s linear 12s;
+	animation: rotate 12s ease-out 1s, rotate-back 6s ease-in-out 15s, disappearing-weels 0.2s linear 24s forwards;
 }
 
 @keyframes rotate {
@@ -624,6 +642,16 @@ body {
 	}
 }
 
+@keyframes disappearing-weels {
+	0% {
+		opacity: 1;
+		visibility: visible;
+	}
+	100% {
+		opacity: 0;
+		visibility: hidden;
+	}
+}
 
 .cybertruck__weel:first-child {
 	left: 20px;
@@ -648,6 +676,42 @@ body {
 	left: 50%;
 
 	transform: translate(-50%, -50%);
+}
+
+.cybertruck__bricks {
+	opacity: 0;
+	visibility: hidden;
+
+	position: relative;
+
+	animation: appearing-bricks 0.2s linear 26s forwards;
+}
+
+@keyframes appearing-bricks {
+	0% {
+		opacity: 0;
+		visibility: hidden;
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+.cybertruck__brick {
+	width: 100px;
+
+	position: absolute;
+}
+
+.cybertruck__brick--back {
+	top: -117px;
+	left: 160px;
+}
+
+.cybertruck__brick--front {
+	top: -117px;
+	left: 760px;
 }
 
 .up {

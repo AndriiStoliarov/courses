@@ -1,10 +1,13 @@
+Генератор для створення анімованого фону:
+https://wweb.dev/resources/animated-css-background-generator
+
 Заняття 12. CSS-анімації.
 
 🟢 Посилання на урок:
 https://youtube.com/live/4QrtC6U0ACM?feature=share
 
 🟢 Посилання на нотатки:
-
+https://meadow-manicure-24b.notion.site/12-transition-animation-1e87e75cc02a807d83baca49bbdea249?pvs=25
 
 
 🤓 Домашнє завдання:
