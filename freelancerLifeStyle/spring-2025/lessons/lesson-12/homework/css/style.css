@@ -81,7 +81,6 @@ body {
 	position: relative;
 	top: 0;
 	left: -1080px;
-	/* left: 480px; */
 
 	animation: move-direct 12s ease-out 1s, move-on-sides 12s ease-out 1s, stop 2s linear 13s, move-back 6s ease-in-out 15s forwards;
 }
@@ -496,7 +495,6 @@ body {
 	border-left: 0 solid transparent;
 	border-right: 0px solid transparent;
 	border-bottom: 12px solid #8B0000; /* darkred */
-	/* box-shadow: -20px 10px 80px 40px #8B0000; */
 
 	position: absolute;
 	top: 0;
@@ -539,7 +537,6 @@ body {
 	border-left: 0 solid transparent;
 	border-right: 0 solid transparent;
 	border-bottom: 12px solid #D34410;
-	/* box-shadow: -20px 10px 80px 25px #D34410; */
 
 	position: absolute;
 	top: 0;
