@@ -140,7 +140,7 @@ body {
 	overflow: clip;
 }
 
-.cybertruck__body-top {
+.cybertruck__top-body {
 	width: 0;
 	height: 0;
 
@@ -197,7 +197,7 @@ body {
 	left: 108px;
 }
 
-.cybertruck__body-bottom-first {
+.cybertruck__first-bottom-body {
 	width: 100px;
 	height: 0;
 
@@ -213,7 +213,7 @@ body {
 	transform: rotate(180deg);
 }
 
-.cybertruck__body-bottom-second {
+.cybertruck__second-bottom-body {
 	width: 0;
 	height: 0;
 
@@ -227,7 +227,7 @@ body {
 	z-index: -1;
 }
 
-.cybertruck__body-bottom-third {
+.cybertruck__third-bottom-body {
 	width: 860px;
 	height: 0;
 
