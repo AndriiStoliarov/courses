@@ -41,15 +41,26 @@ body {
 ========================================*/
 
 .vehicle {
-	padding: 0 20px;
-
 	background: #FFF url(../img/film.svg) 0 -125px / 200px 100% repeat;
 
 	position: relative;
 	z-index: -2;
 
-	animation: move-film linear 20s infinite;
+	animation: move-film linear 18s infinite;
 }
+
+/* .vehicle__film {
+	width: 7000px;
+	height: 62px;
+
+	background: #FFF url(../img/film.svg) 0 0 / 200px repeat;
+	position: absolute;
+	top: 20px;
+	left: 0;
+	z-index: -2;
+
+	animation: move-film 40s linear;
+} */
 
 @keyframes move-film {
 	from {
