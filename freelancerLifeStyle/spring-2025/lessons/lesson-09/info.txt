@@ -1,3 +1,6 @@
+Шпаргалка по методології БЕМ з купою прикладів коду, рекомендую для ознайомлення.
+https://bem-cheat-sheet.9elements.com/
+
 Шпаргалка Anastasiia Pliuta з назвами класів, які часто використовуються.
 https://pliutanastya.github.io/lessons/lesson_09/
 

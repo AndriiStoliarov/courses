@@ -1,7 +1,17 @@
-Заняття 13. .
+Гра для тренування FLEXBOX FROGGY, рекомендую почати саме з неї:
+https://flexboxfroggy.com/#uk
+
+
+Заняття 13. Модуль FLEX.
 
 🟢 Посилання на урок:
-
+https://youtube.com/live/VFcQ3pY0-GM?feature=share
 
 🟢 Посилання на нотатки:
+https://meadow-manicure-24b.notion.site/13-Flex-1ea7e75cc02a80e49ed2e87ba5a8ff3a?pvs=25
 
+
+🤓 Домашнє завдання:
+1) Вивчаємо теорію уроку ( Шпаргалка https://fls.guru/flex.html, Граємо в гру https://flexboxfroggy.com/ , https://codingfantasy.com/games/flexboxadventure/play )
+2) Верстаємо частини макету
+3) Експериментуємо

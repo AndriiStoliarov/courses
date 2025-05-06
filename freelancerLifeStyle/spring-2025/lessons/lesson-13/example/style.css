@@ -1,0 +1,188 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+html,
+body {
+  height: 100%;
+  line-height: 1;
+  background-color: #141414;
+  color: #ffffff;
+  font-family: sans-serif;
+}
+
+/* обнулення */
+/* =========================================== */
+
+.wrapper {
+  min-height: 100%;
+  overflow: clip;
+}
+
+[class*="__container"] {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+/* =========================================== */
+
+/* =========================================== */
+/* кнопка з цікавим ефектом, щоб побачити як працює під капотом закоментуйте overflow: hidden; */
+.primary-button {
+  position: relative;
+  padding: 16px 30px;
+  border-radius: 30px;
+  border: 2px solid grey;
+  text-align: center;
+  text-transform: capitalize;
+  overflow: hidden;
+}
+
+.primary-button::before {
+  content: "";
+  position: absolute;
+  top: -35%;
+  left: -35%;
+  transform: skew(-20deg);
+  height: 170%;
+  width: 30%;
+  background-color: #fff;
+  background: linear-gradient(90deg, #00000000, #ffffff61);
+}
+
+.primary-button:hover::before {
+  translate: 500%;
+  transition: translate 1s;
+}
+/* =========================================== */
+
+/* =========================================== */
+.section {
+  padding: 60px 0;
+}
+
+.section__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.section__title {
+  font-size: 32px;
+  line-height: 1.4;
+  text-transform: capitalize;
+}
+
+.section__cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.section__item-card {
+  /* вказання розміру для обгортки картки за допомогою формули */
+  /* gap між картками 30px в усіх записах, можете спробувати змінити його на інше значення */
+  
+  /* 2 колонки */
+/*   flex: 0 1 calc(100% / 2 - ((30px * (2 - 1)) / 2)); */
+  
+  /* 3 колонки */
+  flex: 0 1 calc(100% / 3 - ((30px * (3 - 1)) / 3));
+  
+  /* 4 колонки */
+  /* flex: 0 1 calc(100% / 4 - ((30px * (4 - 1)) / 4)); */
+  
+  /* 5 колонок */
+/*   flex: 0 1 calc(100% / 5 - ((30px * (5 - 1)) / 5)); */
+
+  /* цей метод надано для загального розвитку і коли ми дійдемо до грідів то такі картки буде робити простіше ними і без формул */
+}
+
+/* =========================================== */
+/* card */
+.card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card__image {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 370 / 280; /* властивість ще не вчили, вона додана для адаптиву картинок тому що ціртинки зі стоків різного розміру і щоб підігнати їх під один довелось додати її можете загуглити про неї чи дочекатись уроку по адаптиву */
+}
+
+.card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* цю властивість ще не вчили, вона потрібна для адаптиву картинок і працює як background-size: cover; я її додав тому що картинки зі стоків різного розміру, можете загуглити про властивість чи дочекатись уроку по адаптиву */
+  
+  transition: transform 0.3s;
+  
+/* закоментуйте will-change і обачите дефекти під час анімації при наведені на картинку картки */
+  will-change: transform;
+}
+
+.card__image:hover img {
+  transform: scale(1.1);
+}
+
+.card__title {
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.card__title a {
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.card__title a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background-color: #c20606;
+  transition: width 0.3s;
+}
+
+.card__title a:hover::before {
+  width: 100%;
+}
+/* =========================================== */

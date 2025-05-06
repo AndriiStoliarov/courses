@@ -1,0 +1,316 @@
+/* Підключення шрифтів */
+
+/* Google Fonts (Plugin) */
+/* @import url("https://fonts.googleapis.com/css?family=Manrope:regular,500,600,700&display=swap"); */
+
+/* Локальне підключення шрифтів */
+@import url("fonts.css");
+
+/* Скидання стилів */
+@import url("reset.css");
+
+/* Компоненти */
+@import url("button.css");
+/* .... */
+
+/* Основні стилі */
+body {
+	font-family: "Gilroy", sans-serif;
+	background-color: #333;
+	color: #fff;
+}
+.wrapper {
+	overflow: clip;
+	min-height: 100%;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.wrapper > main {
+	flex-grow: 1;
+}
+
+[class*="__container"] {
+	max-width: 800px;
+	margin: 0 auto;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+[class*="--margin"] {
+	margin-bottom: 50px;
+}
+
+.page {
+	padding: 30px;
+}
+/* ============================================ */
+
+/*
+FLEX (Flexbox) - це цілий модуль,
+що містить у собі набір властивостей 
+та їх значень як для батьківського 
+об'єкту (flex-контейнера), так і для 
+його дочірніх елементів (flex-елементів). 
+
+Використовується для побудови конструкцій -
+упорядкування контенту в рядки та колонки,
+та керування ними.
+
+Основною перевагою гнучкої FLEX розмітки 
+є можливість змінювати ширину/висоту простір 
+навколо та порядок flex-елементів, для того, 
+щоб найкращим чином заповнити доступний простір 
+flex-контейнера та полегшувати адаптивність
+*/
+
+/* FLEX-контейнер */
+.flex {
+	padding: 15px;
+	background-color: #794f45;
+
+	/* Властивості FLEX-контейнера */
+	/* display: inline-flex; */
+	display: flex;
+
+	/* 
+	display: flex/inline-flex;
+	1) Визначає flex-контейнер,
+	блочний або блочний-рядковий (залежить від значення). 
+	2) Перетворює всі свої беспосередні дочірні 
+	елементи у flex-елементи.
+	3) Будує конструкцію
+	*/
+
+	/*
+	flex-wrap
+	Визначає, чи зможуть flex-елементи переміщатися 
+	на наступні рядки, коли перестають поміщатися 
+	всередині flex-контейнера.
+
+	nowrap - (за замовченням) Flex-елементи не можуть 
+	переміщатися на наступні рядки flex-контейнера.
+	wrap - Flex-елементи зможуть переміщатися на 
+	наступні рядки flex-контейнера.
+	wrap-reverse - Flex-елементи зможуть переміщатися 
+	на наступні рядки flex-контейнера, 
+	але у зворотному порядку.
+	*/
+	flex-wrap: wrap;
+
+	/*
+	justify-content
+
+	Визначає вирівнювання (flex-елементів) вздовж основної осі 
+	(напрямок залежить від значення властивості flex-direction).
+	
+	flex-start - Значення за замовчуванням (не потрібно вказувати). 
+	Flex-елементи притискаються до початку осі.
+	flex-end - Flex-елементи притискаються вкінець осі.
+	center - Flex-елементи розташовуються в центрі основної осі.
+
+	space-between - Flex-елементи розміщуються 
+	поступово по основній осі. 
+	Перший елемент знаходиться на початку осі,
+	останній елемент знаходиться наприкінці осі.
+	Між елементами постійно однаковий простір
+	space-around - Flex-елементи розташовуються рівномірно 
+	по основній осі. До кожного flex-елементу 
+	додається простір ліворуч і праворуч.
+	space-evenly - Flex-елементи розташовуються рівномірно по 
+	основній осі з однаковим простором навколо них.
+	*/
+
+	/* justify-content: space-around; */
+
+	/*
+	align-items
+	Визначає вирівнювання вздовж поперечної (другорядної) осі 
+	(напрямок залежить від значення властивості flex-direction).
+	stretch - Значення за замовчуванням (не потрібно вказувати). 
+	Flex-елементи розтягуються весь розмір поперечної осі 
+	flex-контейнера.
+	flex-start - Flex-елементи притискаються до 
+	початку поперечної осі.
+	flex-end - Flex-елементи притискаються вкінець поперечної осі.
+	center - Flex-елементи по центру
+	*/
+
+	/* align-items: stretch; */
+
+	/*
+	flex-direction
+	Встановлює основну вісь,
+	таким чином визначає напрямок flex-елементів,
+	розташованих у flex-контейнері.
+	row - Значення за замовчуванням (не потрібно вказувати). 
+	Основна вісь горизонтальна. Всі flex-елементи 
+	розташуються ліворуч по горизонталі.
+	row-reverse - змінює напрям горизонтального вектору
+	column - змінює головну вісь на вертикальну (зверху вниз)
+	другорядна зліва на право.
+	column-reverse - змінює головну вісь на вертикальну (знизу вверх)
+	другорядна зліва на право.
+	*/
+	/* flex-direction: column-reverse; */
+
+	/* Поєднання flex-wrap flex-direction */
+	/* flex-flow: flex-wrap flex-direction */
+	/* flex-flow: wrap column; */
+
+	/* 
+	gap
+	Проміжок (відстань) між FLEX-елементами
+	(Не залежить від flex-direction)
+	*/
+
+	gap: 20px;
+
+	/* Між колонками */
+	/* column-gap: 15px; */
+	/* Між рядками */
+	/* row-gap: 30px; */
+
+	/* gap: 20px 30px; */
+}
+
+/* 
+Властивості FLEX – елементів. 
+Застосовуються для flex-елемента,
+дочірнього об'єкта flex-контейнера
+*/
+
+/* FLEX-елемент */
+.flex__item {
+	padding: 25px;
+	background-color: #77608d;
+	font-size: 20px;
+
+	/*
+	flex-grow - 0 заборонено. 1 дозволено. (за замовченням - 0) 
+	Визначає можливість елемента збільшуватись 
+	(більше ніж flex-basis)
+	у розмірі, при необхідності заповнюючи весь 
+	flex-контейнер.
+
+	flex-shrink - 0 заборонено. 1 дозволено. (за замовченням - 1)
+	Визначає можливість елемента зменшуватись у розмірі 
+	(меньше ніж flex-basis)
+
+	flex-basis - Визначає базовий розмір елемента 
+	за замовченням, до розподілу простору, що залишився. 
+	Значення можуть бути у відсотках пікселях тощо.
+	auto (за замовченням) - розмір по контенту
+	*/
+
+	/*
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: 180px;
+	*/
+
+	/* Універсальна властівість FLEX */
+	/* flex: flex-grow flex-shrink flex-basis */
+	flex: 1 1 180px;
+
+	/*
+	order
+	Керує порядком,
+	в якому розташовуються flex-елементи 
+	всередині flex-контейнера.
+	При зміні порядку хоча б для одного flex-елементу,
+	варто прописувати order усім flex-елементам,
+	навіть тим які лишаються на своєму місці.
+	*/
+}
+.flex__item:nth-child(1) {
+	/*
+	align-self
+	Перевизначає для конкретного flex-елемента 
+	вирівнювання вздовж поперечної осі 
+	(напрямок залежить від значення якості flex-direction).
+	*/
+	/* align-self: center; */
+
+	order: 3;
+}
+.flex__item:nth-child(2) {
+	order: 1;
+}
+.flex__item:nth-child(3) {
+	order: 4;
+}
+.flex__item:nth-child(4) {
+	order: 2;
+}
+
+/* Практика */
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+}
+.column {
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: 180px;
+
+	display: flex;
+	flex-direction: column;
+}
+.column > * {
+	margin-bottom: 15px;
+}
+.image {
+}
+.text {
+	flex-grow: 1;
+}
+.link {
+	color: yellow;
+}
+
+.some-link {
+	display: inline-flex;
+	gap: 10px;
+	align-items: center;
+}
+.some-link::before {
+	content: "";
+	align-self: flex-start;
+	background: url("../img/check.svg") 0 0 / 100% no-repeat;
+	flex-shrink: 0;
+	flex-grow: 0;
+	width: 30px;
+	/* flex-basis: 30px; */
+	height: 30px;
+}
+
+.some-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 30px;
+}
+.some-row__image,
+.some-row__text {
+	flex-grow: 1;
+	flex-basis: 200px;
+}
+.some-row:nth-child(even) {
+	flex-direction: row-reverse;
+}
+
+.exmp-row {
+	display: flex;
+	gap: 30px;
+	/* flex-wrap: wrap; */
+}
+.exmp-row__image {
+	flex-basis: 300px;
+	flex-grow: 1;
+}
+.exmp-row__text {
+	flex-basis: 440px;
+	flex-grow: 1;
+}
