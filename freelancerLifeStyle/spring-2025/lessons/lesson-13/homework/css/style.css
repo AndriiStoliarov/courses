@@ -226,6 +226,7 @@ body {
 .card__inner {
 	display: flex;
 	flex-direction: column;
+	row-gap: 16px;
 	padding: 20px;
 
 	background-color: #FFF;
@@ -235,10 +236,6 @@ body {
 
 .card__inner:hover {
 	background-color: #FFBE48;
-}
-
-.card__inner >:not(:last-child) {
-	margin-bottom: 16px;
 }
 
 .card__image {
