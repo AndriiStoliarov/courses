@@ -65,8 +65,6 @@ body {
 
 .flex__item {
 	padding: 20px;
-
-	/* background-color: #77608d; */
 }
 
 .flex--green {
@@ -77,15 +75,8 @@ body {
 	background-color: #794F45;
 }
 
-.flex--puprule {
+.flex--purple {
 	background-color: #77608D;
-}
-
-.flex.flex--green > .flex__item {
-	
-	background-color: #7A956B;
-	/* background-color: #794f45; */
-	/* background-color: #77608D; */
 }
 
 .flex {
@@ -95,6 +86,18 @@ body {
 	padding: 15px;
 
 	background-color: #D3D3D3; /* lightgray */;
+}
+
+.flex.flex--green > .flex__item {
+	background-color: #7A956B;
+}
+
+.flex.flex--brown > .flex__item {
+	background-color: #794f45;
+}
+
+.flex.flex--purple > .flex__item {
+	background-color: #77608D;
 }
 
 .flex--flex-wrap-nowrap {
