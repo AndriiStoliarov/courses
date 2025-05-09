@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<!-- Коди мов https://html-css.co.ua/html/lang-kodu-mov/ -->
+<html lang="en">
+	<head>
+		<!-- Кодування тексту -->
+		<meta charset="UTF-8">
+		<!-- Налаштування в'юпорту (адаптиву, масштабу тощо) -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Підключення окремого файлу стилів -->
+		<link rel="stylesheet" href="css/style.css">
+		<!-- Заголовок сторінки в браузері -->
+		<title>Lesson 14</title>
+	</head>
+	<body>
+		<div class="wrapper">
+			<header class="header">
+				<div class="header__container">
+					header
+				</div>
+			</header>
+			<main class="page">
+				<div class="page__container">
+					<!-- Головний (батьківський) блок форми -->
+					<!-- 
+					Атрибут action - "адреса" сервера. 
+					Не може бути пустим, варто ставити заглушку (#) 
+					-->
+					<!-- 
+					Атрибут enctype - 
+					кодування даних під час відправки на сервер.
+					Для передачі файлів 
+					використовуємо - multipart/form-data
+					Детальніше: 
+					https://www.w3schools.com/tags/att_form_enctype.asp
+					-->
+					<!-- 
+					Атрибут method - метод передачі даних 
+					GET (за замовченням) - безпосередньо в адресному рядку
+					POST - приховано
+
+					Формат передачі данних з HTML-форми:
+					(так звана пара - ім'я та значення)
+					name=value
+
+					На сервері обробляються імена та їх значення
+					-->
+					<!-- 
+					Приклад з Google:
+					Шукаємо наприклад "простір"
+					Отримуємо адресний рядок:
+					https://www.google.com/search?q=простір&...інші дані...
+
+					Дані передались методом GET
+
+					https://www.google.com/search - значення атрибуту action форми
+					? - відокремлення адреси від даних
+					q - ім'я поля куди ми вводили пошуковий запит
+					простір - це данні які ми ввели
+					& - розділення даних
+
+					Передається пара - q=простір
+					-->
+
+					<!-- 
+						Тег form - блочний 
+						Тег label - рядковий
+						Теги input, textarea, button - блочно-рядкові
+					-->
+
+					<form method="post" action="#" enctype="multipart/form-data" class="form">
+						<!-- 
+						input - Багатофункціональний елемент вводу даних користувача 
+
+						Атрибут type - тип елементу вводу даних 
+						(Усі типи https://www.w3schools.com/html/html_form_input_types.asp)
+
+						Атрибут name - ім'я поля (даних)
+						Атрибут value - значення поля (дані)
+						Атрибут placeholder - підпис поля
+						Атрибут autocomplete - дозволяє (за замовченням) / забороняє (значення off) автозаповнення поля
+						Атрибут required - обо'язково для заповнення
+						Атрибут tabindex - керує навігацією за допомогою TAB
+						Атрибут maxlength - максимальна кількість символів доступних для вводу
+						Атрибут minlength - вимога до мінімальної кількості символів. працює в парі з required
+						Атрибут checked (для деяких типів) - вибраний за замовченням
+						Атрибут disabled - поле перестає бути доступним для користування, данні передані не будуть
+						Атрибут pattern - можливість вказувати регулярні вирази
+						-->
+
+						<div class="form__line form__line--margin">
+							<!-- <input autocomplete="off" placeholder="Введіть ім'я" name="form[]" type="text" class="form__input"> -->
+						</div>
+						<div class="form__line form__line--margin">
+							<!-- <input disabled autocomplete="off" placeholder="Введіть ім'я" name="form[]" type="text" class="form__input"> -->
+						</div>
+						<div class="form__line form__line--margin">
+							<!-- label - Окремий підпис поля вводу -->
+							<!-- Рядковий тег  -->
+							<!-- Атрибут for - вказуємо ID поля з яким хочемо з'вязати label -->
+							<!-- <label for="name_1" class="form__label">Введіть ім'я</label> -->
+							<!-- <input id="name_1" autocomplete="off" placeholder="Введіть ім'я" name="form[]" type="text" class="form__input"> -->
+							<!-- 
+							<label class="form__label">
+								<h5 class="form__title">123</h5>
+								<input autocomplete="off" placeholder="Введіть ім'я" name="form[]" type="text" class="form__input">
+							</label> 
+							-->
+						</div>
+						<div class="form__line form__line--margin">
+							<!-- Тип email - Однорядковий ввод поштової адреси -->
+							<!-- <input required type="email" placeholder="Введіть пошту" autocomplete="off" name="form[]" class="form__input"> -->
+						</div>
+						<div class="form__line form__line--margin">
+							<!-- Тип hidden - Приховане поле. Використовується разом з value -->
+							<!-- <input value="some data.." type="hidden" name="form[]" class="form__input"> -->
+						</div>
+						<div class="form__line form__line--margin">
+							<!-- Тип tel - поле вводу телефонного номеру -->
+							<!-- <input type="tel" placeholder="Введіть телефон" name="form[]" class="form__input"> -->
+						</div>
+						<div class="form__line form__line--margin">
+							<!-- Тип password - поле вводу паролю  -->
+							<!-- <input type="password" placeholder="Введіть пароль" name="form[]" class="form__input"> -->
+						</div>
+						<div class="form__line form__line--margin">
+							<!-- Тип number - поле вводу числа -->
+							<!-- <input type="number" placeholder="Введіть число" name="form[]" class="form__input"> -->
+						</div>
+						<div class="form__line form__line--margin">
+							<!-- Тип color - поле вибору кольору -->
+							<!-- <label class="form__label">
+								Введіть колір
+								<input type="color" name="form[]" class="form__input">
+							</label> -->
+						</div>
+						<div class="form__line form__line--margin">
+							<!-- Тип search - поле пошуку -->
+							<!-- <input type="search" placeholder="Введіть запит" name="form[]" class="form__input"> -->
+						</div>
+						<div class="form__line form__line--margin">
+							<!-- Тип date - поле вибору дати -->
+							<!-- <input type="date" placeholder="Введіть дату" name="form[]" class="form__input"> -->
+						</div>
+						<div class="form__line form__line--margin">
+							<!-- Тип range - поле вибору значення -->
+							<!-- <label class="form__label">
+								Введіть щось
+								<input type="range" value="0" name="form[]" class="form__input">
+							</label> -->
+						</div>
+						<!-- Тип checkbox - множинний вибір -->
+						<div class="form__line form__line--margin">
+							<label class="checkbox">
+								<input type="checkbox" value="some" name="form[]" class="checkbox__input">
+								<span class="checkbox__label">Щось</span>
+							</label>
+						</div>
+						<div class="form__line form__line--margin">
+							<label class="checkbox">
+								<input checked type="checkbox" name="form[]" class="checkbox__input">
+								<span class="checkbox__label">Щось</span>
+							</label>
+						</div>
+						<div class="form__line form__line--margin">
+							<label class="checkbox">
+								<input type="checkbox" name="form[]" class="checkbox__input">
+								<span class="checkbox__label">Щось</span>
+							</label>
+						</div>
+						<div class="form__line form__line--margin">
+							<label class="checkbox-two">
+								<input type="checkbox" name="form[]" class="checkbox-two__input">
+								Щось
+							</label>
+						</div>
+
+						<!-- Тип radio - одиночний вибір -->
+						<!-- Для однієї групи радіо кнопок має бути одинакове значення атрибуту name -->
+						<!-- Варто вказувати значення атрибуту value -->
+
+						<!-- <div class="form__line form__line--margin">
+							<label class="options">
+								<input checked type="radio" name="form[car]" class="options__input">
+								<span class="options__label">Щось</span>
+							</label>
+						</div>
+						<div class="form__line form__line--margin">
+							<label class="options">
+								<input type="radio" name="form[car]" class="options__input">
+								<span class="options__label">Щось</span>
+							</label>
+						</div>
+						<div class="form__line form__line--margin">
+							<label class="options">
+								<input type="radio" name="form[car]" class="options__input">
+								<span class="options__label">Щось</span>
+							</label>
+						</div>
+
+						<div class="form__line form__line--margin">
+							<label class="options">
+								<input type="radio" name="form[country]" class="options__input">
+								<span class="options__label">Щось</span>
+							</label>
+						</div>
+						<div class="form__line form__line--margin">
+							<label class="options">
+								<input checked type="radio" name="form[country]" class="options__input">
+								<span class="options__label">Щось</span>
+							</label>
+						</div> -->
+
+						<div class="form__line form__line--margin">
+							<!-- Тип file - додати файл (файли) 
+							Атрибут multiple - додавання групи файлів
+							Атрибут accept - фільтрує формати файлів 
+							(https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept)
+							-->
+							<!-- <input multiple accept=".jpg, .png" name="form[]" type="file"> -->
+
+							<!-- <button tabindex="-1" type="button" class="add-file">
+								Додати файл
+								<input multiple accept=".jpg, .png" name="form[]" type="file">
+							</button> -->
+						</div>
+
+						<div class="form__line form__line--margin">
+							<!-- textarea - ввід багаторядкового тексту -->
+							<!-- <textarea name="form[]" class="form__textarea"></textarea> -->
+						</div>
+
+						<div class="form__line form__line--margin">
+							<!--
+							Тег  select - випадаючій список
+							Атрибут multiple
+							Тег option - елемент списку
+							Атрибут selected - вибраний за замовченням
+						 	-->
+							<!-- 
+							<select name="form[select]">
+								<option value="1">Text 1</option>
+								<option selected value="2">Text 2</option>
+								<option value="3">Text 3</option>
+							</select>
+							 -->
+						</div>
+
+						<div class="form__line form__line--margin">
+							<!-- button - Кнопка 
+							type="button" - кнопка нічого не робить :)
+							type="reset" - обнуляє (скидає) поля вводу у формі. Має знаходитить в середені тегу form.
+							type="submit" - (за замовченням) відправляє форму. Має знаходитить в середені тегу form.
+							-->
+
+							<!-- 
+							<button type="button">Я просто кнока</button>
+							<button type="reset">Я кнока яка чистить форму</button>
+							<button type="submit">Я кнопка яка відправляє форму</button>
+							 -->
+						</div>
+
+						<div class="form__line form__line--margin">
+							<label tabindex="-1" type="button" class="switcher">
+								<input type="checkbox">
+							</label>
+						</div>
+					</form>
+
+				</div>
+			</main>
+			<footer class="footer">
+				<div class="footer__container">footer</div>
+			</footer>
+		</div>
+	</body>
+</html>

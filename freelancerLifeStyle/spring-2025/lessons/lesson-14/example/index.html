@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Example</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <!-- приклад стилізації checkbox з двома пунктами вибору -->
+            <div class="form__checkbox checkbox">
+                <div class="checkbox__item">
+                    <input id="checkbox-item-01" class="checkbox__input" checked name="checkbox-item" value="1" type="checkbox">
+                    <label class="checkbox__label" for="checkbox-item-01">Варіант 1</label>
+                </div>
+
+                <div class="checkbox__item">
+                    <input id="checkbox-item-02" class="checkbox__input" name="checkbox-item" value="1" type="checkbox">
+                    <label class="checkbox__label" for="checkbox-item-02">Варіант 2</label>
+                </div>
+            </div>
+
+            <!-- радіокнопки -->
+            <div class="form__radio-btn radio-btn">
+                <!--   щоб групувати радіокнопки їм потрібно задати однакове ім'я, я задав name="radio-item"   -->
+                <div class="radio-btn__item">
+                    <input id="radio-item-01" class="radio-btn__input" checked name="radio-item" value="1" type="radio">
+                    <label class="radio-btn__label" for="radio-item-01">Варіант 1</label>
+                </div>
+
+                <!--   щоб групувати радіокнопки їм потрібно задати однакове ім'я, я задав name="radio-item"   -->
+                <div class="radio-btn__item">
+                    <input id="radio-item-02" class="radio-btn__input" name="radio-item" value="2" type="radio">
+                    <label class="radio-btn__label" for="radio-item-02">Варіант 2</label>
+                </div>
+
+                <!--   щоб групувати радіокнопки їм потрібно задати однакове ім'я, я задав name="radio-item"   -->
+                <div class="radio-btn__item">
+                    <input id="radio-item-03" class="radio-btn__input" name="radio-item" value="3" type="radio">
+                    <label class="radio-btn__label" for="radio-item-03">Варіант 3</label>
+                </div>
+            </div>
+        </div><!-- /.wrapper -->
+    </body>
+</html>

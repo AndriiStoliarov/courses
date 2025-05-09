@@ -1,0 +1,136 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  border: none;
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1;
+  height: 100%;
+  font-family: sans-serif;
+
+  /* стилі для відображення */
+  color: #fff;
+  background-color: #000;
+}
+/* кінець обнулення */
+
+/* стилізація зовнішнього вигляду */
+/* обгортка .wrapper для розміження елементів */
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px 15px;
+  max-width: 500px;
+  width: 100%;
+  height: 100svh;
+  margin: 0 auto;
+}
+
+/* стилізація блоку чекбоксу */
+.checkbox {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* прибираємо стандартний чекбокс */
+.checkbox__input {
+  appearance: none;
+}
+
+/* стилізуємо label */
+.checkbox__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+}
+
+/* робимо квадратик з фоновим кольором */
+.checkbox__label::before {
+  content: "";
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: #794f45;
+  transition: background-color 0.3s;
+  align-self: flex-start;
+}
+
+/* Стан "вибраний" - checked при кліку звертаємось до псевдоелементу лейбла та задаємо потрібні стилі, чи фонову картинку - іконку */
+.checkbox__input:checked + .checkbox__label::before {
+  background: cyan url("https://www.svgrepo.com/show/404946/check-mark-button.svg") center / contain no-repeat;
+}
+
+/* власні стилі для outline при використанні навігації за допомогою Tab */
+.checkbox__input:focus-visible + .checkbox__label {
+  outline: 2px solid #c80808;
+  border-radius: 5px;
+}
+/* кінець стилізації чекбоксу */
+
+
+/* стилізація блоку радіокнопок, вона практично аналогічна як для чекбоксів */
+.radio-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* прибираємо стандартний чекбокс */
+.radio-btn__input {
+  appearance: none;
+}
+
+/* стилізуємо label */
+.radio-btn__label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+}
+
+/* робимо кружок з фоновим кольором */
+.radio-btn__label::before {
+  content: "";
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: green;
+  transition: background-color 0.3s;
+  align-self: flex-start;
+}
+
+/* робим кружок та позиціонуємо його по центру :before */
+.radio-btn__label::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 8px;
+  left: 8px;
+  background-color: black;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* відображаємо кружечок у вибраного пункту */
+.radio-btn__input:checked + .radio-btn__label::after {
+  opacity: 1;
+}
+
+/* власні стилі для outline при використанні навігації за допомогою Tab */
+.radio-btn__input:focus-visible + .radio-btn__label {
+  outline: 2px solid cyan;
+
+  border-radius: 15px;
+}
