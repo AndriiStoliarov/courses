@@ -37,28 +37,145 @@
 								<div class="form__info">
 									<div class="form__billing  billing">
 										<h3 class="billing__title">Billing Information</h3>
-										<div class="billing__row">
-											<div class="billing__item">
-												<label class="billing__label" for="billing__first-name">First name</label>
-												<input class="billing__input" id="billing__first-name" name="data[]" type="text" placeholder="Your first name" required>
-											</div>
+										<div class="billing__rows">
+											<div class="billing__row">
+												<div class="billing__item">
+													<label class="billing__label" for="billing__first-name">First name</label>
+													<input class="billing__input" id="billing__first-name" name="data[]" type="text" placeholder="Your first name" required>
+												</div>
 
-											<div class="billing__item">
-												<label class="billing__label" for="billing__last-name">Last name</label>
-												<input class="billing__input" id="billing__last-name" name="data[]" type="text" placeholder="Your last name" required>
-											</div>
+												<div class="billing__item">
+													<label class="billing__label" for="billing__last-name">Last name</label>
+													<input class="billing__input" id="billing__last-name" name="data[]" type="text" placeholder="Your last name" required>
+												</div>
 
-											<div class="billing__item">
-												<label class="billing__label" for="billing__company-name">Company Name <span
-														class="billing__label--gray">(optional)</span></label>
-												<input class="billing__input" id="billing__company-name" name="data[]" type="text" placeholder="Company name" required>
+												<div class="billing__item">
+													<label class="billing__label" for="billing__company-name">Company name <span
+															class="billing__label--gray">(optional)</span></label>
+													<input class="billing__input" id="billing__company-name" name="data[]" type="text" placeholder="Company name" required>
+												</div>
+											</div><!-- /.billing__row -->
+
+											<div class="billing__row">
+												<div class="billing__item  billing__item--size-100">
+													<label class="billing__label  billing__label--capitalize" for="billing__street-address">Street Address</label>
+													<input class="billing__input  billing__input--capitalize" id="billing__street-address" name="data[]" type="text"
+														placeholder="Street Address" required>
+												</div>
+											</div><!-- /.billing__row -->
+
+											<div class="billing__row">
+												<div class="billing__item">
+													<label class="billing__label" for="billing__country">Country / Region</label>
+													<select class="billing__input" id="billing__country" name="data[]" type="text" placeholder="Select" required>
+														<option value="01">USA</option>
+														<option value="02">Japan</option>
+														<option value="03">Australia</option>
+														<option value="04">South Korea</option>
+														<option value="05">England</option>
+														<option value="06">Germany</option>
+														<option value="07">France</option>
+														<option value="08">Italy</option>
+														<option value="09">Spain</option>
+													</select>
+												</div>
+
+												<div class="billing__item">
+													<label class="billing__label" for="billing__states">States</label>
+													<select class="billing__input" id="billing__states" name="data[]" type="text" required>
+														<option value="01">Alabama</option>
+														<option value="02">Alaska</option>
+														<option value="03">Arizona</option>
+														<option value="04">Arkansas</option>
+														<option value="05">California</option>
+														<option value="06">Colorado</option>
+														<option value="07">Connecticut</option>
+														<option value="08">Delaware</option>
+														<option value="09">Florida</option>
+														<option value="10">Georgia</option>
+														<option value="11">Hawaii</option>
+														<option value="12">Idaho</option>
+														<option value="13">Illinois</option>
+														<option value="14">Indiana</option>
+														<option value="15">Iowa</option>
+														<option value="16">Kansas</option>
+														<option value="17">Kentucky</option>
+														<option value="18">Louisiana</option>
+														<option value="19">Maine</option>
+														<option value="20">Maryland</option>
+														<option value="21">Massachusetts</option>
+														<option value="22">Michigan</option>
+														<option value="23">Minnesota</option>
+														<option value="24">Mississippi</option>
+														<option value="25">Missouri</option>
+														<option value="26">Montana</option>
+														<option value="27">Nebraska</option>
+														<option value="28">Nevada</option>
+														<option value="29">New Hampshire</option>
+														<option value="30">New Jersey</option>
+														<option value="31">New Mexico</option>
+														<option value="32">New York</option>
+														<option value="33">North Carolina</option>
+														<option value="34">North Dakota</option>
+														<option value="35">Ohio</option>
+														<option value="36">Oklahoma</option>
+														<option value="37">Oregon</option>
+														<option value="38">Pennsylvania</option>
+														<option value="39">Rhode Island</option>
+														<option value="40">South Carolina</option>
+														<option value="41">South Dakota</option>
+														<option value="42">Tennessee</option>
+														<option value="43">Texas</option>
+														<option value="44">Utah</option>
+														<option value="45">Vermont</option>
+														<option value="46">Virginia</option>
+														<option value="47">Washington</option>
+														<option value="48">West Virginia</option>
+														<option value="49">Wisconsin</option>
+														<option value="50">Wyoming</option>
+													</select>
+												</div>
+
+												<div class="billing__item">
+													<label class="billing__label  billing__label--capitalize" for="billing__zip-code">Zip Code</label>
+													<input class="billing__input  billing__input--capitalize" id="billing__zip-code" name="data[]" type="text"
+														placeholder="Zip Code" required>
+												</div>
+											</div><!-- /.billing__row -->
+
+											<div class="billing__row">
+												<div class="billing__item  billing__item--size-50">
+													<label class="billing__label" for="billing__email">Email</label>
+													<input class="billing__input  billing__input--capitalize" id="billing__email" name="data[]" type="email"
+														placeholder="Email Address" required>
+												</div>
+
+												<div class="billing__item  billing__item--size-50">
+													<label class="billing__label" for="billing__phone">Phone</label>
+													<input class="billing__input" id="billing__phone" name="data[]" type="tel"
+														placeholder="Phone number" required>
+												</div>
+											</div><!-- /.billing__row -->
+										</div><!-- /.billing__rows -->
+
+										<div class="billing__checkbox  checkbox">
+											<div class="checkbox__item">
+												<input class="checkbox__input" id="billing__ship" name="data[]" type="checkbox">
+												<label class="checkbox__label" for="billing__ship">Ship to a different address</label>
 											</div>
 										</div>
-									</div>
+									</div><!-- /.form__billing -->
+
 									<div class="form__additional  additional">
-										<h3 class="additional__title">Additional Info</h3>
+										<h3 class="additional__title  additional__title--capitalize">Additional Info</h3>
+
+										<div class="additional__item">
+											<label class="additional__label  additional__label--capitalize" for="additional__notes">Order Notes (Optional)</label>
+											<textarea class="additional__textarea" id="additional__notes" name="data[]"
+												placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
+										</div>
 									</div>
-								</div>
+								</div><!-- /.form__info-->
 
 								<div class="form__order">
 									<div class="order__summery">
