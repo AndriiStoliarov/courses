@@ -36,7 +36,7 @@
 							<form class="form" name="form[]" action="#" method="post" target="_blank">
 								<div class="form__info">
 									<div class="form__billing  billing">
-										<h3 class="billing__title">Billing Information</h3>
+										<h3 class="billing__title  billing__title--capitalize">Billing Information</h3>
 										<div class="billing__rows">
 											<div class="billing__row">
 												<div class="billing__item">
@@ -59,7 +59,7 @@
 											<div class="billing__row">
 												<div class="billing__item  billing__item--size-100">
 													<label class="billing__label  billing__label--capitalize" for="billing__street-address">Street Address</label>
-													<input class="billing__input  billing__input--capitalize" id="billing__street-address" name="data[]" type="text"
+													<input class="billing__input" id="billing__street-address" name="data[]" type="text"
 														placeholder="Street Address" required>
 												</div>
 											</div><!-- /.billing__row -->
@@ -138,15 +138,15 @@
 
 												<div class="billing__item">
 													<label class="billing__label  billing__label--capitalize" for="billing__zip-code">Zip Code</label>
-													<input class="billing__input  billing__input--capitalize" id="billing__zip-code" name="data[]" type="text"
+													<input class="billing__input" id="billing__zip-code" name="data[]" type="number"
 														placeholder="Zip Code" required>
 												</div>
 											</div><!-- /.billing__row -->
 
 											<div class="billing__row">
 												<div class="billing__item  billing__item--size-50">
-													<label class="billing__label" for="billing__email">Email</label>
-													<input class="billing__input  billing__input--capitalize" id="billing__email" name="data[]" type="email"
+													<label class="billing__label  billing__label--capitalize" for="billing__email">Email</label>
+													<input class="billing__input" id="billing__email" name="data[]" type="email"
 														placeholder="Email Address" required>
 												</div>
 
@@ -177,15 +177,70 @@
 									</div>
 								</div><!-- /.form__info-->
 
-								<div class="form__order">
-									<div class="order__summery">
+								<div class="form__order  order">
+									<div class="order__summery  summery">
 										<h4 class="summery__title">Order Summery</h4>
-									</div>
-									<div class="order__payment">
+										<div class="summery__goods  goods">
+											<div class="goods__item">
+												<div class="goods__image">
+													<img src="img/green-bell-peppers.webp" alt="Two green сapsicum peppers displayed against a white backdrop.">
+												</div>
+												<div class="goods__name">Green Capsicum</div>
+												<div class="goods__amount">x5</div>
+												<div class="goods__price">$70.00</div>
+											</div>
+
+											<div class="goods__item">
+												<div class="goods__image">
+													<img src="img/red-bell-peppers.webp" alt="Two red сapsicum peppers displayed against a white backdrop.">
+												</div>
+												<div class="goods__name">Red Capsicum</div>
+												<div class="goods__amount">x1</div>
+												<div class="goods__price">$14.00</div>
+											</div>
+										</div><!-- /.summery__goods -->
+
+										<div class="summery__items">
+											<div class="summery__item">
+												<div class="summery__name">Subtotal:</div>
+												<div class="summery__price">$84.00</div>
+											</div>
+
+											<div class="summery__item">
+												<div class="summery__name">Shipping:</div>
+												<div class="summery__price">Free</div>
+											</div>
+
+											<div class="summery__item">
+												<div class="summery__name">Total:</div>
+												<div class="summery__total-price">$84.00</div>
+											</div>
+										</div><!-- /.summery__sum -->
+									</div><!-- /.order__summery -->
+
+									<div class="order__payment  payment">
 										<h4 class="payment__title">Payment Method</h4>
-									</div>
-									<button type="button">Place Order</button>
-								</div>
+
+										<div class="payment__radio-btn  radio-btn">
+											<div class="radio-btn__item">
+												<input class="radio-btn__input" id="payment__cash-on-delivery" name="data[]" type="radio" checked>
+												<label class="radio-btn__label" for="payment__cash-on-delivery">Cash on Delivery</label>
+											</div>
+
+											<div class="radio-btn__item">
+												<input class="radio-btn__input" id="payment__paypal" name="data[]" type="radio">
+												<label class="radio-btn__label" for="payment__paypal">Paypal</label>
+											</div>
+
+											<div class="radio-btn__item">
+												<input class="radio-btn__input" id="payment__amazon-pay" name="data[]" type="radio">
+												<label class="radio-btn__label" for="payment__amazon-pay">Amazon Pay</label>
+											</div>
+										</div><!-- /.payment__radio-btn -->
+									</div><!-- /.order__payment -->
+
+									<button class="payment__button" type="submit">Place Order</button>
+								</div><!-- /.form__order -->
 							</form>
 						</div><!-- /.order-form__inner -->
 					</div><!-- /.order-form__container -->
