@@ -175,18 +175,19 @@ body {
 ========================================*/
 
 .teachers {
+	padding-top: 61px;
+	padding-bottom: 102px;
+
 	background-color: #412672;
 }
 
 .teachers__inner {
-	padding-top: 61px;
-	padding-bottom: 102px;
-
 	font-family: "Inter", sans-serif;
 }
 
 .teachers__title {
-	max-width: 505px;
+	display: flex;
+	flex-direction: column;
 	margin-bottom: 31px;
 
 	font-size: 38px;
@@ -276,18 +277,18 @@ body {
 ========================================*/
 
 .intro {
+	padding: 50px 0 72px 0;
+
 	background-color: #FFF;
 }
 
 .intro__inner {
-	padding: 50px 0 72px 0;
-
 	display: flex;
 	column-gap: 90px;
 }
 
 .intro__content {
-	max-width: 518px;
+	flex-basis: 518px;
 	padding-top: 98px;
 
 	font-family: "Inter", sans-serif;
@@ -368,7 +369,7 @@ body {
 	flex-wrap: wrap;
 	justify-content: space-between;
 	/* ВАЖЛИВО! "Завжди додаємо gap для безпеки при justify-content: space-between;, justify-content: space-around;, justify-content: space-evenly;" */
-	column-gap: 141px;
+	column-gap: 30px;
 }
 
 .services__item {
