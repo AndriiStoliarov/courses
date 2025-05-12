@@ -57,18 +57,152 @@ body {
 /* Tasks
 ========================================*/
 
-.tasks__items {
+.tasks__inner {
 	padding: 20px;
 
 	border: 1px solid #000;
+	border-radius: 6px;
 }
 
-.tasks__item:not(:last-child) {
+.tasks__form {
+	display: flex;
+	column-gap: 20px;
+}
+
+.tasks__column {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	row-gap: 20px;
+}
+
+.tasks__row {
+	display: flex;
+	column-gap: 20px;
+}
+
+.tasks__item {
+	width: 100%;
+}
+
+/* .tasks__column .tasks__row:not(:last-child) {
 	margin-bottom: 20px;
+} */
+
+/* .tasks__column .tasks__item:not(:last-child) {
+	margin-bottom: 20px;
+} */
+
+.tasks__label {
+	width: 100%;
+	margin-bottom: 8px;
+
+	font-size: 18px;
+	color: #000;
 }
 
-.flex__item {
-	padding: 20px;
+.tasks__input,
+.tasks__select {
+	width: 100%;
+	padding: 10px;
+
+	font-size: 18px;
+	color: #000;
+
+	border: 2px solid #000;
+	border-radius: 6px;
+}
+
+.tasks__input:focus {
+	outline: 2px solid #000;
+	outline-offset: -2px;
+}
+
+.tasks__input::placeholder {
+	color: #999;
+
+	transition: opacity 0.3s;
+}
+
+.tasks__input:focus::placeholder {
+	opacity: 0;
+}
+
+.tasks__input:disabled {
+	opacity: 0.2;
+}
+
+.tasks__label--green {
+	color: #7A956B;
+}
+
+.tasks__input--green {
+	border-color: #7A956B;
+}
+
+.tasks__label--brown {
+	color: #794f45;
+}
+
+.tasks__input--brown {
+	border-color: #794f45;
+}
+
+.tasks__label--purple {
+	color: #77608D;
+}
+
+.tasks__input--purple {
+	border-color: #77608D;
+}
+
+.tasks__input--disabled:hover {
+	cursor: not-allowed;
+}
+
+.tasks__input--height {
+	min-height: 45px;
+}
+
+.tasks__select {
+	min-height: 51px;
+	background-color: #FFF;
+}
+
+.tasks__select--green {
+	border-color: #7A956B;
+}
+
+.tasks__textarea {
+	min-height: 100px;
+	padding: 10px;
+
+	font-size: 18px;
+	color: #000;
+
+	border: 2px solid #000;
+	border-radius: 6px;
+
+	resize: vertical;
+}
+
+.tasks__textarea--purple {
+	border-color: #77608D;
+}
+
+.tasks__textarea:focus {
+	outline: 2px solid #000;
+	outline-offset: -2px;
+}
+
+.tasks__textarea::placeholder {
+	color: #999;
+
+	transition: opacity 0.3s;
+}
+
+.tasks__textarea:focus::placeholder {
+	opacity: 0;
 }
 
 
@@ -135,10 +269,10 @@ body {
 	color: #808080;
 }
 
-.billing__input {
+.billing__input,
+.billing__select {
 	width: 100%;
-	min-height: 49px;
-	padding: 0 16px;
+	padding: 14px 16px;
 
 	font-size: 16px;
 	color: #1A1A1A;
@@ -150,6 +284,7 @@ body {
 
 .billing__input:focus {
 	outline: 1px solid #00B207;
+	outline-offset: -1px;
 }
 
 .billing__input::placeholder {
@@ -160,6 +295,10 @@ body {
 
 .billing__input:focus::placeholder {
 	opacity: 0;
+}
+
+.billing__select {
+	background-color: #FFF;
 }
 
 .billing__item--size-100 {
@@ -456,6 +595,12 @@ body {
 
 	background-color: #00B207;
 	border-radius: 43px;
+
+	transition: background-color 0.3s;
+}
+
+.payment__button:hover {
+	background-color: #2C742F;
 }
 
 .payment__button:focus {

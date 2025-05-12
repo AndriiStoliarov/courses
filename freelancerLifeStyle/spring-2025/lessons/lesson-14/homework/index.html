@@ -23,9 +23,126 @@
 				<!-- Tasks -->
 				<div class="tasks  tasks--margin">
 					<div class="tasks__container">
-						<div class="tasks__items">
-							<div class="tasks__item"></div>
-						</div><!-- /.tasks__items -->
+						<div class="tasks__inner">
+							<form class="tasks__form" name="form[]" action="#" method="post" target="_blank">
+								<div class="tasks__column">
+									<div class="tasks__row">
+										<div class="tasks__item">
+											<label class="tasks__label  tasks__label--green" for="tasks-item-type-text">type="text"</label>
+											<input class="tasks__input  tasks__input--green" id="tasks-item-type-text" name="data[]" type="text" placeholder="Placeholder">
+										</div>
+										<div class="tasks__item">
+											<label class="tasks__label  tasks__label--green" for="tasks-item-type-required">type="text", required</label>
+											<input class="tasks__input  tasks__input--green" id="tasks-item-type-required" name="data[]" type="text"
+												placeholder="Placeholder"
+												required>
+										</div>
+									</div>
+
+									<div class="tasks__row">
+										<div class="tasks__item">
+											<label class="tasks__label  tasks__label--green" for="tasks-item-type-email">type="email"</label>
+											<input class="tasks__input  tasks__input--green" id="tasks-item-type-email" name="data[]" type="email"
+												placeholder="Enter your email">
+										</div>
+										<div class="tasks__item">
+											<label class="tasks__label  tasks__label--green" for="tasks-item-type-tel">type="tel"</label>
+											<input class="tasks__input  tasks__input--green" id="tasks-item-type-tel" name="data[]" type="tel"
+												placeholder="Enter your number">
+										</div>
+									</div>
+
+									<div class="tasks__row">
+										<div class="tasks__item">
+											<label class="tasks__label  tasks__label--brown" for="tasks-item-type-password">type="password"</label>
+											<input class="tasks__input  tasks__input--brown" id="tasks-item-type-password" name="data[]" type="password"
+												placeholder="Enter password">
+										</div>
+										<div class="tasks__item">
+											<label class="tasks__label  tasks__label--brown" for="tasks-item-type-number">type="number"</label>
+											<input class="tasks__input  tasks__input--brown" id="tasks-item-type-number" name="data[]" type="number"
+												placeholder="Placeholder">
+										</div>
+									</div>
+
+									<div class="tasks__row">
+										<div class="tasks__item">
+											<label class="tasks__label  tasks__label--brown" for="tasks-item-type-disabled">type="text", disabled, not-allowed</label>
+											<input class="tasks__input  tasks__input--disabled  tasks__input--brown" id="tasks-item-type-disabled" name="data[]" type="text"
+												placeholder="Placeholder" disabled>
+										</div>
+										<div class="tasks__item">
+											<label class="tasks__label  tasks__label--brown" for="tasks-item-type-hidden">type="hidden"</label>
+											<input class="tasks__input  tasks__input--brown" id="tasks-item-type-hidden" name="data[]" type="hidden">
+										</div>
+									</div>
+
+									<div class="tasks__row">
+										<div class="tasks__item">
+											<label class="tasks__label  tasks__label--purple" for="tasks-item-type-color">type="color"</label>
+											<input class="tasks__input  tasks__input--height  tasks__input--purple" id="tasks-item-type-color" name="data[]" type="color">
+										</div>
+										<div class="tasks__item">
+											<label class="tasks__label  tasks__label--purple" for="tasks-item-type-date">type="date", autocomplete="off"</label>
+											<input class="tasks__input  tasks__input--purple" id="tasks-item-type-date" name="data[]" type="date" autocomplete="off">
+										</div>
+									</div>
+
+									<div class="tasks__item">
+										<label class="tasks__label  tasks__label--purple" for="tasks-item-type-search">type="search"</label>
+										<input class="tasks__input  tasks__input--purple" id="tasks-item-type-search" name="data[]" type="search"
+											placeholder="Enter your request">
+									</div>
+
+									<div class="tasks__item">
+										<label class="tasks__label  tasks__label--green" for="tasks-item-type-range">type="range"</label>
+										<input class="tasks__input  tasks__input--green" id="tasks-item-type-range" name="data[]" type="range">
+									</div>
+
+									<div class="tasks__row">
+										<div class="tasks__item">
+											<label class="tasks__label  tasks__label--green" for="tasks-item-type-file">type="file", multiple</label>
+											<input class="tasks__input  tasks__input--green" id="tasks-item-type-file" name="data[]" type="file"
+												accept="image/png, image/jpeg" multiple>
+										</div>
+
+										<div class="tasks__item">
+											<label class="tasks__label  tasks__label--green" for="tasks-item-field-select">field select</label>
+											<select class="tasks__select  tasks__select--green" id="tasks-item-field-select" name="data[]">
+												<option value="01">item 1</option>
+												<option value="02">item 2</option>
+												<option value="03">item 3</option>
+											</select>
+										</div>
+									</div>
+								</div><!-- /.tasks__column -->
+
+								<div class="tasks__column">
+
+									<div class="tasks__row">
+										<div class="tasks__item">
+											<label class="tasks__label  tasks__label--brown" for="tasks-item-type-disabled">type="text"</label>
+											<input class="tasks__input  tasks__input--disabled  tasks__input--brown" id="tasks-item-type-disabled" name="data[]" type="text"
+												placeholder="Placeholder">
+										</div>
+										<div class="tasks__item">
+											<label class="tasks__label  tasks__label--brown" for="tasks-item-type-hidden">type="text"</label>
+											<input class="tasks__input  tasks__input--brown" id="tasks-item-type-hidden" name="data[]" type="text">
+										</div>
+										<div class="tasks__item">
+											<label class="tasks__label  tasks__label--brown" for="tasks-item-type-hidden">type="text"</label>
+											<input class="tasks__input  tasks__input--brown" id="tasks-item-type-hidden" name="data[]" type="text">
+										</div>
+									</div>
+
+									<div class="tasks__item">
+										<label class="tasks__label  tasks__label--purple" for="tasks-item-notes">field textarea, autocomplete="off"</label>
+										<textarea class="tasks__textarea  tasks__textarea--purple" id="tasks-item-notes" name="data[]" autocomplete="off"
+											placeholder="Enter your notes..."></textarea>
+									</div>
+								</div><!-- /.tasks__column -->
+							</form>
+						</div><!-- /.tasks__inner -->
 					</div><!-- /.tasks__container -->
 				</div><!-- /.tasks -->
 
@@ -67,7 +184,7 @@
 											<div class="billing__row">
 												<div class="billing__item">
 													<label class="billing__label" for="billing__country">Country / Region</label>
-													<select class="billing__input" id="billing__country" name="data[]" type="text" placeholder="Select" required>
+													<select class="billing__select" id="billing__country" name="data[]" required>
 														<option value="01">USA</option>
 														<option value="02">Japan</option>
 														<option value="03">Australia</option>
@@ -82,7 +199,7 @@
 
 												<div class="billing__item">
 													<label class="billing__label" for="billing__states">States</label>
-													<select class="billing__input" id="billing__states" name="data[]" type="text" required>
+													<select class="billing__select" id="billing__states" name="data[]" required>
 														<option value="01">Alabama</option>
 														<option value="02">Alaska</option>
 														<option value="03">Arizona</option>
