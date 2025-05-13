@@ -21,7 +21,7 @@
 
 			<main class="page">
 				<!-- Tasks -->
-				<div class="tasks  tasks--margin">
+				<div class="tasks">
 					<div class="tasks__container">
 						<div class="tasks__inner">
 							<form class="tasks__form" name="form[]" action="#" method="post" target="_blank">
@@ -93,7 +93,9 @@
 										<input class="tasks__input  tasks__input--purple" id="tasks-item-type-search" name="data[]" type="search"
 											placeholder="Enter your request">
 									</div>
+								</div><!-- /.tasks__column -->
 
+								<div class="tasks__column">
 									<div class="tasks__item">
 										<label class="tasks__label  tasks__label--green" for="tasks-item-type-range">type="range"</label>
 										<input class="tasks__input  tasks__input--green" id="tasks-item-type-range" name="data[]" type="range">
@@ -115,30 +117,55 @@
 											</select>
 										</div>
 									</div>
-								</div><!-- /.tasks__column -->
-
-								<div class="tasks__column">
 
 									<div class="tasks__row">
-										<div class="tasks__item">
-											<label class="tasks__label  tasks__label--brown" for="tasks-item-type-disabled">type="text"</label>
-											<input class="tasks__input  tasks__input--disabled  tasks__input--brown" id="tasks-item-type-disabled" name="data[]" type="text"
-												placeholder="Placeholder">
-										</div>
-										<div class="tasks__item">
-											<label class="tasks__label  tasks__label--brown" for="tasks-item-type-hidden">type="text"</label>
-											<input class="tasks__input  tasks__input--brown" id="tasks-item-type-hidden" name="data[]" type="text">
-										</div>
-										<div class="tasks__item">
-											<label class="tasks__label  tasks__label--brown" for="tasks-item-type-hidden">type="text"</label>
-											<input class="tasks__input  tasks__input--brown" id="tasks-item-type-hidden" name="data[]" type="text">
+										<div class="tasks__checkbox  checkbox-tasks">
+											<div class="checkbox-tasks__item">
+												<input class="checkbox-tasks__input" id="checkbox-tasks-item-01" name="data[]" type="checkbox" checked>
+												<label class="checkbox-tasks__label" for="checkbox-tasks-item-01">checkbox, item 1</label>
+											</div>
+
+											<div class="checkbox-tasks__item">
+												<input class="checkbox-tasks__input" id="checkbox-tasks-item-02" name="data[]" type="checkbox">
+												<label class="checkbox-tasks__label" for="checkbox-tasks-item-02">checkbox, item 2</label>
+											</div>
+										</div><!-- /.tasks__checkbox -->
+
+										<div class="tasks__radio-btn  radio-btn-tasks">
+											<div class="radio-btn-tasks__item">
+												<input class="radio-btn-tasks__input" id="radio-btn-tasks-item-01" name="data[]" type="radio" checked>
+												<label class="radio-btn-tasks__label" for="radio-btn-tasks-item-01">radio, item 1</label>
+											</div>
+
+											<div class="radio-btn-tasks__item">
+												<input class="radio-btn-tasks__input" id="radio-btn-tasks-item-02" name="data[]" type="radio">
+												<label class="radio-btn-tasks__label" for="radio-btn-tasks-item-02">radio, item 2</label>
+											</div>
+
+											<div class="radio-btn-tasks__item">
+												<input class="radio-btn-tasks__input" id="radio-btn-tasks-item-03" name="data[]" type="radio">
+												<label class="radio-btn-tasks__label" for="radio-btn-tasks-item-03">radio, item 3</label>
+											</div>
+										</div><!-- /.tasks__radio-btn -->
+
+										<div class="tasks__switcher  switcher">
+											<div class="switcher__item">
+												<label class="switcher__label" for="switcher-item">checkbox, switcher</label>
+												<input class="switcher__input" id="switcher-item" name="data[]" type="checkbox">
+											</div>
 										</div>
 									</div>
 
-									<div class="tasks__item">
-										<label class="tasks__label  tasks__label--purple" for="tasks-item-notes">field textarea, autocomplete="off"</label>
+									<div class="tasks__item  tasks__item--grow">
+										<label class="tasks__label  tasks__label--purple" for="tasks-item-notes">field textarea</label>
 										<textarea class="tasks__textarea  tasks__textarea--purple" id="tasks-item-notes" name="data[]" autocomplete="off"
 											placeholder="Enter your notes..."></textarea>
+									</div>
+
+									<div class="tasks__row  tasks__row--flex">
+										<button class="tasks__button" type="button">button</button>
+										<button class="tasks__button" type="reset">reset</button>
+										<button class="tasks__button" type="submit">submit</button>
 									</div>
 								</div><!-- /.tasks__column -->
 							</form>
@@ -167,8 +194,7 @@
 												</div>
 
 												<div class="billing__item">
-													<label class="billing__label" for="billing__company-name">Company name <span
-															class="billing__label--gray">(optional)</span></label>
+													<label class="billing__label" for="billing__company-name">Company name <span>(optional)</span></label>
 													<input class="billing__input" id="billing__company-name" name="data[]" type="text" placeholder="Company name" required>
 												</div>
 											</div><!-- /.billing__row -->
@@ -315,7 +341,7 @@
 												<div class="goods__amount">x1</div>
 												<div class="goods__price">$14.00</div>
 											</div>
-										</div><!-- /.summery__goods -->
+										</div>
 
 										<div class="summery__items">
 											<div class="summery__item">
@@ -332,7 +358,7 @@
 												<div class="summery__name">Total:</div>
 												<div class="summery__total-price">$84.00</div>
 											</div>
-										</div><!-- /.summery__sum -->
+										</div>
 									</div><!-- /.order__summery -->
 
 									<div class="order__payment  payment">
@@ -356,7 +382,7 @@
 										</div><!-- /.payment__radio-btn -->
 									</div><!-- /.order__payment -->
 
-									<button class="payment__button" type="submit">Place Order</button>
+									<button class="order__button" type="submit">Place Order</button>
 								</div><!-- /.form__order -->
 							</form>
 						</div><!-- /.order-form__inner -->

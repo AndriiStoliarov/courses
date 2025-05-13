@@ -40,7 +40,7 @@ body {
 
 
 /* Header
-========================================*/
+======================================== */
 
 .header {
 	padding: 20px 0;
@@ -55,12 +55,12 @@ body {
 
 
 /* Tasks
-========================================*/
+======================================== */
 
 .tasks__inner {
 	padding: 20px;
 
-	border: 1px solid #000;
+	border: 2px solid #000;
 	border-radius: 6px;
 }
 
@@ -81,17 +81,13 @@ body {
 	column-gap: 20px;
 }
 
+.tasks__item--grow {
+	flex-grow: 1;
+}
+
 .tasks__item {
 	width: 100%;
 }
-
-/* .tasks__column .tasks__row:not(:last-child) {
-	margin-bottom: 20px;
-} */
-
-/* .tasks__column .tasks__item:not(:last-child) {
-	margin-bottom: 20px;
-} */
 
 .tasks__label {
 	width: 100%;
@@ -141,11 +137,11 @@ body {
 }
 
 .tasks__label--brown {
-	color: #794f45;
+	color: #794F45;
 }
 
 .tasks__input--brown {
-	border-color: #794f45;
+	border-color: #794F45;
 }
 
 .tasks__label--purple {
@@ -173,6 +169,207 @@ body {
 	border-color: #7A956B;
 }
 
+/* .tasks__checkbox ============ */
+.checkbox-tasks {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	row-gap: 10px;
+	align-items: flex-start;
+}
+
+.checkbox-tasks__item {
+	display: inline-flex;
+	flex-direction: column;
+}
+
+.checkbox-tasks__input {
+	appearance: none;
+}
+
+.checkbox-tasks__label {
+	display: inline-flex;
+	align-items: center;
+	column-gap: 6px;
+
+	font-size: 16px;
+	color: #794F45;
+
+	cursor: pointer;
+	user-select: none;
+}
+
+.checkbox-tasks__label::before {
+	content: "";
+	width: 25px;
+	height: 26px;
+	align-self: flex-start;
+	flex-shrink: 0;
+
+	background-color: #FFF;
+	border: 2px solid #794F45;
+	border-radius: 5px;
+
+	transition: border-color 0.2s, background-color 0.2s;
+}
+
+.checkbox-tasks__label:hover::before {
+	border-color: #000;
+}
+
+.checkbox-tasks__input:checked + .checkbox-tasks__label::before {
+	background-color: #D3D3D3; /* lightgray */
+}
+
+.checkbox-tasks__input:focus-visible + .checkbox-tasks__label {
+	outline: 2px solid #000;
+	border-radius: 5px;
+}
+
+/* .radio-btn-tasks ============ */
+.radio-btn-tasks {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	row-gap: 10px;
+	align-items: flex-start;
+}
+
+.radio-btn-tasks__item {
+	display: inline-flex;
+	flex-direction: column;
+}
+
+.radio-btn-tasks__input {
+	appearance: none;
+}
+
+.radio-btn-tasks__label {
+	display: inline-flex;
+	align-items: center;
+	column-gap: 6px;
+
+	font-size: 16px;
+	color: #794F45;
+
+	position: relative;
+
+	cursor: pointer;
+	user-select: none;
+}
+
+.radio-btn-tasks__label::before {
+	content: "";
+	width: 26px;
+	height: 26px;
+	align-self: center;
+	flex-shrink: 0;
+
+	background-color: #FFF;
+	border: 2px solid #794F45;
+	border-radius: 50%;
+
+	transition: border-color 0.2s, background-color 0.2s;
+}
+
+.radio-btn-tasks__label:hover::before {
+	border-color: #000;
+}
+
+.radio-btn-tasks__label::after {
+	content: "";
+	width: 12px;
+	height: 12px;
+
+	background-color: #000; /* lightgray */
+	border-radius: 50%;
+
+	position: absolute;
+	top: 7px;
+	left: 7px;
+
+	opacity: 0;
+	transition: opacity 0.2s;
+}
+
+.radio-btn-tasks__input:checked + .radio-btn-tasks__label::after {
+	opacity: 1;
+}
+
+.radio-btn-tasks__input:focus-visible + .radio-btn-tasks__label {
+	outline: 2px solid #000;
+	border-radius: 15px;
+}
+
+/* .tasks__switcher ============ */
+.switcher {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	row-gap: 10px;
+	align-items: flex-start;
+}
+
+.switcher__item {
+	display: inline-flex;
+	flex-direction: column;
+}
+
+.switcher__label {
+	width: 100%;
+	margin-bottom: 8px;
+
+	font-size: 16px;
+	color: #794F45;
+}
+
+.switcher__input {
+	appearance: none;
+}
+
+.switcher__input {
+	width: 60px;
+	height: 26px;
+
+	background-color: #FFF;
+	border: 2px solid #794F45;
+	border-radius: 15px;
+
+	position: relative;
+
+	cursor: pointer;
+	transition: border-color 0.3s, background-color 0.3s;
+}
+
+.switcher__input::before {
+	content: "";
+	width: 22px;
+	height: 22px;
+
+	background-color: #794F45;
+	border-radius: 50%;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	transition: left 0.3s, transform 0.3s, border-color 0.3s;
+}
+
+.switcher__input:hover {
+	border-color: #000;
+}
+
+.switcher__input:checked::before {
+	left: 100%;
+	transform: translateX(-100%);
+}
+
+.switcher__input:checked {
+	background-color: #D3D3D3;
+}
+
+/* .tasks__textarea ============ */
 .tasks__textarea {
 	min-height: 100px;
 	padding: 10px;
@@ -205,9 +402,31 @@ body {
 	opacity: 0;
 }
 
+/* .tasks__button ============ */
+.tasks__button {
+	width: 100%;
+	padding: 10px 10px;
+
+	font-size: 18px;
+	color: #7A956B;
+	font-weight: 500;
+	line-height: 1.4;
+
+	background-color: #FFF;
+	border: 2px solid #7A956B;
+	border-radius: 43px;
+
+	transition: background-color 0.3s, color 0.3s;
+}
+
+.tasks__button:hover {
+	background-color: #7A956B;
+	color: #FFF;
+}
+
 
 /* Order Form
-========================================*/
+======================================== */
 
 .order-form {
 	padding-top: 32px;
@@ -222,7 +441,7 @@ body {
 }
 
 
-/* .form__billing ============*/
+/* .form__billing ============ */
 .form__billing {
 	padding-bottom: 32px;
 
@@ -265,7 +484,7 @@ body {
 	line-height: 1.5;
 }
 
-.billing__label--gray {
+.billing__label span {
 	color: #808080;
 }
 
@@ -282,7 +501,8 @@ body {
 	border-radius: 6px;
 }
 
-.billing__input:focus {
+.billing__input:focus,
+.billing__select:focus {
 	outline: 1px solid #00B207;
 	outline-offset: -1px;
 }
@@ -310,7 +530,7 @@ body {
 }
 
 
-/* .checkbox ============*/
+/* .checkbox ============ */
 .checkbox {
 	display: flex;
 	flex-direction: column;
@@ -372,7 +592,7 @@ body {
 }
 
 
-/* .form__additional ============*/
+/* .form__additional ============ */
 .form__additional {
 	padding-top: 32px;
 }
@@ -424,7 +644,7 @@ body {
 }
 
 
-/* .form__order ============*/
+/* .form__order ============ */
 .form__order {
 	display: inline-flex;
 	flex-direction: column;
@@ -584,8 +804,8 @@ body {
 }
 
 
-/* .payment__button ============*/
-.payment__button {
+/* .order__button ============ */
+.order__button {
 	padding: 16px 48px;
 
 	font-size: 16px;
@@ -599,16 +819,16 @@ body {
 	transition: background-color 0.3s;
 }
 
-.payment__button:hover {
+.order__button:hover {
 	background-color: #2C742F;
 }
 
-.payment__button:focus {
+.order__button:focus {
 	outline: 2px solid #C80808;
 }
 
 
-/* .up ============*/
+/* .up ============ */
 .up {
 	padding: 20px 0;
 
@@ -628,7 +848,7 @@ body {
 
 
 /* Footer
-========================================*/
+======================================== */
 
 .footer {
 	padding: 20px 0;
