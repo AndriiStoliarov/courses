@@ -10,6 +10,9 @@
 
 
 
+Awwwards - Website Awards - Best Web Design Trends
+https://www.awwwards.com/
+
 ‼️ Що поки дивитись?
 Оскільки навчатися будемо з використанням редактора VS Code. Треба його заздалегідь налаштувати.
 Відео курс: https://www.youtube.com/watch?v=nxCLXMBl4e4&list=PLM6XATa8CAG5v6T2a0TTdwyK0nZrSRxFi&index=4

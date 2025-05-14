@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!-- Коди мов https://html-css.co.ua/html/lang-kodu-mov/ -->
+<html lang="en">
+	<head>
+		<!-- Кодування тексту -->
+		<meta charset="UTF-8">
+		<!-- Налаштування в'юпорту (адаптиву, масштабу тощо) -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Підключення окремого файлу стилів -->
+		<link rel="stylesheet" href="css/style.css">
+		<!-- Заголовок сторінки в браузері -->
+		<title>Lesson 15</title>
+	</head>
+	<body>
+		<div class="wrapper">
+			<header class="header">
+				<div class="header__container">header</div>
+			</header>
+			<main class="page">
+
+				<div class="page__container">
+
+					<!-- Різні файли на різних екранах -->
+					<picture>
+						<source srcset="img/building-ready.jpg" media="(max-width: 800px)">
+						<img src="img/building.jpg" alt="Image">
+					</picture>
+
+					<div class="page__items">
+						<div class="page__item">
+							<img class="page__image" src="img/card-image.jpg" alt="Image">
+							<div class="page__text">Lorem ipsum dolor sit amet consectetur.</div>
+						</div>
+						<div class="page__item">
+							<img class="page__image" src="img/building.jpg" alt="Image">
+							<div class="page__text">Lorem ipsum dolor sit amet consectetur.</div>
+						</div>
+						<div class="page__item">
+							<img class="page__image" src="img/card-image.jpg" alt="Image">
+							<div class="page__text">Lorem ipsum dolor sit amet consectetur.</div>
+						</div>
+						<div class="page__item">
+							<img class="page__image" src="img/building-ready.jpg" alt="Image">
+							<div class="page__text">Lorem ipsum dolor sit amet consectetur.</div>
+						</div>
+					</div>
+				</div>
+			</main>
+			<footer class="footer">
+				<div class="footer__container">footer</div>
+			</footer>
+		</div>
+	</body>
+</html>

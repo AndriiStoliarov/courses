@@ -1,0 +1,280 @@
+/* Підключення шрифтів */
+
+/* Google Fonts (Plugin) */
+/* @import url("https://fonts.googleapis.com/css?family=Manrope:regular,500,600,700&display=swap"); */
+
+/* Локальне підключення шрифтів */
+@import url("fonts.css");
+
+/* Скидання стилів */
+@import url("reset.css");
+
+/* Компоненти */
+@import url("button.css");
+/* .... */
+
+/* Основні стилі */
+body {
+	font-family: "Gilroy", sans-serif;
+	background-color: #333;
+	color: #fff;
+}
+.wrapper {
+	overflow: clip;
+	min-height: 100%;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.wrapper > main {
+	flex-grow: 1;
+}
+[class*="--margin"] {
+	margin-bottom: 30px;
+}
+
+.page {
+}
+/* ================================================================================================================ */
+
+/* 
+Адаптивна (чуйна) верстка - це не про 
+впихування дизайну під ПК у маленьки екрани,
+це про зручність у користуванні та оптимізацію
+*/
+
+/* Хороші практики адаптивної верстки: */
+/* 
+- Дивіться на екран, та відповідайте на питання 
+	"Чи зручно цим користуватись?"
+- Для того щоб робити верстку швидко, продумовуйте адаптив ще на ПК
+- Не ховайте від користувача найважливіші елементи
+- Один клік завжди кращий за два
+- Не робіть великі відступи. Зайвий простір тут непотрібен
+- Важливі навігаційні вузли робіть зручнішими (крупнішими), 
+  не змушуйте користувача цілитись
+- Оптимізаця простору та завантаження. Ховайте зайве
+- Оптимізовуйте або відмовляйтесь від анімацій
+- Долучайте свій власний досвід користувача, 
+  не повторюйте те що не зручно вам самим
+*/
+
+/* ================================================================================================================ */
+/*
+	Полотно - певна ширина макету, 
+	завжди має бути на всю ширину екрану.
+*/
+/* 
+	Обмежуючий контейнер - об'єкт, який обмежений по ширині 
+	та містить контент секції (сайту)
+*/
+
+[class*="__container"] {
+	max-width: 1350px;
+	margin: 0 auto;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+/* ================================================================================================================ */
+
+/* 
+	Медіа-запити - інструмент, який дозволяє 
+	вности певні зміни при певних умовах
+*/
+/* 
+	Момент зміни стилів при якийсь умові 
+	ще називають breakpoint
+*/
+/* 
+	Подробиці: 
+	https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#syntax
+	https://developer.mozilla.org/en-US/docs/Web/CSS/@media/aspect-ratio 
+	https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio 
+*/
+
+/*
+Базові значення ширин екранів
+> 992 = PC
+<= 992 >= 768 = Tablet
+< 768 = Mobile Phones
+*/
+
+/* Адаптивна сітка для обмежуючого контейнеру */
+/* Не рекомендую для використання */
+/*
+@media (max-width: 1350px) {
+	[class*="__container"] {
+		max-width: 970px;
+	}
+}
+@media (max-width: 991.98px) {
+	[class*="__container"] {
+		max-width: 750px;
+	}
+}
+@media (max-width: 767.98px) {
+	[class*="__container"] {
+		max-width: 460px;
+	}
+}
+@media (max-width: 479.98px) {
+	[class*="__container"] {
+		max-width: none;
+		padding-right: 15px;
+		padding-left: 15px;
+	}
+}*/
+
+/* Анатомія @media: */
+/*
+	@media (умова){
+		CSS-селектор{
+			CSS-параметр;
+			...
+			CSS-параметр;
+		}
+	}
+
+	Декілька пристроїв \ варіантів (АБО)
+	@media screen, print{
+		CSS-селектор{
+			CSS-параметр;
+			...
+			CSS-параметр;
+		}
+	}
+
+	Декілька умов (ТА)
+	@media (умова) and (умова){
+		CSS-селектор{
+			CSS-параметр;
+			...
+			CSS-параметр;
+		}
+	}
+*/
+
+/* Умова - ширина екрану */
+/* Екрани =< 826px */
+/*
+	@media (max-width: 826px) {
+		CSS-селектор{
+			CSS-параметр;
+			...
+			CSS-параметр;
+		}
+	}
+*/
+
+.text {
+	font-size: 26px;
+}
+/*
+@media (max-width: 826px) {
+	.text {
+		font-size: 14px;
+		color: red;
+	}
+}
+*/
+
+/* Mobile First */
+/* Умова - ширина екрану */
+/* Екрани => 826px */
+/*
+	@media (min-width: 826px) {
+		CSS-селектор{
+			CSS-параметр;
+			...
+			CSS-параметр;
+		}
+	}
+*/
+/*
+@media (min-width: 826px) {
+	.text {
+		color: red;
+	}
+}
+*/
+/* PC first */
+/*
+.text {
+	color: red;
+}
+@media (max-width: 826px) {
+	.text {
+		color: #fff;
+	}
+}*/
+
+/* Mobile First */
+/*
+@media (min-width: 827px) {
+	.text {
+		color: red;
+	}
+}
+*/
+
+/* В результаті отримуємо меньше коду для mob. пристроїв */
+/*
+@media (max-height: 500px) {
+	.text {
+		font-size: 10px;
+	}
+}*/
+
+/* Приклад проміжку */
+/*
+@media (min-width: 400px) and (max-width: 800px) {
+	.text {
+		color: green;
+	}
+}
+*/
+
+/* Тільки на мобілках < 768 */
+/*
+@media (max-width: 767.98px) {
+	.text {
+		color: green;
+	}
+}*/
+
+/* ======================================================================================================================== */
+
+/* IBG (image = background) */
+/* якісний адаптив (чуйність) зображень */
+
+/* 
+	object-fit Змінює алгоритм виводу об'єкта
+	contain
+	cover
+	object-position вирівнювання об'єкту
+	aspect-ratio Співвідношення сторін
+*/
+
+.page {
+}
+.page__container {
+}
+.page__items {
+	display: flex;
+	gap: 20px;
+	flex-wrap: wrap;
+}
+.page__item {
+	flex: 1 1 200px;
+}
+.page__image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	/* object-position: top; */
+	aspect-ratio: 312 / 280;
+}
+.page__text {
+}
