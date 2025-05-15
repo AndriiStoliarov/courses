@@ -44,9 +44,9 @@ h6 {
 	font-size: inherit;
 }
 
-p {
+/*? p {
 	text-wrap: balance;
-}
+} */
 
 /* FORM */
 input,
