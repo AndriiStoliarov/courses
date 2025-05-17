@@ -517,6 +517,18 @@ body {
 	opacity: 0;
 }
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+	/* display: none; <-- Crashes Chrome on hover */
+	-webkit-appearance: none;
+	/* Apparently some margin are still there even though it's hidden */
+	margin: 0; 
+}
+
+input[type="number"] {
+	-moz-appearance: textfield; /* firefox */
+}
+
 .billing__select {
 	background-color: #FFF;
 }
@@ -687,8 +699,16 @@ body {
 	height: 60px;
 }
 
+.goods__name:hover {
+	text-decoration-line: underline;
+}
+
 .goods__amount {
 	flex-grow: 1;
+}
+
+.goods__input {
+	width: 30px;
 }
 
 .goods__price,
