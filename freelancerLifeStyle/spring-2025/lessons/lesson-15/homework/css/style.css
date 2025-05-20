@@ -370,6 +370,24 @@ body {
     /* Піднімаємо картку по z-index вище, щоб вона була над іншими картками і не обрізався бордер та тінь */
     z-index: 2;
   }
+
+  .products-card__button:hover {
+    background-color: #00B207;
+    border-color: transparent;
+  }
+
+  .products-card:hover .products-card__buttons {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .products-card:hover .products-card__title {
+    color: #2C742F;
+  }
+
+  .products-card__title:hover a {
+    text-decoration-line: underline;
+  }
 }
 
 @media (any-hover: none) {
@@ -377,36 +395,6 @@ body {
   .products-card__buttons {
     visibility: visible;
     opacity: 1;
-  }
-}
-
-@media (any-hover: hover) {
-
-  .products-card__button:hover {
-    background-color: #00B207;
-    border-color: transparent;
-  }
-}
-
-@media (any-hover: hover) {
-
-  .products-card:hover .products-card__buttons {
-    visibility: visible;
-    opacity: 1;
-  }
-}
-
-@media (any-hover: hover) {
-
-  .products-card:hover .products-card__title {
-    color: #2C742F;
-  }
-}
-
-@media (any-hover: hover) {
-
-  .products-card__title:hover a {
-    text-decoration-line: underline;
   }
 }
 
@@ -665,30 +653,18 @@ body {
   .news-card:hover {
     box-shadow: 0 20px 50px 0 rgba(0, 0, 0, 0.08);
   }
-}
-
-@media (any-hover: hover) {
 
   .news-card__image:hover {
     transform: scale(1.05);
   }
-}
-
-@media (any-hover: hover) {
 
   .news-card:hover .date {
     background-color: #FFF;
   }
-}
-
-@media (any-hover: hover) {
 
   .news-card:hover .news-card__content {
     color: #2C742F;
   }
-}
-
-@media (any-hover: hover) {
 
   .news-card__link:hover {
     text-decoration-line: underline;
@@ -733,11 +709,11 @@ body {
 /* @media ============================== */
 @media (max-width: 459.98px) {
 
-.footer__inner {
-  flex-direction: column;
-  align-items: center;
-  row-gap: 15px;
-}
+  .footer__inner {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 15px;
+  }
 }
 
 .footer__text {
