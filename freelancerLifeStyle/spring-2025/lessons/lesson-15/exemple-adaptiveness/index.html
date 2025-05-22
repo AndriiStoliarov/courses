@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Example for lesson 15</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+
+      <header class="header">
+        <h1>Header</h1>
+      </header>
+
+      <main class="page">
+        <div class="page__products-featured featured-products">
+          <div class="featured-products__container">
+            <div class="featured-products__header section-header">
+              <h2 class="section-header__title">
+                Featured Products
+              </h2>
+              <a href="#" class="section-header__link arrow-link">
+                View All
+              </a>
+            </div>
+            <div class="featured-products__cards">
+              <div class="featured-products__card">
+                <div class="product-card">
+                  <a href="#" class="product-card__image">
+                    <img src="img/products/product_01.png" alt="product">
+                  </a>
+                  <div class="product-card__content">
+                    <div class="product-card__info">
+                      <h3 class="product-card__title">
+                        <a href="#">Green Apple Green Apple Green Apple</a>
+                      </h3>
+                      <div class="product-card__price">
+                        $14.99 <span>$20.99</span>
+                      </div>
+                      <div class="product-card__rating">
+                        <img src="img/rating.svg" alt="rating stars">
+                      </div>
+                    </div>
+                    <!-- ! для svg вказано замість коду кольору CurrentColor тому воно буде успадковувати колір кнопки -->
+                    <button type="button" class="product-card__button product-card__button--add-to-cart">
+                      <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M6.66667 8.83333H4.16667L2.5 18H17.5L15.8333 8.83333H13.3333M6.66667 8.83333V6.33333C6.66667 4.49239 8.15905 3 10 3V3C11.8409 3 13.3333 4.49238 13.3333 6.33333V8.83333M6.66667 8.83333H13.3333M6.66667 8.83333V11.3333M13.3333 8.83333V11.3333"
+                          stroke="CurrentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="product-card__actions">
+                    <!-- ! для svg вказано замість коду кольору CurrentColor тому воно буде успадковувати колір кнопки -->
+                    <button type="button" class="product-card__button">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M9.9996 17.5451C-6.66672 8.33332 4.99993 -1.66668 9.9996 4.6567C14.9999 -1.66668 26.6666 8.33332 9.9996 17.5451Z"
+                          stroke="CurrentColor" stroke-width="1.5" />
+                      </svg>
+                    </button>
+                    <!-- ! для svg вказано замість коду кольору CurrentColor тому воно буде успадковувати колір кнопки -->
+                    <button type="button" class="product-card__button">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M10 3.54103C3.75 3.54103 1.25 10.0001 1.25 10.0001C1.25 10.0001 3.75 16.4577 10 16.4577C16.25 16.4577 18.75 10.0001 18.75 10.0001C18.75 10.0001 16.25 3.54103 10 3.54103V3.54103Z"
+                          stroke="CurrentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                          d="M10 13.125C10.8288 13.125 11.6237 12.7958 12.2097 12.2097C12.7958 11.6237 13.125 10.8288 13.125 10C13.125 9.1712 12.7958 8.37634 12.2097 7.79029C11.6237 7.20424 10.8288 6.875 10 6.875C9.1712 6.875 8.37634 7.20424 7.79029 7.79029C7.20424 8.37634 6.875 9.1712 6.875 10C6.875 10.8288 7.20424 11.6237 7.79029 12.2097C8.37634 12.7958 9.1712 13.125 10 13.125V13.125Z"
+                          stroke="CurrentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="product-card__labels">
+                    <div class="card-label card-label--v1-mod">
+                      Sale <strong>50%</strong>
+                    </div>
+                    <div class="card-label card-label--v2-mod">
+                      Best Sale
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="featured-products__card">
+                <div class="product-card">
+                  <a href="#" class="product-card__image">
+                    <img src="img/products/product_01.png" alt="product">
+                  </a>
+                  <div class="product-card__content">
+                    <div class="product-card__info">
+                      <h3 class="product-card__title">
+                        <a href="#">Green Apple</a>
+                      </h3>
+                      <div class="product-card__price">
+                        $14.99 <span>$20.99</span>
+                      </div>
+                      <div class="product-card__rating">
+                        <img src="img/rating.svg" alt="rating stars">
+                      </div>
+                    </div>
+                    <!-- ! для svg вказано замість коду кольору CurrentColor тому воно буде успадковувати колір кнопки -->
+                    <button type="button" class="product-card__button product-card__button--add-to-cart">
+                      <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M6.66667 8.83333H4.16667L2.5 18H17.5L15.8333 8.83333H13.3333M6.66667 8.83333V6.33333C6.66667 4.49239 8.15905 3 10 3V3C11.8409 3 13.3333 4.49238 13.3333 6.33333V8.83333M6.66667 8.83333H13.3333M6.66667 8.83333V11.3333M13.3333 8.83333V11.3333"
+                          stroke="CurrentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="product-card__actions">
+                    <!-- ! для svg вказано замість коду кольору CurrentColor тому воно буде успадковувати колір кнопки -->
+                    <button type="button" class="product-card__button">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M9.9996 17.5451C-6.66672 8.33332 4.99993 -1.66668 9.9996 4.6567C14.9999 -1.66668 26.6666 8.33332 9.9996 17.5451Z"
+                          stroke="CurrentColor" stroke-width="1.5" />
+                      </svg>
+                    </button>
+                    <!-- ! для svg вказано замість коду кольору CurrentColor тому воно буде успадковувати колір кнопки -->
+                    <button type="button" class="product-card__button">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M10 3.54103C3.75 3.54103 1.25 10.0001 1.25 10.0001C1.25 10.0001 3.75 16.4577 10 16.4577C16.25 16.4577 18.75 10.0001 18.75 10.0001C18.75 10.0001 16.25 3.54103 10 3.54103V3.54103Z"
+                          stroke="CurrentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                          d="M10 13.125C10.8288 13.125 11.6237 12.7958 12.2097 12.2097C12.7958 11.6237 13.125 10.8288 13.125 10C13.125 9.1712 12.7958 8.37634 12.2097 7.79029C11.6237 7.20424 10.8288 6.875 10 6.875C9.1712 6.875 8.37634 7.20424 7.79029 7.79029C7.20424 8.37634 6.875 9.1712 6.875 10C6.875 10.8288 7.20424 11.6237 7.79029 12.2097C8.37634 12.7958 9.1712 13.125 10 13.125V13.125Z"
+                          stroke="CurrentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="product-card__labels">
+                    <div class="card-label card-label--v1-mod">
+                      Sale <strong>50%</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="featured-products__card">
+                <div class="product-card">
+                  <a href="#" class="product-card__image">
+                    <img src="img/products/product_01.png" alt="product">
+                  </a>
+                  <div class="product-card__content">
+                    <div class="product-card__info">
+                      <h3 class="product-card__title">
+                        <a href="#">Green Apple</a>
+                      </h3>
+                      <div class="product-card__price">
+                        $14.99 <span>$20.99</span>
+                      </div>
+                      <div class="product-card__rating">
+                        <img src="img/rating.svg" alt="rating stars">
+                      </div>
+                    </div>
+                    <!-- ! для svg вказано замість коду кольору CurrentColor тому воно буде успадковувати колір кнопки -->
+                    <button type="button" class="product-card__button product-card__button--add-to-cart">
+                      <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M6.66667 8.83333H4.16667L2.5 18H17.5L15.8333 8.83333H13.3333M6.66667 8.83333V6.33333C6.66667 4.49239 8.15905 3 10 3V3C11.8409 3 13.3333 4.49238 13.3333 6.33333V8.83333M6.66667 8.83333H13.3333M6.66667 8.83333V11.3333M13.3333 8.83333V11.3333"
+                          stroke="CurrentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="product-card__actions">
+                    <!-- ! для svg вказано замість коду кольору CurrentColor тому воно буде успадковувати колір кнопки -->
+                    <button type="button" class="product-card__button">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M9.9996 17.5451C-6.66672 8.33332 4.99993 -1.66668 9.9996 4.6567C14.9999 -1.66668 26.6666 8.33332 9.9996 17.5451Z"
+                          stroke="CurrentColor" stroke-width="1.5" />
+                      </svg>
+                    </button>
+                    <!-- ! для svg вказано замість коду кольору CurrentColor тому воно буде успадковувати колір кнопки -->
+                    <button type="button" class="product-card__button">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M10 3.54103C3.75 3.54103 1.25 10.0001 1.25 10.0001C1.25 10.0001 3.75 16.4577 10 16.4577C16.25 16.4577 18.75 10.0001 18.75 10.0001C18.75 10.0001 16.25 3.54103 10 3.54103V3.54103Z"
+                          stroke="CurrentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                          d="M10 13.125C10.8288 13.125 11.6237 12.7958 12.2097 12.2097C12.7958 11.6237 13.125 10.8288 13.125 10C13.125 9.1712 12.7958 8.37634 12.2097 7.79029C11.6237 7.20424 10.8288 6.875 10 6.875C9.1712 6.875 8.37634 7.20424 7.79029 7.79029C7.20424 8.37634 6.875 9.1712 6.875 10C6.875 10.8288 7.20424 11.6237 7.79029 12.2097C8.37634 12.7958 9.1712 13.125 10 13.125V13.125Z"
+                          stroke="CurrentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="product-card__labels">
+                    <div class="card-label card-label--v1-mod">
+                      Sale <strong>50%</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="featured-products__card">
+                <div class="product-card">
+                  <a href="#" class="product-card__image">
+                    <img src="img/products/product_01.png" alt="product">
+                  </a>
+                  <div class="product-card__content">
+                    <div class="product-card__info">
+                      <h3 class="product-card__title">
+                        <a href="#">Green Apple</a>
+                      </h3>
+                      <div class="product-card__price">
+                        $14.99 <span>$20.99</span>
+                      </div>
+                      <div class="product-card__rating">
+                        <img src="img/rating.svg" alt="rating stars">
+                      </div>
+                    </div>
+                    <!-- ! для svg вказано замість коду кольору CurrentColor тому воно буде успадковувати колір кнопки -->
+                    <button type="button" class="product-card__button product-card__button--add-to-cart">
+                      <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M6.66667 8.83333H4.16667L2.5 18H17.5L15.8333 8.83333H13.3333M6.66667 8.83333V6.33333C6.66667 4.49239 8.15905 3 10 3V3C11.8409 3 13.3333 4.49238 13.3333 6.33333V8.83333M6.66667 8.83333H13.3333M6.66667 8.83333V11.3333M13.3333 8.83333V11.3333"
+                          stroke="CurrentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="product-card__actions">
+                    <!-- ! для svg вказано замість коду кольору CurrentColor тому воно буде успадковувати колір кнопки -->
+                    <button type="button" class="product-card__button">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M9.9996 17.5451C-6.66672 8.33332 4.99993 -1.66668 9.9996 4.6567C14.9999 -1.66668 26.6666 8.33332 9.9996 17.5451Z"
+                          stroke="CurrentColor" stroke-width="1.5" />
+                      </svg>
+                    </button>
+                    <!-- ! для svg вказано замість коду кольору CurrentColor тому воно буде успадковувати колір кнопки -->
+                    <button type="button" class="product-card__button">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M10 3.54103C3.75 3.54103 1.25 10.0001 1.25 10.0001C1.25 10.0001 3.75 16.4577 10 16.4577C16.25 16.4577 18.75 10.0001 18.75 10.0001C18.75 10.0001 16.25 3.54103 10 3.54103V3.54103Z"
+                          stroke="CurrentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                          d="M10 13.125C10.8288 13.125 11.6237 12.7958 12.2097 12.2097C12.7958 11.6237 13.125 10.8288 13.125 10C13.125 9.1712 12.7958 8.37634 12.2097 7.79029C11.6237 7.20424 10.8288 6.875 10 6.875C9.1712 6.875 8.37634 7.20424 7.79029 7.79029C7.20424 8.37634 6.875 9.1712 6.875 10C6.875 10.8288 7.20424 11.6237 7.79029 12.2097C8.37634 12.7958 9.1712 13.125 10 13.125V13.125Z"
+                          stroke="CurrentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="product-card__labels">
+                    <div class="card-label card-label--v1-mod">
+                      Sale <strong>50%</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="featured-products__card">
+                <div class="product-card">
+                  <a href="#" class="product-card__image">
+                    <img src="img/products/product_01.png" alt="product">
+                  </a>
+                  <div class="product-card__content">
+                    <div class="product-card__info">
+                      <h3 class="product-card__title">
+                        <a href="#">Green Apple</a>
+                      </h3>
+                      <div class="product-card__price">
+                        $14.99 <span>$20.99</span>
+                      </div>
+                      <div class="product-card__rating">
+                        <img src="img/rating.svg" alt="rating stars">
+                      </div>
+                    </div>
+                    <!-- ! для svg вказано замість коду кольору CurrentColor тому воно буде успадковувати колір кнопки -->
+                    <button type="button" class="product-card__button product-card__button--add-to-cart">
+                      <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M6.66667 8.83333H4.16667L2.5 18H17.5L15.8333 8.83333H13.3333M6.66667 8.83333V6.33333C6.66667 4.49239 8.15905 3 10 3V3C11.8409 3 13.3333 4.49238 13.3333 6.33333V8.83333M6.66667 8.83333H13.3333M6.66667 8.83333V11.3333M13.3333 8.83333V11.3333"
+                          stroke="CurrentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="product-card__actions">
+                    <!-- ! для svg вказано замість коду кольору CurrentColor тому воно буде успадковувати колір кнопки -->
+                    <button type="button" class="product-card__button">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M9.9996 17.5451C-6.66672 8.33332 4.99993 -1.66668 9.9996 4.6567C14.9999 -1.66668 26.6666 8.33332 9.9996 17.5451Z"
+                          stroke="CurrentColor" stroke-width="1.5" />
+                      </svg>
+                    </button>
+                    <!-- ! для svg вказано замість коду кольору CurrentColor тому воно буде успадковувати колір кнопки -->
+                    <button type="button" class="product-card__button">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M10 3.54103C3.75 3.54103 1.25 10.0001 1.25 10.0001C1.25 10.0001 3.75 16.4577 10 16.4577C16.25 16.4577 18.75 10.0001 18.75 10.0001C18.75 10.0001 16.25 3.54103 10 3.54103V3.54103Z"
+                          stroke="CurrentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                          d="M10 13.125C10.8288 13.125 11.6237 12.7958 12.2097 12.2097C12.7958 11.6237 13.125 10.8288 13.125 10C13.125 9.1712 12.7958 8.37634 12.2097 7.79029C11.6237 7.20424 10.8288 6.875 10 6.875C9.1712 6.875 8.37634 7.20424 7.79029 7.79029C7.20424 8.37634 6.875 9.1712 6.875 10C6.875 10.8288 7.20424 11.6237 7.79029 12.2097C8.37634 12.7958 9.1712 13.125 10 13.125V13.125Z"
+                          stroke="CurrentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="product-card__labels">
+                    <div class="card-label card-label--v1-mod">
+                      Sale <strong>50%</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="page__products-featured featured-products">
+          <div class="featured-products__container">
+            <div class="featured-products__header section-header">
+              <h2 class="section-header__title">
+                Featured Products
+              </h2>
+              <a href="#" class="section-header__link arrow-link">
+                View All
+              </a>
+            </div>
+
+            <!-- ! адаптив по типу слайдера але на css -->
+            <div class="featured-products__cards featured-products__cards--adaptive-v2">
+              <div class="featured-products__card">
+                <div class="product-card">
+                  <a href="#" class="product-card__image">
+                    <img src="img/products/product_01.png" alt="product">
+                  </a>
+                  <div class="product-card__content">
+                    <div class="product-card__info">
+                      <h3 class="product-card__title">
+                        <a href="#">Green Apple</a>
+                      </h3>
+                      <div class="product-card__price">
+                        $14.99 <span>$20.99</span>
+                      </div>
+                      <div class="product-card__rating">
+                        <img src="img/rating.svg" alt="rating stars">
+                      </div>
+                    </div>
+                    <!-- ! для svg вказано замість коду кольору CurrentColor тому воно буде успадковувати колір кнопки -->
+                    <button type="button" class="product-card__button product-card__button--add-to-cart">
+                      <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M6.66667 8.83333H4.16667L2.5 18H17.5L15.8333 8.83333H13.3333M6.66667 8.83333V6.33333C6.66667 4.49239 8.15905 3 10 3V3C11.8409 3 13.3333 4.49238 13.3333 6.33333V8.83333M6.66667 8.83333H13.3333M6.66667 8.83333V11.3333M13.3333 8.83333V11.3333"
+                          stroke="CurrentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="product-card__actions">
+                    <!-- ! для svg вказано замість коду кольору CurrentColor тому воно буде успадковувати колір кнопки -->
+                    <button type="button" class="product-card__button">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M9.9996 17.5451C-6.66672 8.33332 4.99993 -1.66668 9.9996 4.6567C14.9999 -1.66668 26.6666 8.33332 9.9996 17.5451Z"
+                          stroke="CurrentColor" stroke-width="1.5" />
+                      </svg>
+                    </button>
+                    <!-- ! для svg вказано замість коду кольору CurrentColor тому воно буде успадковувати колір кнопки -->
+                    <button type="button" class="product-card__button">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M10 3.54103C3.75 3.54103 1.25 10.0001 1.25 10.0001C1.25 10.0001 3.75 16.4577 10 16.4577C16.25 16.4577 18.75 10.0001 18.75 10.0001C18.75 10.0001 16.25 3.54103 10 3.54103V3.54103Z"
+                          stroke="CurrentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                          d="M10 13.125C10.8288 13.125 11.6237 12.7958 12.2097 12.2097C12.7958 11.6237 13.125 10.8288 13.125 10C13.125 9.1712 12.7958 8.37634 12.2097 7.79029C11.6237 7.20424 10.8288 6.875 10 6.875C9.1712 6.875 8.37634 7.20424 7.79029 7.79029C7.20424 8.37634 6.875 9.1712 6.875 10C6.875 10.8288 7.20424 11.6237 7.79029 12.2097C8.37634 12.7958 9.1712 13.125 10 13.125V13.125Z"
+                          stroke="CurrentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="product-card__labels">
+                    <div class="card-label card-label--v1-mod">
+                      Sale <strong>50%</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="featured-products__card">
+                <div class="product-card">
+                  <a href="#" class="product-card__image">
+                    <img src="img/products/product_01.png" alt="product">
+                  </a>
+                  <div class="product-card__content">
+                    <div class="product-card__info">
+                      <h3 class="product-card__title">
+                        <a href="#">Green Apple</a>
+                      </h3>
+                      <div class="product-card__price">
+                        $14.99 <span>$20.99</span>
+                      </div>
+                      <div class="product-card__rating">
+                        <img src="img/rating.svg" alt="rating stars">
+                      </div>
+                    </div>
+                    <!-- ! для svg вказано замість коду кольору CurrentColor тому воно буде успадковувати колір кнопки -->
+                    <button type="button" class="product-card__button product-card__button--add-to-cart">
+                      <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M6.66667 8.83333H4.16667L2.5 18H17.5L15.8333 8.83333H13.3333M6.66667 8.83333V6.33333C6.66667 4.49239 8.15905 3 10 3V3C11.8409 3 13.3333 4.49238 13.3333 6.33333V8.83333M6.66667 8.83333H13.3333M6.66667 8.83333V11.3333M13.3333 8.83333V11.3333"
+                          stroke="CurrentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="product-card__actions">
+                    <!-- ! для svg вказано замість коду кольору CurrentColor тому воно буде успадковувати колір кнопки -->
+                    <button type="button" class="product-card__button">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M9.9996 17.5451C-6.66672 8.33332 4.99993 -1.66668 9.9996 4.6567C14.9999 -1.66668 26.6666 8.33332 9.9996 17.5451Z"
+                          stroke="CurrentColor" stroke-width="1.5" />
+                      </svg>
+                    </button>
+                    <!-- ! для svg вказано замість коду кольору CurrentColor тому воно буде успадковувати колір кнопки -->
+                    <button type="button" class="product-card__button">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M10 3.54103C3.75 3.54103 1.25 10.0001 1.25 10.0001C1.25 10.0001 3.75 16.4577 10 16.4577C16.25 16.4577 18.75 10.0001 18.75 10.0001C18.75 10.0001 16.25 3.54103 10 3.54103V3.54103Z"
+                          stroke="CurrentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                          d="M10 13.125C10.8288 13.125 11.6237 12.7958 12.2097 12.2097C12.7958 11.6237 13.125 10.8288 13.125 10C13.125 9.1712 12.7958 8.37634 12.2097 7.79029C11.6237 7.20424 10.8288 6.875 10 6.875C9.1712 6.875 8.37634 7.20424 7.79029 7.79029C7.20424 8.37634 6.875 9.1712 6.875 10C6.875 10.8288 7.20424 11.6237 7.79029 12.2097C8.37634 12.7958 9.1712 13.125 10 13.125V13.125Z"
+                          stroke="CurrentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="product-card__labels">
+                    <div class="card-label card-label--v1-mod">
+                      Sale <strong>50%</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="featured-products__card">
+                <div class="product-card">
+                  <a href="#" class="product-card__image">
+                    <img src="img/products/product_01.png" alt="product">
+                  </a>
+                  <div class="product-card__content">
+                    <div class="product-card__info">
+                      <h3 class="product-card__title">
+                        <a href="#">Green Apple</a>
+                      </h3>
+                      <div class="product-card__price">
+                        $14.99 <span>$20.99</span>
+                      </div>
+                      <div class="product-card__rating">
+                        <img src="img/rating.svg" alt="rating stars">
+                      </div>
+                    </div>
+                    <!-- ! для svg вказано замість коду кольору CurrentColor тому воно буде успадковувати колір кнопки -->
+                    <button type="button" class="product-card__button product-card__button--add-to-cart">
+                      <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M6.66667 8.83333H4.16667L2.5 18H17.5L15.8333 8.83333H13.3333M6.66667 8.83333V6.33333C6.66667 4.49239 8.15905 3 10 3V3C11.8409 3 13.3333 4.49238 13.3333 6.33333V8.83333M6.66667 8.83333H13.3333M6.66667 8.83333V11.3333M13.3333 8.83333V11.3333"
+                          stroke="CurrentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="product-card__actions">
+                    <!-- ! для svg вказано замість коду кольору CurrentColor тому воно буде успадковувати колір кнопки -->
+                    <button type="button" class="product-card__button">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M9.9996 17.5451C-6.66672 8.33332 4.99993 -1.66668 9.9996 4.6567C14.9999 -1.66668 26.6666 8.33332 9.9996 17.5451Z"
+                          stroke="CurrentColor" stroke-width="1.5" />
+                      </svg>
+                    </button>
+                    <!-- ! для svg вказано замість коду кольору CurrentColor тому воно буде успадковувати колір кнопки -->
+                    <button type="button" class="product-card__button">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M10 3.54103C3.75 3.54103 1.25 10.0001 1.25 10.0001C1.25 10.0001 3.75 16.4577 10 16.4577C16.25 16.4577 18.75 10.0001 18.75 10.0001C18.75 10.0001 16.25 3.54103 10 3.54103V3.54103Z"
+                          stroke="CurrentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                          d="M10 13.125C10.8288 13.125 11.6237 12.7958 12.2097 12.2097C12.7958 11.6237 13.125 10.8288 13.125 10C13.125 9.1712 12.7958 8.37634 12.2097 7.79029C11.6237 7.20424 10.8288 6.875 10 6.875C9.1712 6.875 8.37634 7.20424 7.79029 7.79029C7.20424 8.37634 6.875 9.1712 6.875 10C6.875 10.8288 7.20424 11.6237 7.79029 12.2097C8.37634 12.7958 9.1712 13.125 10 13.125V13.125Z"
+                          stroke="CurrentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="product-card__labels">
+                    <div class="card-label card-label--v1-mod">
+                      Sale <strong>50%</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="featured-products__card">
+                <div class="product-card">
+                  <a href="#" class="product-card__image">
+                    <img src="img/products/product_01.png" alt="product">
+                  </a>
+                  <div class="product-card__content">
+                    <div class="product-card__info">
+                      <h3 class="product-card__title">
+                        <a href="#">Green Apple</a>
+                      </h3>
+                      <div class="product-card__price">
+                        $14.99 <span>$20.99</span>
+                      </div>
+                      <div class="product-card__rating">
+                        <img src="img/rating.svg" alt="rating stars">
+                      </div>
+                    </div>
+                    <!-- ! для svg вказано замість коду кольору CurrentColor тому воно буде успадковувати колір кнопки -->
+                    <button type="button" class="product-card__button product-card__button--add-to-cart">
+                      <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M6.66667 8.83333H4.16667L2.5 18H17.5L15.8333 8.83333H13.3333M6.66667 8.83333V6.33333C6.66667 4.49239 8.15905 3 10 3V3C11.8409 3 13.3333 4.49238 13.3333 6.33333V8.83333M6.66667 8.83333H13.3333M6.66667 8.83333V11.3333M13.3333 8.83333V11.3333"
+                          stroke="CurrentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="product-card__actions">
+                    <!-- ! для svg вказано замість коду кольору CurrentColor тому воно буде успадковувати колір кнопки -->
+                    <button type="button" class="product-card__button">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M9.9996 17.5451C-6.66672 8.33332 4.99993 -1.66668 9.9996 4.6567C14.9999 -1.66668 26.6666 8.33332 9.9996 17.5451Z"
+                          stroke="CurrentColor" stroke-width="1.5" />
+                      </svg>
+                    </button>
+                    <!-- ! для svg вказано замість коду кольору CurrentColor тому воно буде успадковувати колір кнопки -->
+                    <button type="button" class="product-card__button">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M10 3.54103C3.75 3.54103 1.25 10.0001 1.25 10.0001C1.25 10.0001 3.75 16.4577 10 16.4577C16.25 16.4577 18.75 10.0001 18.75 10.0001C18.75 10.0001 16.25 3.54103 10 3.54103V3.54103Z"
+                          stroke="CurrentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                          d="M10 13.125C10.8288 13.125 11.6237 12.7958 12.2097 12.2097C12.7958 11.6237 13.125 10.8288 13.125 10C13.125 9.1712 12.7958 8.37634 12.2097 7.79029C11.6237 7.20424 10.8288 6.875 10 6.875C9.1712 6.875 8.37634 7.20424 7.79029 7.79029C7.20424 8.37634 6.875 9.1712 6.875 10C6.875 10.8288 7.20424 11.6237 7.79029 12.2097C8.37634 12.7958 9.1712 13.125 10 13.125V13.125Z"
+                          stroke="CurrentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="product-card__labels">
+                    <div class="card-label card-label--v1-mod">
+                      Sale <strong>50%</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="featured-products__card">
+                <div class="product-card">
+                  <a href="#" class="product-card__image">
+                    <img src="img/products/product_01.png" alt="product">
+                  </a>
+                  <div class="product-card__content">
+                    <div class="product-card__info">
+                      <h3 class="product-card__title">
+                        <a href="#">Green Apple</a>
+                      </h3>
+                      <div class="product-card__price">
+                        $14.99 <span>$20.99</span>
+                      </div>
+                      <div class="product-card__rating">
+                        <img src="img/rating.svg" alt="rating stars">
+                      </div>
+                    </div>
+                    <!-- ! для svg вказано замість коду кольору CurrentColor тому воно буде успадковувати колір кнопки -->
+                    <button type="button" class="product-card__button product-card__button--add-to-cart">
+                      <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M6.66667 8.83333H4.16667L2.5 18H17.5L15.8333 8.83333H13.3333M6.66667 8.83333V6.33333C6.66667 4.49239 8.15905 3 10 3V3C11.8409 3 13.3333 4.49238 13.3333 6.33333V8.83333M6.66667 8.83333H13.3333M6.66667 8.83333V11.3333M13.3333 8.83333V11.3333"
+                          stroke="CurrentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="product-card__actions">
+                    <!-- ! для svg вказано замість коду кольору CurrentColor тому воно буде успадковувати колір кнопки -->
+                    <button type="button" class="product-card__button">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M9.9996 17.5451C-6.66672 8.33332 4.99993 -1.66668 9.9996 4.6567C14.9999 -1.66668 26.6666 8.33332 9.9996 17.5451Z"
+                          stroke="CurrentColor" stroke-width="1.5" />
+                      </svg>
+                    </button>
+                    <!-- ! для svg вказано замість коду кольору CurrentColor тому воно буде успадковувати колір кнопки -->
+                    <button type="button" class="product-card__button">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M10 3.54103C3.75 3.54103 1.25 10.0001 1.25 10.0001C1.25 10.0001 3.75 16.4577 10 16.4577C16.25 16.4577 18.75 10.0001 18.75 10.0001C18.75 10.0001 16.25 3.54103 10 3.54103V3.54103Z"
+                          stroke="CurrentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                          d="M10 13.125C10.8288 13.125 11.6237 12.7958 12.2097 12.2097C12.7958 11.6237 13.125 10.8288 13.125 10C13.125 9.1712 12.7958 8.37634 12.2097 7.79029C11.6237 7.20424 10.8288 6.875 10 6.875C9.1712 6.875 8.37634 7.20424 7.79029 7.79029C7.20424 8.37634 6.875 9.1712 6.875 10C6.875 10.8288 7.20424 11.6237 7.79029 12.2097C8.37634 12.7958 9.1712 13.125 10 13.125V13.125Z"
+                          stroke="CurrentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="product-card__labels">
+                    <div class="card-label card-label--v1-mod">
+                      Sale <strong>50%</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <p>Footer</p>
+      </footer>
+
+    </div>
+    <script src="js/script.js"></script>
+  </body>
+
+</html>
