@@ -468,6 +468,8 @@ body {
 }
 
 .news-card__item {
+  background-color: lightgray;
+
   position: relative;
 }
 
