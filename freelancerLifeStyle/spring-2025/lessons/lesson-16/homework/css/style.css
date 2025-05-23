@@ -476,28 +476,6 @@ body.menu-open {
   }
 }
 
-/* .up ============ */
-.up {
-  padding: 20px 0;
-
-  text-align: right;
-}
-
-.up__link {
-  font-size: 18px;
-  color: #4B0082; /* indigo */
-
-  text-transform: lowercase;
-}
-
-/* @media ============================== */
-@media (any-hover: hover) {
-
-  .up__link:hover {
-    text-decoration: underline;
-  }
-}
-
 
 /* Footer
 ======================================== */
