@@ -20,6 +20,10 @@
   padding-right: 15px;
 }
 
+[class*="--margin"] {
+  margin-bottom: 50px;
+}
+
 body {
   font-family: "Roboto", "Arial", sans-serif;
   font-size: 24px;
@@ -28,8 +32,12 @@ body {
   background-color: #FFF;
 }
 
+body.menu-open {
+  overflow: clip;
+}
 
-/* Header
+
+/*! Header
 ======================================== */
 
 .header {
@@ -382,6 +390,89 @@ body {
   .header__button {
     margin-right: 15px;
     margin-left: 15px;
+  }
+}
+
+
+/*! Tasks
+======================================== */
+
+.tasks__inner {
+  padding: 20px;
+
+  border: 2px solid #4b0082;
+  border-radius: 6px;
+}
+
+.tasks__text {
+  font-size: 48px;
+  color: #4b0082; /* indigo */
+  line-height: 1.6;
+}
+
+/* @media ============================== */
+@media (max-width: 1199.98px) {
+  /* PC */
+  .tasks__inner {
+    border-color: #4b0082; /* indigo */
+  }
+
+  .tasks__text {
+    font-size: 42px;
+    color: #4b0082; /* indigo */
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 991.98px) {
+  /* Tablet */
+  .tasks__inner {
+    border-color: #7a956b;
+  }
+
+  .tasks__text {
+    font-size: 36px;
+    color: #7a956b;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 767.98px) {
+  /* Mobile */
+  .tasks__inner {
+    border-color: #794f45;
+  }
+
+  .tasks__text {
+    font-size: 30px;
+    color: #794f45;
+    line-height: 1.3;
+  }
+}
+
+@media (max-width: 479.98px) {
+  /* Mobile Small */
+  .tasks__inner {
+    border-color: #77608d;
+  }
+
+  .tasks__text {
+    font-size: 24px;
+    color: #77608d;
+    line-height: 1.2;
+  }
+}
+
+@media (max-width: 319.98px) {
+  /* iPhone 5C/5S/5SE */
+  .tasks__inner {
+    border-color: #8b0000; /* darkred */
+  }
+
+  .tasks__text {
+    font-size: 18px;
+    color: #8b0000; /* darkred */
+    line-height: 1.1;
   }
 }
 
