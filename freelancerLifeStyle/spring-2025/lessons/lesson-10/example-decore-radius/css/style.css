@@ -1,0 +1,52 @@
+@import url(reset.css);
+
+
+.wrapper {
+  min-height: 100%;
+  overflow: clip;
+}
+
+/* загальні стилі для секції */
+.section {
+  min-height: 600px;
+
+  background-color: #fff;
+}
+
+/* стилі для секції з декором */
+.section--figure {
+  position: relative;
+  background-color: #5a54f2;
+}
+
+/* декор зроблений псевдоелементами */
+.section--figure:before,
+.section--figure:after {
+  position: absolute;
+  left: -5%;
+  width: 110%;
+  height: 55px;
+
+  content: "";
+}
+
+.section--figure:before {
+  top: 0;
+
+  /* радіус згори */
+  border-radius: 0% 0% 50% 50%/0% 0% 100% 100%;
+  background-color: #fff;
+}
+
+.section--figure:after {
+  bottom: 0;
+
+  /* радіус знизу */
+  border-radius: 50% 50% 0% 0%/100% 100% 0% 0%;
+  background-color: #231f8b;
+}
+
+/* нижня секція */
+.section--dark {
+  background-color: #231f8b;
+}
