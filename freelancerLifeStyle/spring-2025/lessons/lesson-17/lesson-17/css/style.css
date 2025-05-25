@@ -1,0 +1,355 @@
+/* Підключення шрифтів */
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"); */
+
+/* Локальне підключення шрифтів */
+@import url("fonts.css");
+
+/* Скидання стилів */
+@import url("reset.css");
+
+/* Основні стилі */
+body {
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	color: #fff;
+	background-color: #333;
+	font-size: 16px;
+}
+.wrapper {
+	overflow: clip;
+	min-height: 100%;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.wrapper > main {
+	flex-grow: 1;
+}
+
+[class*="__container"] {
+	max-width: 1400px;
+	margin: 0 auto;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+[class*="--margin"] {
+	margin-bottom: 20px;
+}
+/* ----------------------- */
+.page {
+	padding: 50px 0;
+}
+/* ----------------------- */
+/* 
+	Кращий медіа запит 
+	для визначення курсору.
+	Дозволяє стилізацію :hover лише для пристроїв з курсором,
+	відображати приховані елементи на тач-екранах (без курсору)
+*/
+
+/* Якщо курсор є  */
+@media (any-hover: hover), (pointer: fine) {
+	/* ... */
+}
+/* Якщо курсору немає  */
+@media (any-hover: none), (pointer: coarse) {
+	/* ... */
+}
+
+/* ----------------------- */
+
+/* GIRD */
+
+/* GRID-контейнер */
+.grid {
+	background-color: #794f45;
+
+	/* Об'являємо grid-контейнер */
+	/* Блочний grid */
+	display: grid;
+	/* Блочно-рядковий grid */
+	/* display: inline-grid; */
+
+	gap: 20px;
+	/* 
+	row-gap: ; 
+	column-gap: ;
+	*/
+	/* gap: 20px 30px; */
+
+	/* Побудова явної сітки */
+	/* grid-template-columns - налаштовує колонки */
+	/* grid-template-columns: 100px 250px 150px; */
+
+	/* Одиниця виміру FR(фракція, фрагмент) */
+	/* grid-template-columns: 20% auto 1fr 100px; */
+	/* grid-template-columns: auto auto 1fr auto; */
+	/* grid-template-columns: 1fr 1fr 1fr; */
+	/* grid-template-columns: 33.333% 33.333% 33.333%; */
+	/* grid-template-columns: 0.2fr 0.2fr 0.2fr; */
+
+	/* Повторення repeat */
+	/* grid-template-columns: repeat(3, 1fr); */
+
+	/* grid-template-rows - налаштовує рядки */
+	/* grid-template-rows: repeat(2, 1fr); */
+
+	/* Універсальна властивість побудови явних колонок та рядків */
+	/* grid-template: rows / columns  ; */
+	/* grid-template: repeat(3, 100px) / repeat(3, 1fr); */
+
+	/* Налаштування неявної сітки */
+	/* grid-template: repeat(1, 1fr) / repeat(2, 1fr); */
+
+	/* 
+		grid-auto-flow - алгоритм виводу 
+		об'єктів у явну і неявну сітку 
+	*/
+	/* grid-auto-flow: row; */
+	/* grid-auto-flow: column; */
+
+	/* Налаштування розміру (ширини) неявної колонки */
+	/* grid-auto-columns: 50px; */
+	/* Налаштування розміру (висоти) неявного рядка  */
+	/* grid-auto-rows: 1fr; */
+
+	/* Вирівнювання об'єктів */
+	/* height: 300px; */
+	/* grid-template: repeat(3, 0.2fr) / repeat(3, 0.3fr); */
+
+	/* 
+		Вирівнювання об'єктів в середені 
+		комірок вздовж горизонтальної лінії 
+	*/
+
+	/* justify-items: stretch; */ /* За замовченням */
+	/* justify-items: start; */
+	/* justify-items: end; */
+	/* justify-items: center; */
+
+	/* 
+		Вирівнювання об'єктів (комірок) в середені grid-контейнера 
+		вздовж горизонтальної лінії 
+	*/
+	/* justify-content: stretch; */ /* За замовченням */
+	/* justify-content: start; */
+	/* justify-content: end; */
+	/* justify-content: center; */
+	/* justify-content: space-around; */
+	/* justify-content: space-between; */
+	/* justify-content: space-evenly; */
+
+	/* 
+		Вирівнювання об'єктів в середені 
+		комірок вздовж вертикальної лінії 
+	*/
+
+	/* align-items: stretch; */ /* За замовченням  */
+	/* align-items: start; */
+	/* align-items: end; */
+	/* align-items: center; */
+
+	/* 
+		Вирівнювання об'єктів (комірок) в середені 
+		grid-контейнера вздовж вертикальної лінії 
+	*/
+	/* align-content: stretch; */ /* За замовченням  */
+	/* align-content: start; */
+	/* align-content: center; */
+	/* align-content: end; */
+	/* align-content: space-around; */
+	/* align-content: space-between; */
+	/* align-content: space-evenly; */
+
+	/* minmax */
+	/* grid-template-columns: repeat(3, 200px); */
+	/* grid-template-columns: repeat(3, minmax(100px, 200px)); */
+	/* grid-template-columns: repeat(3, minmax(100px, 1fr)); */
+
+	/* 
+		Алгоритми автоматичного заповнення контейнера 
+		(перебудови сітки) 
+	*/
+	/* grid-template-columns: repeat(алгоритм заповнення, межі розмірів); */
+	/* grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); */
+	/* grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); */
+
+	grid-template-columns: repeat(3, 1fr);
+}
+
+/* GRID-елемент */
+.grid__item {
+	background-color: #7a956b;
+	padding: 10px;
+	font-size: 24px;
+}
+.grid__item:nth-child(2) {
+	/* Властивості GRID-елементів */
+
+	/* Перезапис вертикального положення */
+	/* align-self: stretch; */
+	/* align-self: start; */
+	/* align-self: end; */
+	/* align-self: center; */
+
+	/* Перезапис горизонтального положення */
+	/* justify-self: stretch; */
+	/* justify-self: start; */
+	/* justify-self: end; */
+	/* justify-self: center; */
+
+	/* Управління положенням елемента */
+	/* 
+		Початкова і кінечна позиція елементу 
+		по горизонталі
+	*/
+	/* 
+	grid-column-start: ;
+	grid-column-end: ;
+	grid-column
+	*/
+	/* 
+		Початкова і кінечна позиція елементу 
+		по вертикалі
+	*/
+	/* 
+	grid-row-start: ;
+	grid-row-end: ;
+	grid-row
+	*/
+
+	/* grid-column-start: 2; */
+	/* grid-column-end: 4; */
+	/* або */
+	/* grid-column: 2 / 4; */
+
+	/* grid-row-start: 1; */
+	/* grid-row-end: 3; */
+	/* або */
+	/* grid-row: 1 / 3; */
+
+	/*
+	grid-column: span 2;
+	grid-row: span 3;
+	*/
+}
+
+/* GRID-AREA */
+.grid-area {
+	display: grid;
+	gap: 10px;
+	grid-template-columns: 0.3fr 1fr 0.3fr;
+	grid-template-rows: auto 1fr auto;
+
+	grid-template-areas:
+		"header header header"
+		"sidebar main main"
+		"footer footer footer";
+}
+
+@media (max-width: 500px) {
+	.grid-area {
+		grid-template-areas:
+			"header header header"
+			"sidebar sidebar sidebar"
+			"main main main"
+			"footer footer footer";
+	}
+}
+
+.grid-area__header {
+	grid-area: header;
+	background-color: #794f45;
+}
+.grid-area__side {
+	grid-area: sidebar;
+	background-color: #fff;
+}
+.grid-area__body {
+	grid-area: main;
+	background-color: #7a956b;
+}
+.grid-area__footer {
+	background-color: #77608d;
+	grid-area: footer;
+}
+
+/* Практичний приклад */
+
+.items {
+	display: grid;
+	gap: 20px;
+	grid-template-columns: repeat(4, 1fr);
+}
+
+/*
+.items:has(.items__item--big) {
+}
+*/
+
+.items__item {
+}
+.items__item img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	aspect-ratio: 1;
+}
+.items__item:nth-child(4n + 1) {
+	grid-column: span 2;
+	grid-row: span 2;
+}
+.items__item:nth-child(4n + 2) {
+	grid-column: span 2;
+}
+.items__item:nth-child(4n + 2) img {
+	aspect-ratio: 675 / 328;
+}
+@media (max-width: 725px) {
+	.items {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+/*
+.items {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	gap: 20px;
+}
+.items img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	aspect-ratio: 1;
+}
+.items__body {
+	display: flex;
+	flex-grow: 1;
+	flex-wrap: wrap;
+	gap: 20px;
+	flex-basis: 340px;
+}
+.items__big {
+	flex-grow: 1;
+	flex-basis: 340px;
+}
+.items__middle {
+	flex-grow: 1;
+	flex-basis: 100%;
+}
+.items__middle img {
+	aspect-ratio: 675 / 328;
+}
+.items__item {
+	flex-basis: 10px;
+	flex-grow: 1;
+}
+*/
+
+/*
+.some {
+	grid-template-columns: repeat(auto-fill, minmax(min(444px, 100%), 1fr));
+}
+*/

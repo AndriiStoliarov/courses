@@ -61,7 +61,7 @@ body.menu-open {
 }
 
 .header__logo {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   column-gap: 6px;
 
@@ -75,8 +75,6 @@ body.menu-open {
 }
 
 .header__text {
-  flex-shrink: 0;
-
   font-size: 18px;
   color: #000;
   font-weight: 700;
@@ -85,11 +83,9 @@ body.menu-open {
 }
 
 .menu__items {
-  /* max-width: 550px; */
   display: flex;
   flex-wrap: wrap;
   column-gap: 30px;
-  row-gap: 15px;
 
   position: relative;
   z-index: 3;
@@ -127,11 +123,8 @@ body.menu-open {
 
 .sub-menu {
   position: absolute;
-  top: calc(100% + 2px);
+  top: 22px;
   left: 0;
-  z-index: 2;
-
-  background-color: #FFF;
 
   visibility: hidden;
   opacity: 0;
@@ -360,8 +353,6 @@ body.menu-open {
     flex-direction: column;
     row-gap: 10px;
 
-    
-
     position: relative;
     top: 0;
     left: 0;
@@ -379,8 +370,6 @@ body.menu-open {
 
   .sub-menu__item {
     width: 100%;
-
-    
   }
 
   .sub-menu__link {

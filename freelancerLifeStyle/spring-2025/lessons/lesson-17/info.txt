@@ -1,0 +1,19 @@
+Quickly design web layouts, and get HTML and CSS code. Learn CSS Grid visually and build web layouts with our interactive CSS Grid Generator: https://grid.layoutit.com/
+
+
+Заняття 17. Модуль GRID.
+
+🟢 Посилання на урок:
+https://youtube.com/live/FV1hlJH87mI?feature=share
+
+🟢 Посилання на нотатки:
+https://meadow-manicure-24b.notion.site/17-GRID-1fc7e75cc02a80ae834ce23723bb4969?pvs=25
+
+
+🤓 Домашка
+1. Вчимо теорію. 
+1.1. Шпаргалка: https://fls.guru/grid.html
+1.2. Гра: https://cssgridgarden.com/
+1.3. Дивимось відео: https://www.youtube.com/watch?v=faf0_iMbuXs
+3. Відпрацьовуємо вивчену теорію
+4. Розробляємо частину макету (на скріні), використовуючи набуті знання
