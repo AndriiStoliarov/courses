@@ -14,7 +14,7 @@
 	<body>
 		<div class="wrapper">
 			<!-- Header -->
-			<header class="header  header--margin">
+			<header class="header">
 				<div class="header__container">
 					<div class="header__inner">
 						<h1 class="header__title">Homework 17</h1>
@@ -24,20 +24,149 @@
 
 			<main class="page">
 				<!-- Tasks -->
-				<div class="tasks">
+				<div class="tasks  tasks--margin">
 					<div class="tasks__container">
-						<div class="tasks__items">
-							<div class="tasks__item">
-								<div class="flex  flex--green">
-									<div class="flex__item">display: flex;</div>
-									<span class="flex__item">flex-wrap: wrap;</span>
-									<span class="flex__item">gap: 20px;</span>
-									<div class="flex__item">4</div>
-								</div>
+						<div class="tasks__inner">
+							<div class="grid  grid--green">
+								<div class="grid__item">display: grid;</div>
+								<span class="grid__item">gap: 20px;</span>
+								<span class="grid__item">3</span>
+								<div class="grid__item">4</div>
 							</div>
-						</div><!-- /.tasks__items -->
+
+							<div class="grid  grid--template-columns  grid--brown">
+								<div class="grid__item">grid-template-columns: repeat(3, 1fr);</div>
+								<span class="grid__item">2</span>
+								<span class="grid__item">3</span>
+								<div class="grid__item">4</div>
+							</div>
+
+							<div class="grid  grid--template-diverse-columns  grid--purple">
+								<div class="grid__item">grid-template-columns: 1fr 20% 300px 50px;</div>
+								<span class="grid__item">2</span>
+								<span class="grid__item">3</span>
+								<div class="grid__item">4</div>
+							</div>
+
+							<div class="grid  grid--template  grid--green">
+								<div class="grid__item">grid-template: repeat(3, 1fr) / 1fr 20% 300px;</div>
+								<span class="grid__item">2</span>
+								<span class="grid__item">3</span>
+								<div class="grid__item">4</div>
+							</div>
+
+							<div class="grid  grid--auto  grid--brown">
+								<div class="grid__item">grid-auto-rows: 64px; grid-auto-columns: 75%;</div>
+								<span class="grid__item">2</span>
+								<span class="grid__item">3</span>
+								<div class="grid__item">4</div>
+							</div>
+
+							<div class="grid  grid--justify-items  grid--purple">
+								<div class="grid__item">justify-items: end;</div>
+								<span class="grid__item">2</span>
+								<span class="grid__item">3</span>
+								<div class="grid__item">4</div>
+							</div>
+
+							<div class="grid  grid--align-items  grid--green">
+								<div class="grid__item">align-items: center;</div>
+								<span class="grid__item">grid-template-rows: repeat(4, 100px);</span>
+								<span class="grid__item">3</span>
+								<div class="grid__item">4</div>
+							</div>
+
+							<div class="grid  grid--justify-content  grid--brown">
+								<div class="grid__item">justify-content: space-evenly;</div>
+								<span class="grid__item">2</span>
+								<span class="grid__item">3</span>
+								<div class="grid__item">4</div>
+							</div>
+
+							<div class="grid  grid--align-content  grid--purple">
+								<div class="grid__item">align-content: end;</div>
+								<span class="grid__item">2</span>
+								<span class="grid__item">3</span>
+								<div class="grid__item">4</div>
+							</div>
+
+							<div class="grid  grid--column-row-start-end  grid--green">
+								<div class="grid__item">1</div>
+								<span class="grid__item">grid-row: 2 / span 2; grid-column: 2 / span 2;</span>
+								<span class="grid__item">3</span>
+								<div class="grid__item">4</div>
+							</div>
+
+							<div class="grid  grid--span  grid--brown">
+								<div class="grid__item">1</div>
+								<span class="grid__item">grid-column: span 2; grid-row: span 2;</span>
+								<span class="grid__item">3</span>
+								<div class="grid__item">4</div>
+								<div class="grid__item">5</div>
+								<span class="grid__item">6</span>
+							</div>
+
+							<div class="grid  grid-area  grid--purple">
+								<div class="grid__item  grid-area__item-1">1</div>
+								<span class="grid__item  grid-area__item-2">grid-template-areas: "item-4 item-2 item-3 item-1";</span>
+								<span class="grid__item  grid-area__item-3">3</span>
+								<div class="grid__item  grid-area__item-4">4</div>
+							</div>
+
+							<div class="grid  grid--align-self  grid--green">
+								<div class="grid__item">1</div>
+								<span class="grid__item  grid__item--align-self">align-self: start;</span>
+								<span class="grid__item">3</span>
+								<div class="grid__item">4</div>
+							</div>
+
+							<div class="grid  grid--justify-self  grid--brown">
+								<div class="grid__item">1</div>
+								<span class="grid__item  grid__item--justify-self">justify-self: end;</span>
+								<span class="grid__item">3</span>
+								<div class="grid__item">4</div>
+							</div>
+
+							<div class="grid  grid--align-justify-self  grid--purple">
+								<div class="grid__item  grid__item--align-justify-self">align-self: center; justify-self: center;</div>
+							</div>
+
+							<div class="grid  grid--auto-flow-row  grid--green">
+								<div class="grid__item">grid-auto-flow: row;</div>
+								<span class="grid__item">2</span>
+								<span class="grid__item">3</span>
+								<div class="grid__item">4</div>
+							</div>
+
+							<div class="grid  grid--auto-flow-column  grid--brown">
+								<div class="grid__item">grid-auto-flow: column;</div>
+								<span class="grid__item">2</span>
+								<span class="grid__item">3</span>
+								<div class="grid__item">4</div>
+							</div>
+
+							<div class="grid  grid--auto-fit  grid--purple">
+								<div class="grid__item">auto-fit</div>
+								<span class="grid__item">2</span>
+								<span class="grid__item">3</span>
+								<div class="grid__item">4</div>
+							</div>
+
+							<div class="grid  grid--auto-fill  grid--green">
+								<div class="grid__item">auto-fill</div>
+								<span class="grid__item">2</span>
+								<span class="grid__item">3</span>
+								<div class="grid__item">4</div>
+							</div>
+						</div><!-- /.tasks__inner -->
 					</div><!-- /.tasks__container -->
 				</div><!-- /.tasks -->
+
+				<div class="up">
+					<div class="up__container">
+						<a class="up__link" href="#up">to the top</a>
+					</div>
+				</div>
 			</main><!-- /.page -->
 
 			<!-- Footer -->
@@ -52,12 +181,6 @@
 					</div>
 				</div><!-- /.footer__inner-->
 			</footer>
-
-			<div class="up">
-				<div class="up__container">
-					<a class="up__link" href="#up">to the top</a>
-				</div>
-			</div>
 		</div><!-- /.wrapper -->
 		<script src="js/script.js"></script>
 	</body>
