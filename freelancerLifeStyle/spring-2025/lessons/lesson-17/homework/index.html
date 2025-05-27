@@ -2,9 +2,9 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="preconnect" href="https://fonts.googleapis.com">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -14,7 +14,7 @@
 	<body>
 		<div class="wrapper">
 			<!-- Header -->
-			<header class="header">
+			<header class="header" id="up">
 				<div class="header__container">
 					<div class="header__inner">
 						<h1 class="header__title">Homework 17</h1>
@@ -162,6 +162,107 @@
 					</div><!-- /.tasks__container -->
 				</div><!-- /.tasks -->
 
+				<!-- Floral Delights Catalog-->
+				<div class="floral-delights-catalog">
+					<div class="floral-delights-catalog__container">
+						<div class="floral-delights-catalog__inner">
+							<div class="floral-delights__column-left">
+								<div class="floral-delights__cards-left  floral-delights__cards--margin">
+									<div class="floral-delights__card  floral-card">
+										<a class="floral-card__image" href="#">
+											<img src="img/floral-delights/enchanted-petal.avif" alt="A decorative vase brimming with vibrant flowers rests on a table.">
+										</a>
+										<div class="floral-card__content">
+											<h3 class="floral-card__title">
+												<a href="#">Enchanted Petals</a>
+											</h3>
+											<div class="floral-card__icons">floral card icons</div>
+										</div>
+										<span class="floral-card__price">70 Euro</span>
+									</div>
+
+									<div class="floral-delights__card  floral-card">
+										<a class="floral-card__image" href="#">
+											<img src="img/floral-delights/floral-harmony.avif"
+												alt="A colorful bouquet of purple and pink flowers displayed in a black pot.">
+										</a>
+										<div class="floral-card__content">
+											<h3 class="floral-card__title">
+												<a href="#">Floral Harmony</a>
+											</h3>
+											<div class="floral-card__icons">floral card icons</div>
+										</div>
+										<span class="floral-card__price">80 Euro</span>
+									</div>
+								</div><!-- /.floral-delights__cards-left -->
+
+								<button class="floral-delights__buttom  buttom" type="button">
+									<span class="buttom__text">Open More</span>
+								</button>
+							</div><!-- /.floral-delights__column-left -->
+
+							<div class="floral-delights__column-right">
+								<h2 class="floral-delights__title">
+									Catalog of Floral Delights for Every Occasion
+								</h2>
+								<div class="floral-delights__cards-right">
+									<div class="floral-delights__card  floral-card">
+										<a class="floral-card__image" href="#">
+											<img src="img/floral-delights/enchanted-petal.avif" alt="A decorative vase brimming with vibrant flowers rests on a table.">
+										</a>
+										<div class="floral-card__content">
+											<h3 class="floral-card__title">
+												<a href="#">Enchanted Petals</a>
+											</h3>
+											<div class="floral-card__icons">floral card icons</div>
+										</div>
+										<span class="floral-card__price">70 Euro</span>
+									</div>
+
+									<div class="floral-delights__card  floral-card">
+										<a class="floral-card__image" href="#">
+											<img src="img/floral-delights/enchanted-petal.avif" alt="A decorative vase brimming with vibrant flowers rests on a table.">
+										</a>
+										<div class="floral-card__content">
+											<h3 class="floral-card__title">
+												<a href="#">Enchanted Petals</a>
+											</h3>
+											<div class="floral-card__icons">floral card icons</div>
+										</div>
+										<span class="floral-card__price">70 Euro</span>
+									</div>
+
+									<div class="floral-delights__card  floral-card">
+										<a class="floral-card__image" href="#">
+											<img src="img/floral-delights/enchanted-petal.avif" alt="A decorative vase brimming with vibrant flowers rests on a table.">
+										</a>
+										<div class="floral-card__content">
+											<h3 class="floral-card__title">
+												<a href="#">Enchanted Petals</a>
+											</h3>
+											<div class="floral-card__icons">floral card icons</div>
+										</div>
+										<span class="floral-card__price">70 Euro</span>
+									</div>
+
+									<div class="floral-delights__card  floral-card">
+										<a class="floral-card__image" href="#">
+											<img src="img/floral-delights/enchanted-petal.avif" alt="A decorative vase brimming with vibrant flowers rests on a table.">
+										</a>
+										<div class="floral-card__content">
+											<h3 class="floral-card__title">
+												<a href="#">Enchanted Petals</a>
+											</h3>
+											<div class="floral-card__icons">floral card icons</div>
+										</div>
+										<span class="floral-card__price">70 Euro</span>
+									</div>
+								</div><!-- /.floral-delights__cards-right -->
+							</div><!-- /.floral-delights__column-right -->
+						</div><!-- /.floral-delights-catalog__inner -->
+					</div><!-- /.floral-delights-catalog__contauner -->
+				</div><!-- /.floral-delights-catalog -->
+
 				<div class="up">
 					<div class="up__container">
 						<a class="up__link" href="#up">to the top</a>
@@ -174,8 +275,12 @@
 				<div class="footer__container">
 					<div class="footer__inner">
 						<a class="footer__text" title="link to Figma site"
-							href="https://www.figma.com/design/aHyZetr4ZNcZRsGmJBGuKO/Business?node-id=77-8858&m=dev"
-							target="_blank">layout Business</a>
+							href="https://www.figma.com/design/01QifjvDaKCLs536USAM4O/Blossomia?node-id=71-233&m=dev
+							target="_blank">layout Blossomia</a>
+
+						<a class="footer__text" title="link to Figma site"
+							href="https://www.figma.com/design/01QifjvDaKCLs536USAM4O/Blossomia?node-id=71-233&m=dev
+							target="_blank">layout Blossomia</a>
 
 						<div class="footer__text"><span>&#169; </span>2025 Andrii Stoliarov</div>
 					</div>

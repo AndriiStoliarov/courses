@@ -1,3 +1,4 @@
+@import url("fonts.css");
 @import url("reset.css");
 
 
@@ -229,6 +230,179 @@ body.menu-open {
 
 @media (max-width: 319.98px) {
   /* iPhone 5C/5S/5SE */
+}
+
+
+/*! Floral Delights Catalog
+======================================== */
+
+.floral-delights-catalog {
+  font-family: "KoPubBatang", serif;
+
+  background-color: #F8F3EC;
+}
+
+.floral-delights-catalog__inner {
+  display: grid;
+  grid-template-columns: 401px 1fr;
+  column-gap: 30px;
+  padding-bottom: 100px;
+}
+
+.floral-delights__column-right {
+  padding-top: 52px;
+}
+
+.floral-delights__cards-left >:not(:last-child) {
+  /* display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 14px; */
+  margin-bottom: 14px;
+}
+
+.floral-delights__cards-right {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 37px 30px;
+}
+
+.floral-card {
+  height: 100%;
+
+  display: grid;
+  row-gap: 14px;
+}
+
+.floral-card__image {
+  width: 100%;
+
+  aspect-ratio: 401 / 427;
+
+  overflow: clip;
+}
+
+.floral-card__image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  will-change: transform;
+  transition: transform 0.3s;
+}
+
+.floral-card__content {
+  display: grid;
+  grid-template-columns: 1fr 65px;
+}
+
+.floral-card__title {
+  font-size: 20px;
+  color: #2C2C2C;
+}
+
+.floral-card__icons {
+  font-size: 0;
+  color: transparent;
+}
+
+.floral-card__icons::before {
+  content: "";
+  width: 22px;
+  height: 20.584px;
+
+  vertical-align: top;
+
+  background: transparent url("../img/icons/like-icon.webp") center / cover no-repeat;
+}
+
+.floral-card__icons::after {
+  content: "";
+  width: 23px;
+  height: 23px;
+  margin-left: 20px;
+
+  background: transparent url("../img/icons/shopping-cart-icon.webp") center / cover no-repeat;
+}
+
+.floral-card__price {
+  font-family: "Carme", sans-serif;
+  font-size: 18px;
+  color: #4E4E4E;
+}
+
+.buttom {
+  padding: 10px;
+
+  background-color: #F8F3EC;
+  border: 1px solid #DBCCBA;
+}
+
+.buttom__text {
+  display: block;
+  padding: 9px 60px 9px 30px;
+
+  font-size: 17px;
+  color: #2C2C2C;
+  line-height: 1.38;
+  text-transform: capitalize;
+
+  position: relative;
+
+  background-color: #DBCCBA;
+}
+
+.buttom__text::after {
+  content: "";
+  width: 23px;
+  height: 14px;
+
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%);
+
+  background: transparent url("../img/icons/arrow-right-icon.webp") center / cover no-repeat;
+}
+
+@keyframes run {
+  25% {
+    transform: translateY(-50%) translateX(0);
+  }
+
+  75% {
+    transform: translateY(-50%) translateX(20px);
+  }
+}
+
+.floral-delights__title {
+  margin-bottom: 78px;
+
+  font-size: 60px;
+  color: #000;
+  font-weight: 300;
+}
+
+/* @media ============================== */
+@media (any-hover: hover), (pointer: fine) {
+
+  .floral-card__image:hover img {
+    transform: scale(1.05);
+  }
+
+  .floral-card__title a:hover {
+    text-decoration-line: underline;
+  }
+
+  .floral-card__icons:hover::before,
+  .floral-card__icons:hover::after {
+    cursor: pointer;
+  }
+
+  .buttom:hover .buttom__text::after {
+    animation: run 0.8s ease-in-out infinite;
+  }
 }
 
 .up {
