@@ -566,6 +566,7 @@ body.menu-open {
 .featured-products__small-cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(312px, 100%), 1fr));
+  align-content: end;
   gap: 24px;
 }
 
