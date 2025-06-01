@@ -1,0 +1,55 @@
+/* Підключення шрифтів */
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"); */
+
+/* Локальне підключення шрифтів */
+@import url("fonts.css");
+
+/* Скидання стилів */
+@import url("reset.css");
+
+/* Основні стилі */
+body {
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	color: #fff;
+	background-color: #333;
+	font-size: 16px;
+}
+.wrapper {
+	overflow: clip;
+	min-height: 100%;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.wrapper > main {
+	flex-grow: 1;
+}
+
+[class*="__container"] {
+	max-width: 1400px;
+	margin: 0 auto;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+[class*="--margin"] {
+	margin-bottom: 20px;
+}
+/* ----------------------- */
+.page {
+	padding: 50px 0;
+}
+/* ----------------------- */
+
+.table-home {
+	overflow-x: auto;
+}
+.table-home table {
+	width: 100%;
+	min-width: 825px;
+}
+@media (max-width: 855px) {
+	.table-home {
+		margin-right: -15px;
+	}
+}

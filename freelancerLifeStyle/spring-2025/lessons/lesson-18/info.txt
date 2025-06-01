@@ -1,0 +1,17 @@
+Quickly design web layouts, and get HTML and CSS code. Learn CSS Grid visually and build web layouts with our interactive CSS Grid Generator: https://grid.layoutit.com/
+
+
+Заняття 18. Сементика.
+
+🟢 Посилання на урок:
+https://youtube.com/live/2fu7gknJHGc?feature=share
+
+🟢 Посилання на нотатки:
+https://meadow-manicure-24b.notion.site/18-2037e75cc02a804da71ffc5f00d785fb?pvs=25
+
+
+🤓 Домашнє завдання:
+1. Вивчити теорію:,
+1.1. Додаткове відео: https://www.youtube.com/watch?v=QWXlqvgHTkw
+1.2. Шпаргалка: https://fls.guru/semantics-tags.html , https://fls.guru/semantics-code.html
+2. Пишемо HTML частин сторінки:

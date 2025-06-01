@@ -1,0 +1,137 @@
+@import url("fonts.css");
+@import url("reset.css");
+
+
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  overflow: clip;
+}
+
+.wrapper > main {
+  flex-grow: 1;
+}
+
+[class*="__container"] {
+  max-width: 1350px;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+[class*="--margin"] {
+  margin-bottom: 50px;
+}
+
+body {
+  font-family: "Roboto", "Arial", sans-serif;
+  font-size: 24px;
+  color: #000;
+
+  background-color: #FFF;
+}
+
+
+/*! Header
+======================================== */
+
+.header {
+	padding: 20px 0;
+
+	text-align: center;
+}
+
+.header__title {
+	font-size: 24px;
+	color: #8b0000; /* darkred */
+}
+
+
+/*! Tasks
+======================================== */
+
+/* @media ============================== */
+@media (any-hover: hover), (pointer: fine) {
+  /* any-hover: hover */
+}
+
+/* (any-hover: none) може не коректно працювати у деяких китайських телефонах 
+тому додано ще медіазапит (pointer: coarse) */
+@media (any-hover: none), (pointer: coarse) {
+  /* any-hover: none */
+}
+
+@media (max-width: 1199.98px) {
+  /* PC */
+}
+
+@media (max-width: 991.98px) {
+  /* Tablet */
+}
+
+@media (max-width: 767.98px) {
+  /* Mobile */
+}
+
+@media (max-width: 479.98px) {
+  /* Mobile Small */
+}
+
+@media (max-width: 319.98px) {
+  /* iPhone 5C/5S/5SE */
+}
+
+/** .up ============ */
+.up {
+	padding: 20px 0;
+
+	text-align: right;
+}
+
+.up__link {
+	font-size: 18px;
+	color: #4B0082; /* indigo */
+
+	text-transform: lowercase;
+}
+
+.up__link:hover {
+	text-decoration: underline;
+}
+
+
+/*! Footer
+======================================== */
+
+.footer {
+  padding: 20px 0;
+}
+
+.footer__inner {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 15px;
+  align-items: center;
+}
+
+.footer__text {
+  font-size: 18px;
+  color: #006400; /* darkgreen */
+}
+
+.footer__title {
+  font-size: 18px;
+  color: #8B0000;
+}
+
+/* @media ============================== */
+@media (max-width: 479.98px) {
+  /* Mobile Small */
+  .footer__inner {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 15px;
+  }
+}
