@@ -1,0 +1,373 @@
+/* Підключення шрифтів */
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"); */
+
+/* Локальне підключення шрифтів */
+@import url("fonts.css");
+
+/* Скидання стилів */
+@import url("reset.css");
+
+/* Основні стилі */
+body {
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	color: #fff;
+	background-color: #333;
+	font-size: 0.875rem; /* 14px */
+	/* font-size: 16px; */
+}
+.wrapper {
+	overflow: clip;
+	min-height: 100%;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.wrapper > main {
+	flex-grow: 1;
+}
+
+[class*="__container"] {
+	max-width: 1400px;
+	margin: 0 auto;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+[class*="--margin"] {
+	margin-bottom: 20px;
+}
+/* ----------------------- */
+.page {
+	padding: 50px 0;
+}
+/* ----------------------- */
+
+/*
+ Відності одиниці
+ %
+ Ш.Б.Е. - ширина батьківського елементу
+ В.Б.Е. - висота батьківського елементу
+*/
+.test {
+	/* Від Ш.Б.Е. */
+	width: 20%;
+	max-width: 20%;
+	min-width: 20%;
+	inline-size: 20%;
+	min-inline-size: 20%;
+	max-inline-size: 20%;
+	padding: 20%;
+	padding-inline: 20%;
+	padding-block: 20%;
+	margin: 20%;
+	margin-inline: 20%;
+	margin-block: 20%;
+	position: relative;
+	left: 50%;
+	right: 50%;
+	inset-inline: 50%;
+
+	/* Від В.Б.Е. */
+	height: 20%;
+	max-height: 20%;
+	min-height: 20%;
+	max-block-size: 20%;
+	min-block-size: 20%;
+
+	/* !! Але батьківський елемент має мати вказану висоту. */
+	position: relative;
+	bottom: 20%;
+	top: 20%;
+	inset-block: 50%;
+
+	/* Від в'юпорта (вікно браузера) */
+
+	/* Від ширини */
+	position: fixed;
+	left: 20%;
+	right: 20%;
+	inset-inline: 20%;
+
+	/* Від висоти */
+	position: fixed;
+	top: 20%;
+	bottom: 20%;
+	inset-block: 20%;
+
+	/* Від батьківського елементу, у якого position відмінний від static */
+
+	/* Від ширини */
+	position: absolute;
+	left: 20%;
+	right: 20%;
+	inset-inline: 20%;
+
+	/* Від висоти */
+	position: absolute;
+	top: 20%;
+	bottom: 20%;
+	inset-block: 20%;
+
+	/* Від розміру шрифту за замовченням, поточного або успатковоного */
+	font-size: 120%;
+	line-height: 120%;
+
+	/* Від розмірів самого елементу */
+	transform: translate(20%, 30%);
+
+	/* translate: ... */
+}
+
+/* REM */
+/* Відносно розміру шрифту за замовченням */
+/* 1rem = 16px (розміру шрифту за замовченням) */
+.rem-test {
+	width: 2rem; /* (32px) */
+}
+
+/* EM */
+/* Відносно поточного, шрифту за замовченням або успаткованого розміру шрифту */
+.em-test {
+	font-size: 1.25rem; /* (20px) */
+	inline-size: 1em; /* (20px) */
+	block-size: 50px;
+	background-color: #7a956b;
+}
+
+/* 1. Коли треба прив'язатись до поточного або успаткованого розміру шрифту */
+.title {
+	font-size: 1.25rem;
+	line-height: 1.25;
+	margin-bottom: 0.75em;
+}
+
+/* Коли ми використовуємо EM ? */
+/* 2. у @media */
+
+@media (max-width: 50em) {
+	/* 800/16 */
+	.title {
+		font-size: 1rem;
+	}
+}
+
+/* В усіх інших випадках використовуються REM */
+
+/* 
+ Одиниці в'юпорту
+ VW - відносно ширини
+ VH - відносно висоти
+ VMAX - більший розмір
+ VMIN - меньший розмір
+ SVH, LVH, DVH
+ SVW, LVW, DVW
+*/
+/*
+.hero {
+	background-color: #7a956b;
+	height: 100svh;
+}
+*/
+/* Абсолютна одиниця */
+/* PX */
+/* 
+	Використовуємо тільки тоді, коли хочемо зафіксувати конкретний 
+	розмір який не від чого не залежить. 
+*/
+
+/* CALC */
+/* Дозволяє виконувати обчислення в CSS */
+/* включно між різними одиницями (+ або -) */
+
+.calc {
+	width: calc(100% - 1.25rem);
+	background-color: #77608d;
+}
+
+/* CLAMP */
+/* Встановлює межі знеачення властивості, а також проміжне значення */
+
+.clamp {
+	/* font-size: clamp(20px, 5vw, 48px); */
+}
+
+/* MIN, MAX */
+/* .minmax {
+	width: min(400px, 100%);
+	background-color: #794f45;
+	padding: 15px;
+} */
+
+/* Змінні в CSS */
+
+/* Об'ява глобальної змінної */
+:root {
+	--colorMain: #000;
+	--colorMain2: green;
+}
+/* Використання глобальної змінної */
+.block {
+	color: var(--colorMain);
+}
+
+/* Об'ява і використання приватної змінної */
+.content {
+	--colorMain2: blue;
+	color: var(--colorMain2);
+}
+
+.text {
+	color: var(--colorMain2);
+}
+
+/* POINTER-EVENTS */
+/* Вимикає взаємодію з об'єктом */
+
+/* .pointer-events {
+	pointer-events: none;
+}
+
+@media (max-width: 50em) {
+	.pointer-events {
+		pointer-events: auto;
+	}
+} */
+
+/* CURSOR */
+/* Встановлює стиль курсору */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/cursor */
+/*
+body {
+	cursor: pointer;
+}
+*/
+
+/* Умова світла/темна тема */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme */
+
+/* Заборона виділення */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/user-select */
+
+/* inset(скорочення для top, right, bottom, left) */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/inset */
+.inset {
+	/* top right bottom left */
+	inset: 20px 10px 30px 5px;
+}
+
+/* Плавна прокрутка при target */
+/*
+html {
+	scroll-behavior: smooth;
+}
+*/
+/* 
+// Режим змішування
+// mix-blend-mode
+// https://developer.mozilla.org/en-US/docs/Web/CSS/mix-blend-mode
+ */
+/*
+isolation: isolate;
+https://developer.mozilla.org/en-US/docs/Web/CSS/isolation
+*/
+
+/* Вертикальний текст */
+.vertical-text {
+	writing-mode: vertical-lr;
+	/* Розвертаємо літери за потреби */
+	/* text-orientation: upright; */
+
+	color: rgb(21, 219, 21);
+}
+
+/* Логічні властивості */
+.logical {
+	/* width -> inline-size */
+	/* height -> block-size */
+	/*
+		max-block-size: ;
+		max-inline-size: ;
+		min-block-size: ;
+		min-inline-size: ;
+	*/
+
+	/* padding-left -> padding-inline-start */
+	/* padding-right -> padding-inline-end */
+	/* padding-top -> padding-block-start */
+	/* padding-bottom -> padding-block-end */
+
+	/* padding: 10px 0 -> padding-block: 10px */
+	/* padding: 0 10px -> padding-inline: 10px */
+
+	/* border-left -> border-inline-start */
+	/* border-right -> border-inline-end */
+	/* border-top -> border-block-start */
+	/* border-bottom -> border-block-end */
+}
+
+/*  Дзеркальне відображення */
+.mirror {
+	transform: scale(-1, 1);
+}
+
+/*
+Медіа запити контейнера
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries
+*/
+/*
+.post {
+	container-type: inline-size;
+}
+.title {
+	font-size: 28px;
+}
+@container (min-width: 43.75em) {
+	.title {
+		font-size: 48px;
+	}
+}
+*/
+/* Сабгріди */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid */
+.subgrid {
+}
+.grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1.25rem;
+}
+.grid__item {
+	/* grid-column: span 3; */
+
+	/* Від першої до останьої лінії */
+	grid-column: 1 / -1;
+
+	display: grid;
+	grid-template-columns: subgrid;
+}
+.subgrid {
+	height: 200px;
+	background-color: #7a956b;
+}
+
+/* Дозволяє обрізати елементи */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path 
+	https://bennettfeely.com/clippy/
+*/
+
+.star {
+	background-color: yellow;
+	inline-size: 9.375rem;
+	block-size: 9.375rem;
+	clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+/*
+CSS властивість scroll-margin-top визначає верхнє поле області прив'язки прокручування, 
+яке використовується для прив'язки цього поля до порту прив'язки.
+Наприклад, якщо у нас є фіксований заголовок із класом .header і ми хочемо встановити 
+відступ при прокрутці до елемента з id, ми можемо використати такий код CSS:
+Приклад:
+Фіксовані заголовки та посилання переходу:
+https://codepen.io/chriscoyier/pen/GRJpopp 
+*/
