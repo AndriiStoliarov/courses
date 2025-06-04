@@ -1,3 +1,6 @@
+The clip-path property allows you to make complex shapes in CSS by clipping an element to a basic shape (circle, ellipse, polygon, or inset), or to an SVG source.
+https://bennettfeely.com/clippy/
+
 Мета теги для соціальних мереж.
 https://meadow-manicure-24b.notion.site/1-2067e75cc02a806dacf9f795ebbcbc4c?pvs=25
 

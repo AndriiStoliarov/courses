@@ -1,0 +1,342 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic");
+/* ------------------ */
+@import url("reset.css");
+/* ------------------ */
+body {
+	background-color: #333;
+	color: #fff;
+	line-height: 1.2;
+	font-family: "Montserrat";
+}
+/* ------------------ */
+.wrapper {
+	min-height: 100%;
+}
+/* ------------------ */
+.page {
+	padding: 50px;
+}
+
+[class*="-element"] {
+	margin-block-end: 20px;
+}
+
+/* ------------------ */
+/* ------------------ */
+/* ------------------ */
+/* Логічні властивості */
+.basic-element {
+	/* Вказуємо ширину (розмір по горизонталі) */
+	/* width: 250px; */
+	/* Вказуємо висоту (розмір по вертикалі) */
+	/* height: 60px; */
+
+	/* 
+	Вказуємо розмір по рядку 
+	(сторони по якій рухається текст)
+	*/
+	inline-size: 250px;
+	/* 
+	Вказуємо розмір по блоку 
+	(сторони яка перпендикулярна руху тексту)
+	*/
+	block-size: 60px;
+
+	/* Вказуємо відступ зліва */
+	/* padding-left: 15px; */
+
+	/* 
+	Вказуємо відступ на початку 
+	руху тексту
+	*/
+	padding-inline-start: 15px;
+
+	/* 
+	Відносно позиціонуємо елемент
+	вказуючи зсув від верхньої та лівої 
+	сторони елементу
+	*/
+	position: relative;
+	/* left: 15px; */
+	/* 
+	Вказуємо зсув на початку 
+	руху тексту
+	*/
+	inset-inline-start: 15px;
+
+	/* 
+	Декоруємо елемент описуючи 
+	зелену лінію зліва
+	*/
+	/* border-left: 1px solid green; */
+	/* 
+	Декоруємо елемент описуючи 
+	зелену лінію на початку руху тексту
+	*/
+	border-inline-start: 1px solid green;
+}
+/* Логічні властивості */
+.rtl-element {
+	/* Справа наліво */
+	direction: rtl;
+
+	/* Вказуємо ширину (розмір по горизонталі) */
+	/* width: 250px; */
+	/* Вказуємо висоту (розмір по вертикалі) */
+	/* height: 100px; */
+	/* 
+	Вказуємо розмір по рядку 
+	(сторони по якій рухається текст)
+	*/
+	inline-size: 250px;
+	/* 
+	Вказуємо розмір по блоку 
+	(сторони яка перпендикулярна руху тексту)
+	*/
+	block-size: 100px;
+
+	/* Вказуємо відступ зліва */
+	/* padding-left: 15px; */
+	/* 
+	Вказуємо відступ на початку 
+	руху тексту
+	*/
+	padding-inline-start: 15px;
+
+	/* 
+	Відносно позиціонуємо елемент
+	вказуючи зсув від з лівої сторони елементу
+	*/
+	position: relative;
+	/* left: 15px; */
+
+	/* 
+	Вказуємо зсув на початку 
+	руху тексту
+	*/
+	inset-inline-start: 15px;
+
+	/* 
+	Декоруємо елемент описуючи 
+	зелену лінію cправа
+	*/
+	/* border-left: 1px solid green; */
+	/* 
+	Декоруємо елемент описуючи 
+	зелену лінію на початку руху тексту
+	*/
+	border-inline-start: 1px solid green;
+}
+/* Логічні властивості */
+.vertical-element {
+	writing-mode: vertical-lr;
+
+	/* Вказуємо ширину (розмір по горизонталі) */
+	/* width: 250px; */
+	/* Вказуємо висоту (розмір по вертикалі) */
+	/* height: 100px; */
+
+	/* 
+	Вказуємо розмір по рядку 
+	(сторони по якій рухається текст)
+	*/
+	inline-size: 250px;
+	/* 
+	Вказуємо розмір по блоку 
+	(сторони яка перпендикулярна руху тексту)
+	*/
+	block-size: 100px;
+
+	/* Вказуємо відступ зліва */
+	/* padding-left: 15px; */
+
+	/* 
+	Вказуємо відступ на початку 
+	руху тексту
+	*/
+	padding-inline-start: 15px;
+
+	/* 
+	Відносно позиціонуємо елемент
+	вказуючи зсув від з лівої сторони елементу
+	*/
+	position: relative;
+	/* left: 15px; */
+	/* 
+	Вказуємо зсув на початку 
+	руху тексту
+	*/
+	inset-inline-start: 15px;
+
+	/* 
+	Декоруємо елемент описуючи 
+	зелену лінію зліва
+	*/
+	/* border-left: 1px solid green; */
+	/* 
+	Декоруємо елемент описуючи 
+	зелену лінію на початку руху тексту
+	*/
+	border-inline-start: 1px solid green;
+}
+/* Перелік логічних css-властивостей */
+.some-element {
+	/* Розміри */
+	/* 
+	width: 100px;
+	max-width: 100px;
+	min-width: 100px;
+	*/
+	inline-size: 100px;
+	max-inline-size: 100px;
+	min-inline-size: 100px;
+
+	/*
+	height: 100px;
+	max-height: 100px;
+	min-height: 100px;
+	*/
+	block-size: 100px;
+	max-block-size: 100px;
+	min-block-size: 100px;
+
+	/* 
+		(!) В @media-запитах ми продовжуємо 
+		використовувати фізичні властивості 
+	*/
+	/*
+	@media (max-width:768px){
+		...
+	}
+	*/
+
+	/* Відступи */
+	/*
+	padding-left: 10px;
+	padding-right: 10px;
+	*/
+	padding-inline-start: 10px;
+	padding-inline-end: 10px;
+	/* Відразу на початку і в кінці */
+	padding-inline: 10px;
+
+	/*
+	padding-top: 10px;
+	padding-bottom: 10px;
+	*/
+	padding-block-start: 10px;
+	padding-block-end: 10px;
+	/* Відразу на початку і в кінці */
+	padding-block: 10px;
+
+	/* padding: 10px; */
+	padding-inline: 10px;
+	padding-block: 10px;
+
+	/*
+	margin-left: 10px;
+	margin-right: 10px;
+	*/
+	margin-inline-start: 10px;
+	margin-inline-end: 10px;
+	/* Відразу на початку і в кінці */
+	margin-inline: 10px;
+
+	/* margin: 0 auto; */
+	margin-inline: auto;
+
+	/*
+	margin-top: 10px;
+	margin-bottom: 10px;
+	*/
+	margin-block-start: 10px;
+	margin-block-end: 10px;
+	/* Відразу на початку і в кінці */
+	margin-block: 10px;
+
+	/* margin: 10px; */
+	margin-inline: 10px;
+	margin-block: 10px;
+
+	/* Позиціонування */
+	/*
+	left: 10px;
+	right: 10px;
+	top: 10px;
+	bottom: 10px;
+	*/
+	inset-inline-start: 10px;
+	inset-inline-end: 10px;
+	inset-block-start: 10px;
+	inset-block-end: 10px;
+
+	/* Відразу на початку і в кінці */
+	inset-inline: 10px;
+	inset-block: 10px;
+
+	/* 
+	Універсальна властивість, 
+	але для фізичних значень 
+	(top, right, bottom, left)
+	*/
+	inset: 10px;
+
+	/* Границі */
+	/*
+	border-left: 1px solid green;
+	border-right: 1px solid green;
+	border-top: 1px solid green;
+	border-bottom: 1px solid green;
+	*/
+	border-inline-start: 1px solid green;
+	border-inline-end: 1px solid green;
+	border-block-start: 1px solid green;
+	border-block-end: 1px solid green;
+
+	/* Відразу на початку і в кінці */
+	border-inline: 1px solid green;
+	border-block: 1px solid green;
+
+	/* Вирівнювання тексту */
+	/*
+	text-align: left;
+	text-align: right;
+	*/
+	text-align: start;
+	text-align: end;
+
+	/*
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	*/
+	border-start-start-radius: 10px;
+	border-start-end-radius: 10px;
+	border-end-start-radius: 10px;
+	border-end-end-radius: 10px;
+
+	/*
+	resize: vertical;
+	resize: horizontal;
+	*/
+	resize: block;
+	resize: inline;
+
+	/* 
+	В майбутньому цей список 
+	буде збільшуватись 
+	*/
+
+	/*
+	overflow-y: none;
+	overflow-x: none;
+	*/
+	/* Поки немає підтримки браузерів */
+	/* 
+	https://caniuse.com/?search=overflow-block 
+	https://caniuse.com/?search=overflow-inline
+	*/
+	overflow-block: none;
+	overflow-inline: none;
+}
