@@ -264,14 +264,14 @@ body.menu-open {
 
 .floral-delights__cards-left {
   display: grid;
-  gap: 14px 30px;
+  gap: 50px 30px;
   grid-template-columns: repeat(auto-fill, minmax(min(354px, 100%), 1fr));
 }
 
 .floral-delights__cards-right {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 37px 30px;
+  gap: 50px 30px;
 }
 
 .floral-card {
@@ -284,6 +284,8 @@ body.menu-open {
 .floral-card__image-left {
   width: 100%;
 
+  background-color: #D3D3D3;
+
   aspect-ratio: 400 / 428;
 
   overflow: clip;
@@ -291,6 +293,8 @@ body.menu-open {
 
 .floral-card__image-right {
   width: 100%;
+
+  background-color: #D3D3D3;
 
   aspect-ratio: 370 / 378;
 
@@ -311,15 +315,12 @@ body.menu-open {
 
 .floral-card__content {
   display: flex;
-  flex-wrap: wrap-reverse;
   justify-content: space-between;
   align-items: center;
   gap: 14px 15px;
 }
 
 .floral-card__title {
-  flex-shrink: 0;
-
   font-size: 20px;
   color: #2C2C2C;
 }
@@ -361,28 +362,28 @@ body.menu-open {
   border: 1px solid #DBCCBA;
 }
 
-.buttom__text {
-  display: block;
-  padding: 9px 60px 9px 30px;
+.buttom__bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 9px 37px 9px 30px;
 
   font-size: 17px;
   color: #2C2C2C;
   line-height: 1.38;
   text-transform: capitalize;
 
-  position: relative;
-
   background-color: #DBCCBA;
 }
 
-.buttom__text::before {
+.buttom__text::after {
   content: "";
   width: 23px;
   height: 14px;
 
-  position: absolute;
-  top: 50%;
-  right: 30px;
+  position: relative;
+  top: 10px;
+  left: 10px;
   transform: translateY(-50%);
 
   background: transparent url("../img/icons/floral-delights/arrow-right-icon.webp") center / cover no-repeat;
@@ -409,12 +410,14 @@ body.menu-open {
 /* @media ============================== */
 @media (any-hover: hover), (pointer: fine) {
 
-  .floral-card__image:hover img {
+  .floral-card__image-left:hover img,
+  .floral-card__image-right:hover img {
     transform: scale(1.05);
   }
 
-  .floral-card__title:hover {
+  .floral-card__title:hover a {
     text-decoration-line: underline;
+    text-underline-offset: 2px;
   }
 
   .floral-card__icons:hover::before,
@@ -422,7 +425,7 @@ body.menu-open {
     cursor: pointer;
   }
 
-  .buttom:hover .buttom__text::before {
+  .buttom:hover .buttom__text::after {
     animation: run 0.8s ease-in-out infinite;
   }
 }
@@ -479,7 +482,14 @@ body.menu-open {
   }
 }
 
-@media (max-width: 319.98px) {
+@media (max-width: 375px) {
+
+  .floral-card__content {
+    flex-wrap: wrap-reverse;
+  }
+}
+
+@media (max-width: 320px) {
   /* iPhone 5C/5S/5SE */
   .floral-delights__title {
     font-size: 26px;
@@ -566,6 +576,7 @@ body.menu-open {
 .featured-products__small-cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(312px, 100%), 1fr));
+  grid-auto-rows: 1fr;
   align-content: end;
   gap: 24px;
 }
@@ -573,6 +584,7 @@ body.menu-open {
 .featured-products__column {
   display: grid;
   grid-template-columns: 1fr;
+  grid-template-rows: auto repeat(3, 1fr);
   row-gap: 16px;
 }
 
@@ -610,6 +622,7 @@ body.menu-open {
   justify-content: flex-start;
   align-items: center;
   column-gap: 12px;
+  padding-top: 8px;
 
   position: absolute;
   top: 48px;
@@ -624,10 +637,11 @@ body.menu-open {
 
 .products-card__button,
 .products-small-card__button {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 40px;
   height: 40px;
-  padding: 5px 10px;
 
   background-color: #FFF;
   border-radius: 50%;
@@ -636,11 +650,16 @@ body.menu-open {
   transition: background-color 0.3s, border-color 0.3s, stroke 0.3s;
 }
 
-.products-small-card__button {
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.products-card__button--bag {
+  align-self: center;
+  flex-shrink: 0;
+  color: #FFF;
+
+  background-color: #F2F2F2;
+}
+
+.products-card__button--bag path {
+  transition: stroke 0.3s;
 }
 
 .products-small-card__button--bag {
@@ -700,6 +719,10 @@ body.menu-open {
   flex-direction: column;
 }
 
+.products-small-card__info {
+  padding: 12px 0;
+}
+
 .products-small-card__content {
   display: inline-flex;
   flex-direction: column;
@@ -753,15 +776,10 @@ body.menu-open {
   align-self: flex-start;
 }
 
-.products-card__icon {
-  align-self: center;
-  flex-shrink: 0;
-  color: #FFF;
-}
-
 /** .products-sale-card ============ */
 .products-sale-card {
   width: 100%;
+  height: 100%;
 
   font-family: "Poppins", sans-serif;
 
@@ -789,9 +807,9 @@ body.menu-open {
 }
 
 .products-sale-card__image--big {
-  object-position: 84px -4px;
+  object-position: center;
 
-  transform: scale(2.9);
+  transform: scale(1);
 }
 
 .products-sale-card__content {
@@ -894,6 +912,15 @@ body.menu-open {
     color: #2c742f;
   }
 
+  .products-card:hover .products-card__button--bag {
+    background-color: #00B207;
+    border-color: transparent;
+  }
+
+  .products-card:hover .products-card__button--bag path {
+    stroke: #FFF;
+  }
+
   .products-card__title:hover a,
   .products-small-card__title:hover a {
     text-decoration-line: underline;
@@ -908,15 +935,18 @@ body.menu-open {
     stroke: #FFF;
   }
 
+  .products-card__button:hover,
   .products-small-card__button:hover {
     background-color: #00B207;
     border-color: #00B207;
   }
 
+  .products-card__button:hover path,
   .products-small-card__button:hover path {
     stroke: #FFF;
   }
 
+  .products-card__button:hover.products-card__button--bag,
   .products-small-card__button:hover.products-small-card__button--bag {
     background-color: #2C742F;
     border-color: #2C742F;
@@ -928,16 +958,40 @@ body.menu-open {
 @media (any-hover: none), (pointer: coarse) {
 
   .products-card__buttons,
-  .product-card__small-buttons {
+  .products-small-card__buttons {
     visibility: visible;
     opacity: 1;
+  }
+
+  .products-small-card__buttons {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+}
+
+@media (max-width: 1013px) {
+
+  .featured-products__column {
+    grid-template-rows: auto;
+  }
+
+  .featured-products__title {
+    align-self: center;
+
+    font-size: 24px;
   }
 }
 
 @media (max-width: 677.98px) {
 
-  .products-small-card {  
+  .products-small-card {
     justify-content: center;
+  }
+
+  .featured-products__title {
+    align-self: center;
+    justify-self: center;
   }
 }
 
