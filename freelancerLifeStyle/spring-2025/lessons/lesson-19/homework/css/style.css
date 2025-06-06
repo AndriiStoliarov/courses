@@ -1,6 +1,10 @@
 @import url("fonts.css");
 @import url("reset.css");
 
+:root {
+  --text-color: #000;
+  --bg-color: #D3D3D3;
+}
 
 .wrapper {
   min-height: 100%;
@@ -15,14 +19,14 @@
 }
 
 [class*="__container"] {
-  max-width: 1350px;
+  max-width: 84.375rem;
   margin: 0 auto;
   padding-left: 15px;
   padding-right: 15px;
 }
 
 [class*="--margin"] {
-  margin-bottom: 50px;
+  margin-bottom: 3.125rem;
 }
 
 [class*="--green"] {
@@ -39,7 +43,7 @@
 
 body {
   font-family: "Roboto", "Arial", sans-serif;
-  font-size: 24px;
+  font-size: 1.5rem;
   color: #000;
 
   background-color: #FFF;
@@ -50,13 +54,13 @@ body {
 ======================================== */
 
 .header {
-	padding: 20px 0;
+	padding: 1.25rem 0;
 
 	text-align: center;
 }
 
 .header__title {
-	font-size: 24px;
+	font-size: 1.5rem;
 	color: #8b0000; /* darkred */
 }
 
@@ -65,29 +69,27 @@ body {
 ======================================== */
 
 .tasks__inner {
-  padding: 20px;
+  padding: 1.25rem;
 
   border: 1px solid #000;
 }
 
-.tasks__items {
-  background-color: #D3D3D3; /* lightgray */;
-}
-
-.tasks__items:not(:last-child) {
-  margin-bottom: 20px;
+.tasks__items >:not(:last-child) {
+  margin-bottom: 1.25rem;
 }
 
 .tasks__item {
-  padding: 20px;
+  padding: 1.25rem;
+
+  background-color: #D3D3D3;
 }
 
-.relative {
-}
+
+/** .relative ============ */
 .relative__lists {
   display: flex;
-  justify-content: space-around;
-  gap: 20px;
+  justify-content: space-evenly;
+  column-gap: 1.25rem;
 }
 
 .relative__list {
@@ -102,15 +104,166 @@ body {
   text-align: center;
 }
 
-.relative__list li {
-  font-size: 14px;
+.relative__list--px {
+  font-size: 20px;
+}
+
+.relative__list--rem {
+  font-size: 20px;
+}
+
+.relative__list--rem li {
+  font-size: 1.25rem;
+}
+
+.relative__list--em {
+  font-size: 20px;
+}
+
+.relative__list--em li {
+  font-size: 1.25em;
 }
 
 
-.tasks__item--green {
+/** .hero ============ */
+.hero {
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  padding: 6.25rem 1.25rem;
+
+  background-color: var(--bg-color);
+}
+
+.hero__title {
+  color: var(--text-color);
+  font-size: clamp(1.25rem, 0.629rem + 3.11vw, 3.25rem); /*min size 20px max size 52px*/
+  font-weight: 700;
+}
+
+.hero__sub-title {
+  color: var(--text-color);
+  font-size: clamp(1rem, 0.689rem + 1.55vw, 2rem); /*min size 16px max size 32px*/
+}
+
+
+/** .element ============ */
+.element {
+  display: flex;
+  justify-content: space-evenly;
+  column-gap: 1.25rem;
+}
+
+.element__basic {
+	/* Вказуємо розмір по рядку (сторони по якій рухається текст) */
+	inline-size: 31.25rem;
+	/* Вказуємо розмір по блоку (сторони яка перпендикулярна руху тексту) */
+	block-size: 6.25rem;
+	/* Вказуємо відступ на початку руху тексту */
+	padding-inline-start: 0.9375rem;
+
+	position: relative;
+	/* Вказуємо зсув на початку руху тексту */
+	inset-inline-start: 0.9375rem;
+
+	/* border-left: 1px solid green; */
+	border-inline-start: 0.3125rem solid #7A956B;
+}
+
+.element__rtl {
+	/* Справа наліво */
+	direction: rtl;
+	inline-size: 15.625rem;
+	block-size: 6.25rem;
+	padding-inline-start: 0.9375rem;
+
+	border-inline-start: 0.3125rem solid #794F45;
+}
+
+.element__vertical {
+  /* Зверху вниз */
+	writing-mode: vertical-lr;
+	inline-size: 15.625rem;
+	block-size: 6.25rem;
+	padding-inline-start: 0.9375rem;
+
+	border-inline-start: 0.3125rem solid #77608D;
+}
+
+/** .clip-path ============ */
+.clip-path {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  column-gap: 0.9375rem;
+
+  position: relative;
+}
+
+.clip-path::before {
+  content: "clip-path, cursor: pointer; pointer-events: none; inset: 0;";
+  width: 100%;
+  height: 100%;
+  padding: 1.25rem;
+
+  background-color: rgba(211, 211, 211, 0.7);
+
+  position: absolute;
+  /* top left bottom right */
+  inset: 0;
+  z-index: 1;
+
+  pointer-events: none;
+}
+
+.clip-path__star, 
+.clip-path__pentagon,
+.clip-path__circle {
+  inline-size: 12.5rem;
+  block-size: 12.5rem;
+
+  font-size: 0;
+  color: transparent;
+
+  cursor: pointer;
+}
+
+.clip-path__star:hover, 
+.clip-path__pentagon:hover,
+.clip-path__circle:hover {
+  z-index: 2;
+}
+
+.clip-path__star {
+  background-color: #7A956B;
+
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.clip-path__pentagon {
+  background-color: #794F45;
+
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+}
+
+.clip-path__circle {
+  background-color: #77608D;
+
+  clip-path: circle(50% at 50% 50%);
 }
 
 /* @media ============================== */
+@media (prefers-color-scheme: dark) {
+  /* простіше не змінювати окремі стилі, а перезаписувати значення css змінних при зміні колірної схеми сторінки */
+  :root {
+    --text-color: #D3D3D3;
+    --bg-color: #000;
+  }
+}
+
 @media (any-hover: hover), (pointer: fine) {
   /* any-hover: hover */
 }
@@ -143,13 +296,13 @@ body {
 
 /** .up ============ */
 .up {
-	padding: 20px 0;
+	padding: 1.25rem 0;
 
 	text-align: right;
 }
 
 .up__link {
-	font-size: 18px;
+	font-size: 1.125rem;
 	color: #4B0082; /* indigo */
 
 	text-transform: lowercase;
@@ -164,27 +317,27 @@ body {
 ======================================== */
 
 .footer {
-  padding: 20px 0;
+  padding: 1.25rem 0;
 }
 
 .footer__inner {
   display: flex;
   justify-content: center;
-  column-gap: 15px;
+  column-gap: 0.9375rem;
   align-items: center;
 }
 
 .footer__text {
-  font-size: 18px;
+  font-size: 1.125rem;
   color: #006400; /* darkgreen */
 }
 
 /* @media ============================== */
-@media (max-width: 479.98px) {
+@media (max-width: 29.9988em) {
   /* Mobile Small */
   .footer__inner {
     flex-direction: column;
     align-items: center;
-    row-gap: 15px;
+    row-gap: 0.9375rem;
   }
 }

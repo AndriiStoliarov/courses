@@ -8,7 +8,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="css/style.css">
       <link rel="icon" href="favicon.svg" type="image/svg+xml">
-      <title>Lesson 18</title>
+      <title>Lesson 19</title>
    </head>
 
    <body>
@@ -17,7 +17,7 @@
          <header class="header" id="up">
             <div class="header__container">
                <div class="header__inner">
-                  <h1 class="header__title">Homework 18</h1>
+                  <h1 class="header__title">Homework 19</h1>
                </div><!-- /. header__inner -->
             </div><!-- /. header__container -->
          </header>
@@ -26,14 +26,14 @@
             <div class="page__container">
                <div class="page__inner">
                   <!-- Tasks -->
-                  <div class="tasks  tasks--margin">
+                  <div class="tasks">
                      <div class="tasks__container">
                         <div class="tasks__inner">
                            <div class="tasks__items">
                               <div class="tasks__item  relative">
                                  <div class="relative__lists">
-                                    <ul class="relative__list  relative__list--green">
-                                       <h2>- px -</h2>
+                                    <ul class="relative__list  relative__list--px  relative__list--green">
+                                       <h2>- px - (font-size: 20px;)</h2>
                                        <li>First level</li>
                                        <li>First level
                                           <ul>
@@ -54,8 +54,8 @@
                                        <li>First level</li>
                                     </ul>
 
-                                    <ul class="relative__list  relative__list--brown">
-                                       <h2>- rem -</h2>
+                                    <ul class="relative__list  relative__list--rem  relative__list--brown">
+                                       <h2>- rem - (font-size: 1.25rem;)</h2>
                                        <li>First level</li>
                                        <li>First level
                                           <ul>
@@ -76,8 +76,8 @@
                                        <li>First level</li>
                                     </ul>
 
-                                    <ul class="relative__list  relative__list--purple">
-                                       <h2>- em -</h2>
+                                    <ul class="relative__list  relative__list--em  relative__list--purple">
+                                       <h2>- em - (font-size: 1.25em;)</h2>
                                        <li>First level</li>
                                        <li>First level
                                           <ul>
@@ -98,31 +98,46 @@
                                        <li>First level</li>
                                     </ul>
                                  </div>
+                              </div><!-- /.relative -->
+
+                              <section class="tasks__item  hero">
+                                 <h2 class="hero__title">Welcome to this page</h2>
+                                 <div class="hero__sub-title">глобальні змінні, clamp(), @media (prefers-color-scheme: dark) {}, height:
+                                    100svh;</div>
+                              </section><!-- /.hero -->
+
+                              <div class="tasks__item  element">
+                                 <div class="element__basic">
+                                    <b>Логічні властивості:</b>
+                                    <br>
+                                    direction: rtl;
+                                    <br>
+                                    inline-size: 31.25rem;
+                                    <br>
+                                    block-size: 6.25rem;
+                                    <br>
+                                    padding-inline-start: 0.9375rem;
+                                    <br>
+                                    position: relative;
+                                    <br>
+                                    inset-inline-start: 0.9375rem;
+                                    <br>
+                                    border-inline-start: 5px solid #794F45;
+                                 </div>
+                                 <div class="element__rtl">
+                                    שלום, זה פרילנסר לכל החיים. הירשמו ותעשו לייק!
+                                 </div>
+                                 <div class="element__vertical">
+                                    こんにちは、生涯フリーランサーです。チャンネル登録していいね！
+                                 </div>
+                              </div><!-- /.element -->
+
+                              <div class="tasks__item  clip-path">
+                                 <div class="clip-path__star">star</div>
+                                 <div class="clip-path__pentagon">pentagon</div>
+                                 <div class="clip-path__circle">circle</div>
                               </div>
-
-                           </div>
-
-                           <div class="grid  grid--green">
-                              <div class="grid__item">display: grid;</div>
-                              <span class="grid__item">gap: 20px;</span>
-                              <span class="grid__item">3</span>
-                              <div class="grid__item">4</div>
-                           </div>
-
-                           <div class="grid  grid--template-columns  grid--brown">
-                              <div class="grid__item">grid-template-columns: repeat(3, 1fr);</div>
-                              <span class="grid__item">2</span>
-                              <span class="grid__item">3</span>
-                              <div class="grid__item">4</div>
-                           </div>
-
-                           <div class="grid  grid--template-diverse-columns  grid--purple">
-                              <div class="grid__item">grid-template-columns: 1fr 20% 300px 50px;</div>
-                              <span class="grid__item">2</span>
-                              <span class="grid__item">3</span>
-                              <div class="grid__item">4</div>
-                           </div>
-
+                           </div><!-- /.tasks__items -->
                         </div><!-- /.tasks__inner -->
                      </div><!-- /.tasks__container -->
                   </div><!-- /.tasks -->
