@@ -93,10 +93,10 @@ body {
 }
 
 .relative__list {
-  padding: 20px;
+  padding: 1.25rem;
 }
 
-.relative__list span {
+.relative__list >:first-child {
   margin-bottom: 8px;
 
   font-weight: 700;
@@ -192,6 +192,7 @@ body {
 
 	border-inline-start: 0.3125rem solid #77608D;
 }
+
 
 /** .clip-path ============ */
 .clip-path {
