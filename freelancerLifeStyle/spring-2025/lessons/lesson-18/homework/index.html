@@ -59,8 +59,46 @@
                                         <div class="post__social  social">
                                             <ul class="social__items">
                                                 <li class="social__item">
-                                                    <a class="social__link" href="#">
-                                                        <img class="social__icon" src="/" alt="icon">
+                                                    <!-- Треба додавати до посилання спеціальні атрибути, щоб скрінрідери змогли передати
+                                                    користувачам що саме за інформація тут зберігається. Або ще можна вказати `title`, але
+                                                    краще віддавати перевагу `aria-label`. Таким чином, користувач з обмеженими можливостями, не просто почує від скрінрідера,
+                                                        що це посилання, а зрозуміє куди саме це посилання веде.-->
+                                                    <a class="social__link" href="#" target="_blank" rel="noopener  noreferrer"
+                                                        aria-label="Go to Facebook">
+                                                        <!-- Також, якщо SVG не несе ніякої інформації, а є лише декоративним елементом, то йому можна вказати такі атрибути: 
+                                                        `aria-hidden="true"` - приховає іконку від скрінрідерів (вказуємо, якщо іконка є
+                                                        декоративним елементом), 
+                                                        `focusable="false"` - виключить SVG із фокусу -->
+                                                        <!-- Якщо ж SVG несе якусь інформацію, то тоді йому варто буде вказати `role="img"`, що
+                                                        вкаже скрінрідерам, що це є зображення, а також додати текстовий опис `title` або
+                                                        `aria-label`. Також не забувайте, що посиланням, які ведуть на сторонні ресурси необхідно
+                                                        вказувати `target="_blank"`. Разом з цим, важливо буде для таких посилань вказати
+                                                        атрибут `rel="noopener noreferrer"`, що допоможе захистити ваш сайт. -->
+                                                        <svg class="social__icon" aria-hidden="true" focusable="false"></svg>
+                                                    </a>
+                                                </li>
+                                                <li class="social__item">
+                                                    <a class="social__link" href="#" target="_blank" rel="noopener  noreferrer"
+                                                        aria-label="Go to Twitter">
+                                                        <svg class="social__icon" aria-hidden="true" focusable="false"></svg>
+                                                    </a>
+                                                </li>
+                                                <li class="social__item">
+                                                    <a class="social__link" href="#" target="_blank" rel="noopener  noreferrer"
+                                                        aria-label="Go to Pinterest">
+                                                        <svg class="social__icon" aria-hidden="true" focusable="false"></svg>
+                                                    </a>
+                                                </li>
+                                                <li class="social__item">
+                                                    <a class="social__link" href="#" target="_blank" rel="noopener  noreferrer"
+                                                        aria-label="Go to Instagram">
+                                                        <svg class="social__icon" aria-hidden="true" focusable="false"></svg>
+                                                    </a>
+                                                </li>
+                                                <li class="social__item">
+                                                    <a class="social__link" href="#" target="_blank" rel="noopener  noreferrer"
+                                                        aria-label="copy link">
+                                                        <svg class="social__icon" aria-hidden="true" focusable="false"></svg>
                                                     </a>
                                                 </li>
                                             </ul>
@@ -316,51 +354,89 @@
                             <section class="aside__popular-tag  popular-tag">
                                 <h3 class="popular-tag__title">Popular Tag</h3>
 
-                                <div class="popular-tag__buttons">
-                                    <button class="popular-tag__button" type="button">Healthy</button>
-                                    <button class="popular-tag__button" type="button">Low fat</button>
-                                    <button class="popular-tag__button" type="button">Vegetarian</button>
-                                    <button class="popular-tag__button" type="button">Bread</button>
-                                    <button class="popular-tag__button" type="button">Kid foods</button>
-                                    <button class="popular-tag__button" type="button">Vitamins</button>
-                                    <button class="popular-tag__button" type="button">Snacks</button>
-                                    <button class="popular-tag__button" type="button">Tiffin</button>
-                                    <button class="popular-tag__button" type="button">Meat</button>
-                                    <button class="popular-tag__button" type="button">Launch</button>
-                                    <button class="popular-tag__button" type="button">Dinner</button>
-                                </div>
+                                <ul class="popular-tag__buttons">
+                                    <li class="popular-tag__item">
+                                        <button class="popular-tag__button" type="button">Healthy</button>
+                                    </li>
+                                    <li class="popular-tag__item">
+                                        <button class="popular-tag__button" type="button">Low fat</button>
+                                    </li>
+                                    <li class="popular-tag__item">
+                                        <button class="popular-tag__button" type="button">Vegetarian</button>
+                                    </li>
+                                    <li class="popular-tag__item">
+                                        <button class="popular-tag__button" type="button">Bread</button>
+                                    </li>
+                                    <li class="popular-tag__item">
+                                        <button class="popular-tag__button" type="button">Kid foods</button>
+                                    </li>
+                                    <li class="popular-tag__item">
+                                        <button class="popular-tag__button" type="button">Vitamins</button>
+                                    </li>
+                                    <li class="popular-tag__item">
+                                        <button class="popular-tag__button" type="button">Snacks</button>
+                                    </li>
+                                    <li class="popular-tag__item">
+                                        <button class="popular-tag__button" type="button">Tiffin</button>
+                                    </li>
+                                    <li class="popular-tag__item">
+                                        <button class="popular-tag__button" type="button">Meat</button>
+                                    </li>
+                                    <li class="popular-tag__item">
+                                        <button class="popular-tag__button" type="button">Launch</button>
+                                    </li>
+                                    <li class="popular-tag__item">
+                                        <button class="popular-tag__button" type="button">Dinner</button>
+                                    </li>
+                                </ul>
                             </section><!-- /.popular-tag -->
 
                             <!-- Our Gallery -->
                             <section class="aside__our-gallery  our-gallery">
                                 <h3 class="our-gallery__title">Our Gallery</h3>
 
-                                <div class="our-gallery__items">
-                                    <a class="our-gallery__link" href="#">
-                                        <img class="our-gallery__image" src="/" alt="image">
-                                    </a>
-                                    <a class="our-gallery__link" href="#">
-                                        <img class="our-gallery__image" src="/" alt="image">
-                                    </a>
-                                    <a class="our-gallery__link" href="#">
-                                        <img class="our-gallery__image" src="/" alt="image">
-                                    </a>
-                                    <a class="our-gallery__link" href="#">
-                                        <img class="our-gallery__image" src="/" alt="image">
-                                    </a>
-                                    <a class="our-gallery__link" href="#">
-                                        <img class="our-gallery__image" src="/" alt="image">
-                                    </a>
-                                    <a class="our-gallery__link" href="#">
-                                        <img class="our-gallery__image" src="/" alt="image">
-                                    </a>
-                                    <a class="our-gallery__link" href="#">
-                                        <img class="our-gallery__image" src="/" alt="image">
-                                    </a>
-                                    <a class="our-gallery__link" href="#">
-                                        <img class="our-gallery__image" src="/" alt="image">
-                                    </a>
-                                </div>
+                                <ul class="our-gallery__items">
+                                    <li class="our-gallery__item">
+                                        <a class="our-gallery__link" href="#">
+                                            <img class="our-gallery__image" src="/" alt="image">
+                                        </a>
+                                    </li>
+                                    <li class="our-gallery__item">
+                                        <a class="our-gallery__link" href="#">
+                                            <img class="our-gallery__image" src="/" alt="image">
+                                        </a>
+                                    </li>
+                                    <li class="our-gallery__item">
+                                        <a class="our-gallery__link" href="#">
+                                            <img class="our-gallery__image" src="/" alt="image">
+                                        </a>
+                                    </li>
+                                    <li class="our-gallery__item">
+                                        <a class="our-gallery__link" href="#">
+                                            <img class="our-gallery__image" src="/" alt="image">
+                                        </a>
+                                    </li>
+                                    <li class="our-gallery__item">
+                                        <a class="our-gallery__link" href="#">
+                                            <img class="our-gallery__image" src="/" alt="image">
+                                        </a>
+                                    </li>
+                                    <li class="our-gallery__item">
+                                        <a class="our-gallery__link" href="#">
+                                            <img class="our-gallery__image" src="/" alt="image">
+                                        </a>
+                                    </li>
+                                    <li class="our-gallery__item">
+                                        <a class="our-gallery__link" href="#">
+                                            <img class="our-gallery__image" src="/" alt="image">
+                                        </a>
+                                    </li>
+                                    <li class="our-gallery__item">
+                                        <a class="our-gallery__link" href="#">
+                                            <img class="our-gallery__image" src="/" alt="image">
+                                        </a>
+                                    </li>
+                                </ul>
                             </section><!-- /.our-gallery -->
 
                             <!-- Recently Added -->
@@ -369,42 +445,42 @@
 
                                 <ul class="recently-added__items">
                                     <li class="recently-added__item">
-                                        <figure class="recently-added__post">
+                                        <article class="recently-added__post">
                                             <img class="recently-added__image" src="/" alt="image">
-                                            <figcaption class="recently-added__data">
+                                            <div class="recently-added__data">
                                                 <h4 class="recently-added__title">Curabitur porttitor orci eget nequ accumsan.</h4>
                                                 <div class="recently-added__time">
                                                     <img src="/" alt="icon" class="recently-added__icon">
                                                     <time class="recently-added__datetime" datetime="2021-04-25 09:00">Apr 25, 2021</time>
                                                 </div>
-                                            </figcaption>
-                                        </figure>
+                                            </div>
+                                        </article>
                                     </li>
 
                                     <li class="recently-added__item">
-                                        <figure class="recently-added__post">
+                                        <article class="recently-added__post">
                                             <img class="recently-added__image" src="/" alt="image">
-                                            <figcaption class="recently-added__data">
+                                            <div class="recently-added__data">
                                                 <h4 class="recently-added__title">Donec mattis arcu faucibus suscipit viverra.</h4>
                                                 <div class="recently-added__time">
                                                     <img src="/" alt="icon" class="recently-added__icon">
                                                     <time class="recently-added__datetime" datetime="2021-04-25 11:00">Apr 25, 2021</time>
                                                 </div>
-                                            </figcaption>
-                                        </figure>
+                                            </div>
+                                        </article>
                                     </li>
 
                                     <li class="recently-added__item">
-                                        <figure class="recently-added__post">
+                                        <article class="recently-added__post">
                                             <img class="recently-added__image" src="/" alt="image">
-                                            <figcaption class="recently-added__data">
+                                            <div class="recently-added__data">
                                                 <h4 class="recently-added__title">Quisque posuere tempus rutrum. Integer velit ex.</h4>
                                                 <div class="recently-added__time">
                                                     <img src="/" alt="icon" class="recently-added__icon">
                                                     <time class="recently-added__datetime" datetime="2021-04-25 13:00">Apr 25, 2021</time>
                                                 </div>
-                                            </figcaption>
-                                        </figure>
+                                            </div>
+                                        </article>
                                     </li>
                                 </ul>
                             </section><!-- /.recently-added -->
