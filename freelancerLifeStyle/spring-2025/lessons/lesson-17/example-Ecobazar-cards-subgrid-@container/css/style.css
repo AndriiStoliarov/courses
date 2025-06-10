@@ -1,0 +1,658 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+@import url("reset.css");
+@import url("base.css");
+@import url("components.css");
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #1a1a1a;
+}
+
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  overflow: clip;
+}
+
+.page {
+  flex-grow: 1;
+}
+
+[class*="__container"] {
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+header,
+footer {
+  text-align: center;
+  padding: 20px 0;
+
+  font-size: 22px;
+  font-weight: 600;
+
+  background-color: lightgray;
+}
+
+/*======================================================*/
+.page {
+  padding: 50px 0;
+}
+
+.page__products-featured:not(:last-child) {
+  margin-bottom: 60px;
+}
+
+/*==============================================================================================================*/
+/* ! components */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.section-header.section-header--center {
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 8px;
+
+  text-align: center;
+}
+
+.section-header__suptitle {
+  color: #00b207;
+
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.28px;
+  text-transform: uppercase;
+}
+
+.section-header__title {
+  color: #1a1a1a;
+
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/*======================================================*/
+/* ! primary button */
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 14px 32px;
+  border-radius: 43px;
+  border: 2px solid transparent;
+
+  text-align: center;
+  color: #00b207;
+
+  background-color: #fff;
+
+  transition: border-color 0.3s ease-in-out;
+}
+
+.primary-button::after {
+  content: " ";
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+
+  background: url(../img/icons/arrow-right.svg) center / contain no-repeat;
+}
+
+.primary-button span {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+@keyframes shake-x {
+  25% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(-5px);
+  }
+
+  75% {
+    transform: translateX(5px);
+  }
+}
+/*======================================================*/
+
+/*======================================================*/
+/* ! arrow link */
+.arrow-link {
+  position: relative;
+  padding-right: 27px;
+
+  color: #00b207;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.arrow-link::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+
+  width: 15px;
+  height: 24px;
+
+  background: url("../img/icons/arrow-right.svg") center 5px / contain no-repeat;
+}
+
+@keyframes shake {
+  25% {
+    transform: translateY(-50%) translateX(0);
+  }
+
+  50% {
+    transform: translateY(-50%) translateX(-5px);
+  }
+
+  75% {
+    transform: translateY(-50%) translateX(5px);
+  }
+}
+/*======================================================*/
+
+/*======================================================*/
+/* ! banner */
+.banner {
+  position: relative;
+  height: 100%;
+  grid-row: span 4;
+}
+
+.banner > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner__content {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 32px 10px;
+
+  text-align: center;
+}
+
+.banner__suptitle {
+  color: #1a1a1a;
+
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.36px;
+  text-transform: uppercase;
+}
+
+.banner__suptitle:not(:last-child) {
+  margin-bottom: 12px;
+}
+
+.banner__title {
+  color: #1a1a1a;
+
+  font-size: 32px;
+  line-height: 1.2;
+}
+
+.banner__title:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.banner__title strong {
+  font-weight: 600;
+}
+
+/*==============================================================================================================*/
+/* ! sections */
+/*==============================================================================================================*/
+/* ! featured products */
+/*======================================================*/
+
+.featured-products__cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* ! варіант адаптиву по типу слайдера але на css */
+.featured-products__cards.featured-products__cards--adaptive-v2 {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  /* вихід за межі контейнера */
+  margin: -10px -15px;
+
+  /* падінги згори та знизу щоб не обрізалась тінь і з боків 
+  щоб були відступи безпеки в блоці і не обрізались картки на мобілках */
+  padding: 10px 15px 10px 15px;
+
+  /* вказання типу внутрішнього скролу в блоці
+  детьльніше https://css-tricks.com/practical-css-scroll-snapping/ */
+  scroll-snap-type: x mandatory;
+}
+
+.featured-products__cards--adaptive-v2 .featured-products__card {
+  /* мінімальний розмір карткам у блоці 
+  щоб не стискались занадто сильно */
+  min-width: 250px;
+
+  /* вказання вирівнювання карток при скролі */
+  scroll-snap-align: start center;
+}
+
+.featured-products__cards.featured-products__cards--grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px 24px;
+}
+
+.featured-products__column {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 4;
+  gap: 16px;
+}
+
+.featured-products__title-column {
+  color: #1a1a1a;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.featured-products__header:not(:last-child) {
+  margin-bottom: 32px;
+}
+
+/*======================================================*/
+/* ! product card */
+/*======================================================*/
+.product-card {
+  position: relative;
+
+  height: 100%;
+  border: 1px solid #e5e5e5;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: #fff;
+}
+
+.product-card.product-card--horizontal-mod {
+  /* flex-grow: 1; */
+  flex-direction: row;
+  height: auto;
+
+  container-name: horizontal-product-card;
+  container-type: inline-size;
+}
+
+/* !бордер з тінню для карток при hover */
+.product-card::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  z-index: 1;
+
+  border: 1px solid #2c742f;
+
+  box-shadow: 0px 0px 12px 0px rgba(32, 181, 38, 0.32);
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.product-card__image {
+  width: 100%;
+  padding: 5px 5px 0 5px;
+  aspect-ratio: 254/230;
+}
+
+.product-card--horizontal-mod .product-card__image {
+  padding: 5px;
+  flex: 0 1 112px;
+  aspect-ratio: initial;
+
+  display: flex;
+  align-items: center;
+}
+
+.product-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.product-card--horizontal-mod .product-card__image img {
+  aspect-ratio: 1;
+  height: auto;
+}
+
+.product-card__content {
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.product-card--horizontal-mod .product-card__content {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  column-gap: 16px;
+}
+
+.product-card__info {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-card__title {
+  color: #4d4d4d;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.product-card__title a {
+  transition: color 0.3s ease-in-out;
+}
+
+.product-card__price {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.product-card__price:not(:last-child) {
+  margin-bottom: 6px;
+}
+
+.product-card__price span {
+  color: #999999;
+  text-decoration-line: line-through;
+}
+
+.product-card__rating {
+  max-width: 60px;
+  aspect-ratio: 60/12;
+}
+
+.product-card__rating img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.product-card__button {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  padding: 10px;
+
+  background-color: #f2f2f2;
+
+  transition:
+    color 0.3s ease-in-out,
+    background-color 0.3s ease-in-out;
+}
+
+.product-card__button svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.product-card__actions {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity 0.3s ease-in-out,
+    visibility 0.3s ease-in-out,
+    bottom 0.3s ease-in-out;
+}
+
+.product-card--horizontal-mod .product-card__actions {
+  top: auto;
+  right: auto;
+  left: 123px;
+  bottom: 0;
+
+  width: calc(100% - 135px);
+
+  flex-direction: row;
+
+  background-color: #fff;
+}
+
+.product-card__labels {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+
+  /* вказано обмеження розміру щоб лейбли не налазили на кнопки */
+  max-width: calc(100% - 90px);
+  display: flex;
+  flex-direction: column;
+  row-gap: 6px;
+
+  pointer-events: none;
+}
+
+.card-label {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px 8px;
+  gap: 4px;
+  border-radius: 4px;
+
+  color: #ffffff;
+}
+
+.card-label strong {
+  font-weight: 500;
+}
+
+.card-label--v1-mod {
+  background-color: #ea4b48;
+}
+
+.card-label--v2-mod {
+  background-color: #2388ff;
+}
+
+/*======================================================*/
+/* ! ховери в медіазапиті */
+/*======================================================*/
+@media (any-hover: hover), (pointer: fine) {
+  .primary-button:hover {
+    border-color: #00b207;
+  }
+
+  .primary-button:hover::after {
+    animation: shake-x 0.8s ease-in-out infinite;
+  }
+
+  .product-card:hover::before {
+    opacity: 1;
+  }
+
+  .product-card:hover .product-card__actions {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .product-card.product-card--horizontal-mod:hover .product-card__actions {
+    opacity: 1;
+    visibility: visible;
+
+    bottom: 24px;
+  }
+
+  .product-card:hover .product-card__button--add-to-cart {
+    color: #ffffff;
+
+    background-color: #00b207;
+  }
+
+  .product-card__button:hover {
+    color: #ffffff;
+    background-color: #00b207;
+  }
+
+  .product-card__button.product-card__button--add-to-cart:hover {
+    background-color: #2c742f;
+  }
+
+  .product-card__title a:hover {
+    color: #00b207;
+  }
+
+  .arrow-link:hover::after {
+    animation: shake 0.8s ease-in-out infinite;
+  }
+}
+
+/* (any-hover: none) може не коректно працювати у деяких китайських телефонах 
+тому додано ще медіазапит (pointer: coarse) */
+@media (any-hover: none), (pointer: coarse) {
+  .product-card__actions {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .product-card--horizontal-mod .product-card__actions {
+    position: relative;
+    bottom: auto;
+    top: 0;
+    left: 0;
+
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* flex-wrap: wrap; */
+  }
+
+  .product-card--horizontal-mod .product-card__button {
+    width: 34px;
+    height: 34px;
+    padding: 6px;
+    border: 4px solid white;
+  }
+
+  .product-card--horizontal-mod .product-card__content {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+}
+
+/*======================================================*/
+/* ! adaptive */
+/*======================================================*/
+/* ! min-width mobile first */
+@media (min-width: 460px) {
+  .featured-products__card {
+    flex-basis: calc(50% + 1px);
+    margin-right: -1px;
+    margin-bottom: -1px;
+  }
+}
+
+@media (min-width: 660px) {
+  .featured-products__card {
+    flex-basis: calc(33.333% + 1px);
+  }
+}
+
+@media (min-width: 870px) {
+  .featured-products__card {
+    flex-basis: calc(25% + 1px);
+  }
+}
+
+@media (min-width: 1080px) {
+  .featured-products__card {
+    flex-basis: calc(20% + 1px);
+  }
+}
+
+/*======================================================*/
+/* ! max-width */
+@media (max-width: 460px) {
+  .section-header {
+    flex-direction: column;
+  }
+
+  .section-header__title {
+    font-size: 26px;
+  }
+}
+
+@container horizontal-product-card (width > 360px) {
+  @media (any-hover: none), (pointer: coarse) {
+    .product-card--horizontal-mod .product-card__content {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .product-card--horizontal-mod .product-card__info {
+      flex-grow: 0;
+    }
+
+    .product-card--horizontal-mod .product-card__button {
+      border: none;
+      padding: 8px;
+    }
+  }
+}
