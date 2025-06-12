@@ -1,6 +1,8 @@
 @use "sass:math";
 @use "_fonts.scss";
 @use "_reset.scss";
+@use "_extends.scss";
+@use "_functions.scss" as functions;
 @use "_mixins.scss" as *;
 
 $main-bg: #fff;
@@ -265,7 +267,7 @@ body {
     }
 
     &:hover &__button--bag {
-      background-color: $secondary-text-color;
+      background-color: $main-color;
       border-color: transparent;
 
       path {

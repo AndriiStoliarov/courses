@@ -1,3 +1,11 @@
+Плагіни для SCSS:
+https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-scss - корисний плагін який відображає у підказках назви змінних, міксінів та назв файлів;
+
+https://marketplace.visualstudio.com/items?itemName=sibiraj-s.vscode-scss-formatter - форматувальник коду для SCSS;
+
+https://marketplace.visualstudio.com/items?itemName=glenn2223.live-sass - компілятор коду з SCSS у CSS;
+
+
 Заняття 20. Препроцесор SASS/SCSS.
 
 🟢 Посилання на урок:
