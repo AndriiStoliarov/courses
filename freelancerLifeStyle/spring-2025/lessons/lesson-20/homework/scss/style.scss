@@ -313,19 +313,26 @@ body {
       border-color 0.3s,
       stroke 0.3s;
 
+    // hover для кнопки
     @media (any-hover: hover), (pointer: fine) {
       &:hover {
         background-color: #00b207;
         border-color: #00b207;
-      }
 
-      &:hover path {
-        stroke: #fff;
+        path {
+          stroke: #fff;
+        }
       }
+    }
 
-      &:hover.products-card__button--bag {
-        background-color: $secondary-color;
-        border-color: $secondary-color;
+    // .products-card__button--bag
+    &.products-card__button--bag {
+      @media (any-hover: hover), (pointer: fine) {
+        // hover для кнопки з модифікатором
+        &:hover {
+          background-color: $secondary-color;
+          border-color: $secondary-color;
+        }
       }
     }
   }

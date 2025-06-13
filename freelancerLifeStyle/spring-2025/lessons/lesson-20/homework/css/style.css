@@ -390,7 +390,9 @@ body {
   .products-card__button:hover path {
     stroke: #fff;
   }
-  .products-card__button:hover.products-card__button--bag {
+}
+@media (any-hover: hover), (pointer: fine) {
+  .products-card__button.products-card__button--bag:hover {
     background-color: #2c742f;
     border-color: #2c742f;
   }
