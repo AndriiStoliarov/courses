@@ -115,3 +115,34 @@ console.log('typeof :>> ', typeof varRes1);
 let varRes2 = varOne / varTwo;
 console.log('"10" / "3" :>> ', varRes2);
 console.log('typeof :>> ', typeof varRes2);
+
+let varRes3 = varOne * varTwo;
+console.log('"10" * "3" :>> ', varRes3);
+console.log('typeof :>> ', typeof varRes3);
+
+let varRes4 = varOne % varTwo;
+console.log('"10" % "3" :>> ', varRes4);
+console.log('typeof :>> ', typeof varRes4);
+
+let varRes5 = varOne + varTwo;
+console.log('"10" + "3" :>> ', varRes5);
+console.log('typeof :>> ', typeof varRes5);
+
+varOne = +"10";
+varTwo = +"20";
+let varRes6 = varOne + varTwo;
+console.log('+"10" + +"20" :>> ', varRes6);
+console.log('typeof :>> ', typeof varRes6);
+
+let someNumOne = 5;
+let someNumTwo = 3;
+console.log('someNumOne :>> ', someNumOne);
+console.log('someNumTwo :>> ', someNumTwo);
+++someNumOne;
+--someNumTwo;
+console.log('++someNumOne :>> ', someNumOne);
+console.log('--someNumTwo :>> ', someNumTwo);
+
+for(let i = 0; i < 10; i++) {
+  console.log(i);
+}
