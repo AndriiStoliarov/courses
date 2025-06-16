@@ -1,0 +1,170 @@
+@use "sass:math";
+@use "_fonts.scss";
+@use "_reset.scss";
+@use "_extends.scss";
+@use "_functions.scss" as functions;
+@use "_mixins.scss" as *;
+
+$main-bg: #fff;
+$main-text-color: #000;
+$main-color: #00b207;
+$secondary-color: #2c742f;
+
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  overflow: clip;
+}
+
+.wrapper > main {
+  flex-grow: 1;
+}
+
+[class*="__container"] {
+  max-width: 84.375rem;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+[class*="--margin"] {
+  margin-bottom: 3.125rem;
+}
+
+[class*="--green"] {
+  background-color: #7a956b;
+}
+
+[class*="--brown"] {
+  background-color: #794f45;
+}
+
+[class*="--purple"] {
+  background-color: #77608d;
+}
+
+body {
+  font-family: "Roboto", "Arial", sans-serif;
+  font-size: 1.5rem;
+  color: #000;
+
+  background-color: $main-bg;
+}
+
+/* Header
+======================================== */
+
+.header {
+  padding: 1.25rem 0;
+
+  text-align: center;
+
+  &__title {
+    font-size: 1.5rem;
+    color: #8b0000; /* darkred */
+  }
+}
+
+/* Some Section
+======================================== */
+
+/* @media ============================== */
+@media (prefers-color-scheme: dark) {
+  /* простіше не змінювати окремі стилі, а перезаписувати значення css змінних при зміні колірної схеми сторінки */
+  $main-bg: #000;
+  $main-text-color: #fff;
+}
+
+@media (any-hover: hover), (pointer: fine) {
+  /* any-hover: hover */
+}
+
+/* (any-hover: none) може не коректно працювати у деяких китайських телефонах 
+тому додано ще медіазапит (pointer: coarse) */
+@media (any-hover: none), (pointer: coarse) {
+  /* any-hover: none */
+}
+
+@media (max-width: 1199.98px) {
+  /* PC */
+}
+
+@media (max-width: 991.98px) {
+  /* Tablet */
+}
+
+@media (max-width: 767.98px) {
+  /* Mobile */
+}
+
+@media (max-width: 479.98px) {
+  /* Mobile Small */
+}
+
+@media (max-width: 319.98px) {
+  /* iPhone 5C/5S/5SE */
+}
+
+/* Tasks
+======================================== */
+
+/* .section-header ============ */
+.section-header {
+  margin-bottom: 36px;
+
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+
+  &__title {
+    font-size: 28px;
+    color: #1a1a1a;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+}
+
+/* .up ============ */
+.up {
+  padding: 1.25rem 0;
+
+  text-align: right;
+
+  &__link {
+    font-size: 1.125rem;
+    color: #4b0082; /* indigo */
+
+    text-transform: lowercase;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+/* Footer
+======================================== */
+
+.footer {
+  padding: 1.25rem 0;
+
+  &__inner {
+    display: flex;
+    justify-content: space-around;
+    column-gap: 0.9375rem;
+    align-items: center;
+
+    @media (max-width: 29.9988em) {
+      /* Mobile Small */
+      flex-direction: column;
+      align-items: center;
+      row-gap: 0.9375rem;
+    }
+  }
+
+  &__text {
+    font-size: 1.125rem;
+    color: #006400; /* darkgreen */
+  }
+}

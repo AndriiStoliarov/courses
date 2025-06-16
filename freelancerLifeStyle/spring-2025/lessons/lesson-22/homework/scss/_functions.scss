@@ -1,0 +1,6 @@
+// підключення математичних вираховувань, потрібно додати @use "sass:math"; зверху коду
+
+@function percent($num1, $num2) {
+  $rez: math.div($num1, $num2) * 100%;
+  @return $rez;
+}

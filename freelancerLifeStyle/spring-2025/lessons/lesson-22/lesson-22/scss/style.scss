@@ -1,0 +1,34 @@
+@use "sass:math";
+@use "_reset.scss";
+@use "_mixins.scss" as *;
+
+body {
+	background-color: #333;
+	color: #fff;
+}
+
+[class*="__container"] {
+	max-width: 1300px;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin: 0 auto;
+}
+
+.magic {
+	span {
+		opacity: 0;
+		display: inline-block;
+		animation: some-anim 1s 1 ease forwards;
+	}
+}
+
+@keyframes some-anim {
+	0% {
+		opacity: 0;
+		rotate: -50deg;
+	}
+	100% {
+		opacity: 1;
+		rotate: 0deg;
+	}
+}
