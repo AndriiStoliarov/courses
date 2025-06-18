@@ -125,6 +125,32 @@ body {
   }
 }
 
+.tasks__text {
+  padding: 50px;
+
+  span {
+    display: inline-block;
+
+    font-family: sans-serif;
+    font-size: toRem(30);
+    letter-spacing: toEm(5, 30);
+    color: #fff;
+
+    animation: text 1s ease forwards; // якщо вказати infinity буде цікава анімація
+  }
+
+  @keyframes text {
+    0% {
+      transform: translate(0px, 10%) rotate(10deg);
+      opacity: 0;
+    }
+    100% {
+      transform: translate(0px, 0) rotate(0deg);
+      opacity: 1;
+    }
+  }
+}
+
 /* .up ============ */
 .up {
   padding: 1.25rem 0;
