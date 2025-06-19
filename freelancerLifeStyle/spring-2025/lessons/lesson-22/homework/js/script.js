@@ -197,7 +197,8 @@ function initText(text) {
     // створення константи, в яку буде передаватись значення (літеру)
     const item = text[i];
     // додавання до змінної template span з стилями для затримки анімації
-    template += `<span style="${item === ' ' ? 'display:inline;' : ""}animation-delay: ${i * 0.1}s">${item}</span>`;
+    // template += `<span style="${item === ' ' ? 'display:inline;' : ""}animation-delay: ${i * 0.1}s">${item}</span>`;
+    template += `<span style="${item === ' ' ? `display:inline; ` : ""}animation-delay: ${i * 0.1}s">${item}</span>`
   }
 }
 
@@ -209,11 +210,11 @@ initText(text);
 створюємо константу - const page та за допомогою document.querySelector('.page') шукаємо елемент на
 сторінці з класом page.
 */
-const page = document.querySelector('.page');
+const tasksText = document.querySelector('.tasks__text');
 
 /*
 рядок нижче вставляє HTML код, що знаходиться у змінній template, безпосередньо перед закриваючим тегом елемента page (beforeend). Це означає, що HTML з template буде додано в кінець елемента page,
 але перед його закриваючим тегом.
 */
 
-page.insertAdjacentHTML("beforeend", template);
+tasksText.insertAdjacentHTML("beforeend", template);

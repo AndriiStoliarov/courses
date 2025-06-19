@@ -209,34 +209,34 @@ body {
 }
 .tasks__text span {
   display: inline-block;
-  font-family: sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
   font-size: 1.875rem;
   letter-spacing: 0.1666666667em;
-  color: #fff;
   -webkit-animation: text 1s ease forwards;
           animation: text 1s ease forwards;
 }
 @-webkit-keyframes text {
   0% {
-    -webkit-transform: translate(0px, 10%) rotate(10deg);
-            transform: translate(0px, 10%) rotate(10deg);
+    -webkit-transform: translate(0, 10%) rotate(20deg);
+            transform: translate(0, 10%) rotate(20deg);
     opacity: 0;
   }
   100% {
-    -webkit-transform: translate(0px, 0) rotate(0deg);
-            transform: translate(0px, 0) rotate(0deg);
+    -webkit-transform: translate(0, 0) rotate(0deg);
+            transform: translate(0, 0) rotate(0deg);
     opacity: 1;
   }
 }
 @keyframes text {
   0% {
-    -webkit-transform: translate(0px, 10%) rotate(10deg);
-            transform: translate(0px, 10%) rotate(10deg);
+    -webkit-transform: translate(0, 10%) rotate(20deg);
+            transform: translate(0, 10%) rotate(20deg);
     opacity: 0;
   }
   100% {
-    -webkit-transform: translate(0px, 0) rotate(0deg);
-            transform: translate(0px, 0) rotate(0deg);
+    -webkit-transform: translate(0, 0) rotate(0deg);
+            transform: translate(0, 0) rotate(0deg);
     opacity: 1;
   }
 }
