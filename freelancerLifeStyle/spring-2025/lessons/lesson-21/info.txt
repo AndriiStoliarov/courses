@@ -1,5 +1,8 @@
 Сучасний підручник з JavaScript: https://uk.javascript.info/
 
+Backticks просте розширення, яке дозволяє зручно використовувати шаблонні рядки в JavaScript без необхідності вручну змінювати лапки на апострофи:
+https://marketplace.visualstudio.com/items?itemName=fractalbrew.backticks
+
 
 Заняття 21. Основи JavaScript. Частина №1.
 
