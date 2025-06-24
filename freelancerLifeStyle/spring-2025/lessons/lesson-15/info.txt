@@ -1,3 +1,6 @@
+Як ваш проект виглядає на різних девайсах? Плагін:
+https://chromewebstore.google.com/detail/mobile-simulator-responsi/ckejmhbmlajgoklhgbapkiccekfoccmk
+
 Медіазапити в CSS:
 https://meadow-manicure-24b.notion.site/CSS-1937e75cc02a81298c8cf75b5ed32748?pvs=25
 
