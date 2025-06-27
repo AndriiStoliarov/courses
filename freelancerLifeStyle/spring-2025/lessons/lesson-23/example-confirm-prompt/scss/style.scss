@@ -1,0 +1,66 @@
+@use "_reset.scss";
+
+.wrapper {
+  min-height: 100%;
+  overflow: clip;
+  display: flex;
+  flex-direction: column;
+
+  background-color: #000;
+  color: #ffffff;
+  font-family: sans-serif;
+  font-size: 1rem; /*16px*/
+  .page {
+    flex-grow: 1;
+  }
+}
+
+[class*="__container"] {
+  max-width: 81.375rem; /*1302px*/
+  margin: 0 auto;
+  padding-inline: 0.9375rem; /*15px*/
+}
+
+.header {
+  background-color: rgb(75, 75, 75);
+  padding-block: 1.875rem; /* 30/16 */
+  // .header__title
+  &__title {
+    text-align: center;
+    font-size: 2.1875rem; /* 35/16 */
+    span {
+      color: cyan;
+    }
+  }
+}
+
+.page {
+  padding-block: 1.875rem; /* 30/16 */
+  // .page__title
+  &__title {
+    text-align: center;
+    font-size: 1.875rem; /* 30/16 */
+    color: rgb(157, 92, 223);
+    &:not(:last-child) {
+      margin-bottom: 1.875rem; /* 30/16 */
+    }
+  }
+  // .page__responce
+  &__responce {
+    p {
+      span {
+        color: rgb(168, 247, 50);
+      }
+    }
+  }
+}
+
+.footer {
+  background-color: rgb(44, 44, 44);
+  padding-block: 1.875rem; /* 30/16 */
+  // .footer__title
+  &__title {
+    font-size: 2.1875rem; /* 35/16 */
+    text-align: center;
+  }
+}
