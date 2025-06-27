@@ -16,12 +16,13 @@ if (someVar) {
 Пункт №2
 і т.д.
 Відповідь:
-for(let i = 0; i < 10; i++) {
-  console.log(`Пункт №${i + 1}`);
-}
-// або
 for(let i = 1; i <= 10; i++) {
   console.log(`Пункт №${i}`);
+}
+// або
+for(let i = 0; i < 10; i++) {
+  // зараз 10 ітерацій в циклі і тут без різниці, але в реальності ми таким чином могли перебирати масив довжиною в 40000 елементів, і робити на кожній ітерації i + 1 це погана практика, це зайва дія яку комп'ютеру користувача доведеться обробляти, що трохи сповільнює роботу.
+  console.log(`Пункт №${i + 1}`);
 }
 
 
@@ -43,30 +44,40 @@ if (2 * 20 <= 10 || 30 / 2 < 5 && 10 <= "10" || 20 === "20") {
 Викличте функцію передаючі різні значення, у тому числі не передаючи зовсім.
 Функція не має повертати NaN, Infinite або помилку. 
 Відповідь:
-function division(a, b) {
-  let result = null;
+function divideNumbers(a, b) {
+  if (typeof a === 'undefined' || typeof b === 'undefined') {
+    return 'Введіть достатню кількість опрерандів.';
+  }
+
+  if ((typeof a !== 'number' || typeof b !== 'number')) {
+    return 'Операнди мають бути числами.';
+  }
 
   if (b === 0) {
-    result = 'на "0" ділити не можна.';
-  } else if ((typeof a === 'string' || typeof b === 'string')) {
-    result = 'операнди мають бути числами.';
-  } else if (typeof a === 'undefined' || typeof b === 'undefined') {
-    result = 'введіть достатню кількість опрерандів.';
-  } else {
-    result = a / b;
+    return 'На "0" ділити не можна.';
+  }
+
+  const result = a / b;
+
+  if (isNaN(result) || !isFinite(result)) {
+    return 'Результат ділення є спеціальне значення. Операди некоректні.';
   }
 
   return `Результат ділення: ${result}`;
 }
 
-console.log(division(10, 2)); // Результат ділення: 5
-console.log(division(2, 5)); // Результат ділення: 0.4
-console.log(division(17)); // Результат ділення: введіть достатню кількість опрерандів!
-console.log(division()); // Результат ділення: введіть достатню кількість опрерандів!
-console.log(division(0, 15)); // Результат ділення: 0
-console.log(division(10, 0)); // Результат ділення: на "0" ділити не можна!
-console.log(division('100', 15)); // Результат ділення: операнди мають бути числами!
-console.log(division(150, '20')); // Результат ділення: операнди мають бути числами!
+console.log(divideNumbers(10, 2));
+console.log(divideNumbers(2, 5));
+console.log(divideNumbers(17));
+console.log(divideNumbers());
+console.log(divideNumbers(0, 15));
+console.log(divideNumbers(10, 0));
+console.log(divideNumbers('100', 15));
+console.log(divideNumbers(150, '20'));
+console.log(divideNumbers(Infinity, Infinity)); 
+console.log(divideNumbers(Infinity, 1));
+console.log(divideNumbers(-Infinity, 1));
+console.log(divideNumbers(20, NaN));
 
 
 Задача №5
