@@ -1,0 +1,19 @@
+@use "sass:math";
+@use "_reset.scss";
+@use "_mixins.scss" as *;
+
+body {
+	background-color: #333;
+	color: #fff;
+}
+
+[class*="__container"] {
+	max-width: 1300px;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin: 0 auto;
+}
+
+.some {
+	position: relative;
+}
