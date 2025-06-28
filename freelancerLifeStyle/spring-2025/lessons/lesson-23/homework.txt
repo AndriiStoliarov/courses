@@ -3,10 +3,6 @@
 
 Відповідь:
 const bodyElement = document.body;
-if (bodyElement) {
-  console.log('document.body :>> ', bodyElement);
-}
-
 
 Задача №2.
 Написати функцію, яка додає в <body> список UL
@@ -15,6 +11,7 @@ if (bodyElement) {
 Відповідь:
 function addList(amountListItem = 2) {
   const bodyElement2 = document.body;
+
   let ulElement = document.createElement('ul');
 
   if (bodyElement2) {
@@ -24,7 +21,7 @@ function addList(amountListItem = 2) {
       ulElement.append(liElement);
     }
 
-    bodyElement.insertAdjacentElement('afterbegin', ulElement);
+    bodyElement2.insertAdjacentElement('afterbegin', ulElement);
   }
 }
 
@@ -41,6 +38,7 @@ const bodyElement3 = document.body;
 
 if (bodyElement3) {
   bodyElement3.classList.add('loaded');
+
   const isLoaded = bodyElement3.classList.contains('loaded');
 
   if (isLoaded) {

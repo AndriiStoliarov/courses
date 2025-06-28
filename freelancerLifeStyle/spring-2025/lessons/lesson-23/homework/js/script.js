@@ -1,12 +1,89 @@
 "use strict";
 
+
+console.log('window.innerWidth :>> ', window.innerWidth);
+
+console.log('window.innerHeight :>> ', window.innerHeight);
+
+console.log('navigator.userAgent :>> ', navigator.userAgent);
+
+//! 'platform' is deprecated. 
+console.log('navigator.platform :>> ', window.navigator.platform); // window.navigator
+
+console.log('location.href :>> ', location.href); // window.location
+
+console.log('window.location.origin :>> ', window.location.origin);
+
+console.log('window.location.pathname :>> ', window.location.pathname);
+
+// alert('Повідомлення...');
+
+// let confirmAnswer = confirm('Ви задоволені проведеним уроком?');
+// console.log(confirmAnswer);
+
+// let promptAnswer = prompt('Ви задоволені проведеним уроком?');
+// console.log(promptAnswer);
+
+console.log('document.documentElement :>> ', document.documentElement);
+
+console.log('document.head :>> ', document.head);
+
+console.log('document.body :>> ', document.body);
+
+console.log('document.body.firstElementChild :>> ', document.body.firstElementChild);
+
+console.log('document.body.lastElementChild :>> ', document.body.lastElementChild);
+
+console.log('document.body.children :>> ', document.body.children);
+
+const childNodes = document.body.children;
+// перебір колекції за допомогою циклу for
+for (let i = 0; i < childNodes.length; ++i) {
+  console.log('childNodes[i] :>> ', childNodes[i]);
+}
+// перебір колекції за допомогою методу для перебору колекції
+for (let childNode of childNodes) {
+  console.log('childNode :>> ', childNode);
+}
+
+console.log('document.body.previousElementSibling :>> ', document.body.previousElementSibling);
+
+console.log('document.body.nextElementSibling :>> ', document.body.nextElementSibling);
+
+console.log('document.body.parentElement :>> ', document.body.parentElement);
+
+const someObjects = document.querySelectorAll('.list__item');
+someObjects.forEach(someObject => someObject.style.color = 'red');
+
+
+const listItem = document.querySelector('.list__item');
+
+const isListParent = listItem.closest('.list');
+
+if (isListParent) {
+  console.log('Так, є.');
+} else {
+  console.log('Ні, немає.');
+}
+
+
+
+
+
+
+
+
+
+// Tasks 
+// ===============================================================
+
 // Задача №1.
 // Отримати в константу елемент <body>.
 
 const bodyElement = document.body;
-if (bodyElement) {
-  console.log('document.body :>> ', bodyElement);
-}
+// if (bodyElement) {
+// console.log('document.body :>> ', bodyElement);
+// }
 
 // Задача №2.
 // Написати функцію, яка додає в <body> список UL з певною кількістю LI (кількість має передаватись як параметр функції, також мати значення за замовченням).
@@ -22,7 +99,7 @@ function addList(amountListItem = 2) {
       ulElement.append(liElement);
     }
 
-    bodyElement.insertAdjacentElement('afterbegin', ulElement);
+    bodyElement2.insertAdjacentElement('afterbegin', ulElement);
   }
 }
 
@@ -36,6 +113,7 @@ const bodyElement3 = document.body;
 
 if (bodyElement3) {
   bodyElement3.classList.add('loaded');
+
   const isLoaded = bodyElement3.classList.contains('loaded');
 
   if (isLoaded) {
