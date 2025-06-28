@@ -114,9 +114,9 @@ const bodyElement3 = document.body;
 if (bodyElement3) {
   bodyElement3.classList.add('loaded');
 
-  const isLoaded = bodyElement3.classList.contains('loaded');
+  const isClassLoaded = bodyElement3.classList.contains('loaded');
 
-  if (isLoaded) {
+  if (isClassLoaded) {
     bodyElement3.style.color = 'green';
   }
 }
