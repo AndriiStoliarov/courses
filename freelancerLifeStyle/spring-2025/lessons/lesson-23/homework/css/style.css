@@ -160,8 +160,36 @@ body {
   color: #8b0000; /* darkred */
 }
 
-/* Some Section
+/* Tasks
 ======================================== */
+.button {
+  padding: 8px 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: red;
+  line-height: 1.5;
+  background-color: #fff;
+  border: red 3px solid;
+  border-radius: 12px;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+          box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  -webkit-transition: color 0.3s, background-color 0.3s;
+  transition: color 0.3s, background-color 0.3s;
+}
+@media (any-hover: hover) {
+  .button:hover {
+    color: #fff;
+    background-color: red;
+  }
+}
+
+@media (any-hover: hover) {
+  .link:hover {
+    text-decoration-line: underline;
+  }
+}
+
 /* @media ============================== */
 @media (prefers-color-scheme: dark) {
   /* простіше не змінювати окремі стилі, а перезаписувати значення css змінних при зміні колірної схеми сторінки */
