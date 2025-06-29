@@ -70,6 +70,10 @@ body {
 /* Tasks
 ======================================== */
 
+.tasks__item:not(:last-child) {
+  margin-bottom: 1.25rem;
+}
+
 .button {
   padding: 8px 30px;
   display: flex;

@@ -67,6 +67,154 @@ if (isListParent) {
 }
 
 
+const list2Item = document.querySelectorAll('.list-2__item');
+
+if (list2Item.length) {
+  list2Item.forEach((item, index) => item.innerHTML = `<span>Індекс: ${index}</span>`);
+}
+
+
+let newObject = document.createElement('div');
+newObject.innerHTML = '<span class="big">Hello!</span>';
+
+const objectElement = document.querySelector('.object');
+
+//* вставити елемент ПЕРЕД відкриваючим тегом, ЗОВНІ;
+objectElement.before(newObject);
+objectElement.insertAdjacentElement('beforebegin', newObject);
+//* вставити html ПЕРЕД відкриваючим тегом, ЗОВНІ;
+objectElement.insertAdjacentHTML('beforebegin', '<span class="big">Hello!</span>');
+
+//* вставити елемент ПІСЛЯ відкриваючого тега, ВСЕРЕДИНУ;
+objectElement.prepend(newObject);
+objectElement.insertAdjacentElement('afterbegin', newObject);
+//* вставити html ПІСЛЯ відкриваючого тега, ВСЕРЕДИНУ;
+objectElement.insertAdjacentHTML('afterbegin', '<span class="big">Hello!</span>');
+
+//* вставити елемент ПЕРЕД закриваючим тегом, ВСЕРЕДИНУ;
+objectElement.append(newObject);
+objectElement.insertAdjacentElement('beforeend', newObject);
+//* вставити html ПЕРЕД закриваючим тегом, ВСЕРЕДИНУ;
+objectElement.insertAdjacentHTML('beforeend', '<span class="big">Hello!</span>');
+
+//* вставити елемент ПІСЛЯ закриваючого тега, ЗОВНІ;
+objectElement.after(newObject);
+objectElement.insertAdjacentElement('afterend', newObject);
+//* вставити html ПІСЛЯ закриваючого тега, ЗОВНІ;
+objectElement.insertAdjacentHTML('afterend', '<span class="big">Hello!</span>');
+
+
+const block = document.querySelector('.block');
+
+if (block) {
+  const blockClone = block.cloneNode(true);
+  block.after(blockClone);
+  block.remove();
+}
+
+
+const block2 = document.querySelector('.block2');
+
+if (block2) {
+  block2.className = 'object2';
+
+  block2.classList.add('some-class');
+
+  block2.classList.remove('some-class');
+
+  block2.classList.toggle('some-class');
+
+  console.log('block2.classList.contains("some-class") :>> ', block2.classList.contains('some-class'));
+
+  block2.style.paddingLeft = `${20}px`;
+
+  block2.style.paddingLeft = '';
+
+  block2.style.cssText = `
+    background-color: #000;
+    padding: 10px 30px 10px 80px;
+    border: 1px solid #000;
+    color: #fff;
+  `;
+
+  const block2Style = getComputedStyle(block2);
+
+  console.log('getComputedStyle(block2) :>> ', block2Style);
+
+  const paddingTop = parseInt(block2Style.paddingTop);
+
+  console.log('block2Style.paddingTop :>> ', block2Style.paddingTop);
+
+  console.log('parseInt(block2Style.paddingTop) :>> ', paddingTop);
+
+  const fontSize = parseInt(block2Style.fontSize);
+
+  console.log('parseInt(block2Style.fontSize) :>> ', fontSize);
+}
+
+
+const block3Element = document.querySelector('.block3');
+
+if (block3Element) {
+  block3Element.setAttribute('title', 'This is block №3.');
+
+  console.log('block3Element.hasAttribute("title") :>> ', block3Element.hasAttribute('title'));
+
+  const attrTitleValue = block3Element.getAttribute('title');
+  console.log('block3Element.getAttribute("title") :>> ', attrTitleValue);
+
+  block3Element.removeAttribute('title');
+
+  console.log('block3Element.hasAttribute("title") :>> ', block3Element.hasAttribute('title'));
+
+  block3Element.dataset.someAttr = 'Text';
+  console.log('block3Element.hasAttribute("data-some-attr") :>> ', block3Element.hasAttribute('data-some-attr'));
+  console.log('block3Element.dataset.someAttr :>> ', block3Element.dataset.someAttr);
+
+  console.log('block3Element.tagName :>> ', block3Element.tagName);
+}
+
+
+const block4Element = document.querySelector('.block4');
+
+if (block4Element) {
+  block4Element.hidden = true;
+}
+
+
+const mainElement = document.documentElement;
+console.log('mainElement.clientWidth :>> ', mainElement.clientWidth);
+console.log('mainElement.clientHeight :>> ', mainElement.clientHeight);
+
+//* кількість прокручених пікселів:
+console.log('window.scrollY :>> ', window.scrollY);
+console.log('window.scrollX :>> ', window.scrollX);
+
+//* прокрутка відносно поточного положення — window.scrollBy(left, top);
+// Прокручиват на 200px вниз.
+// window.scrollBy(0, 200);
+
+//* прокрутка на вказані координати — window.scrollTo({options});
+// window.scrollTo({
+//   top: 500,
+//   left: 0,
+//   behavior: "smooth"
+// });
+
+//* Позиція об'єкта (position):
+const buttonElement = document.querySelector('.button');
+
+console.log('buttonElement.offsetParent :>> ', buttonElement.offsetParent);
+
+console.log('buttonElement.offsetTop :>> ', buttonElement.offsetTop);
+
+console.log('buttonElement.offsetLeft :>> ', buttonElement.offsetLeft);
+
+
+
+
+
+
 
 
 
@@ -141,6 +289,7 @@ if (itemElements.length) {
 const button = document.querySelector('.button');
 
 function scrollToBlock(element) {
+  // прокрутка до об'єкта — elem.scrollIntoView();
   element.scrollIntoView({
     block: "center",
     inline: "nearest",
