@@ -201,14 +201,29 @@ console.log('window.scrollX :>> ', window.scrollX);
 //   behavior: "smooth"
 // });
 
-//* Позиція об'єкта (position):
+
 const buttonElement = document.querySelector('.button');
 
-console.log('buttonElement.offsetParent :>> ', buttonElement.offsetParent);
+if (buttonElement) {
+  console.log('buttonElement.offsetParent :>> ', buttonElement.offsetParent);
+  //* Позиція об'єкта (position):
+  console.log('buttonElement.offsetTop :>> ', buttonElement.offsetTop);
 
-console.log('buttonElement.offsetTop :>> ', buttonElement.offsetTop);
+  console.log('buttonElement.offsetLeft :>> ', buttonElement.offsetLeft);
+  //* Загальні розміри елементу:
+  console.log('buttonElement.offsetWidth :>> ', buttonElement.offsetWidth);
 
-console.log('buttonElement.offsetLeft :>> ', buttonElement.offsetLeft);
+  console.log('buttonElement.offsetHeight :>> ', buttonElement.offsetHeight);
+
+  // Координати відносно вікна браузера: getBoundingClientRect
+
+  console.log('buttonElement.getBoundingClientRect().top :>> ', buttonElement.getBoundingClientRect().top);
+
+  console.log('buttonElement.getBoundingClientRect().left :>> ', buttonElement.getBoundingClientRect().left);
+}
+
+// отримання об'єкта по координатах: document.elementFromPoint(x, y);
+console.log('document.elementFromPoint(550, 0) :>> ', document.elementFromPoint(550, 0));
 
 
 
