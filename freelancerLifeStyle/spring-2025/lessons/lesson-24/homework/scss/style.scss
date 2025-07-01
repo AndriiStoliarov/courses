@@ -51,6 +51,14 @@ body {
   color: #000;
 
   background-color: $main-bg;
+
+  opacity: 0.3;
+
+  &.body--opacity-off {
+    opacity: 1;
+  }
+
+  transition: opacity 0.3;
 }
 
 /* Header
@@ -70,12 +78,34 @@ body {
 /* Tasks
 ======================================== */
 
-.tasks__item:not(:last-child) {
-  margin-bottom: 1.25rem;
+/* .section-header ============ */
+.section-header {
+  margin-bottom: 36px;
+
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+
+  &__title {
+    font-size: 28px;
+    color: #1a1a1a;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+}
+
+.tasks__item {
+  &:not(:last-child) {
+    margin-bottom: toRem(20);
+  }
+
+  &--flex {
+    display: flex;
+    gap: toRem(20);
+  }
 }
 
 .button {
-  padding: 8px 30px;
+  padding: 0.5rem 1.875rem;
   display: flex;
 
   color: red;
@@ -83,7 +113,7 @@ body {
 
   background-color: #fff;
   border: red 3px solid;
-  border-radius: 12px;
+  border-radius: 0.75rem;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 
   transition:
@@ -99,12 +129,23 @@ body {
   }
 }
 
-.link {
-  @media (any-hover: hover) {
-    &:hover {
-      text-decoration-line: underline;
-    }
-  }
+.tasks__text {
+  text-align: justify;
+}
+
+.item-2 {
+  padding: 1.25rem 1.25rem;
+  display: inline-flex;
+
+  font-size: 32px;
+  font-weight: 700;
+  color: red;
+  line-height: 1.5;
+
+  background-color: #fff;
+  border: red 3px solid;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 /* @media ============================== */
@@ -147,21 +188,6 @@ body {
 /* Tasks
 ======================================== */
 
-/* .section-header ============ */
-.section-header {
-  margin-bottom: 36px;
-
-  font-family: "Poppins", sans-serif;
-  text-align: center;
-
-  &__title {
-    font-size: 28px;
-    color: #1a1a1a;
-    font-weight: 600;
-    line-height: 1.2;
-  }
-}
-
 /* .up ============ */
 .up {
   padding: 1.25rem 0;
@@ -186,6 +212,8 @@ body {
 .footer {
   padding: 1.25rem 0;
 
+  // transition: background 0.3s;
+
   &__inner {
     display: flex;
     justify-content: space-around;
@@ -203,5 +231,9 @@ body {
   &__text {
     font-size: 1.125rem;
     color: #006400; /* darkgreen */
+  }
+
+  &--bg-color {
+    background: #006400 linear-gradient(90deg, #006400 0%, #fff 50%, #006400 100%);
   }
 }

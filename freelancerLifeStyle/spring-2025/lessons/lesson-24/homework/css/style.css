@@ -147,6 +147,12 @@ body {
   font-size: 1.5rem;
   color: #000;
   background-color: #fff;
+  opacity: 0.3;
+  -webkit-transition: opacity 0.3;
+  transition: opacity 0.3;
+}
+body.body--opacity-off {
+  opacity: 1;
 }
 
 /* Header
@@ -162,12 +168,31 @@ body {
 
 /* Tasks
 ======================================== */
+/* .section-header ============ */
+.section-header {
+  margin-bottom: 36px;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+.section-header__title {
+  font-size: 28px;
+  color: #1a1a1a;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
 .tasks__item:not(:last-child) {
   margin-bottom: 1.25rem;
 }
+.tasks__item--flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1.25rem;
+}
 
 .button {
-  padding: 8px 30px;
+  padding: 0.5rem 1.875rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -175,7 +200,7 @@ body {
   line-height: 1.5;
   background-color: #fff;
   border: red 3px solid;
-  border-radius: 12px;
+  border-radius: 0.75rem;
   -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
           box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   -webkit-transition: color 0.3s, background-color 0.3s;
@@ -188,10 +213,24 @@ body {
   }
 }
 
-@media (any-hover: hover) {
-  .link:hover {
-    text-decoration-line: underline;
-  }
+.tasks__text {
+  text-align: justify;
+}
+
+.item-2 {
+  padding: 1.25rem 1.25rem;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 32px;
+  font-weight: 700;
+  color: red;
+  line-height: 1.5;
+  background-color: #fff;
+  border: red 3px solid;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+          box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 /* @media ============================== */
@@ -223,19 +262,6 @@ body {
 }
 /* Tasks
 ======================================== */
-/* .section-header ============ */
-.section-header {
-  margin-bottom: 36px;
-  font-family: "Poppins", sans-serif;
-  text-align: center;
-}
-.section-header__title {
-  font-size: 28px;
-  color: #1a1a1a;
-  font-weight: 600;
-  line-height: 1.2;
-}
-
 /* .up ============ */
 .up {
   padding: 1.25rem 0;
@@ -284,4 +310,8 @@ body {
 .footer__text {
   font-size: 1.125rem;
   color: #006400; /* darkgreen */
+}
+.footer--bg-color {
+  background: #006400 -webkit-gradient(linear, left top, right top, from(#006400), color-stop(50%, #fff), to(#006400));
+  background: #006400 linear-gradient(90deg, #006400 0%, #fff 50%, #006400 100%);
 }
