@@ -1,5 +1,6 @@
 "use strict";
 
+
 const mainElement = document.documentElement;
 console.log('mainElement.clientWidth :>> ', mainElement.clientWidth);
 console.log('mainElement.clientHeight :>> ', mainElement.clientHeight);
@@ -77,3 +78,64 @@ function changeFooterColor() {
 // Задача №4.
 // Дано в html: текст, елемент з класом item, текст. Так, що елемент з класом item за межами в'юпотрта.
 // Створити функцію, яка будує інтервал, який буде змінювати контент в елементі item, виводячи цифру, яка збільшується на одиницю: 1 2 3 ... і т.д. Затримка між зміною числа, та до якого числа має працювати інтервал має задаватись в дата атрибутах елемента item.Функція має запускатить коли ми доскролюємо до елементу item (його видно), і не запускатись повторно.
+
+const item2Element = document.querySelector(".item-2");
+
+if (item2Element) {
+  window.addEventListener("scroll", showNumbers);
+
+  function showNumbers(e) {
+    if (item2Element.getBoundingClientRect().top - window.innerHeight <= 0) {
+      console.log('Видно!')
+      // e.preventDefault();
+    }
+
+    console.log(window.scrollY)
+  }
+}
+
+
+// const delay = +currentElement.dataset.delay;
+// const amount = +currentElement.dataset.amount;
+
+// console.log('delay :>> ', delay);
+// console.log('amount :>> ', amount);
+
+
+// const target = document.querySelector(".item-2");
+
+// if (target) {
+//   const options = {
+//     root: null,
+//     rootMargin: "0px 0px 0px 0px",
+//     // Відсоток від розміру об'єкту. При появі якого спрацьовує подія Де 0 це будь яка поява, 1 це повна поява об'кта в в'юпорті.
+//     threshold: 0.2,
+//   };
+
+//   const callback = (entries, observer) => {
+//     entries.forEach(entry => {
+//       const currentElement = entry.target;
+
+//       if (entry.isIntersecting) {
+//         const delay = +currentElement.dataset.delay;
+//         const amount = +currentElement.dataset.amount;
+//         console.log('entry.isIntersecting :>> ', entry.isIntersecting);
+//         console.log('я тебе бачу')
+//         console.log('delay :>> ', delay);
+//         console.log('amount :>> ', amount);
+
+//         entry.preventDefault();
+//       }
+//     })
+//   };
+
+//   const observer = new IntersectionObserver(callback, options);
+//   observer.observe(target);
+// };
+
+
+
+
+// function showNumbers() {
+
+// }
