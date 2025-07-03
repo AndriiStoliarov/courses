@@ -1,37 +1,32 @@
 "use strict";
 
-
-const mainElement = document.documentElement;
-console.log('mainElement.clientWidth :>> ', mainElement.clientWidth);
-console.log('mainElement.clientHeight :>> ', mainElement.clientHeight);
-
-//* кількість прокручених пікселів:
-console.log('window.scrollY :>> ', window.scrollY);
-console.log('window.scrollX :>> ', window.scrollX);
-
-
-const buttonElement = document.querySelector('.button');
-
-if (buttonElement) {
-  console.log('buttonElement.offsetParent :>> ', buttonElement.offsetParent);
-  //* Позиція об'єкта (position):
-  console.log('buttonElement.offsetTop :>> ', buttonElement.offsetTop);
-
-  console.log('buttonElement.offsetLeft :>> ', buttonElement.offsetLeft);
-  //* Загальні розміри елементу:
-  console.log('buttonElement.offsetWidth :>> ', buttonElement.offsetWidth);
-
-  console.log('buttonElement.offsetHeight :>> ', buttonElement.offsetHeight);
-
-  // Координати відносно вікна браузера: getBoundingClientRect
-
-  console.log('buttonElement.getBoundingClientRect().top :>> ', buttonElement.getBoundingClientRect().top);
-
-  console.log('buttonElement.getBoundingClientRect().left :>> ', buttonElement.getBoundingClientRect().left);
+function someFunction() {
+  console.log('Go go go!');
 }
 
-// отримання об'єкта по координатах: document.elementFromPoint(x, y);
-console.log('document.elementFromPoint(550, 0) :>> ', document.elementFromPoint(550, 0));
+setTimeout(() => {
+  someFunction();
+}, 10000);
+
+
+async function getMeteoData() {
+  const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m&forecast_days=1', {});
+
+  if (response.ok) {
+    let responseResult = await response.json();
+    initData(responseResult);
+  } else {
+    console.log("error");
+  }
+}
+
+getMeteoData();
+
+function initData(data) {
+  console.log(data);
+
+  data.hourly.temperature_2m.forEach(temperature => console.log('temperature :>> ', temperature));
+}
 
 
 // Tasks 

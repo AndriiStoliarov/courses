@@ -191,6 +191,12 @@ body.body--opacity-off {
   gap: 1.25rem;
 }
 
+@media (any-hover: hover) {
+  .link:hover {
+    text-decoration-line: underline;
+  }
+}
+
 .button {
   padding: 0.5rem 1.875rem;
   display: -webkit-box;
