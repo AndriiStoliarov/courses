@@ -134,13 +134,16 @@ body {
 }
 
 .item-2 {
-  padding: 1.25rem 1.25rem;
+  padding: 7px 14px;
   display: inline-flex;
+  min-width: 300px;
+  min-height: 200px;
+  justify-content: center;
+  align-items: center;
 
-  font-size: 32px;
-  font-weight: 700;
+  font-size: 72px;
+  // font-weight: 700;
   color: red;
-  line-height: 1.5;
 
   background-color: #fff;
   border: red 3px solid;

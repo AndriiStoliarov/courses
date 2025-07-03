@@ -41,13 +41,28 @@ console.log('document.elementFromPoint(550, 0) :>> ', document.elementFromPoint(
 // Дано в html: три елементи з класом item.
 // При кліку на кожен з елментів додати клас active, при повторному кліку прибрати клас.
 
-const itemElements = document.querySelectorAll('.item');
+document.addEventListener("click", documentAction);
 
-if (itemElements.length) {
-  itemElements.forEach(itemElement => {
-    itemElement.addEventListener("click", () => document.documentElement.classList.toggle('active'));
-  });
+function documentAction(event) {
+  const targetElement = event.target;
+
+  if (targetElement.closest('.item')) {
+    changeClass(targetElement);
+  }
 }
+
+function changeClass(element) {
+  element.classList.toggle('active');
+}
+
+//* Або
+// const itemElements = document.querySelectorAll('.item');
+
+// if (itemElements.length) {
+//   itemElements.forEach(itemElement => {
+//     itemElement.addEventListener("click", () => itemElement.classList.toggle('active'));
+//   });
+// }
 
 // Задача №2.
 // Дано в css/scss: body прозорий.
@@ -79,63 +94,38 @@ function changeFooterColor() {
 // Дано в html: текст, елемент з класом item, текст. Так, що елемент з класом item за межами в'юпотрта.
 // Створити функцію, яка будує інтервал, який буде змінювати контент в елементі item, виводячи цифру, яка збільшується на одиницю: 1 2 3 ... і т.д. Затримка між зміною числа, та до якого числа має працювати інтервал має задаватись в дата атрибутах елемента item.Функція має запускатить коли ми доскролюємо до елементу item (його видно), і не запускатись повторно.
 
-const item2Element = document.querySelector(".item-2");
+const target = document.querySelector(".item-2");
 
-if (item2Element) {
-  window.addEventListener("scroll", showNumbers);
+if (target) {
+  const options = {
+    root: null,
+    rootMargin: "0px 0px 0px 0px",
+    // Відсоток від розміру об'єкту. При появі якого спрацьовує подія Де 0 це будь яка поява, 1 це повна поява об'кта в в'юпорті.
+    threshold: 0.2,
+  };
 
-  function showNumbers(e) {
-    if (item2Element.getBoundingClientRect().top - window.innerHeight <= 0) {
-      console.log('Видно!')
-      // e.preventDefault();
-    }
+  const callback = (entries, observer) => {
+    entries.forEach(entry => {
+      const currentElement = entry.target;
 
-    console.log(window.scrollY)
-  }
+      if (entry.isIntersecting) {
+        showNumbers(currentElement);
+      }
+    })
+  };
+
+  const observer = new IntersectionObserver(callback, options);
+  observer.observe(target);
+};
+
+function showNumbers(currentElement) {
+  const delay = +currentElement.dataset.delay;
+  const amount = +currentElement.dataset.amount;
+
+  let i = 1;
+  let timer = setInterval(() => {
+    currentElement.textContent = `${i}`;
+
+    i === amount ? clearInterval(timer) : ++i;
+  }, delay);
 }
-
-
-// const delay = +currentElement.dataset.delay;
-// const amount = +currentElement.dataset.amount;
-
-// console.log('delay :>> ', delay);
-// console.log('amount :>> ', amount);
-
-
-// const target = document.querySelector(".item-2");
-
-// if (target) {
-//   const options = {
-//     root: null,
-//     rootMargin: "0px 0px 0px 0px",
-//     // Відсоток від розміру об'єкту. При появі якого спрацьовує подія Де 0 це будь яка поява, 1 це повна поява об'кта в в'юпорті.
-//     threshold: 0.2,
-//   };
-
-//   const callback = (entries, observer) => {
-//     entries.forEach(entry => {
-//       const currentElement = entry.target;
-
-//       if (entry.isIntersecting) {
-//         const delay = +currentElement.dataset.delay;
-//         const amount = +currentElement.dataset.amount;
-//         console.log('entry.isIntersecting :>> ', entry.isIntersecting);
-//         console.log('я тебе бачу')
-//         console.log('delay :>> ', delay);
-//         console.log('amount :>> ', amount);
-
-//         entry.preventDefault();
-//       }
-//     })
-//   };
-
-//   const observer = new IntersectionObserver(callback, options);
-//   observer.observe(target);
-// };
-
-
-
-
-// function showNumbers() {
-
-// }

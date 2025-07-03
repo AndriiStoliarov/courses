@@ -218,14 +218,20 @@ body.body--opacity-off {
 }
 
 .item-2 {
-  padding: 1.25rem 1.25rem;
+  padding: 7px 14px;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  font-size: 32px;
-  font-weight: 700;
+  min-width: 300px;
+  min-height: 200px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 72px;
   color: red;
-  line-height: 1.5;
   background-color: #fff;
   border: red 3px solid;
   border-radius: 8px;
