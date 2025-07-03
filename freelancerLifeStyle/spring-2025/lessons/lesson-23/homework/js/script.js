@@ -232,9 +232,6 @@ console.log('document.elementFromPoint(550, 0) :>> ', document.elementFromPoint(
 // Отримати в константу елемент <body>.
 
 const bodyElement = document.body;
-// if (bodyElement) {
-// console.log('document.body :>> ', bodyElement);
-// }
 
 // Задача №2.
 // Написати функцію, яка додає в <body> список UL з певною кількістю LI (кількість має передаватись як параметр функції, також мати значення за замовченням).
@@ -243,15 +240,14 @@ function addList(amountListItem = 2) {
   const bodyElement2 = document.body;
   let ulElement = document.createElement('ul');
 
-  if (bodyElement2) {
-    for (let i = 0; i < amountListItem; i++) {
-      const liElement = document.createElement('li');
+  for (let i = 0; i < amountListItem; i++) {
+    const liElement = document.createElement('li');
 
-      ulElement.append(liElement);
-    }
-
-    bodyElement2.insertAdjacentElement('afterbegin', ulElement);
+    ulElement.append(liElement);
   }
+
+  bodyElement2.insertAdjacentElement('afterbegin', ulElement);
+
 }
 
 addList(6);
@@ -262,14 +258,13 @@ addList(6);
 
 const bodyElement3 = document.body;
 
-if (bodyElement3) {
-  bodyElement3.classList.add('loaded');
+bodyElement3.classList.add('loaded');
 
-  const isClassLoaded = bodyElement3.classList.contains('loaded');
+const isClassLoaded = bodyElement3.classList.contains('loaded');
 
-  if (isClassLoaded) {
-    bodyElement3.style.color = 'green';
-  }
+if (isClassLoaded) {
+  bodyElement3.style.color = 'green';
+
 }
 
 // Задача №4.
@@ -292,17 +287,18 @@ if (itemElements.length) {
 const button = document.querySelector('.button');
 
 function scrollToBlock(element) {
-  // прокрутка до об'єкта — elem.scrollIntoView();
-  element.scrollIntoView({
-    block: "center",
-    inline: "nearest",
-    behavior: "smooth"
-  });
+  if (element) {
+    // прокрутка до об'єкта — elem.scrollIntoView();
+    element.scrollIntoView({
+      block: "center",
+      inline: "nearest",
+      behavior: "smooth"
+    });
+  }
 }
 
-if (button) {
-  scrollToBlock(button);
-}
+scrollToBlock(button);
+
 
 // Задача №6.
 // Дано в html: посилання з класом link.
