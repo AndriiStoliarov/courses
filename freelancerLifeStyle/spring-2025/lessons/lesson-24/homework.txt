@@ -65,7 +65,6 @@ function changeFooterColor() {
 const options = {
   root: null,
   rootMargin: "0px 0px 0px 0px",
-  // Відсоток від розміру об'єкту. При появі якого спрацьовує подія Де 0 це будь яка поява, 1 це повна поява об'кта в в'юпорті.
   threshold: 0.2,
 };
 
