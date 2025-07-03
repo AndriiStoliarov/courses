@@ -62,36 +62,40 @@ function changeFooterColor() {
 Створити функцію, яка будує інтервал, який буде змінювати контент в елементі item, виводячи цифру, яка збільшується на одиницю: 1 2 3 ... і т.д. Затримка між зміною числа, та до якого числа має працювати інтервал має задаватись в дата атрибутах елемента item.Функція має запускатить коли ми доскролюємо до елементу item (його видно), і не запускатись повторно.
 
 Відповідь:
+const options = {
+  root: null,
+  rootMargin: "0px 0px 0px 0px",
+  // Відсоток від розміру об'єкту. При появі якого спрацьовує подія Де 0 це будь яка поява, 1 це повна поява об'кта в в'юпорті.
+  threshold: 0.2,
+};
+
+const callback = (entries, observer) => {
+  entries.forEach(entry => {
+    const currentElement = entry.target;
+
+    if (entry.isIntersecting) {
+      showNumbers(currentElement);
+
+      observer.unobserve(currentElement);
+    }
+  })
+};
+
+const observer = new IntersectionObserver(callback, options);
+
 const target = document.querySelector(".item-2");
 
 if (target) {
-  const options = {
-    root: null,
-    rootMargin: "0px 0px 0px 0px",
-    threshold: 0.2,
-  };
-
-  const callback = (entries, observer) => {
-    entries.forEach(entry => {
-      const currentElement = entry.target;
-
-      if (entry.isIntersecting) {
-        showNumbers(currentElement);
-      }
-    })
-  };
-
-  const observer = new IntersectionObserver(callback, options);
   observer.observe(target);
-};
+}
 
-function showNumbers(currentElement) {
-  const delay = +currentElement.dataset.delay;
-  const amount = +currentElement.dataset.amount;
+function showNumbers(element) {
+  const delay = +element.dataset.delay;
+  const amount = +element.dataset.amount;
 
   let i = 1;
   let timer = setInterval(() => {
-    currentElement.textContent = `${i}`;
+    element.textContent = `${i}`;
 
     i === amount ? clearInterval(timer) : ++i;
   }, delay);
