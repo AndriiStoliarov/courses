@@ -1,5 +1,63 @@
 "use strict";
 
+
+// браузер повністю завантажив HTML, було побудовано DOM-дерево, але зовнішні ресурси, такі як картинки і стилі, можуть бути ще не авантажені:
+window.addEventListener("DOMContentLoaded", domLoaded);
+
+function domLoaded(e) {
+  console.log('DOM content loaded.');
+}
+
+// браузер завантажив HTML і зовнішні ресурси (картини, стилі й т. д.):
+
+window.addEventListener('load', pageLoaded);
+
+function pageLoaded(e) {
+  console.log('Page and all resourсes loaded.');
+}
+
+const link1Element = document.querySelector('.link-1');
+
+const options1 = {
+  "capture": false, // фаза, на якій повинен спрацювати обробник
+  "once": true, // якщо істина, тоді обробник буде автоматично видалено після виконання.
+  "passive": false //якщо true, то вказує, що обробник ніколи не викликає preventDefault();
+};
+
+link1Element.addEventListener("click", (event) => {
+  console.log('123');
+  // тип події
+  console.log('event.type :>> ', event.type);
+  // об'єкт, на якому створив обробник
+  console.log('event.target :>> ', event.target);
+  // положення курсора по осі X відносно вікна
+  console.log('event.clientX :>> ', event.clientX);
+  // положення курсора по осі Y відносно вікна
+  console.log('event.clientY :>> ', event.clientY);
+  // положення курсора по осі X відносно документу
+  console.log('event.pageX :>> ', event.pageX);
+  // положення курсора по осі Y відносно документу
+  console.log('event.pageY :>> ', event.pageY);
+  // усі деталі події
+  console.log('event :>> ', event);
+}, options1);
+
+link1Element.removeEventListener("click", (event) => {
+  console.log('123');
+});
+
+const linkElements = document.querySelectorAll('.link');
+
+if (linkElements.length) {
+  linkElements.forEach(linkElement => {
+    linkElement.addEventListener("click", () => {
+      linkElement.classList.toggle('active');
+      console.log('Clicked to link.');
+    });
+  });
+}
+
+
 function someFunction() {
   console.log('Go go go!');
 }
@@ -49,15 +107,6 @@ function documentAction(event) {
 function changeClass(element) {
   element.classList.toggle('active');
 }
-
-//* Або
-// const itemElements = document.querySelectorAll('.item');
-
-// if (itemElements.length) {
-//   itemElements.forEach(itemElement => {
-//     itemElement.addEventListener("click", () => itemElement.classList.toggle('active'));
-//   });
-// }
 
 // Задача №2.
 // Дано в css/scss: body прозорий.

@@ -10,6 +10,11 @@ $main-text-color: #000;
 $main-color: #00b207;
 $secondary-color: #2c742f;
 
+//! Цей метод буде давати помилки перевірки швидкості в pagespeed, краще створювати окремий пустий div блок з класом preloader і позиціонувати його поверх всього контенту, тоді проблема зникає.
+html.loaded body {
+  opacity: 1;
+}
+
 .wrapper {
   min-height: 100%;
   display: flex;
@@ -65,7 +70,16 @@ body {
 ======================================== */
 
 .header {
+  width: 100%;
   padding: 1.25rem 0;
+
+  background-color: #fff;
+  border-bottom: 2px solid #8b0000;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
 
   text-align: center;
 
@@ -80,13 +94,14 @@ body {
 
 /* .section-header ============ */
 .section-header {
-  margin-bottom: 36px;
+  margin-top: 6.25rem;
+  margin-bottom: 2.25rem;
 
   font-family: "Poppins", sans-serif;
   text-align: center;
 
   &__title {
-    font-size: 28px;
+    font-size: 1.75rem;
     color: #1a1a1a;
     font-weight: 600;
     line-height: 1.2;
@@ -104,7 +119,10 @@ body {
   }
 }
 
-.link {
+.link,
+.link-1 {
+  color: #008000;
+
   @media (any-hover: hover) {
     &:hover {
       text-decoration-line: underline;
@@ -222,6 +240,8 @@ body {
 
 .footer {
   padding: 1.25rem 0;
+
+  border-top: 2px solid #006400;
 
   // transition: background 0.3s;
 

@@ -17,16 +17,6 @@ function changeClass(element) {
   element.classList.toggle('active');
 }
 
-або
-
-const itemElements = document.querySelectorAll('.item');
-
-if (itemElements.length) {
-  itemElements.forEach(itemElement => {
-    itemElement.addEventListener("click", () => itemElement.classList.toggle('active'));
-  });
-}
-
 
 Задача №2.
 Дано в css/scss: body прозорий.
