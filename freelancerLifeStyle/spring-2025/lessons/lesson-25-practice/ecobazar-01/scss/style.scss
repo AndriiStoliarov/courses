@@ -1,0 +1,16 @@
+@use "sass:math";
+@use "_reset.scss";
+@use "_colors.scss" as *;
+@use "_mixins.scss" as *;
+
+body {
+	font-family: "Poppins", sans-serif;
+	@include typography();
+	color: $grey6;
+}
+
+[class*="__container"] {
+	max-width: toRem($containerWidth);
+	padding-inline: toRem(math.div($containerPadding, 2));
+	margin: 0 auto;
+}
