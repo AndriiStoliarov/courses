@@ -52,6 +52,7 @@ $responsiveType: 1;
 	@if ($startSize == 0) {
 		$startSize: 0.000001;
 	}
+
 	@if ($minSize == 0) {
 		$minSize: 0.000001;
 	}
@@ -67,10 +68,13 @@ $responsiveType: 1;
 	// Формула плаваючого значення
 	// Источник: https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
 	$slope: math.div(($startSize - $minSize), ($widthFrom - $widthTo));
+
 	$yIntersection: -$widthTo * $slope + $minSize;
+
 	@if ($yIntersection == 0) {
 		$yIntersection: 0.000001;
 	}
+
 	$flyValue: #{$yIntersection}px " + " #{$slope * 100}vw;
 
 	// Отримання значення властивості
@@ -81,7 +85,7 @@ $responsiveType: 1;
 	}
 
 	// Встановлюємо значення за замовчуванням
-	@if $keepSize != 1 and $keepSize != 3 {
+	@if ($keepSize != 1 and $keepSize != 3) {
 		@media (min-width: $widthFromMedia) {
 			#{$property}: #{$startSize}px;
 		}
@@ -90,7 +94,8 @@ $responsiveType: 1;
 	@media (min-width: $widthToMedia) and (max-width: $widthFromMedia) {
 		#{$property}: $propertyValue;
 	}
-	@if $keepSize != 1 and $keepSize != 2 {
+
+	@if ($keepSize != 1 and $keepSize != 2) {
 		@media (max-width: $widthToMedia) {
 			#{$property}: #{$minSize}px;
 		}
