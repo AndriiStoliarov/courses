@@ -3,8 +3,6 @@
 🟢 Посилання на урок:
 https://youtube.com/live/0LjjQojyJm0?feature=share
 
-🟢 Посилання на нотатки:
-
 🟢 Посилання на макет:
 https://www.figma.com/design/gEdsvv0W4qPFM6mXZT2IIa/Ecobazar?node-id=460-39913&p=f&m=dev
 ----------------------------------
