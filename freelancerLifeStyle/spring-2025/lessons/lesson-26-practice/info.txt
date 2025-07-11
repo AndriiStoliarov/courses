@@ -1,3 +1,7 @@
+SVG Icon Libraries and Custom Icon Font Organizer IcoMoon. Generate fonts, sprites, etc.
+https://icomoon.io/
+
+
 Заняття 26. Практика. Частина №2.
 
 🟢 Посилання на урок:
