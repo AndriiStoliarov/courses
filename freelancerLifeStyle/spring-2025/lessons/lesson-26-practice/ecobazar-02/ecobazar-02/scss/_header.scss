@@ -1,0 +1,107 @@
+@use "_colors.scss" as *;
+@use "_mixins.scss" as *;
+
+.header {
+	// .header__top
+	&__top {
+		border-bottom: 1px solid $grey1;
+	}
+	// .header__body
+	&__body {
+	}
+	// .header__bottom
+	&__bottom {
+	}
+}
+.top-header {
+	// .top-header__container
+	&__container {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		padding-block: toRem(12);
+		gap: toRem(5) toRem(10);
+	}
+	// .top-header__location
+	&__location {
+	}
+	// .top-header__link-location
+	&__link-location {
+		display: inline-flex;
+		align-items: center;
+		gap: toRem(8);
+		@include typography("T");
+		transition: color 0.3s;
+		&::before {
+			align-self: flex-start;
+			@include typography("L");
+		}
+		@media (any-hover: hover) and (any-pointer: fine) {
+			&:hover {
+				color: $successDark;
+			}
+		}
+	}
+	// .top-header__actions
+	&__actions {
+	}
+}
+.actions-top-header {
+	display: flex;
+	gap: toRem(20);
+	align-items: center;
+	// .actions-top-header__lang-currency
+	&__lang-currency {
+	}
+	// .actions-top-header__auth
+	&__auth {
+	}
+}
+.lang-currency {
+	display: flex;
+	align-items: center;
+	gap: toRem(20);
+	&::after {
+		content: "";
+		width: toRem(1);
+		height: toRem(15);
+		background-color: $grey1;
+	}
+	// .lang-currency__element
+	&__element {
+		position: relative;
+		&::before {
+			position: absolute;
+			right: 0;
+			top: 50%;
+			translate: 0 -50%;
+			font-size: toRem(4.5);
+			pointer-events: none;
+		}
+	}
+	// .lang-currency__select
+	&__select {
+		padding-right: toRem(10.5);
+		appearance: none;
+		@include typography("T");
+	}
+	// .lang-currency__item
+	&__item {
+	}
+}
+.auth-top-header {
+	@include typography("T");
+	// .auth-top-header__link
+	&__link {
+		@media (any-hover: hover) and (any-pointer: fine) {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}
+.body-header {
+}
+.bottom-header {
+}
