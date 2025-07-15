@@ -114,11 +114,10 @@ function changeClass(element) {
 
 window.addEventListener("load", () => document.body.classList.add('loaded'));
 
-//? Задача №3.
+// Задача №3.
 // Дано в html: header main footer.
 // При наведенні курсору на header змінювати колір фону у footer. Коли курсор йде з header повертати початковий фон для footer.
 
-//? background animation
 const headerElement = document.querySelector('header');
 
 if (headerElement) {
@@ -168,9 +167,6 @@ if (target) {
 function showNumbers(element) {
   const delay = Number(element.dataset.delay) || 1000;
   const amount = Number(element.dataset.amount) || 3;
-
-  console.log('delay :>> ', delay);
-  console.log('amount :>> ', amount);
 
   let i = 0;
   let timer = setInterval(() => {

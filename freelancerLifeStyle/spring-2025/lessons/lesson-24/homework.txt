@@ -23,14 +23,13 @@ function changeClass(element) {
 При повному завантаженню сторінки додати клас до body який прибирає прозорість.
 
 Відповідь:
-window.addEventListener("load", () => document.body.classList.add('body--opacity-off'));
+window.addEventListener("load", () => document.body.classList.add('loaded'));
 
 
-Задача №3.
-Дано в html: header main footer.
-При наведенні курсору на header змінювати колір фону у footer. Коли курсор йде з header повертати початковий фон для footer.
+// Задача №3.
+// Дано в html: header main footer.
+// При наведенні курсору на header змінювати колір фону у footer. Коли курсор йде з header повертати початковий фон для footer.
 
-Відповідь:
 const headerElement = document.querySelector('header');
 
 if (headerElement) {
@@ -79,10 +78,10 @@ if (target) {
 }
 
 function showNumbers(element) {
-  const delay = +element.dataset.delay;
-  const amount = +element.dataset.amount;
+  const delay = Number(element.dataset.delay) || 1000;
+  const amount = Number(element.dataset.amount) || 3;
 
-  let i = 1;
+  let i = 0;
   let timer = setInterval(() => {
     element.textContent = `${i}`;
 
