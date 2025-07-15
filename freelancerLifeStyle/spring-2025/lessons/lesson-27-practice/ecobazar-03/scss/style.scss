@@ -1,0 +1,22 @@
+@use "sass:math";
+@use "_reset.scss";
+@use "_iconfont.scss";
+@use "_colors.scss" as *;
+@use "_mixins.scss" as *;
+@use "_components.scss";
+@use "_header.scss";
+
+body {
+	font-family: "Poppins", sans-serif;
+	@include typography("BODY", 400, 0);
+	color: $grey6;
+	&[data-touch] {
+		// ...
+	}
+}
+
+[class*="__container"] {
+	max-width: toRem($containerWidth);
+	padding-inline: toRem(math.div($containerPadding, 2));
+	margin: 0 auto;
+}
