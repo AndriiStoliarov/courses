@@ -155,7 +155,7 @@ body {
   -webkit-transition: opacity 0.3;
   transition: opacity 0.3;
 }
-body.body--opacity-off {
+body.loaded {
   opacity: 1;
 }
 

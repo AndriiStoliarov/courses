@@ -112,7 +112,7 @@ function changeClass(element) {
 // Дано в css/scss: body прозорий.
 // При повному завантаженню сторінки додати клас до body, який прибирає прозорість.
 
-window.addEventListener("load", () => document.body.classList.add('body--opacity-off'));
+window.addEventListener("load", () => document.body.classList.add('loaded'));
 
 //? Задача №3.
 // Дано в html: header main footer.
@@ -166,10 +166,13 @@ if (target) {
 }
 
 function showNumbers(element) {
-  const delay = +element.dataset.delay;
-  const amount = +element.dataset.amount;
+  const delay = Number(element.dataset.delay) || 1000;
+  const amount = Number(element.dataset.amount) || 3;
 
-  let i = 1;
+  console.log('delay :>> ', delay);
+  console.log('amount :>> ', amount);
+
+  let i = 0;
   let timer = setInterval(() => {
     element.textContent = `${i}`;
 
