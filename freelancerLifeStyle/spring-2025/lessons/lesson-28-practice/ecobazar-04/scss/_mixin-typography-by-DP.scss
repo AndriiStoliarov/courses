@@ -1,0 +1,145 @@
+@use "sass:math";
+
+// Доопрацьований міксин типографії
+
+// Мапа типографії
+$typography-sizes: (
+	base: (
+		// для body
+		fontSize: 14
+	),
+	t: (
+		fontSize: 12,
+		lineHeight: 1.3
+	),
+	s: (
+		fontSize: 14,
+		lineHeight: 1.5
+	),
+	m: (
+		fontSize: 16,
+		fontSizeMob: 14,
+		lineHeight: 1.5
+	),
+	l: (
+		fontSize: 18,
+		fontSizeMob: 16,
+		lineHeight: 1.5
+	),
+	xl: (
+		fontSize: 20,
+		fontSizeMob: 18,
+		lineHeight: 1.5
+	),
+	xxl: (
+		fontSize: 24,
+		fontSizeMob: 20,
+		lineHeight: 1.5
+	),
+
+	d1: (
+		fontSize: 72,
+		fontSizeMob: 40,
+		lineHeight: 1.2
+	),
+	h1: (
+		fontSize: 56,
+		fontSizeMob: 36,
+		lineHeight: 1.2
+	),
+	h2: (
+		fontSize: 48,
+		fontSizeMob: 32,
+		lineHeight: 1.2
+	),
+	h3: (
+		fontSize: 40,
+		fontSizeMob: 28,
+		lineHeight: 1.2,
+		fontWeight: 600
+	),
+	h4: (
+		fontSize: 36,
+		fontSizeMob: 24,
+		lineHeight: 1.2
+	),
+	h5: (
+		fontSize: 32,
+		fontSizeMob: 22,
+		lineHeight: 1.2
+	)
+);
+
+@mixin typography(
+	$size: "base",
+	// ключ до мапи, напр. h3, base, body-s тощо
+	$weight: "map",
+	// font-weight або map (щоб взяти з мапи), або null (не виводити)
+	// Якщо властивості немає в мапі, а вказати map воно не буде відображатись
+	$lh: "map",
+	// line-height: число, map, або null
+	$adapt: 0,
+	// 1 — увімкнути адаптив, 0 — ні
+	$sizeMob: null // якщо треба вручну задати мобільний розмір
+) {
+	$size: unquote($size);
+	$props: map-get($typography-sizes, $size);
+
+	@if $props == null {
+		@error "Typography size `#{$size}` не знайдено в \$typography-sizes";
+	}
+
+	$fontSize: map-get($props, fontSize);
+	$fontSizeMob: if(map-has-key($props, fontSizeMob), map-get($props, fontSizeMob), $fontSize);
+	$lineHeight: map-get($props, lineHeight);
+	$mapWeight: map-get($props, fontWeight);
+
+	// Пріоритет ручного значення мобільного розміру
+	@if $sizeMob != null {
+		$fontSizeMob: $sizeMob;
+	}
+
+	// Font size
+	@if $adapt == 1 {
+		@include adaptiveValue("font-size", $fontSize, $fontSizeMob);
+	} @else {
+		font-size: toRem($fontSize);
+	}
+
+	// Font weight
+	@if $weight != null and $weight != "map" {
+		font-weight: $weight;
+		// Якщо передано "map", але в мапі fontWeight не вказаний — font-weight не буде виведено
+	} @else if $weight == "map" and $mapWeight != null {
+		font-weight: $mapWeight;
+	}
+
+	// Line height
+	@if $lh != null and $lh != "map" {
+		line-height: $lh;
+		// Якщо передано "map", але в мапі lineHeight не вказаний — line-height не буде виведено
+	} @else if $lh == "map" and $lineHeight != null {
+		line-height: $lineHeight;
+	}
+}
+
+// Використання
+// Використовуємо значення з мапи для "base" (розмір, line-height, font-weight)
+@include typography(base);
+
+// Значення з мапи + увімкнений адаптив
+@include typography(h3, $adapt: 1);
+
+// Значення з мапи + перезапис font-weight вручну
+@include typography(h3, 400);
+
+// Значення з мапи + вручну задаємо line-height
+// map — вказує, що font-weight беремо з мапи
+@include typography(h3, map, 2);
+
+// Перезаписуємо і font-weight, і адаптив вмикаємо
+// map — line-height з мапи
+@include typography(h3, 600, map, 1);
+
+// Як вище, але також задаємо мобільний розмір (до якого адаптуватися)
+@include typography(h3, 600, map, 1, 16);
