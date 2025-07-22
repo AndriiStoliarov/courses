@@ -1,3 +1,12 @@
+Дякі ресурси.
+
+MDN Web Docs:
+https://developer.mozilla.org/en-US/docs/Web/JavaScript
+
+Сучасний підручник з JavaScript:
+https://uk.javascript.info/
+
+
 🤟 Урок №1. Вступ.
 
 🟢 Посилання на урок:
