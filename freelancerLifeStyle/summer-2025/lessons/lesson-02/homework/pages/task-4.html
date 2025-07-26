@@ -31,34 +31,24 @@
                 <div class="tasks__inner">
                   <ul class="tasks__items">
                     <li class="tasks__item">
-                      <p><span class="tasks__title">Задача 0.</span> Обчислити значення виразів:
-                        <ul class="list">
-                          <li class="list__item">1. S1 = a + 12 + b;</li>
-                          <li class="list__item">2. S2 = sqrt((a + b) / (2 * a));</li>
-                          <li class="list__item">3. S3 = cbrt((a + b) * c);</li>
-                          <li class="list__item">4. S4 = sin(a / (-b)).</li>
-                        </ul>
+                      <p><span class="tasks__title">Задача 4.</span> Дано довжину у сантиметрах. Визначати скільки це метрів і кілометрів.
                       </p>
                     </li>
                     <li class="tasks__item">
                       <script>
-                          const a = parseFloat(prompt('Введіть значення операнда a:', 10));
-                          const b = parseFloat(prompt('Введіть значення операнда b:', 10));
-                          const c = parseFloat(prompt('Введіть значення операнда c:', 10));
+                          // const oneMeters = 100
+                          const lengthInCentimeters = parseFloat(prompt('Введіть довжину у сантиметрах:', 10));
 
-                          const s1 = (a + 12 + b).toFixed(2);
-                          const s2 = Math.sqrt((a + b) / (2 * a)).toFixed(2);
-                          const s3 = Math.cbrt((a + b) * c).toFixed(2);
-                          const s4 = Math.sin(a / (-b)).toFixed(2);
+                          const lengthInMeters = (lengthInCentimeters).toFixed(2);
+
+                          // ...
 
                           document.write(`
                             <p>
                               <span class="tasks__title">Відповідь:</span>
                               <ul class="list">
-                                <li class="list__item">1. S1 = ${s1};</li>
-                                <li class="list__item">2. S2 = ${s2};</li>
-                                <li class="list__item">3. S3 = ${s3};</li>
-                                <li class="list__item">4. S4 = ${s4}.</li>
+                                <li class="list__item">Загальна вартість: ${totalPrice} грн.;</li>
+                                <li class="list__item">5% ПДВ: ${VAT5} грн.</li>
                               </ul>
                             </p>
                           `);

@@ -37,23 +37,41 @@
                     </li>
                     <li class="tasks__item">
                       <script>
-                          // const a = parseFloat(prompt('Введіть значення операнда a:', 10));
-                          // const b = parseFloat(prompt('Введіть значення операнда b:', 10));
-                          // const c = parseFloat(prompt('Введіть значення операнда c:', 10));
+                          const a = parseFloat(prompt('Введіть значення першого операнда:', 10));
+                          const b = parseFloat(prompt('Введіть значення другого операнда:', 10));
 
-                          const s1 = (a + 12 + b).toFixed(2);
-                          const s2 = Math.sqrt((a + b) / (2 * a)).toFixed(2);
-                          const s3 = Math.cbrt((a + b) * c).toFixed(2);
-                          const s4 = Math.sin(a / (-b)).toFixed(2);
+                          const sum = (a + b).toFixed(2);
+                          const product = (a * b).toFixed(2);
+                          const division = (a / b).toFixed(2);
 
                           document.write(`
                             <p>
                               <span class="tasks__title">Відповідь:</span>
                               <ul class="list">
-                                <li class="list__item">1. S1 = ${s1};</li>
-                                <li class="list__item">2. S2 = ${s2};</li>
-                                <li class="list__item">3. S3 = ${s3};</li>
-                                <li class="list__item">4. S4 = ${s4}.</li>
+                                <li class="list__item">
+                                  <table class="tasks__table  table">
+                                    <tr class="table__row">
+                                      <th class="table__header">№</th>
+                                      <th class="table__header">Операція</th>
+                                      <th class="table__header">Результат</th>
+                                    </tr>
+                                    <tr class="table__row">
+                                      <td class="table__data">1.</td>
+                                      <td class="table__data">${a} + ${b}</td>
+                                      <td class="table__data">${sum}</td>
+                                    </tr>
+                                    <tr class="table__row">
+                                      <td class="table__data">2.</td>
+                                      <td class="table__data">${a} * ${b}</td>
+                                      <td class="table__data">${product}</td>
+                                    </tr>
+                                    <tr class="table__row">
+                                      <td class="table__data">3.</td>
+                                      <td class="table__data">${a} / ${b}</td>
+                                      <td class="table__data">${division}</td>
+                                    </tr>
+                                  </table>
+                                </li>
                               </ul>
                             </p>
                           `);
