@@ -24,24 +24,22 @@ body {
   font-size: 1.5rem;
   color: #000;
 
-  background-color: #FFF;
+  background-color: #fff;
 }
-
 
 /*! Header
 ======================================== */
 
 .header {
-	padding: 1.25rem 0;
+  padding: 1.25rem 0;
 
-	text-align: center;
+  text-align: center;
 }
 
 .header__title {
-	font-size: 1.5rem;
-	color: #8b0000; /* darkred */
+  font-size: 1.5rem;
+  color: #8b0000; /* darkred */
 }
-
 
 /*! Tasks
 ======================================== */
@@ -51,76 +49,52 @@ body {
 }
 
 .tasks__items {
-  
 }
 
 .tasks__item:not(:last-child) {
   margin-bottom: 1.25rem;
 }
 
-.tasks__link {
-  color: #0645AD;
+.tasks__title {
+  color: #4b0082;
+  /* font-weight: 500; */
 }
 
+.tasks__link {
+  color: #0645ad;
+}
+
+/* .tasks__link:visited {
+  color: #0b0080;
+} */
 
 .list {
   padding-left: 3rem;
-  
 }
 
+/* @media ============================== */
 @media (any-hover: hover), (pointer: fine) {
   .tasks__link:hover {
     text-decoration-line: underline;
   }
 }
 
-/* @media ============================== */
-@media (any-hover: hover), (pointer: fine) {
-  /* any-hover: hover */
-}
-
-/* (any-hover: none) може не коректно працювати у деяких китайських телефонах 
-тому додано ще медіазапит (pointer: coarse) */
-@media (any-hover: none), (pointer: coarse) {
-  /* any-hover: none */
-}
-
-@media (prefers-color-scheme: dark) {
-  /* prefers-color-scheme: dark */
-}
-
-@media (max-width: 1199.98px) {
-  /* PC */
-}
-
-@media (max-width: 991.98px) {
-  /* Tablet */
-}
-
-@media (max-width: 767.98px) {
-  /* Mobile */
-}
-
-@media (max-width: 479.98px) {
-  /* Mobile Small */
-}
-
-@media (max-width: 319.98px) {
-  /* iPhone 5C/5S/5SE */
-}
-
 /** .up ============ */
 .up {
-	padding: 1.25rem 0;
+  padding: 1.25rem 0;
 
-	text-align: right;
+  text-align: right;
+}
+
+.up.up--left {
+  text-align: left;
 }
 
 .up__link {
-	font-size: 1.125rem;
-	color: #4B0082; /* indigo */
+  font-size: 1.125rem;
+  color: #0645ad;
 
-	text-transform: lowercase;
+  text-transform: lowercase;
 }
 
 @media (any-hover: hover), (pointer: fine) {
