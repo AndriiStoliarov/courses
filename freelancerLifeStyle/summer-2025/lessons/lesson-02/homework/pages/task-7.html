@@ -31,35 +31,33 @@
                 <div class="tasks__inner">
                   <ul class="tasks__items">
                     <li class="tasks__item">
-                      <p><span class="tasks__title">Задача 3.</span> Дано вартість одиниці товару і кількість. Знайти загальну вартість та
-                        ПДВ (5% від загальної вартості).
+                      <p><span class="tasks__title">Задача 7.</span> Знайти суму випадкового номера місяця (від 1 до 12) та випадкового
+                        номера дня (від 0 до 6).
                       </p>
                     </li>
                     <li class="tasks__item">
                       <script>
-                        const productPrice = parseFloat(prompt('Введіть вартість одиниці товару:', 1));
+                        const minDayOfMonth = 1, maxDayOfMonth = 12;
+                        const minDayOfWeek = 0, maxDayOfWeek = 6;
 
-                        const amount = parseFloat(prompt('Введіть кількість одиниць товару:', 1));
+                        const randomDayOfMonth = minDayOfMonth + Math.floor(Math.random() * (maxDayOfMonth - minDayOfMonth + 1));
 
-                        const totalPrice = (productPrice * amount).toFixed(2);
+                        const randomDayOfWeek = minDayOfWeek + Math.floor(Math.random() * (maxDayOfWeek - minDayOfWeek + 1));
 
-                        const VAT5 = (totalPrice * 5 / 100).toFixed(2);
+                        const randomNumbersSum = randomDayOfMonth + randomDayOfWeek;
 
                         document.write(`
                           <p>
                             <span class="tasks__title">Відповідь:</span>
                             <ul class="list">
                               <li class="list__item">
-                                Вартість одиниці товару: ${productPrice} грн.;
+                                Випадковий номер місяця: ${randomDayOfMonth};
                               </li>
                               <li class="list__item">
-                                Кількість одиниць товару: ${amount} шт.;
+                                Випадковий номер дня тижня: ${randomDayOfWeek};
                               </li>
                               <li class="list__item">
-                                Загальна вартість: ${totalPrice} грн.;
-                              </li>
-                              <li class="list__item">
-                                5% ПДВ: ${VAT5} грн.
+                                Сума: ${randomNumbersSum}.
                               </li>
                             </ul>
                           </p>

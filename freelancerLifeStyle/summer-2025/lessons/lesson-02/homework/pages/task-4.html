@@ -36,22 +36,26 @@
                     </li>
                     <li class="tasks__item">
                       <script>
-                          // const oneMeters = 100
-                          const lengthInCentimeters = parseFloat(prompt('Введіть довжину у сантиметрах:', 10));
+                        const centimetersInOneMeter = 100;
+                        const metersInOneKilometer = 1000;
+                        const centimetersInOneKilometer = metersInOneKilometer * centimetersInOneMeter;
 
-                          const lengthInMeters = (lengthInCentimeters).toFixed(2);
+                        const centimetersLength = parseFloat(prompt('Введіть довжину у сантиметрах:', 10));
 
-                          // ...
+                        const metersLength = centimetersLength / centimetersInOneMeter;
 
-                          document.write(`
-                            <p>
-                              <span class="tasks__title">Відповідь:</span>
-                              <ul class="list">
-                                <li class="list__item">Загальна вартість: ${totalPrice} грн.;</li>
-                                <li class="list__item">5% ПДВ: ${VAT5} грн.</li>
-                              </ul>
-                            </p>
-                          `);
+                        const kilometersLength = centimetersLength / centimetersInOneKilometer;
+
+                        document.write(`
+                          <p>
+                            <span class="tasks__title">Відповідь:</span>
+                            <ul class="list">
+                              <li class="list__item">
+                                ${centimetersLength} см. = ${metersLength} м. = ${kilometersLength} км.
+                              </li>
+                            </ul>
+                          </p>
+                        `);
                       </script>
                     </li>
                   </ul>

@@ -37,20 +37,25 @@
                     </li>
                     <li class="tasks__item">
                       <script>
-                          const birthYear = parseFloat(prompt('Введіть рік народження:', 1900));
+                        const birthYear = parseFloat(prompt('Введіть рік народження:', 1900));
 
-                          const currentYear = 2025;
+                        const currentYear = 2025;
 
-                          const yearsOld = currentYear - birthYear;
+                        const yearsOld = currentYear - birthYear;
 
-                          document.write(`
-                            <p>
-                              <span class="tasks__title">Відповідь:</span>
-                              <ul class="list">
-                                <li class="list__item">Кількість років: ${yearsOld}.</li>
-                              </ul>
-                            </p>
-                          `);
+                        document.write(`
+                          <p>
+                            <span class="tasks__title">Відповідь:</span>
+                            <ul class="list">
+                              <li class="list__item">
+                                Рік народження: ${birthYear};
+                              </li>
+                              <li class="list__item">
+                                Кількість років: ${yearsOld}.
+                              </li>
+                            </ul>
+                          </p>
+                        `);
                       </script>
                     </li>
                   </ul>

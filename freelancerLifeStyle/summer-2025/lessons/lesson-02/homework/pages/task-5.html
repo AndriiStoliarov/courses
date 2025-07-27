@@ -31,35 +31,28 @@
                 <div class="tasks__inner">
                   <ul class="tasks__items">
                     <li class="tasks__item">
-                      <p><span class="tasks__title">Задача 3.</span> Дано вартість одиниці товару і кількість. Знайти загальну вартість та
-                        ПДВ (5% від загальної вартості).
+                      <p><span class="tasks__title">Задача 5.</span> Дано кількість секунд, що пройшла від початку доби. Визначити скільки
+                        це годин і хвилин.
                       </p>
                     </li>
                     <li class="tasks__item">
                       <script>
-                        const productPrice = parseFloat(prompt('Введіть вартість одиниці товару:', 1));
+                        const secondsInOneMinute = 60;
+                        const minutesInOneHour = 60;
+                        const secondsInOneHour = minutesInOneHour * secondsInOneMinute;
 
-                        const amount = parseFloat(prompt('Введіть кількість одиниць товару:', 1));
+                        const secondsAmount = parseFloat(prompt('Введіть кількість секунд:', 60));
 
-                        const totalPrice = (productPrice * amount).toFixed(2);
+                        const minutesAmount = (secondsAmount / secondsInOneMinute).toFixed(2);
 
-                        const VAT5 = (totalPrice * 5 / 100).toFixed(2);
+                        const hoursAmount = (secondsAmount / secondsInOneHour).toFixed(2);
 
                         document.write(`
                           <p>
                             <span class="tasks__title">Відповідь:</span>
                             <ul class="list">
                               <li class="list__item">
-                                Вартість одиниці товару: ${productPrice} грн.;
-                              </li>
-                              <li class="list__item">
-                                Кількість одиниць товару: ${amount} шт.;
-                              </li>
-                              <li class="list__item">
-                                Загальна вартість: ${totalPrice} грн.;
-                              </li>
-                              <li class="list__item">
-                                5% ПДВ: ${VAT5} грн.
+                                ${secondsAmount} сек. = ${minutesAmount} хв. = ${hoursAmount} год.
                               </li>
                             </ul>
                           </p>
