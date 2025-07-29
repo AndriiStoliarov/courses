@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    //----------------------------------------
+    //Приклад. На сайті банку задають питання стосовно віку користувача. Якщо вік <18, то
+    //     повідомити про заборону доступу, інакше – привітати на сайті
+    //Крок 0. Позначення величин
+    // userAge - вік користувача
+    // minAge =18  - мінімальний вік
+    //Крок 1. Введення величин
+    // let userAge = parseInt(prompt('Ваш вік', '18'))
+    // const minAge = 18
+    // //Крок 2. Обчислення
+    // if (userAge < minAge)
+    //    document.write('заборонa доступу')
+    // else
+    //    document.write('Вітаємо на сайті!')
+
+    //--------------------------------
+    //Вводиться заробітна плата. Якщо заробітна плата більша за прожитковий мінімум (3500), то зняти податок 20%
+    // Крок 0. Позначення величин
+    // зар. плата. - salary
+    // прож. мін. - minSalary
+    // податок  - tax
+    // Крок 1. Введення величин
+    // let salary = parseFloat(prompt('Ввдіть зар. плату', '50000'))
+    // const minSalary = 3500
+    // const tax = 20
+    // // Крок 2. Обчислення
+    // if (salary > minSalary) salary = salary - (salary * tax) / 100
+    // //Крок 3 . Виведення результатів
+    // document.write(`На руки ${salary} грн.`)
+
+    //----------------------------------------
+    // //Вводиться вага вантажу. Вивести, чи можна його надіслати пакетом (до 12 кілограм)
+    // //Крок 0. Позначення величин
+    // //Вага вантажу - cargoWeight
+    // //Максимальна вага - weightLimit
+    // //Крок 1. Введення величин
+    // let cargoWeight = parseFloat(prompt('Вага вантажу'))
+    // const weightLimit = 12
+    // //Крок 2. Розв"язок заадачі
+    // // Якщо  cargoWeight < weightLimit
+    // //    тоді вивести "можна"
+    // //    інакше "Неможна"
+
+    // if (cargoWeight <= weightLimit) alert('можна')
+    // else alert('Неможна')
+
+    //----------------------------------------
+    //На роботу компанія приймає працівників від 32 до 45 років. З клавіатури вводиться вік претендента. З’ясувати, чи може він бути прийнятим на роботу.
+    //Крок 0. Вводимо позначення
+    //вік працівника  - workerAge
+    //мінімальний допустимий вік - minAllowedAge = 32
+    //максимальний допустимий вік - maxAllowedAge = 45
+    //Крок 1. Введення величин
+    // let workerAge = parseInt(prompt('Вік користувача', '21'))
+    // const minAllowedAge = 32
+    // const maxAllowedAge = 45
+    // // //Крок 2. Розв"язок заадачі
+
+    // // if(32<=workerAge<=45)
+    // if (minAllowedAge <= workerAge && workerAge <= maxAllowedAge)
+    //    alert('Ok')
+    // else
+    //    alert('No')
+
+    //----------------------------------------
+    //Якщо вік відвідувача >21, то запросимо у салон і будемо питати яке авто хоче купити (якщо тойота - то подарувати) інакше відмовити у відвідуванні
+    //Крок 0. Позначення
+    //вік відвідувача  - userAge
+    // мін. вік. - minAge = 21
+    // вибране авто для подарунку  - giftCarName = 'Toyota'
+    // вибране користувачем авто - userCarChoice
+    //Крок 1. Введення
+
+    let userAge = parseInt(prompt('Вік користувача', '21'))
+    const minAge = 21
+    const giftCarName = 'Toyota'
+
+    //Крок 2. Обчислення
+    if (userAge > minAge) {
+      alert('Вітаєм! Заходьте!')
+      let userCarChoice = prompt('Яке авто бажаєте? ', 'BMW')
+      if (userCarChoice === giftCarName)
+        alert('Вітаємо!!! Ви виграли це авто!!!')
+      else alert('Приносьте гроші!!')
+    } else alert('Ваш вік замалий!!! ')
+  </script>
+  <body></body>
+</html>
