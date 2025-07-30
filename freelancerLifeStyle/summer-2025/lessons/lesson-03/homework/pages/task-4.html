@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <title>Урок 02</title>
+    <title>Урок 03</title>
   </head>
 
   <body>
@@ -17,7 +17,7 @@
       <header class="header" id="up">
         <div class="header__container">
           <div class="header__inner">
-            <h1 class="header__title">Домашне завдання № 2</h1>
+            <h1 class="header__title">Домашне завдання № 3</h1>
           </div><!-- /. header__inner -->
         </div><!-- /. header__container -->
       </header>
@@ -31,14 +31,21 @@
                 <div class="tasks__inner">
                   <ul class="tasks__items">
                     <li class="tasks__item">
-                      <p><span class="tasks__title">Задача 4.</span> Дано довжину у сантиметрах. Визначати скільки це метрів і кілометрів.
+                      <p><span class="tasks__title">Задача 4.</span> З клавіатури вводиться вік людини. Вивести на екран ким він є (дитиною
+                        у садочку, школярем, студентом, працівником, пенсіонером).
                       </p>
                     </li>
                     <li class="tasks__item">
                       <script>
-                        const centimetersInOneMeter = 100;
-                        const metersInOneKilometer = 1000;
-                        const centimetersInOneKilometer = metersInOneKilometer * centimetersInOneMeter;
+                        // Крок 0. Позначення величин.
+                        // MAX_KID_AGE - максимальний вік дитини, яка може перебувати  садочку;
+                        // MAX_PUPIL_AGE - максимальний вік дитини, яка може вчитися в школі;
+                        
+                        // randomNumberFrom1To5 - випадкове число від 1 до 5;
+                        // attemptFirst - перша спроба вгадати;
+                        // attemptSecond - друга спроба вгадати.
+
+                        // Крок 1. Введення необхідних даних.
 
                         const centimetersLength = parseFloat(prompt('Введіть довжину у сантиметрах:', 10));
 

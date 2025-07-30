@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <title>Урок 02</title>
+    <title>Урок 03</title>
   </head>
 
   <body>
@@ -17,7 +17,7 @@
       <header class="header" id="up">
         <div class="header__container">
           <div class="header__inner">
-            <h1 class="header__title">Домашне завдання № 2</h1>
+            <h1 class="header__title">Домашне завдання № 3</h1>
           </div><!-- /. header__inner -->
         </div><!-- /. header__container -->
       </header>
@@ -31,39 +31,53 @@
                 <div class="tasks__inner">
                   <ul class="tasks__items">
                     <li class="tasks__item">
-                      <p><span class="tasks__title">Задача 3.</span> Дано вартість одиниці товару і кількість. Знайти загальну вартість та
-                        ПДВ (5% від загальної вартості).
+                      <p><span class="tasks__title">Задача 3.</span> Випадковим чином генерується число від 1
+                        до 5. Спробуйте вгадати число за 2 спроби.
                       </p>
                     </li>
                     <li class="tasks__item">
                       <script>
-                        const productPrice = parseFloat(prompt('Введіть вартість одиниці товару:', 1));
+                        // Крок 0. Позначення величин.
+                        // RANDOM_NUMBER_TO - початкове значення діапазону генерації випадкового числа;
+                        // RANDOM_NUMBER_FROM - кінцеве значення діапазону генерації випадкового числа;
+                        // randomNumberFrom1To5 - випадкове число від 1 до 5;
+                        // attemptFirst - перша спроба вгадати;
+                        // attemptSecond - друга спроба вгадати.
 
-                        const amount = parseFloat(prompt('Введіть кількість одиниць товару:', 1));
+                        // Крок 1. Введення необхідних даних.
+                        const RANDOM_NUMBER_TO = 1, RANDOM_NUMBER_FROM = 5;
 
-                        const totalPrice = (productPrice * amount).toFixed(2);
+                        const randomNumberFrom1To5 = RANDOM_NUMBER_TO + Math.floor(Math.random() * (RANDOM_NUMBER_FROM - RANDOM_NUMBER_TO + 1));
 
-                        const VAT5 = (totalPrice * 5 / 100).toFixed(2);
+                        const attemptFirst = parseInt(prompt('Вгадайте згенероване число. Спроба перша:', '1'));
+                        const attemptSecond = parseInt(prompt('Вгадайте згенероване число. Спроба друга:', '5'));
 
-                        document.write(`
-                          <p>
-                            <span class="tasks__title">Відповідь:</span>
-                            <ul class="list">
-                              <li class="list__item">
-                                Вартість одиниці товару: ${productPrice} грн.;
-                              </li>
-                              <li class="list__item">
-                                Кількість одиниць товару: ${amount} шт.;
-                              </li>
-                              <li class="list__item">
-                                Загальна вартість: ${totalPrice} грн.;
-                              </li>
-                              <li class="list__item">
-                                5% ПДВ: ${VAT5} грн.
-                              </li>
-                            </ul>
-                          </p>
-                        `);
+                        // Крок 2. Обчислення результатів.
+                        if (attemptFirst === randomNumberFrom1To5 || attemptSecond === randomNumberFrom1To5) {
+                          // Крок 3. Виведення.
+                          document.write(`
+                            <p>
+                              <span class="tasks__title">Відповідь:</span>
+                              <ul class="list">
+                                <li class="list__item">
+                                  <span>Перемога! Ви вгадали число!</span>
+                                </li>
+                              </ul>
+                            </p>
+                          `);
+                        } else {
+                          // Крок 3. Виведення.
+                          document.write(`
+                            <p>
+                              <span class="tasks__title">Відповідь:</span>
+                              <ul class="list">
+                                <li class="list__item">
+                                  <span>Поразка. Ви не вгадали число.</span>
+                                </li>
+                              </ul>
+                            </p>
+                          `);
+                        }
                       </script>
                     </li>
                   </ul>
