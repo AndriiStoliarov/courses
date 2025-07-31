@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <title>Урок 02</title>
+    <title>Урок 03</title>
   </head>
 
   <body>
@@ -17,7 +17,7 @@
       <header class="header" id="up">
         <div class="header__container">
           <div class="header__inner">
-            <h1 class="header__title">Домашне завдання № 2</h1>
+            <h1 class="header__title">Домашне завдання № 3</h1>
           </div><!-- /. header__inner -->
         </div><!-- /. header__container -->
       </header>
@@ -31,32 +31,75 @@
                 <div class="tasks__inner">
                   <ul class="tasks__items">
                     <li class="tasks__item">
-                      <p><span class="tasks__title">Задача 5.</span> Дано кількість секунд, що пройшла від початку доби. Визначити скільки
-                        це годин і хвилин.
+                      <p><span class="tasks__title">Задача 5.</span> З клавіатури вводиться назва категорії водія (А - мотоцикл, В -
+                        легковий автомобіль, С - вантажний автомобіль). Вивести на екран назву
+                        транспортного
+                        засобу, яким він може керувати.
                       </p>
                     </li>
                     <li class="tasks__item">
                       <script>
-                        const secondsInOneMinute = 60;
-                        const minutesInOneHour = 60;
-                        const secondsInOneHour = minutesInOneHour * secondsInOneMinute;
+                        // Крок 0. Позначення величин.
+                        // driverCategoryName - назва категорії водія.
+                        // Крок 1. Введення необхідних даних.
+                        const driverCategoryName = prompt('Введіть назву категорії водія:', 'A');
+                        // Крок 2. Обчислення результатів.
+                        switch (driverCategoryName.toLocaleUpperCase()) {
+                          case 'A':
+                            // Крок 3. Виведення.
+                            document.write(`
+                              <p>
+                                <span class="tasks__title">Відповідь:</span>
+                                <ul class="list">
+                                  <li class="list__item">
+                                    <span>Водій може керувати мотоциклом.</span>
+                                  </li>
+                                </ul>
+                              </p>
+                            `);
+                            break;
 
-                        const secondsAmount = parseFloat(prompt('Введіть кількість секунд:', 60));
+                          case 'B':
+                            // Крок 3. Виведення.
+                            document.write(`
+                              <p>
+                                <span class="tasks__title">Відповідь:</span>
+                                <ul class="list">
+                                  <li class="list__item">
+                                    <span>Водій може керувати легковим автомобілем.</span>
+                                  </li>
+                                </ul>
+                              </p>
+                            `);
+                            break;
 
-                        const minutesAmount = (secondsAmount / secondsInOneMinute).toFixed(2);
+                          case 'C':
+                            // Крок 3. Виведення.
+                            document.write(`
+                              <p>
+                                <span class="tasks__title">Відповідь:</span>
+                                <ul class="list">
+                                  <li class="list__item">
+                                    <span>Водій може керувати вантажним автомобілем.</span>
+                                  </li>
+                                </ul>
+                              </p>
+                            `);
+                            break;
 
-                        const hoursAmount = (secondsAmount / secondsInOneHour).toFixed(2);
-
-                        document.write(`
-                          <p>
-                            <span class="tasks__title">Відповідь:</span>
-                            <ul class="list">
-                              <li class="list__item">
-                                ${secondsAmount} сек. = ${minutesAmount} хв. = ${hoursAmount} год.
-                              </li>
-                            </ul>
-                          </p>
-                        `);
+                          default:
+                            // Крок 3. Виведення.
+                            document.write(`
+                              <p>
+                                <span class="tasks__title">Відповідь:</span>
+                                <ul class="list">
+                                  <li class="list__item">
+                                    <span>Немає такої категорії.</span>
+                                  </li>
+                                </ul>
+                              </p>
+                            `);
+                        }
                       </script>
                     </li>
                   </ul>

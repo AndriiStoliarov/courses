@@ -40,13 +40,16 @@
                         // Крок 0. Позначення величин.
                         // productPrice - ціна за одиницю товару;
                         // moneyAmountPerson - кількість гроше, які має покупець;
-                        // LOTTERY_PRICE - ціна участі в лотереї.
+                        // LOTTERY_PRICE - ціна участі в лотереї;
+                        // changeFromPurchase - решта.
 
                         // Крок 1. Введення необхідних даних.
                         const LOTTERY_PRICE = 4;
 
                         const productPrice = parseFloat(prompt('Введіть ціну за одиницю товару:', '10'));
                         const moneyAmountPerson = parseFloat(prompt('Введіть кількість гроше, які має покупець:', '100'));
+
+                        
 
                         // Крок 2. Обчислення результатів.
                         if (moneyAmountPerson < productPrice) {
@@ -61,24 +64,35 @@
                               </ul>
                             </p>
                           `);
+                        } else {
+                          const changeFromPurchase = moneyAmountPerson - productPrice;
+
+                          if (changeFromPurchase >= LOTTERY_PRICE) {
+                            // Крок 3. Виведення.
+                            document.write(`
+                              <p>
+                                <span class="tasks__title">Відповідь:</span>
+                                <ul class="list">
+                                  <li class="list__item">
+                                    <span>Пропонуємо купити лотерею за 4 грн.</span>
+                                  </li>
+                                </ul>
+                              </p>
+                            `);
+                          } else {
+                            // Крок 3. Виведення.
+                            document.write(`
+                              <p>
+                                <span class="tasks__title">Відповідь:</span>
+                                <ul class="list">
+                                  <li class="list__item">
+                                    <span>Дякуємо за покупку ).</span>
+                                  </li>
+                                </ul>
+                              </p>
+                            `);
+                          }
                         }
-
-                        const changeFromPurchase = moneyAmountPerson - productPrice;
-
-                        if (changeFromPurchase >= LOTTERY_PRICE) {
-                          // Крок 3. Виведення.
-                          document.write(`
-                            <p>
-                              <span class="tasks__title">Відповідь:</span>
-                              <ul class="list">
-                                <li class="list__item">
-                                  <span>Пропонуємо купити лотерею за 4 грн.</span>
-                                </li>
-                              </ul>
-                            </p>
-                          `);
-                        }
-
                       </script>
                     </li>
                   </ul>

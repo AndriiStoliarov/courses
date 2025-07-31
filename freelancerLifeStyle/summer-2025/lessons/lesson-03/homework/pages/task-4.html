@@ -38,30 +38,79 @@
                     <li class="tasks__item">
                       <script>
                         // Крок 0. Позначення величин.
-                        // MAX_KID_AGE - максимальний вік дитини, яка може перебувати  садочку;
-                        // MAX_PUPIL_AGE - максимальний вік дитини, яка може вчитися в школі;
-                        // randomNumberFrom1To5 - випадкове число від 1 до 5;
-                        // attemptFirst - перша спроба вгадати;
-                        // attemptSecond - друга спроба вгадати.
+                        // MAX_KID_AGE - максимальний вік людини, яка може перебувати  садочку;
+                        // MAX_PUPIL_AGE - максимальний вік людини, яка може вчитися в школі;
+                        // MAX_STUDENT_AGE - максимальний вік людини, яка може вчитися у вищому навчальному закладі;
+                        // MAX_WORKER_AGE - максимальний вік людини, яка не є пенсіонером;
+                        // currentPersonAge - вік людини.
 
                         // Крок 1. Введення необхідних даних.
+                        const MAX_KID_AGE = 7, MAX_PUPIL_AGE = 18, MAX_STUDENT_AGE = 25, MAX_WORKER_AGE = 65;
 
-                        const centimetersLength = parseFloat(prompt('Введіть довжину у сантиметрах:', 10));
-
-                        const metersLength = centimetersLength / centimetersInOneMeter;
-
-                        const kilometersLength = centimetersLength / centimetersInOneKilometer;
-
-                        document.write(`
-                          <p>
-                            <span class="tasks__title">Відповідь:</span>
-                            <ul class="list">
-                              <li class="list__item">
-                                ${centimetersLength} см. = ${metersLength} м. = ${kilometersLength} км.
-                              </li>
-                            </ul>
-                          </p>
-                        `);
+                        const currentPersonAge = parseInt(prompt('Введіть вік людини:', '18'));
+                        
+                        // Крок 2. Обчислення результатів.
+                        if (currentPersonAge <= MAX_KID_AGE) {
+                          // Крок 3. Виведення.
+                          document.write(`
+                            <p>
+                              <span class="tasks__title">Відповідь:</span>
+                              <ul class="list">
+                                <li class="list__item">
+                                  <span>Людина є дитиною у садочку.</span>
+                                </li>
+                              </ul>
+                            </p>
+                          `);
+                        } else if (currentPersonAge <= MAX_PUPIL_AGE) {
+                          // Крок 3. Виведення.
+                          document.write(`
+                            <p>
+                              <span class="tasks__title">Відповідь:</span>
+                              <ul class="list">
+                                <li class="list__item">
+                                  <span>Людина є школярем.</span>
+                                </li>
+                              </ul>
+                            </p>
+                          `);
+                        } else if (currentPersonAge <= MAX_STUDENT_AGE) {
+                          // Крок 3. Виведення.
+                          document.write(`
+                            <p>
+                              <span class="tasks__title">Відповідь:</span>
+                              <ul class="list">
+                                <li class="list__item">
+                                  <span>Людина є студентом.</span>
+                                </li>
+                              </ul>
+                            </p>
+                          `);
+                        } else if (currentPersonAge <= MAX_WORKER_AGE) {
+                          // Крок 3. Виведення.
+                          document.write(`
+                            <p>
+                              <span class="tasks__title">Відповідь:</span>
+                              <ul class="list">
+                                <li class="list__item">
+                                  <span>Людина є працівником.</span>
+                                </li>
+                              </ul>
+                            </p>
+                          `);
+                        } else {
+                          // Крок 3. Виведення.
+                          document.write(`
+                            <p>
+                              <span class="tasks__title">Відповідь:</span>
+                              <ul class="list">
+                                <li class="list__item">
+                                  <span>Людина є пенсіонером.</span>
+                                </li>
+                              </ul>
+                            </p>
+                          `);
+                        }
                       </script>
                     </li>
                   </ul>

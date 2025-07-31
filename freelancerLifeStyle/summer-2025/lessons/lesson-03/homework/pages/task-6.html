@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <title>Урок 02</title>
+    <title>Урок 03</title>
   </head>
 
   <body>
@@ -17,7 +17,7 @@
       <header class="header" id="up">
         <div class="header__container">
           <div class="header__inner">
-            <h1 class="header__title">Домашне завдання № 2</h1>
+            <h1 class="header__title">Домашне завдання № 3</h1>
           </div><!-- /. header__inner -->
         </div><!-- /. header__container -->
       </header>
@@ -31,83 +31,72 @@
                 <div class="tasks__inner">
                   <ul class="tasks__items">
                     <li class="tasks__item">
-                      <p><span class="tasks__title">Задача 6.</span> З клавіатури вводяться вартість товару та кількість одиниць 3 товарів.
-                        Обчислити вартість кожного товару окремо та загальну вартість. Вивести чек (як у супермаркеті) використовуючи
-                        елементи розмітки.
+                      <p><span class="tasks__title">Задача 6.</span> З клавіатури вводиться номер дня тижня. Вивести на екран назву дня.
                       </p>
                     </li>
                     <li class="tasks__item">
                       <script>
-                        const productsAmountFirst = parseFloat(prompt('Введіть кількість одиниць товару:', 1));
-                        const productPriceFirst = parseFloat(prompt('Введіть вартість одиниці товару:', 1)).toFixed(2);
+                        // Крок 0. Позначення величин.
+                        // dayWeekNumber - номер дня тижня.
+                        // Крок 1. Введення необхідних даних.
+                        const dayWeekNumber = parseInt(prompt('Введіть номер дня тижня:', '6'));
+                        // Крок 2. Обчислення результатів.
+                        switch (Number(dayWeekNumber)) {
+                          case 1:
+                            // Крок 3. Виведення.
+                            document.write(`
+                              <p>
+                                <span class="tasks__title">Відповідь:</span>
+                                <ul class="list">
+                                  <li class="list__item">
+                                    <span>"Понеділок".</span>
+                                  </li>
+                                </ul>
+                              </p>
+                            `);
+                            break;
 
-                        const productsAmountSecond = parseFloat(prompt('Введіть кількість одиниць товару:', 1));
-                        const productPriceSecond = parseFloat(prompt('Введіть вартість одиниці товару:', 1)).toFixed(2);
+                          case 2:
+                            // Крок 3. Виведення.
+                            document.write(`
+                              <p>
+                                <span class="tasks__title">Відповідь:</span>
+                                <ul class="list">
+                                  <li class="list__item">
+                                    <span>"Вівторок".</span>
+                                  </li>
+                                </ul>
+                              </p>
+                            `);
+                            break;
 
-                        const productsAmountThird = parseFloat(prompt('Введіть кількість одиниць товару:', 1));
-                        const productPriceThird = parseFloat(prompt('Введіть вартість одиниці товару:', 1)).toFixed(2);
+                          case 3:
+                            // Крок 3. Виведення.
+                            document.write(`
+                              <p>
+                                <span class="tasks__title">Відповідь:</span>
+                                <ul class="list">
+                                  <li class="list__item">
+                                    <span>"Середа".</span>
+                                  </li>
+                                </ul>
+                              </p>
+                            `);
+                            break;
 
-                        const totalPriceProductsFirst = productsAmountFirst * productPriceFirst;
-                        const totalPriceProductsFirstFix = totalPriceProductsFirst.toFixed(2);
-
-                        const totalPriceProductsSecond = productsAmountSecond * productPriceSecond;
-                        const totalPriceProductsSecondFix = totalPriceProductsSecond.toFixed(2);
-
-                        const totalPriceProductsThird = productsAmountThird * productPriceThird;
-                        const totalPriceProductsThirdFix = totalPriceProductsThird.toFixed(2);
-
-                        const totalPriceProductsAll = (totalPriceProductsFirst + totalPriceProductsSecond + totalPriceProductsThird).toFixed(2);
-
-                        document.write(`
-                          <p>
-                            <span class="tasks__title">Відповідь:</span>
-                            <ul class="list">
-                              <li class="list__item">
-                                <table class="tasks__table  table-receipt">
-                                  <thead>
-                                    <tr class="table-receipt__row">
-                                      <th class="table-receipt__header" colspan="2">"Назва магазину"</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr class="table-receipt__row">
-                                      <td class="table-receipt__data" colspan="2">Товар 1</td>
-                                    </tr>
-                                    <tr class="table-receipt__row">
-                                      <td class="table-receipt__data  table-receipt__data--center">${productsAmountFirst} x ${productPriceFirst}</td>
-                                      <td class="table-receipt__data  table-receipt__data--right">${totalPriceProductsFirstFix}</td>
-                                    </tr>
-                                    <tr class="table-receipt__row">
-                                      <td class="table-receipt__data" colspan="2">Товар 2</td>
-                                    </tr>
-                                    <tr class="table-receipt__row">
-                                      <td class="table-receipt__data  table-receipt__data--center">${productsAmountSecond} x ${productPriceSecond}</td>
-                                      <td class="table-receipt__data  table-receipt__data--right">${totalPriceProductsSecondFix}</td>
-                                    </tr>
-                                    <tr class="table-receipt__row">
-                                      <td class="table-receipt__data" colspan="2">Товар 3</td>
-                                    </tr>
-                                    <tr class="table-receipt__row">
-                                      <td class="table-receipt__data  table-receipt__data--center">${productsAmountThird} x ${productPriceThird}</td>
-                                      <td class="table-receipt__data  table-receipt__data--right">${totalPriceProductsThirdFix}</td>
-                                    </tr>
-                                    <tr class="table-receipt__row">
-                                      <td class="table-receipt__data  table-receipt__data--border  table-receipt__data--text">Сума</td>
-                                      <td
-                                        class="table-receipt__data  table-receipt__data--text  table-receipt__data--right  table-receipt__data--border">${totalPriceProductsAll}
-                                        грн.</td>
-                                    </tr>
-                                  </tbody>
-                                  <tfoot>
-                                    <tr class="table-receipt__row">
-                                      <td class="table-receipt__data  table-receipt__data--tfoot" colspan="3">фіскальний чек</td>
-                                    </tr>
-                                  </tfoot>
-                                </table>
-                              </li>
-                            </ul>
-                          </p>
-                        `);
+                          default:
+                            // Крок 3. Виведення.
+                            document.write(`
+                              <p>
+                                <span class="tasks__title">Відповідь:</span>
+                                <ul class="list">
+                                  <li class="list__item">
+                                    <span>Немає такої категорії.</span>
+                                  </li>
+                                </ul>
+                              </p>
+                            `);
+                        }
                       </script>
                     </li>
                   </ul>

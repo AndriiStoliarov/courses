@@ -64,7 +64,7 @@
                               </ul>
                             </p>
                           `);
-                        } else if (candyAmountFirst == candyAmountSecond) {
+                        } else if (candyAmountFirst === candyAmountSecond) {
                           // Крок 3. Виведення.
                           document.write(`
                             <p>
@@ -72,6 +72,18 @@
                               <ul class="list">
                                 <li class="list__item">
                                   <span>Кожна дитина має однакову кількість цукерок, по ${candyAmountSecond} шт.</span>
+                                </li>
+                              </ul>
+                            </p>
+                          `);
+                        } else {
+                          // Крок 3. Виведення.
+                          document.write(`
+                            <p>
+                              <span class="tasks__title">Відповідь:</span>
+                              <ul class="list">
+                                <li class="list__item">
+                                  <span>Кількість цукерок більше у ${kidNameSecond};</span>
                                 </li>
                               </ul>
                             </p>
