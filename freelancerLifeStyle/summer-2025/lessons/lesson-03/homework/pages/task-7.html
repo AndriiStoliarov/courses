@@ -38,88 +38,51 @@
                     <li class="tasks__item">
                       <script>
                         // Крок 0. Позначення величин.
-                        // monthNumber - номер місяця.
+                        // monthNumber - номер місяця;
+                        // timeOfYear - пора року.
                         // Крок 1. Введення необхідних даних.
                         const monthNumber = parseInt(prompt('Введіть номер місяця:', '11'));
+                        let timeOfYear = '';
                         // Крок 2. Обчислення результатів.
                         switch (Number(monthNumber)) {
                           case 1:
                           case 2:
                           case 12:
-                            // Крок 3. Виведення.
-                            document.write(`
-                              <p>
-                                <span class="tasks__title">Відповідь:</span>
-                                <ul class="list">
-                                  <li class="list__item">
-                                    <span>Це місяць Зими.</span>
-                                  </li>
-                                </ul>
-                              </p>
-                            `);
+                            timeOfYear = 'Це місяць Зими.';
                           break;
 
                           case 3:
                           case 4:
                           case 5:
-                            // Крок 3. Виведення.
-                            document.write(`
-                              <p>
-                                <span class="tasks__title">Відповідь:</span>
-                                <ul class="list">
-                                  <li class="list__item">
-                                    <span>Це місяць Весни.</span>
-                                  </li>
-                                </ul>
-                              </p>
-                            `);
+                            timeOfYear = 'Це місяць Весни.';
                           break;
 
                           case 6:
                           case 7:
                           case 8:
-                          // Крок 3. Виведення.
-                          document.write(`
-                            <p>
-                              <span class="tasks__title">Відповідь:</span>
-                              <ul class="list">
-                                <li class="list__item">
-                                  <span>Це місяць Літа.</span>
-                                </li>
-                              </ul>
-                            </p>
-                          `);
+                            timeOfYear = 'Це місяць Літа.';
                           break;
 
                           case 9:
                           case 10:
                           case 11:
-                          // Крок 3. Виведення.
-                          document.write(`
-                            <p>
-                              <span class="tasks__title">Відповідь:</span>
-                              <ul class="list">
-                                <li class="list__item">
-                                  <span>Це місяць Осені.</span>
-                                </li>
-                              </ul>
-                            </p>
-                          `);
+                            timeOfYear = 'Це місяць Осені.';
                           break;
 
                           default:
-                          // Крок 3. Виведення.
+                            timeOfYear = 'Такого місяця не існує.';
+                        }
+                        // Крок 3. Виведення.
                           document.write(`
                             <p>
                               <span class="tasks__title">Відповідь:</span>
                               <ul class="list">
                                 <li class="list__item">
-                                  <span>Такого місяця не існує.</span>
+                                  <span>${timeOfYear}</span>
                                 </li>
                               </ul>
                             </p>
                           `);
-                        }
                       </script>
                     </li>
                   </ul>
