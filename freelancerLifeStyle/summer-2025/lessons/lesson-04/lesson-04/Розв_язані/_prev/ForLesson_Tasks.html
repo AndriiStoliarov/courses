@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //================================================================
+      // //Вводиться кількість місяців. Вивести кількість повних років
+      // const monthNum = parseInt(prompt('Введіть кількість місяів'))
+      // const yearsNum = Math.floor(monthNum/12)
+      // document.write(yearsNum)
+      // //================================================================
+      // //Вводиться кількість пасажирів та місткість автобуса. Визначити скільки треба поїздок щоб перевезти усіх
+      // const passengersNumber = parseInt(prompt('Кількість пасажирів'))
+      // const placesNumberInBus = parseInt(prompt('Кількість місць в атобусі'))
+      // const toursNumber = Math.ceil(passengersNumber/placesNumberInBus)
+      // document.write(toursNumber)
+
+      //================================================================
+      //Випадковим чином генерується число від 1 до 5. Спробуйте вгадати число за 2 спроби.
+
+      //================================================================
+      //З клавіатури вводиться ціна товару і кількість грошей. Якщо грошей не вистачає то відмовляємо у покупці, інакше, якщо ще залишаються гроші, то пропонуємо купити лотерею за 4 грн.
+
+      //================================================================
+      // З клавіатури вводиться вік людини. Вивести на екран ким він є (дитиною у садочку - 7, школярем -17, студентом- 22, працівником -65, пенсіонером).
+
+      //================================================================
+      // З клавіатури вводиться назва категорії водія (А-мотоцикл, В-легковий автомобіль, С-вантажний автомобіль). Вивести на екран назву транспортного засобу, яким він може керувати.
+
+      //================================================================
+      //Вводиться два номери призових (1-3) місць, яке місце не зайняла команда?
+      // const placeNum1 = parseInt(prompt('Яке перше місце зайняла команда?'))
+      // const placeNum2 = parseInt(prompt('Яке друге місце зайняла команда?'))
+      // // ---- 1
+      // // let placeNum3
+      // // if (placeNum1 !== 1 && placeNum2 !== 1) placeNum3 = 1
+      // // else if (placeNum1 !== 2 && placeNum2 !== 2) placeNum3 = 2
+      // // else placeNum3 = 3
+      // // document.write(`placeNum3 : ${placeNum3}`)
+      // //--- 2
+      // let placeNum3 = 6 - (placeNum1 + placeNum2)    //1+2+3 = 6
+      // document.write(`placeNum3 : ${placeNum3}`)
+
+      //================================================================
+      //================================================================
+      //================================================================
+
+      //Вводиться назва фреймворку "Vue", "React", "Express". Вивести для яких цілей вони використовуються
+      // const frameworkTitle = prompt('Назва фреймворка')
+      // let res
+      // switch (frameworkTitle) {
+      //   case 'Vue':
+      //   case 'React':
+      //     res = 'Фронтенд'
+      //     break
+      //   case 'Express':
+      //     res = 'Бекенд'
+      //   default:
+      //     res = 'Щось інше'
+      //     break
+      // }
+      // document.write(`res : ${res}`)
+      //================================================================
+      //Міні перекладач. Вводиться одне із слів "table", "car", "bus", 'man'. Вивести переклад
+      // const wordEN = prompt('Введіть слово на англійській')
+      // let res
+      // switch (wordEN.toLowerCase()) {
+      //   case 'table':
+      //     res = 'стіл'
+      //     break
+      //   case 'car':
+      //     res = 'авто'
+      //     break
+      //   case 'bus':
+      //     res = 'автобус'
+      //     break
+      //   case 'man':
+      //     res = 'людина'
+      //     break
+
+      //   default:
+      //     res = 'Немає цього слова у базі'
+      //     break
+      // }
+      // document.write(`${wordEN} - ${res}`)
+
+      //================================================================
+      //Вводиться катеорія користувача. Вивести, які дії він може виконувати
+      // admin - read, edit, add
+      // manager - read, edit
+      // user - read
+      // const userType = prompt('Тип користувача')
+      // let permissions = ''
+      // switch (userType) {
+      //   case 'admin':
+      //     permissions += 'add'
+      //   case 'manager':
+      //     permissions += ' edit'
+      //   case 'user':
+      //     permissions += ' read'
+      // }
+      // document.write(`permissions = ${permissions}`)
+
+      //================================================================
+      // Задача 6. Полювання. Заєць знаходиться у верхньому лівому кутку поля. Поле складається з двох рядків і двох стовпців.
+      // За один крок заєць може стрибнути у будь-яку із вільних клітинок. Користувач ставить пастку вказуючи номер рядка і стовпця клітинки. Якщо заєць потрапляє у пастку, то користувач виграв і отримав 100 балів. Якщо користувач зловить зайця за другою спробою, то одержує 50 балів.
+      // --- користувач вказує позицію пастки
+      // let userTrapPositionX = parseInt(prompt('Введіть позицію Х пастки'))
+      // let userTrapPositionY = parseInt(prompt('Введіть позицію Y пастки'))
+      // // ---- заєць стрибає у випадкову клітинку
+      // let rabbitPositionX = Math.floor(Math.random() * 2)
+      // let rabbitPositionY = Math.floor(Math.random() * 2)
+
+      // let score = 0
+      // if (
+      //   userTrapPositionX === rabbitPositionX &&
+      //   userTrapPositionY === rabbitPositionY
+      // )
+      //   score = 100
+      // else {
+      //   alert('Ви не вгадали')
+      //   // --- користувач вказує нову позицію пастки
+      //   userTrapPositionX = parseInt(prompt('Введіть позицію Х пастки'))
+      //   userTrapPositionY = parseInt(prompt('Введіть позицію Y пастки'))
+      //   // ---- заєць стрибає у випадкову клітинку
+      //   rabbitPositionX = Math.floor(Math.random() * 2)
+      //   rabbitPositionY = Math.floor(Math.random() * 2)
+      //   if (
+      //     userTrapPositionX === rabbitPositionX &&
+      //     userTrapPositionY === rabbitPositionY
+      //   )
+      //     score = 50
+      //   else alert('Заєць втік!')
+      // }
+      // document.write(`score : ${score}`)
+
+      //================================================================
+      //Вводиться назва предмета. Вивести кабінет, у якому проводиться ця дисципліна
+      // math -302
+      // history -213
+      // geography - 102
+      // const subjectTitle = prompt('Введіть назву предмета')
+      // let roomNumbert
+      // switch (subjectTitle.toLowerCase()) {
+      //   case 'math':
+      //     roomNumbert = 302
+      //     break
+      //   case 'history':
+      //     roomNumbert = 213
+      //     break
+      //   case 'geography':
+      //     roomNumbert = 102
+      //     break
+
+      //   default:
+      //     roomNumbert = null
+      //     break
+      // }
+      // if (roomNumbert) document.write(`roomNumbert : ${roomNumbert}`)
+      // else document.write('Невідомий предемет')
+
+      //================================================================
+      //Вводиться статус відповіді. Вивести текстове позначення категорії цього статусу
+      //https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D0%BA%D0%BE%D0%B4%D0%BE%D0%B2_%D1%81%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D1%8F_HTTP
+      //1xx: Informational responses (100 – 199)
+      //2xx: Successful responses (200 – 299)
+      //3xx: Redirection messages (300 – 399)
+      //4xx: Client error responses (400 – 499)
+      //5xx: Server error responses (500 – 599)
+      // const responseStatus = parseInt(prompt('Введіть статус відповіді'))
+      // let res
+      // if(responseStatus<1) res = 'Помилка'
+      // else if (responseStatus < 200) res = 'Informational responses'
+      // else if (responseStatus < 300) res = 'Successful responses'
+      // else if (responseStatus < 400) res = 'Redirection messages'
+      // else if (responseStatus < 500) res = 'Client error responses'
+      // else res = 'Server error responses'
+      // document.write(`res : ${res}`)
+
+      //================================================================
+
+      // Задача. З клавіарути вводиться номер дня. Вивести на екран чи це робочий, чи віхідний день.
+      // const dayNum = parseInt(prompt('Day '))
+
+      //=======================
+      // 1.	Знайти найбільше серед 2 чисел.
+      // const num1 = parseFloat(prompt('num1='))
+      // const num2 = parseFloat(prompt('num2='))
+      // let max
+      // ---- 1
+      // max = Math.max(num1, num2)
+      // -- 2
+      // if (num1 > num2) max = num1
+      // else max = num2
+      //-- 3
+      // max = num1 > num2 ? num1 : num2
+
+      //================================================================
+      // 4.	Значення які більші за середнє замінити на 0.
+      // let a = parseFloat(prompt('a='))
+      // let b = parseFloat(prompt('b='))
+      // const avg = (a + b) / 2
+      // if (a > avg) a = 0
+      // if (b > 0) b = 0
+
+      // document.write(`a = ${a}, b=${b}`)
+      //================================================================
+      // 5.	Знайти найбільше серед 3.
+      // let a = parseFloat(prompt('a='))
+      // let b = parseFloat(prompt('b='))
+      // let с = parseFloat(prompt('с='))
+      // let max
+      // //--- 1
+      // // max = Math.max(a,b,c)
+      // //--  2
+      // max = a
+      // if (b > max) max = b
+      // if (c > max) max = c
+      // document.write(`max : ${max}`)
+      //================================================================
+      // 5.	Знайти найбільше серед 3 і вивести яке це число (чи перше, чи друге, чи третє)
+      // let a = parseFloat(prompt('a='))
+      // let b = parseFloat(prompt('b='))
+      // let с = parseFloat(prompt('с='))
+      // let max, numMax
+
+      // max = a
+      // numMax=1
+
+      // if (b > max) {
+      //   max = b
+      //   numMax=2
+      // }
+      // if (c > max) {
+      //   max = c
+      //   numMax=3
+      // }
+      // document.write(`max : ${max}, numMax : ${numMax}, `)
+
+      //================================================================
+      // 6.	Знайти найбільше серед 4.
+      // let a = parseFloat(prompt('a='))
+      // let b = parseFloat(prompt('b='))
+      // let с = parseFloat(prompt('с='))
+      // let d = parseFloat(prompt('d='))
+      // let max
+      // //--- 1
+      // // max = Math.max(a,b,c,d)
+      // //--  2
+      // max = a
+      // if (b > max) max = b
+      // if (c > max) max = c
+      // if (d > max) max = d
+      // document.write(`max : ${max}`)
+
+      //================================================================
+      // 3.	Найбільше серед 2-х (різних) замінити на 0.
+      // let a = parseFloat(prompt('a='))
+      // let b = parseFloat(prompt('b='))
+      // if (a > b) a = 0
+      // else b = 0
+      // document.write(`a=${a}, b=${b}`)
+
+      //================================================================
+      // 7.	Найбільше серед 2 замінити на 0. Якщо однакові, то замінити обидва на 1
+      // let a = parseFloat(prompt('a='))
+      // let b = parseFloat(prompt('b='))
+      // if (a > b) a = 0
+      // else if (b > a) b = 0
+      // else a = b = 0
+      // document.write(`a=${a}, b=${b}`)
+
+      //================================================================
+      // 8.	Найбільше серед 3-х (різних) замінити на 0.
+      // let a = parseFloat(prompt('a='))
+      // let b = parseFloat(prompt('b='))
+      // let c = parseFloat(prompt('b='))
+      // if (a > b && a > c) a = 0
+      // else if (b > c) b = 0
+      // else c = 0
+      // document.write(`a=${a}, b=${b}, c=${c} `)
+      //================================================================
+      // 8. Значення які дорівнюють максимальному серед 3-х замінити на 0.
+      // let a = parseFloat(prompt('a='))
+      // let b = parseFloat(prompt('b='))
+      // let c = parseFloat(prompt('b='))
+      // const max = Math.max(a, b, c)
+      // if (a === max) a = 0
+      // if (b === max) b = 0
+      // if (c === max) c = 0
+
+      // document.write(`a=${a}, b=${b}, c=${c} `)
+      //================================================================
+      // 9.	Знайти найменше серед додатних.
+      // let a = parseFloat(prompt('a='))
+      // let b = parseFloat(prompt('b='))
+      // let c = parseFloat(prompt('b='))
+      // let min = Infinity
+      // if (a > 0 && a < min) min = a
+      // if (b > 0 && b < min) min = b
+      // if (c > 0 && c < min) min = c
+      // if (isFinite(min)) document.write(`min : ${min}`)
+      // else document.write('Додатних немає')
+
+      //================================================================
+      // 10.	Знайти найбільше парне число серед 4-х цілих чисел.  (число %2 === 0)
+      // let a = parseFloat(prompt('a='))
+      // let b = parseFloat(prompt('b='))
+      // let c = parseFloat(prompt('b='))
+      // let d = parseFloat(prompt('d='))
+      // let max = -Infinity
+      // if (a % 2 === 0 && a > max) max = a
+      // if (b % 2 === 0 && b > max) max = b
+      // if (c % 2 === 0 && c > max) max = c
+      // if (d % 2 === 0 && d > max) max = d
+
+      // if (isFinite(max)) document.write(`max : ${max}`)
+      // else document.write('Немає парних')
+      //================================================================
+      // 11.	Знайти найбільше серед тих які менші за середні арифметичне.
+      // let a = parseFloat(prompt('a='))
+      // let b = parseFloat(prompt('b='))
+      // let c = parseFloat(prompt('b='))
+      // let d = parseFloat(prompt('d='))
+      // const avg = (a + b + c + d) / 4
+      // const max = -Infinity
+      // if (a < avg && a > max) max = a
+      // if (b < avg && b > max) max = b
+      // if (c < avg && c > max) max = c
+      // if (d < avg && d > max) max = d
+
+      // document.write(`max : ${max}`)
+
+      //================================================================
+      // 12.	Знайти 2 найбільших числа з 4 цілих чисел.
+      // let a = parseFloat(prompt('a='))
+      // let b = parseFloat(prompt('b='))
+      // let c = parseFloat(prompt('b='))
+      // let d = parseFloat(prompt('d='))
+      // let max1, max2 // max1<=max2
+      // if (a > b) {
+      //   max1 = b
+      //   max2 = a
+      // } else {
+      //   max1 = a
+      //   max2 = b
+      // }
+
+      // if (c > max2) {
+      //   max1 = max2
+      //   max2 = c
+      // } else if (c > max1) max1 = c
+
+      // if (d > max2) {
+      //   max1 = max2
+      //   max2 = d
+      // } else if (d > max1) max1 = d
+      // document.write(`max1 : ${max1}, max2 : ${max2}, `)
+      //================================================================
+      // 13.	Знайти 2 найменших числа.
+
+      //================================================================
+      //Передбачувач. При відктитті сторінки вивести випадковим чином  одне із наперед заданих зображень
+      //1) https://cdn.meteoprog.net/thumbnails/newsweather/cropr_784x441/big_602456.jpg?1643968800
+      //2) https://viche.ck.ua/wp-content/uploads/2020/01/14022017110052123573.jpg
+      //3) https://www.iphones.ru/wp-content/uploads/2017/03/mb_gt.jpg
+      // const randonNum = 1 + Math.floor(Math.random() * 3)
+      // let link
+      // switch (randonNum) {
+      //   case 1:
+      //     link =
+      //       'https://cdn.meteoprog.net/thumbnails/newsweather/cropr_784x441/big_602456.jpg?1643968800'
+      //     break
+      //   case 2:
+      //     link =
+      //       'https://viche.ck.ua/wp-content/uploads/2020/01/14022017110052123573.jpg'
+      //     break
+      //   case 3:
+      //     link = 'https://www.iphones.ru/wp-content/uploads/2017/03/mb_gt.jpg'
+      //     break
+      // }
+      // document.write(`<img src="${link} width="200px"">`)
+      // ===================
+      // Задача 4. Морський бій. Ворожий корабель, може знаходитись в одному із квадратів (кількість квадратів вводиться з клавіатури), які розташовані лінійно (один за одним) на річці.
+
+      // Позиція корабля визначається комп’ютером випадковим чином.
+      // Гра відбувається за правилами:
+      // 1) якщо користувач стріляє у заданий квадрат (тобто вводиться номер квадрата), то корабель потоплено;
+      // 2) якщо корабель знаходиться у сусідньому по відношенню до квадрата, де знаходиться корабель, то корабель пошкоджено (про це повідомляємо користувача).
+      // За два постріли спробувати потопити корабель.
+      // const totalPositionsNumber = parseInt(
+      //   prompt('Введіть кількість позицій де можна розмістити корабель')
+      // )
+      // const shipPosition = 1 + Math.floor(Math.random() * totalPositionsNumber)
+      // alert(shipPosition)
+
+      // let userPosition = parseInt(prompt('Введіть позицію пострілу'))
+      // if (shipPosition === userPosition) alert('Перемога!')
+      // else {
+      //   alert('Мимо')
+      //   if (Math.abs(userPosition - shipPosition) === 1)
+      //     alert('Корабель пошкоджено')
+      //   userPosition = parseInt(prompt('Введіть позицію пострілу'))
+      //   if (shipPosition === userPosition) alert('Перемога!')
+      //   else alert('Мимо')
+      // }
+
+      //===================
+      // Задача 2. Комп’ютер випадковим чином вибирає початок і кінець проміжку (проміжок повинен знаходитися в межах від 1 до 100). Користувач вводить число і виграє, якщо число знаходиться у цьому проміжку, або розташоване від нього (від лівого або правого краю) не більше ніж на 10.
+      // const a = 1 + Math.floor(Math.random() * 100) //початок проміжку
+      // const b = 1 + Math.floor(Math.random() * 100) //кінець проміжку
+      // //якщо початок більший за кінець, то міняємо місцями
+      // if (a > b) {
+      //   const t = a
+      //   a = b
+      //   b = t
+      // }
+      // const userNumber = parseInt(prompt('Ваше число ?'))
+      // if (userNumber >= a - 10 && userNumber <= b + 10) alert('Перемога!')
+      // else alert('програш')
+      //==========================
+      // let userName = prompt('Як вас звати?')
+      // userName ??= 'Гість '
+      // document.write(`Привіт  ${userName}!`)
+    </script>
+  </body>
+</html>

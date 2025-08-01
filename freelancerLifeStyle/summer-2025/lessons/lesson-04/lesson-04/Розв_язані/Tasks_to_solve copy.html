@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //================================================================
+      // Задача 5. Дано кількість секунд, що пройшла від початку доби. Визначити скільки це годин і хвилин.
+      // const secondNum = parseInt(prompt(`Seconds`, ''))
+      // const h = Math.floor(secondNum / 3600)
+      // // const m = Math.floor(  (secondNum - h*3600)/60  )
+      // const m = Math.floor((secondNum % 3600) / 60)
+      // document.write(`${h}:${m}`)
+
+      // const min = 1,
+      //   max = 12
+      // const randNum = min + Math.floor(Math.random() * (max - min + 1))
+      // const randNum1 = 1 + Math.floor(Math.random() * 12)
+
+      //================================================================
+      //Вводиться кількість місяців. Вивести кількість повних років
+      // const m = parseInt(prompt(`Month num `, ''))
+      // const yearsNum = Math.floor(m / 12)
+      // document.write(yearsNum)
+
+      //================================================================
+      // //Випадковим чином генерується число від 1 до 5. Спробуйте вгадати число за 2 спроби.
+      // const randNum = 1 + Math.floor(Math.random() * 5)
+      // let userNum = parseInt(prompt(`Your number`, ''))
+      // if (userNum === randNum) document.write('Ok')
+      // else {
+      //   userNum = parseInt(prompt(`Не вгадав. Спроба 2. Your number`, ''))
+      //   if (userNum === randNum) document.write('Ok')
+      //   else document.write('Не вгадав')
+      // }
+
+      //================================================================
+      //З клавіатури вводиться ціна товару і кількість грошей. Якщо грошей не вистачає то відмовляємо у покупці, інакше, якщо ще залишаються гроші, то пропонуємо купити лотерею за 4 грн.
+
+      //================================================================
+      // З клавіатури вводиться вік людини. Вивести на екран ким він є (дитиною у садочку - 7, школярем -17, студентом- 22, працівником -65, пенсіонером).
+
+      //================================================================
+      // З клавіатури вводиться назва категорії водія (А-мотоцикл, В-легковий автомобіль, С-вантажний автомобіль). Вивести на екран назву транспортного засобу, яким він може керувати.
+
+      //================================================================
+      //Вводиться два номери призових (1-3) місць, яке місце не зайняла команда?
+      // const pl1 = parseInt(prompt(`Place number 1`, ''))
+      // const pl2 = parseInt(prompt(`Place number 2`, ''))
+      // // /---варіант 1
+      // // let res
+      // // if ((pl1 === 1 && pl2 === 2) || (pl1 === 2 && pl2 === 1)) res = 3
+      // // else if ((pl1 === 1 && pl2 === 3) || (pl1 === 3 && pl2 === 1)) res = 2
+      // // else res = 1
+      // // /---варіант 2
+      // let res = 6 - (pl1 + pl2)
+
+      // document.write(res)
+
+      //================================================================
+      //================================================================
+      //================================================================
+
+      //Вводиться назва фреймворку "Vue", "React", "Express". Вивести для яких цілей вони використовуються
+      // const frameworkTitle = prompt('frameworkTitle')
+      // let res
+      // switch (frameworkTitle) {
+      //   case 'Vue':
+      //   case 'React':
+      //     res = 'frontend'
+      //     break
+      //   case 'Express':
+      //     res = 'bekend'
+      //     break
+      //   default:
+      //     res = 'Невідомо'
+      //     break
+      // }
+      // document.write(`Фреймворк ${frameworkTitle} використовується для ${res}`)
+
+      //================================================================
+      //Міні перекладач. Вводиться одне із слів "table", "car", "bus", 'man'. Вивести переклад
+      // const wordEn = prompt('Word')
+      // let wordUk
+      // switch (wordEn.toLowerCase()) {
+      //   case 'table':
+      //     wordUk = 'стіл'
+      //     break
+      //   case 'car':
+      //     wordUk = 'авто'
+      //     break
+      //   case 'bus':
+      //     wordUk = 'автобус'
+      //     break
+      //   case 'man':
+      //     wordUk = 'чоровік'
+      //     break
+
+      //   default:
+      //     wordUk = 'Невідомо'
+      //     break
+      // }
+      // document.write(`${wordEn} - ${wordUk}`)
+
+      //================================================================
+      //Вводиться катеорія користувача. Вивести, які дія він може виконувати
+      // admin - read, edit, add
+      // manager - read, edit
+      // user - read
+      // const userType = prompt('Тип користувача')
+      // let permissions = ''
+      // switch (userType.toLowerCase()) {
+      //   case 'admin'  :  permissions += 'add '
+      //   case 'manager':  permissions += 'edit '
+      //   case 'user'   :  permissions += 'read '
+      //     break
+      //   default:
+      //     permissions = 'невідомо'
+      //     break
+      // }
+      // document.write(permissions)
+      //================================================================
+      // Задача 6. Полювання. Заєць знаходиться у верхньому лівому кутку поля. Поле складається з двох рядків і двох стовпців.
+      // За один крок заєць може стрибнути у будь-яку із вільних клітинок. Користувач ставить пастку вказуючи номер рядка і стовпця клітинки. Якщо заєць потрапляє у пастку, то користувач виграв і отримав 100 балів. Якщо користувач зловить зайця за другою спробою, то одержує 50 балів.
+
+      //================================================================
+      //Вводиться назва предмета. Вивести кабінет, у якому проводиться ця дисципліна
+      // math -302
+      // history -213
+      // geography - 102
+
+      //================================================================
+      //Вводиться статус відповіді. Вивести текстове позначення категорії цього статусу
+      //https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D0%BA%D0%BE%D0%B4%D0%BE%D0%B2_%D1%81%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D1%8F_HTTP
+      //1xx: Informational responses (100 – 199)
+      //2xx: Successful responses (200 – 299)
+      //3xx: Redirection messages (300 – 399)
+      //4xx: Client error responses (400 – 499)
+      //5xx: Server error responses (500 – 599)
+
+      //================================================================
+
+      // Задача. З клавіарути вводиться номер дня. Вивести на екран чи це робочий, чи віхідний день.
+      // const dayNum = parseInt(prompt('Day '))
+
+      //=======================
+      // 1.	Знайти найбільше серед 2 чисел.
+      // let a = parseFloat(prompt('a='))
+      // let b = parseFloat(prompt('b='))
+
+      //================================================================
+      // 3.	Найбільше серед 2-х (різних) замінити на 0.
+      // let a = parseFloat(prompt('a='))
+      // let b = parseFloat(prompt('b='))
+
+      //================================================================
+      // 4.	Значення які більші за середнє замінити на 0.
+      // let a = parseFloat(prompt('a='))
+      // let b = parseFloat(prompt('b='))
+      // const average = (a + b) / 2
+      // if (a > average) a = 0
+      // if (b > average) b = 0
+
+      // document.write(`a = ${a}, b=${b}`)
+      //================================================================
+      // 5.	Знайти найбільше серед 3.
+      // let a = parseFloat(prompt('a='))
+      // let b = parseFloat(prompt('b='))
+      // let c = parseFloat(prompt('с='))
+
+      // let max = a
+      // if (b > max) max = b
+      // if (c > max) max = c
+
+      // document.write(max)
+      //================================================================
+      // 6.	Знайти найбільше серед 4.
+      // let a = parseFloat(prompt('a='))
+      // let b = parseFloat(prompt('b='))
+      // let c = parseFloat(prompt('с='))
+      // let d = parseFloat(prompt('d='))
+
+      // let max = a
+      // if (b > max) max = b
+      // if (c > max) max = c
+      // if (d > max) max = d
+
+      // document.write(max)
+
+      //================================================================
+      // 7.	Найбільше серед 2 замінити на 0. Якщо однакові, то замінити обидва на 1
+      // let a = parseFloat(prompt('a='))
+      // let b = parseFloat(prompt('b='))
+      // if (a > b) a = 0
+      // else if (b > a) b = 0
+      // else a = b = 1
+      // document.write(`a = ${a}, b=${b}`)
+      //================================================================
+      // 8.	Найбільше серед 3-х (різних) замінити на 0.
+      // let a = parseFloat(prompt('a='))
+      // let b = parseFloat(prompt('b='))
+      // let c = parseFloat(prompt('с='))
+
+      // if (a > b && a > c) a = 0
+      // else if (b > c) b = 0
+      // else c = 0
+
+      // document.write(`a = ${a}, b=${b}, c= ${c}`)
+      //================================================================
+      // // 9.	Знайти найменше серед додатних.
+      // let a = parseFloat(prompt('a='))
+      // let b = parseFloat(prompt('b='))
+      // let c = parseFloat(prompt('с='))
+
+      // let min = Infinity
+      // if (a > 0 && a < min) min = a
+      // if (b > 0 && b < min) min = b
+      // if (c > 0 && c < min) min = c
+
+      // document.write(`min = ${min}`)
+      // 9.	Знайти найбільше серед від"ємнийх.
+      // let a = parseFloat(prompt('a='))
+      // let b = parseFloat(prompt('b='))
+      // let c = parseFloat(prompt('с='))
+
+      // let max = -Infinity
+      // if (a < 0 && a > max) max = a
+      // if (b < 0 && b > max) max = b
+      // if (c < 0 && c > max) max = c
+
+      // if (isFinite(max)) document.write(`max = ${max}`)
+      // else document.write('Немає від"ємних')
+
+      //================================================================
+      // 10.	Знайти найбільше парне число серед 4-х цілих чисел.  (число %2 === 0)
+      // let a = parseFloat(prompt('a='))
+      // let b = parseFloat(prompt('b='))
+      // let c = parseFloat(prompt('c='))
+      // let d = parseFloat(prompt('d='))
+
+      // let max = -Infinity
+      // if (a % 2 === 0 && a > max) max = a
+      // if (b % 2 === 0 && b > max) max = b
+      // if (c % 2 === 0 && c > max) max = c
+      // if (d % 2 === 0 && d > max) max = d
+
+      // if (isFinite(max)) document.write(`max = ${max}`)
+      // else document.write('Немає від"ємних')
+      //================================================================
+      // 11.	Знайти найбільше серед тих які менші за середні арифметичне.
+
+      //================================================================
+      // 12.	Знайти 2 найбільших числа з 4 цілих чисел.
+      // let a = parseFloat(prompt('a='))
+      // let b = parseFloat(prompt('b='))
+      // let c = parseFloat(prompt('c='))
+      // let d = parseFloat(prompt('d='))
+
+      // let max1, max2 //max1>=max2
+      // if (a > b) {
+      //   max1 = a
+      //   max2 = b
+      // } else {
+      //   max1 = b
+      //   max2 = a
+      // }
+
+      // if (c > max1) {
+      //   max2 = max1
+      //   max1 = c
+      // } else if (c > max2) max2 = c
+
+      // if (d > max1) {
+      //   max2 = max1
+      //   max1 = d
+      // } else if (d > max2) max2 = d
+
+      // document.write(`max1 = ${max1}  max2 = ${max2}`)
+      //================================================================
+      // 13.	Знайти 2 найменших числа.
+
+      //================================================================
+      //Передбачувач. При відктитті сторінки вивести випадковим чином  одне із наперед заданих зображень
+      //1) https://cdn.meteoprog.net/thumbnails/newsweather/cropr_784x441/big_602456.jpg?1643968800
+      //2) https://viche.ck.ua/wp-content/uploads/2020/01/14022017110052123573.jpg
+      //3) https://www.iphones.ru/wp-content/uploads/2017/03/mb_gt.jpg
+      //
+      // const randImgNum = 1 + Math.floor(Math.random() * 3)
+      // let imgSrc
+      // switch (randImgNum) {
+      //   case 1:
+      //     imgSrc =
+      //       'https://cdn.meteoprog.net/thumbnails/newsweather/cropr_784x441/big_602456.jpg?1643968800'
+      //     break
+      //   case 2:
+      //     imgSrc =
+      //       'https://viche.ck.ua/wp-content/uploads/2020/01/14022017110052123573.jpg'
+      //     break
+      //   case 3:
+      //     imgSrc = 'https://www.iphones.ru/wp-content/uploads/2017/03/mb_gt.jpg'
+      //     break
+      // }
+      // document.write(`<img src ="${imgSrc}"/>`)
+      // ========================================
+      //З клавіатури вводиться поточна кількість хвилин. Визначати який показ хвилин луде через N хвилин.
+      // const currentMinutes = parseInt(prompt(`minutes`, ''))
+      // const N = parseInt(prompt(`N`, ''))
+      // const resMinutes = (currentMinutes + N) % 60
+      // document.write(resMinutes)
+
+      // ========================================
+      //З клавіатури вводиться номер дня тижня (від 1 до 7). Визначити який буде день тижня через N днів.
+      // const currentDayNum = parseInt(prompt(`dayNum`, ''))
+      // const N = parseInt(prompt(`N`, ''))
+      // const resDay = ((currentDayNum - 1 + N) % 7) + 1
+      // document.write(resDay)
+      // ==========================================
+      //Зашифрувати один введений англійський символ у верхньому регістрі (один з символів: A,B,…Z)  методом зміщення (шифр Цезаря).
+      // const letter = prompt('Letter')
+      // const shift = parseInt(prompt(`shift`, '3'))
+
+      // const min = 'A'.charCodeAt(0)
+      // const max = 'Z'.charCodeAt(0)
+
+      // const letterCode = letter.charCodeAt(0)
+      // const newLetterCode = ((letterCode - min + shift) % (max - min + 1)) + min
+
+      // const newLetter = String.fromCharCode(newLetterCode)
+      // document.write(`${letter}  => ${newLetter}`)
+    </script>
+  </body>
+</html>
