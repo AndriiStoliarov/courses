@@ -37,122 +37,41 @@
                     <li class="tasks__item">
                       <script>
                         // Крок 0. Позначення величин.
-                        // dayWeekNumber - номер дня тижня.
+                        // dayWeekNumber - номер дня тижня;
+                        // dayWeekName - назва дня тижня.
                         // Крок 1. Введення необхідних даних.
                         const dayWeekNumber = parseInt(prompt('Введіть номер дня тижня:', '6'));
+                        let dayWeekName = '';
                         // Крок 2. Обчислення результатів.
                         switch (Number(dayWeekNumber)) {
                           case 1:
-                            // Крок 3. Виведення.
-                            document.write(`
-                              <p>
-                                <span class="tasks__title">Відповідь:</span>
-                                <ul class="list">
-                                  <li class="list__item">
-                                    <span>"Понеділок".</span>
-                                  </li>
-                                </ul>
-                              </p>
-                            `);
+                            dayWeekName = 'Понеділок';
                             break;
-
-                          case 2:
-                            // Крок 3. Виведення.
-                            document.write(`
-                              <p>
-                                <span class="tasks__title">Відповідь:</span>
-                                <ul class="list">
-                                  <li class="list__item">
-                                    <span>"Вівторок".</span>
-                                  </li>
-                                </ul>
-                              </p>
-                            `);
+                          case 2: dayWeekName = '"Вівторок"';
                             break;
-
-                          case 3:
-                            // Крок 3. Виведення.
-                            document.write(`
-                              <p>
-                                <span class="tasks__title">Відповідь:</span>
-                                <ul class="list">
-                                  <li class="list__item">
-                                    <span>"Середа".</span>
-                                  </li>
-                                </ul>
-                              </p>
-                            `);
+                          case 3: dayWeekName = '"Середа"';
                             break;
-
-                            case 4:
-                            // Крок 3. Виведення.
-                            document.write(`
-                              <p>
-                                <span class="tasks__title">Відповідь:</span>
-                                <ul class="list">
-                                  <li class="list__item">
-                                    <span>"Четвер".</span>
-                                  </li>
-                                </ul>
-                              </p>
-                            `);
+                          case 4: dayWeekName = '"Четвер"';
                             break;
-
-                            case 5:
-                            // Крок 3. Виведення.
-                            document.write(`
-                              <p>
-                                <span class="tasks__title">Відповідь:</span>
-                                <ul class="list">
-                                  <li class="list__item">
-                                    <span>"П'ятниця".</span>
-                                  </li>
-                                </ul>
-                              </p>
-                            `);
+                          case 5: dayWeekName = '"П’ятниця"';
                             break;
-
-                            case 6:
-                            // Крок 3. Виведення.
-                            document.write(`
-                              <p>
-                                <span class="tasks__title">Відповідь:</span>
-                                <ul class="list">
-                                  <li class="list__item">
-                                    <span>"Субота".</span>
-                                  </li>
-                                </ul>
-                              </p>
-                            `);
+                          case 6: dayWeekName = '"Субота"';
                             break;
-
-                            case 7:
-                            // Крок 3. Виведення.
-                            document.write(`
-                              <p>
-                                <span class="tasks__title">Відповідь:</span>
-                                <ul class="list">
-                                  <li class="list__item">
-                                    <span>"Неділя".</span>
-                                  </li>
-                                </ul>
-                              </p>
-                            `);
+                          case 7: dayWeekName = '"Неділя"';
                             break;
-
-                          default:
-                            // Крок 3. Виведення.
-                            document.write(`
-                              <p>
-                                <span class="tasks__title">Відповідь:</span>
-                                <ul class="list">
-                                  <li class="list__item">
-                                    <span>Немає такого дня тижня.</span>
-                                  </li>
-                                </ul>
-                              </p>
-                            `);
+                          default: dayWeekName = 'Немає такого дня тижня';
                         }
+                        // Крок 3. Виведення.
+                            document.write(`
+                              <p>
+                                <span class="tasks__title">Відповідь:</span>
+                                <ul class="list">
+                                  <li class="list__item">
+                                    <span>${dayWeekName}.</span>
+                                  </li>
+                                </ul>
+                              </p>
+                            `);
                       </script>
                     </li>
                   </ul>
