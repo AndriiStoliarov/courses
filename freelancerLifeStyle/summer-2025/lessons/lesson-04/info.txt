@@ -14,7 +14,7 @@ https://drive.google.com/drive/folders/1M5igFN6XDvV5EHXSLBdRw4vB_Ninb-pJ?usp=sha
 Виконати тестові завдання
 Не хвилюйтесь, це тести тільки для вашого розвитку (можете їх повторно проходити). У тестах я навмисно додав деякі некоректні завдання. Ваша задача знайти їх і обговорити. Успіхів!
 
-Змінні
+Змінні done
 https://docs.google.com/forms/d/e/1FAIpQLSepyuMYpPApONsANinqUNugecLebNEZdpnV_ensTafY6Iz5XA/viewform?usp=sf_link
 Оператор присвоєння
 https://docs.google.com/forms/d/e/1FAIpQLSfc_v7log5EywALDv5sW8nRJpe8WTyDYf3qH5-igkQwZh3KiA/viewform?usp=sf_link

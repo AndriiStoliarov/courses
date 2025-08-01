@@ -42,75 +42,39 @@
                         // MAX_PUPIL_AGE - максимальний вік людини, яка може вчитися в школі;
                         // MAX_STUDENT_AGE - максимальний вік людини, яка може вчитися у вищому навчальному закладі;
                         // MAX_WORKER_AGE - максимальний вік людини, яка не є пенсіонером;
-                        // currentPersonAge - вік людини.
+                        // currentPersonAge - вік людини;
+                        // personIs - ким є людина.
 
                         // Крок 1. Введення необхідних даних.
                         const MAX_KID_AGE = 7, MAX_PUPIL_AGE = 18, MAX_STUDENT_AGE = 25, MAX_WORKER_AGE = 65;
 
+                        let personIs = '';
+
                         const currentPersonAge = parseInt(prompt('Введіть вік людини:', '18'));
-                        
+
                         // Крок 2. Обчислення результатів.
                         if (currentPersonAge <= MAX_KID_AGE) {
-                          // Крок 3. Виведення.
-                          document.write(`
-                            <p>
-                              <span class="tasks__title">Відповідь:</span>
-                              <ul class="list">
-                                <li class="list__item">
-                                  <span>Людина є дитиною у садочку.</span>
-                                </li>
-                              </ul>
-                            </p>
-                          `);
+                          personIs = 'Людина є дитиною у садочку.';
                         } else if (currentPersonAge <= MAX_PUPIL_AGE) {
-                          // Крок 3. Виведення.
-                          document.write(`
-                            <p>
-                              <span class="tasks__title">Відповідь:</span>
-                              <ul class="list">
-                                <li class="list__item">
-                                  <span>Людина є школярем.</span>
-                                </li>
-                              </ul>
-                            </p>
-                          `);
+                          personIs = 'Людина є школярем.';
                         } else if (currentPersonAge <= MAX_STUDENT_AGE) {
-                          // Крок 3. Виведення.
-                          document.write(`
-                            <p>
-                              <span class="tasks__title">Відповідь:</span>
-                              <ul class="list">
-                                <li class="list__item">
-                                  <span>Людина є студентом.</span>
-                                </li>
-                              </ul>
-                            </p>
-                          `);
+                          personIs = 'Людина є студентом.';
                         } else if (currentPersonAge <= MAX_WORKER_AGE) {
-                          // Крок 3. Виведення.
-                          document.write(`
-                            <p>
-                              <span class="tasks__title">Відповідь:</span>
-                              <ul class="list">
-                                <li class="list__item">
-                                  <span>Людина є працівником.</span>
-                                </li>
-                              </ul>
-                            </p>
-                          `);
+                          personIs = 'Людина є працівником.';
                         } else {
-                          // Крок 3. Виведення.
-                          document.write(`
-                            <p>
-                              <span class="tasks__title">Відповідь:</span>
-                              <ul class="list">
-                                <li class="list__item">
-                                  <span>Людина є пенсіонером.</span>
-                                </li>
-                              </ul>
-                            </p>
-                          `);
+                          personIs = 'Людина є пенсіонером.';
                         }
+                        // Крок 3. Виведення.
+                        document.write(`
+                          <p>
+                            <span class="tasks__title">Відповідь:</span>
+                            <ul class="list">
+                              <li class="list__item">
+                                <span>${personIs}</span>
+                              </li>
+                            </ul>
+                          </p>
+                        `);
                       </script>
                     </li>
                   </ul>

@@ -40,66 +40,40 @@
                     <li class="tasks__item">
                       <script>
                         // Крок 0. Позначення величин.
-                        // driverCategoryName - назва категорії водія.
+                        // driverCategoryName - назва категорії водія;
+                        // vehicleName - назва транспортного засобу.
                         // Крок 1. Введення необхідних даних.
+                        let vehicleName = '';
+
                         const driverCategoryName = prompt('Введіть назву категорії водія:', 'A');
                         // Крок 2. Обчислення результатів.
                         switch (driverCategoryName.toLocaleUpperCase()) {
                           case 'A':
-                            // Крок 3. Виведення.
-                            document.write(`
-                              <p>
-                                <span class="tasks__title">Відповідь:</span>
-                                <ul class="list">
-                                  <li class="list__item">
-                                    <span>Водій може керувати мотоциклом.</span>
-                                  </li>
-                                </ul>
-                              </p>
-                            `);
+                            vehicleName = 'Водій може керувати мотоциклом.';
                             break;
 
                           case 'B':
-                            // Крок 3. Виведення.
-                            document.write(`
-                              <p>
-                                <span class="tasks__title">Відповідь:</span>
-                                <ul class="list">
-                                  <li class="list__item">
-                                    <span>Водій може керувати легковим автомобілем.</span>
-                                  </li>
-                                </ul>
-                              </p>
-                            `);
+                            vehicleName = 'Водій може керувати легковим автомобілем.';
                             break;
 
                           case 'C':
-                            // Крок 3. Виведення.
-                            document.write(`
-                              <p>
-                                <span class="tasks__title">Відповідь:</span>
-                                <ul class="list">
-                                  <li class="list__item">
-                                    <span>Водій може керувати вантажним автомобілем.</span>
-                                  </li>
-                                </ul>
-                              </p>
-                            `);
+                            vehicleName = 'Водій може керувати вантажним автомобілем.';
                             break;
 
                           default:
-                            // Крок 3. Виведення.
-                            document.write(`
-                              <p>
-                                <span class="tasks__title">Відповідь:</span>
-                                <ul class="list">
-                                  <li class="list__item">
-                                    <span>Немає такої категорії.</span>
-                                  </li>
-                                </ul>
-                              </p>
-                            `);
+                            vehicleName = 'Немає такої категорії.';
                         }
+                        // Крок 3. Виведення.
+                        document.write(`
+                          <p>
+                            <span class="tasks__title">Відповідь:</span>
+                            <ul class="list">
+                              <li class="list__item">
+                                <span>${vehicleName}</span>
+                              </li>
+                            </ul>
+                          </p>
+                        `);
                       </script>
                     </li>
                   </ul>
