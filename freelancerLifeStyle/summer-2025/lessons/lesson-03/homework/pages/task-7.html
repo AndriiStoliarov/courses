@@ -31,37 +31,95 @@
                 <div class="tasks__inner">
                   <ul class="tasks__items">
                     <li class="tasks__item">
-                      <p><span class="tasks__title">Задача 7.</span> Знайти суму випадкового номера місяця (від 1 до 12) та випадкового
-                        номера дня (від 0 до 6).
+                      <p><span class="tasks__title">Задача 7.</span> З клавіатури вводиться номер місяця. Вивести до якої пори він
+                        відноситься.
                       </p>
                     </li>
                     <li class="tasks__item">
                       <script>
-                        const minDayOfMonth = 1, maxDayOfMonth = 12;
-                        const minDayOfWeek = 0, maxDayOfWeek = 6;
+                        // Крок 0. Позначення величин.
+                        // monthNumber - номер місяця.
+                        // Крок 1. Введення необхідних даних.
+                        const monthNumber = parseInt(prompt('Введіть номер місяця:', '11'));
+                        // Крок 2. Обчислення результатів.
+                        switch (Number(monthNumber)) {
+                          case 1:
+                          case 2:
+                          case 12:
+                            // Крок 3. Виведення.
+                            document.write(`
+                              <p>
+                                <span class="tasks__title">Відповідь:</span>
+                                <ul class="list">
+                                  <li class="list__item">
+                                    <span>Це місяць Зими.</span>
+                                  </li>
+                                </ul>
+                              </p>
+                            `);
+                          break;
 
-                        const randomDayOfMonth = minDayOfMonth + Math.floor(Math.random() * (maxDayOfMonth - minDayOfMonth + 1));
+                          case 3:
+                          case 4:
+                          case 5:
+                            // Крок 3. Виведення.
+                            document.write(`
+                              <p>
+                                <span class="tasks__title">Відповідь:</span>
+                                <ul class="list">
+                                  <li class="list__item">
+                                    <span>Це місяць Весни.</span>
+                                  </li>
+                                </ul>
+                              </p>
+                            `);
+                          break;
 
-                        const randomDayOfWeek = minDayOfWeek + Math.floor(Math.random() * (maxDayOfWeek - minDayOfWeek + 1));
+                          case 6:
+                          case 7:
+                          case 8:
+                          // Крок 3. Виведення.
+                          document.write(`
+                            <p>
+                              <span class="tasks__title">Відповідь:</span>
+                              <ul class="list">
+                                <li class="list__item">
+                                  <span>Це місяць Літа.</span>
+                                </li>
+                              </ul>
+                            </p>
+                          `);
+                          break;
 
-                        const randomNumbersSum = randomDayOfMonth + randomDayOfWeek;
+                          case 9:
+                          case 10:
+                          case 11:
+                          // Крок 3. Виведення.
+                          document.write(`
+                            <p>
+                              <span class="tasks__title">Відповідь:</span>
+                              <ul class="list">
+                                <li class="list__item">
+                                  <span>Це місяць Осені.</span>
+                                </li>
+                              </ul>
+                            </p>
+                          `);
+                          break;
 
-                        document.write(`
-                          <p>
-                            <span class="tasks__title">Відповідь:</span>
-                            <ul class="list">
-                              <li class="list__item">
-                                Випадковий номер місяця: ${randomDayOfMonth};
-                              </li>
-                              <li class="list__item">
-                                Випадковий номер дня тижня: ${randomDayOfWeek};
-                              </li>
-                              <li class="list__item">
-                                Сума: ${randomNumbersSum}.
-                              </li>
-                            </ul>
-                          </p>
-                        `);
+                          default:
+                          // Крок 3. Виведення.
+                          document.write(`
+                            <p>
+                              <span class="tasks__title">Відповідь:</span>
+                              <ul class="list">
+                                <li class="list__item">
+                                  <span>Такого місяця не існує.</span>
+                                </li>
+                              </ul>
+                            </p>
+                          `);
+                        }
                       </script>
                     </li>
                   </ul>
