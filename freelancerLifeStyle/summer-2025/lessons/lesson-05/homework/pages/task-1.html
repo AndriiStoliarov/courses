@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <title>Урок 03</title>
+    <title>Урок 05</title>
   </head>
 
   <body>
@@ -17,7 +17,7 @@
       <header class="header" id="up">
         <div class="header__container">
           <div class="header__inner">
-            <h1 class="header__title">Домашне завдання № 3</h1>
+            <h1 class="header__title">Домашне завдання № 5</h1>
           </div><!-- /. header__inner -->
         </div><!-- /. header__container -->
       </header>
@@ -31,63 +31,64 @@
                 <div class="tasks__inner">
                   <ul class="tasks__items">
                     <li class="tasks__item">
-                      <p><span class="tasks__title">Задача 1.</span> З клавіатури вводяться імена двох дітей та кількість у них цукерок.
-                        Вивести на екран ім’я тієї дитини, у якої кількість цукерок є більшою, або вивести, що кількість однакова.
+                      <p><span class="tasks__title">Задача -2.</span> Поступово генерувати 100 випадкових чисел від 1 до 1000. Підрахувати
+                        яких чисел більше: парних чи непарних.
                       </p>
                     </li>
 
                     <li class="tasks__item">
                       <script>
-                        // Крок 0. Позначення величин.
-                        // kidNameFirst - ім’я першої дитини;
-                        // candyAmountFirst - кількість цукерок у першої дитини;
-                        // kidNameSecond - ім’я другої дитини;
-                        // candyAmountSecond - кількість цукерок у другої дитини.
+                        if (confirm('Почати тестування?')) {
+                          const RANDOM_NUMBER_TO = 1, RANDOM_NUMBER_FROM = 1000;
 
-                        // Крок 1. Введення необхідних даних.
-                        const kidNameFirst = prompt('Введіть ім’я першої дитини:', 'Катерина');
-                        const candyAmountFirst = parseInt(prompt(`Введіть кількість цукерок, які має ${kidNameFirst}:`, '5'));
+                          let evenNumberCounter = 0;
+                          let oddNumberCounter = 0;
 
-                        const kidNameSecond = prompt('Введіть ім’я другої дитини:', 'Василь');
-                        const candyAmountSecond = parseInt(prompt(`Введіть кількість цукерок, які має ${kidNameSecond}:`, '3'));
+                          for (let i = 0; i < 1000; i++) {
+                            const randomNumberFrom1To1000 = RANDOM_NUMBER_TO + Math.floor(Math.random() * RANDOM_NUMBER_FROM);
 
-                        // Крок 2. Обчислення результатів.
-                        if (candyAmountFirst > candyAmountSecond) {
-                          // Крок 3. Виведення.
-                          document.write(`
-                            <p>
-                              <span class="tasks__title">Відповідь:</span>
-                              <ul class="list">
-                                <li class="list__item">
-                                  <span>Кількість цукерок більше у ${kidNameFirst};</span>
-                                </li>
-                              </ul>
-                            </p>
-                          `);
-                        } else if (candyAmountFirst === candyAmountSecond) {
-                          // Крок 3. Виведення.
-                          document.write(`
-                            <p>
-                              <span class="tasks__title">Відповідь:</span>
-                              <ul class="list">
-                                <li class="list__item">
-                                  <span>Кожна дитина має однакову кількість цукерок, по ${candyAmountSecond} шт.</span>
-                                </li>
-                              </ul>
-                            </p>
-                          `);
-                        } else {
-                          // Крок 3. Виведення.
-                          document.write(`
-                            <p>
-                              <span class="tasks__title">Відповідь:</span>
-                              <ul class="list">
-                                <li class="list__item">
-                                  <span>Кількість цукерок більше у ${kidNameSecond};</span>
-                                </li>
-                              </ul>
-                            </p>
-                          `);
+                            if ((randomNumberFrom1To1000 % 2) === 0) {
+                              evenNumberCounter++;
+                            } else {
+                              oddNumberCounter++;
+                            }
+                          }
+
+                          if (evenNumberCounter > oddNumberCounter) {
+                            document.write(`
+                              <p>
+                                <span class="tasks__title">Відповідь:</span>
+                                <ul class="list">
+                                  <li class="list__item">
+                                    <span>Кількість ПАРНИХ чисел більше:</span>
+                                  </li>
+                                  <li class="list__item">
+                                    <span>кількість парних чисел: ${evenNumberCounter};</span>
+                                  </li>
+                                  <li class="list__item">
+                                    <span>кількість непарних чисел: ${oddNumberCounter}.</span>
+                                  </li>
+                                </ul>
+                              </p>
+                            `);
+                          } else {
+                            document.write(`
+                              <p>
+                                <span class="tasks__title">Відповідь:</span>
+                                <ul class="list">
+                                  <li class="list__item">
+                                    <span>Кількість НЕПАРНИХ чисел більше:</span>
+                                  </li>
+                                  <li class="list__item">
+                                    <span>кількість парних чисел: ${evenNumberCounter};</span>
+                                  </li>
+                                  <li class="list__item">
+                                    <span>кількість непарних чисел: ${oddNumberCounter}.</span>
+                                  </li>
+                                </ul>
+                              </p>
+                            `);
+                          }
                         }
                       </script>
                     </li>
