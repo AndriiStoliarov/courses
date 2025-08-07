@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <title>Урок 03</title>
+    <title>Урок 05</title>
   </head>
 
   <body>
@@ -17,7 +17,7 @@
       <header class="header" id="up">
         <div class="header__container">
           <div class="header__inner">
-            <h1 class="header__title">Домашне завдання № 3</h1>
+            <h1 class="header__title">Домашне завдання № 5</h1>
           </div><!-- /. header__inner -->
         </div><!-- /. header__container -->
       </header>
@@ -31,74 +31,64 @@
                 <div class="tasks__inner">
                   <ul class="tasks__items">
                     <li class="tasks__item">
-                      <p><span class="tasks__title">Задача 5.</span> З клавіатури вводиться назва категорії водія (А - мотоцикл, В -
-                        легковий автомобіль, С - вантажний автомобіль). Вивести на екран назву
-                        транспортного
-                        засобу, яким він може керувати.
+                      <p><span class="tasks__title">Задача -2.</span> Поступово генерувати 100 випадкових чисел від 1 до 1000. Підрахувати
+                        яких чисел більше: парних чи непарних.
                       </p>
                     </li>
+
                     <li class="tasks__item">
                       <script>
-                        // Крок 0. Позначення величин.
-                        // driverCategoryName - назва категорії водія.
-                        // Крок 1. Введення необхідних даних.
-                        const driverCategoryName = prompt('Введіть назву категорії водія:', 'A');
-                        // Крок 2. Обчислення результатів.
-                        switch (driverCategoryName.toLocaleUpperCase()) {
-                          case 'A':
-                            // Крок 3. Виведення.
-                            document.write(`
-                              <p>
-                                <span class="tasks__title">Відповідь:</span>
-                                <ul class="list">
-                                  <li class="list__item">
-                                    <span>Водій може керувати мотоциклом.</span>
-                                  </li>
-                                </ul>
-                              </p>
-                            `);
-                            break;
+                        if (confirm('Почати тестування?')) {
+                          const RANDOM_NUMBER_TO = 1, RANDOM_NUMBER_FROM = 1000;
 
-                          case 'B':
-                            // Крок 3. Виведення.
-                            document.write(`
-                              <p>
-                                <span class="tasks__title">Відповідь:</span>
-                                <ul class="list">
-                                  <li class="list__item">
-                                    <span>Водій може керувати легковим автомобілем.</span>
-                                  </li>
-                                </ul>
-                              </p>
-                            `);
-                            break;
+                          let evenNumberCounter = 0;
+                          let oddNumberCounter = 0;
 
-                          case 'C':
-                            // Крок 3. Виведення.
-                            document.write(`
-                              <p>
-                                <span class="tasks__title">Відповідь:</span>
-                                <ul class="list">
-                                  <li class="list__item">
-                                    <span>Водій може керувати вантажним автомобілем.</span>
-                                  </li>
-                                </ul>
-                              </p>
-                            `);
-                            break;
+                          for (let i = 0; i < 1000; i++) {
+                            const randomNumberFrom1To1000 = RANDOM_NUMBER_TO + Math.floor(Math.random() * RANDOM_NUMBER_FROM);
 
-                          default:
-                            // Крок 3. Виведення.
+                            if ((randomNumberFrom1To1000 % 2) === 0) {
+                              evenNumberCounter++;
+                            } else {
+                              oddNumberCounter++;
+                            }
+                          }
+
+                          if (evenNumberCounter > oddNumberCounter) {
                             document.write(`
                               <p>
                                 <span class="tasks__title">Відповідь:</span>
                                 <ul class="list">
                                   <li class="list__item">
-                                    <span>Немає такої категорії.</span>
+                                    <span>Кількість ПАРНИХ чисел більше:</span>
+                                  </li>
+                                  <li class="list__item">
+                                    <span>кількість парних чисел: ${evenNumberCounter};</span>
+                                  </li>
+                                  <li class="list__item">
+                                    <span>кількість непарних чисел: ${oddNumberCounter}.</span>
                                   </li>
                                 </ul>
                               </p>
                             `);
+                          } else {
+                            document.write(`
+                              <p>
+                                <span class="tasks__title">Відповідь:</span>
+                                <ul class="list">
+                                  <li class="list__item">
+                                    <span>Кількість НЕПАРНИХ чисел більше:</span>
+                                  </li>
+                                  <li class="list__item">
+                                    <span>кількість парних чисел: ${evenNumberCounter};</span>
+                                  </li>
+                                  <li class="list__item">
+                                    <span>кількість непарних чисел: ${oddNumberCounter}.</span>
+                                  </li>
+                                </ul>
+                              </p>
+                            `);
+                          }
                         }
                       </script>
                     </li>
