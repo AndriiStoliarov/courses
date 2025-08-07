@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        width: 500px;
+        height: 400px;
+        border: 2px solid blue;
+      }
+      .item {
+        background-color: red;
+        height: 20px;
+        margin-top: 10px;
+        text-align: center;
+      }
+      img {
+        width: 30px;
+      }
+
+      body {
+        background: #000;
+        color: #aaa;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      //=====================================================
+      // Вивести 20 разів Ok
+      // for (let i = 0; i < 20; i++) {
+      //   document.write('ok')
+      // }
+      //=====================================================
+      // Вивести 30 заголовків (h1) "Мрія"
+      // for (let i = 0; i < 30; i++) {
+      //   document.write('<h1> Мрія </h1>')
+      // }
+      //=====================================================
+      // Випадковим  чином вивести у рандомних позиціях 10 зображень-смайликів
+      //   document.write(
+      //     `<img src="./img/img${randImageIndex}.jpg" style="position: absolute; left: ${randLeftPosition}%; top: ${randTopPosition}%" />`
+      //   )
+      // Вивести на екран 20 смайликів (у рандомних позиціях)
+      // for (let i = 0; i < 20; i++) {
+      //   const left = Math.floor(Math.random() * 90)
+      //   const top = Math.floor(Math.random() * 90)
+      //   const imgNum = 1 + Math.floor(Math.random() * 4)
+      //   document.write(
+      //     `<img src="./img/img${imgNum}.jpg" style="position:absolute; left:${left}%;top:${top}%;">`
+      //   )
+      // }
+      //=====================================================
+      // Горизонтальну діаграму з 8 рандомними значеннями (0-100)
+      /*
+                <div class="container">
+                  <div class="item" style="width: 30%">30</div>
+                  <div class="item" style="width: 40%">40</div>
+                  <div class="item" style="width: 70%">70</div>
+                  <div class="item" style="width: 30%">30</div>
+                </div>
+            */
+      //Вивести на екран стовпчикову діаграму з випадковими числами від 1 до 100.
+      // for (let i = 0; i < 5; i++) {
+      //   const width = 20 + Math.floor(Math.random() * 70)
+      //   document.write(
+      //     `<div style="width:${width}%; background-color:red; text-align:center; color:white; margin-top:20px;" >${width}</div>`
+      //   )
+      // }
+      //=====================================================
+      //=====================================================
+      // Вивести 4 двовимірні таблиці 5*6. Заповнити рандомними номерами місяців
+      // document.write('<table border="2">')
+      // for (let rowNum = 0; rowNum < 5; rowNum++) {
+      //   document.write('<tr>')
+      //   for (let colNum = 0; colNum < 6; colNum++) {
+      //     const randMonth = 1 + Math.floor(Math.random() * 12)
+      //     document.write(`<td>${randMonth}</td>`)
+      //   }
+      //   document.write('</tr>')
+      // }
+      // document.write(`</table>`)
+      //=====================================================
+      // Вивести 3 таблиці (по 3 рядки і 3 стовпці у кожній) за зразком
+      // let counter = 1
+      // for (let tableNum = 1; tableNum <= 3; tableNum++) {
+      //   document.write('<table border="2">')
+      //   for (let rowNum = 0; rowNum < 3; rowNum++) {
+      //     document.write('<tr>')
+      //     for (let colNum = 0; colNum < 3; colNum++) {
+      //       document.write(`<td>${counter++}</td>`)
+      //     }
+      //     document.write('</tr>')
+      //   }
+      //   document.write(`</table>`)
+      // }
+      //=====================================================
+      // Задача. Вводиться прибуток магазину за 3 тижні
+      //    (для кожного тижня вводиться прибуток за робочі дні 1-5). Знайти загальну суму і за кожен тиждень окремо
+      // let totalSum = 0
+      // for (let weekNum = 1; weekNum <= 3; weekNum++) {
+      //   let weekSum = 0
+      //   for (let dayIndex = 1; dayIndex <= 5; dayIndex++) {
+      //     const dayIncome = parseInt(prompt(`Day ${dayIndex}`, '2000'))
+      //     weekSum += dayIncome
+      //   }
+      //   totalSum += weekSum
+      //   document.write(`Week ${weekNum} , income per week :${weekSum}грн. <br>`)
+      // }
+      // document.write(`Total sum = ${totalSum}грн.<br>`)
+
+      //=====================================================
+      // Вивести 5 маркованих списків по 3 випадаючих списки з 4 випадковими числами (1-100)
+      // for (let listNum = 1; listNum <= 5; listNum++) {
+      //   document.write(`<h2>List # ${listNum}</h2>`)
+      //   document.write('<ul>')
+      //   for (let selectNum = 0; selectNum < 3; selectNum++) {
+      //     document.write('<li>')
+      //     document.write('<select>')
+      //     for (let optNum = 0; optNum < 4; optNum++) {
+      //       const randNum = 1 + Math.floor(Math.random() * 100)
+      //       document.write(`<option>${randNum}</option>`)
+      //     }
+      //     document.write('</select>')
+      //     document.write('</li>')
+      //   }
+      //   document.write('</ul>')
+      // }
+
+      //=====================================================
+
+      //=====================================================
+      // Користувач загадує число. Комп’ютер задає питання поки не вгадає число користувача (використати confirm).
+      //compNumber
+      // const minNum = 1,
+      //   maxNum = 5
+      // let randNum
+      // do {
+      //   randNum = minNum + Math.floor(Math.random() * maxNum)
+      // } while (!confirm(`Ви загадали число ${randNum}`))
+
+      //=====================================================
+      //Задача 11. Знайти суму 5 непарних випадкових чисел, що знаходяться між заданими користувачем числами.
+      // const minNum = parseInt(prompt(`min`, ''))
+      // const maxNum = parseInt(prompt(`max`, ''))
+      // //----- варіант 1
+      // const startNum = minNum % 2 !== 0 ? minNum : minNum + 1
+
+      // let sum = 0
+      // for (let num = startNum, oddCount = 0;num <= maxNum && oddCount < 5;num += 2, oddCount++) {
+      //   sum += num
+      // }
+      //----- варіант 2
+      // let sum = 0
+      // for (let num = minNum + (1 - (minNum % 2)); num < maxNum; num += 2) {
+      //   sum += num
+      // }
+      // document.write(`Sum = ${sum}`)
+
+      //=====================================================
+      //Знайти суму 5 непарних чисел, що знаходяться між заданими користувачем числами
+      //   20 -50 : 21,23,25,27,29
+      //   1-70 :  1,3,5,7,9
+
+      //=====================================================
+      // minRandValue = 1, maxRandValue = 100
+
+      //Задача 1.Поступово генеруються N чисел (-100 - 100). Знайти максимальне, мінімальне та середнє значення
+      // const N = 4
+      // let max = -Infinity,
+      //   min = Infinity,
+      //   sum = 0
+      // for (let i = 0; i < N; i++) {
+      //   const randNum = -100 + Math.floor(Math.random() * 201)
+
+      //   if (randNum > max) max = randNum
+      //   if (min > randNum) min = randNum
+      //   sum += randNum
+      // }
+
+      // const avg = sum / N
+      // document.write(`max = ${max},  min = ${min},  avg = ${avg}`)
+      //=====================================================
+      //Поступово генерувати 100 випадкових чисел від 1 до 1000.Підрахувати яких чисел більше: парних чи непарних.
+      // let evenNum = 0
+      // for (let i = 0; i < 100; i++) {
+      //   const randNum = 1 + Math.floor(Math.random() * 1000)
+      //   if (randNum % 2 === 0) evenNum++
+      // }
+      // const oddNum = 100 - evenNum
+
+      // document.write(`Even : ${evenNum}, Odd :${oddNum}`)
+      //=====================================================
+      // Задача 3. Вивести високосні роки у вказаному діапазоні (між початковим і кінцевим  роками).
+      //високосний  - він кратний 4, але не кратний 100, а також якщо він кратний 400.
+      // ---- варіант 1, простий
+      // const startYear = parseInt(prompt(`Start year`,''))
+      // const endYear = parseInt(prompt(`Start year`,''))
+      // for (let year = startYear; year < endYear; year++) {
+      //   if((year%4===0 && year%100!==0) || year%400===0)
+      //   document.write(`${year}<br>`)
+      // }
+      // ---- варіант 2 (оптимальніший)
+      // let startYear = parseInt(prompt(`Start year`, ''))
+      // const endYear = parseInt(prompt(`Start year`, ''))
+      // if (startYear % 4 !== 0) startYear += 4 - (startYear % 4)
+      // for (let year = startYear; year < endYear; year += 4) {
+      //   if (year % 100 !== 0 || year % 400 === 0) document.write(`${year}<br>`)
+      // }
+
+      //=====================================================
+
+      //Задача 4. Вивести усі трицифрові числа, де друга цифра завжди є меншою або рівню за першу, а третя є меншою або рівною за другу.    100 - 999
+      // for (let c1 = 1; c1 <= 9; c1++) {
+      //   for (let c2 = 0; c2 <= c1; c2++) {
+      //     for (let c3 = 0; c3 <= c2; c3++) {
+      //       document.write(`${c1}${c2}${c3}<br>`)
+      //     }
+      //   }
+      // }
+
+      //=====================================================
+      //Вивести з кожного десятка (1-10, 11-20, 21-30, ... , 91-100) по 3 випадкових парних числа
+      // for (let startNum = 1; startNum <= 91; startNum += 10) {
+      //   const endNum = startNum + 9
+      //   document.write(`${startNum} ---- ${endNum}<br>`)
+      //   for (let i = 0; i < 3; i++) {
+      //     const randNum = startNum + Math.floor(Math.random() * 6) * 2 - 1
+      //     document.write(`${randNum}<br>`)
+      //   }
+      // }
+      //=====================================================
+
+      //=====================================================
+
+      // Користувачу повідомляють суму, яку йому треба сплатити.Користувач поступово  вводить суму грошей до тих пір, поки суми не буде достатньо для оплати товарів(кожного разу користувачу повідомляють, яку ще суму потрібно ввести)
+      // const price = parseInt(prompt(`Введіть ціну товару`, '2500'))
+      // let totalUserMoney = 0
+      // do {
+      //   const money = parseInt(
+      //     prompt(`Дайте гроші. Треба ще ${price - totalUserMoney}`, '')
+      //   )
+      //   totalUserMoney += money
+      // } while (totalUserMoney < price)
+      // document.write('Вітаємо з покупкою')
+      //=====================================================
+
+      //Вивести радіо-кнопки для визначення того, скільки років людині у діапазоні (1-10, 11-20, 21-30, ... , 91-100)
+
+      //=====================================================
+      //Сформували select з парними числами від 2 до 20
+      // <select>
+      //   <option value="1">11</option>
+      //   <option value="2">22</option>
+      //   <option value="3">33</option>
+      // </select>
+      //=====================================================
+      //Користувач вводить два символи у верхньому регістрі. Сформували два select з кодами символів у заданому діапазоні та символами у заданому діапазоні
+
+      //=====================================================
+      // Задача 2.  Тільки позитивні емоції. З клавіатури вводиться М - максимальна кількість смайликів, які можна
+      // вивести. Комп’ютер випадково вибирає якесь із 4 наперед заданих. Серед них є сумний смайл.
+      // const maxSmileNum = parseInt(prompt('Максимальна кількість смайлів'))
+      // const sadSmileIndex = 4
+      //   1)Якщо знаходимо сумний смайл – зупитини
+      //*******************
+
+      //   2)Якщо знаходимо сумний смайл – пропустити
+      //**************
+
+      //=====================================================
+      // Задача 2. Комп’ютер 3 рази випадковим чином вибирає початок і кінець проміжку (проміжок повинен знаходитися в межах від 1 до 100). Користувач вводить число і виграє, якщо число знаходиться у цьому проміжку, або розташоване від нього (від лівого або правого краю) не більше ніж на 10. ((min-10)   ---  (max+10))
+      // const rangeStart = 1,
+
+      //=====================================================
+      // Морський бій. Комп’ютер випадково розташовує одиночний корабель на полі розміром N*M. Маючи К снарядів користувач намагається потопити корабель.
+
+      //З клавіатури вводиться кількість рядків і стовпців. Вивести таблицю заповнену
+      //рандомними числами від 1 до 100
+
+      //=====================================================
+      //Двоє користувачів поступово вводять два числа від 1 до 10. Комп"ютер випадковим чином загадує число.
+      //1)якщо користувач вгадав - то має 10 балів
+      //2)якщо число користувача співпадає стосвоно парності/непарності - 3 бали
+      //Гра йде до тих пір, поки не хтось із користувачів не набере 20 балів
+
+      //=====================================================
+      //Сформувати 5 списків з випадкових чисел (1-100). У кожному списку елементи додаються до тих пір, поки числа менші за 50
+
+      //=====================================================
+      //Ігровий автомат. Випадково вибираємо зображення у 3 позиціях.
+      // Вибір у кожній позиції вибирається як одне з чотирьох зображень.
+      //   Вивести ці зображення і повідомити виграш користувача
+      //   (три перших зображення 100 грн, три других – 200, три третіх – 500, три четвертих зображення – 1000грн).
+      // let selectedNumber = ''
+      // for (let i = 0; i < 3; i++) {
+      //   const randNum = 1 + Math.floor(Math.random() * 3)
+      //   document.write(`<img src = "./img/img${randNum}.jpg"/>`)
+      //   selectedNumber += randNum
+      // }
+      // let prize = 0
+      // switch (selectedNumber) {
+      //   case '111':
+      //     prize = 100
+      //     break
+      //   case '222':
+      //     prize = 200
+      //     break
+      //   case '333':
+      //     prize = 500
+      //     break
+      // }
+      // document.write(`<br> Prize = ${prize}грн.`)
+
+      //-----------------------------------------------------------
+      //Задача 15. Користувача поступово вводить показники температури протягом року. Знайти середню температуру.
+      //Крок 0. Позначення величин
+      //temp - показ темпенратури
+      //tempSum - сума температур
+      //averageTemp - середня температура
+      //---------------------------------------------------
+    </script>
+  </body>
+</html>
