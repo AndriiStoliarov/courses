@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <title>Урок 05</title>
+    <title>Урок 06</title>
   </head>
 
   <body>
@@ -17,7 +17,7 @@
       <header class="header" id="up">
         <div class="header__container">
           <div class="header__inner">
-            <h1 class="header__title">Домашне завдання № 5</h1>
+            <h1 class="header__title">Домашне завдання № 6</h1>
           </div><!-- /. header__inner -->
         </div><!-- /. header__container -->
       </header>
@@ -31,31 +31,58 @@
                 <div class="tasks__inner">
                   <ul class="tasks__items">
                     <li class="tasks__item">
-                      <p><span class="tasks__title">Задача 0.</span> Вивести на екран 8 кнопок з написом “Hello”.
+                      <p><span class="tasks__title">Задача 0.</span> Вивести на екран.<br>
+                        <span>A B C D E</span><br>
+                        <span>B C D E F</span><br>
+                        <span>C D E F G</span><br>
+                        <span>D E F G H</span><br>
+                        <span>E F G H I</span>
+                        <span>&#73;</span>
+                        <span>&#34;</span>
+                        <span>&#32;</span>
+                        <span>&#32;</span>
+                        <span>&#34;</span>
                       </p>
                     </li>
                     <li class="tasks__item">
                       <script>
-                        if (confirm('Почати тестування?')) {
+                        // if (confirm('Почати тестування?')) {
                           document.write(`
                             <p>
                               <span class="tasks__title">Відповідь:</span>
                               <ul class="list">
                           `);
+                          document.write(`
+                            <table class="tasks__table  table">
+                              <tbody>`
+                          );
 
-                          for (let i = 0; i < 8; i++) {
-                            document.write(`
-                              <li class="list__item">
-                                <button class="button" type="button">Hello!</button>
-                              </li>
-                            `);
+                          for (let row = 0; row < 5; row++) {
+                            let counter = 0;
+                            document.write('<tr class="table__row">');
+                              for (let cell = 65; cell <= 73; cell++) {
+                                if (counter <= 5) {
+                                  document.write(`<td class="table__data">&#${cell};</td>`);
+                                  counter++;
+                                } else {
+                                  break;
+                                }
+                                  
+
+                            }
+
+                            document.write('</tr>');
                           }
 
+                          document.write(`
+                              </tbody>
+                            </table>
+                          `);
                           document.write(`
                               </ul>
                             </p>
                           `);
-                        }
+                        // }
                       </script>
                     </li>
                   </ul>
