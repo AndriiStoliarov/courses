@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <title>Урок 05</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <!-- Header -->
+      <header class="header" id="up">
+        <div class="header__container">
+          <div class="header__inner">
+            <h1 class="header__title">Домашне завдання № 5</h1>
+          </div><!-- /. header__inner -->
+        </div><!-- /. header__container -->
+      </header>
+
+      <main class="page">
+        <div class="page__container">
+          <div class="page__inner">
+            <!-- Tasks -->
+            <div class="tasks">
+              <div class="tasks__container">
+                <div class="tasks__inner">
+                  <ul class="tasks__items">
+                    <li class="tasks__item">
+                      <p><span class="tasks__title">Задача 4.</span> Вивести таблицю з 3 рядків і 7 стовпців.
+                      </p>
+                    </li>
+                    <li class="tasks__item">
+                      <script>
+                        if (confirm('Почати тестування?')) {
+                          document.write(`
+                            <p>
+                              <span class="tasks__title">Відповідь:</span>
+                              <ul class="list">
+                          `);
+                          document.write(`
+                            <table class="tasks__table  table">
+                              <tbody>`
+                          );
+
+                          for (let row = 0; row < 3; row++) {
+                            document.write('<tr class="table__row">');
+
+                            for (let cell = 1; cell <= 7; cell++) {
+                              document.write(`<td class="table__data">${cell}</td>`);
+                            }
+
+                            document.write('</tr>');
+                          }
+
+                          document.write(`
+                              </tbody>
+                            </table>
+                          `);
+                          document.write(`
+                              </ul>
+                            </p>
+                          `);
+                        }
+                      </script>
+                    </li>
+                  </ul>
+                </div><!-- /.tasks__inner -->
+              </div><!-- /.tasks__container -->
+            </div><!-- /.tasks -->
+
+            <div class="up  up--left">
+              <div class="up__container">
+                <a class="up__link" href="../index.html">на головну</a>
+              </div>
+            </div>
+          </div><!-- /.page__inner -->
+        </div><!-- /.page__container -->
+      </main><!-- /.page -->
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer__container">
+          <div class="footer__inner">
+            <div class="footer__text"><span>&#169; </span>2025 Andrii Stoliarov</div>
+          </div>
+        </div><!-- /.footer__inner-->
+      </footer>
+    </div><!-- /.wrapper -->
+  </body>
+</html>

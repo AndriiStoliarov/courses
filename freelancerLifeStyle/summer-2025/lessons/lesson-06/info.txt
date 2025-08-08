@@ -1,3 +1,6 @@
+A coding practice website for all programming levels.
+https://www.codewars.com/
+
 🤟 Урок №6. Практика.
 
 🟢 Посилання на урок:
