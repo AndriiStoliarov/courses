@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <title>Урок 05</title>
+    <title>Урок 06</title>
   </head>
 
   <body>
@@ -17,7 +17,7 @@
       <header class="header" id="up">
         <div class="header__container">
           <div class="header__inner">
-            <h1 class="header__title">Домашне завдання № 5</h1>
+            <h1 class="header__title">Домашне завдання № 6</h1>
           </div><!-- /. header__inner -->
         </div><!-- /. header__container -->
       </header>
@@ -31,51 +31,47 @@
                 <div class="tasks__inner">
                   <ul class="tasks__items">
                     <li class="tasks__item">
-                      <p><span class="tasks__title">Задача 8.</span> Користувач загадує число. За 3 спроби
-                        комп'ютер намагається вгадати число користувача (використати confirm).
+                      <p><span class="tasks__title">Задача 10.</span> Вивести на екран.
+                        <ul class="list">
+                          <li class="list__item"><span>1 </span><span>1</span></li>
+                          <li class="list__item"><span>2 </span><span>1234</span></li>
+                          <li class="list__item"><span>3 </span><span>123456789</span></li>
+                          <li class="list__item"><span>4 </span><span>1234...16</span></li>
+                          <li class="list__item"><span>5 </span><span>1234...25</span></li>
+                          <li class="list__item"><span>6 </span><span>1234...36</span></li>
+                        </ul>
                       </p>
                     </li>
                     <li class="tasks__item">
                       <script>
-                        const RANDOM_NUMBER_TO = 1, RANDOM_NUMBER_FROM = 5;
-
-                        let randomNumberFrom1To5 = 0;
-                        let isConfirm = false;
-
-                        document.write(`
-                          <p>
-                            <span class="tasks__title">Відповідь:</span>
-                            <ul class="list">
-                        `);
-
-                        for (let i = 0; i < 3; i++) {
-                          randomNumberFrom1To5 = RANDOM_NUMBER_TO + Math.floor(Math.random() * RANDOM_NUMBER_FROM);
-
-                          isConfirm = confirm(`Ви загадали число: ${randomNumberFrom1To5} ?`);
-
-                          if (isConfirm) {
-                            document.write(`
-                              <li class="list__item">
-                                <span>Комп'ютер вгадав, ваше число: ${randomNumberFrom1To5}<span>
-                              </li>
-                            `);
-
-                            break;
-                          }
-                        }
-
-                        if (!isConfirm) {
+                        if (confirm('Почати тестування?')) {
                           document.write(`
-                            <li class="list__item">
-                              <span>Комп'ютер не вгадав, ваше число.<span>
-                            </li>
+                            <p>
+                              <span class="tasks__title">Відповідь:</span>
+                              <ul class="list">
+                          `);
+
+                          let numberAmount = 0, oddNumber = 1;
+
+                          for (let row = 1; row <= 6; row++) {
+                            document.write(`<li class="list__item"><span>${row} </span>`);
+
+                            numberAmount += oddNumber;
+
+                            for (let number = 1; number <= numberAmount; number++) {
+                              document.write(`<span>${number}</span>`);
+                            }
+
+                            document.write('</li>');
+
+                            oddNumber += 2;
+                          }
+
+                          document.write(`
+                              </ul>
+                            </p>
                           `);
                         }
-
-                        document.write(`
-                            </ul>
-                          </p>
-                        `);
                       </script>
                     </li>
                   </ul>
