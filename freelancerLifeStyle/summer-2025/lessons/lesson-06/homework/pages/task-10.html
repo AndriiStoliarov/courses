@@ -51,12 +51,13 @@
                               <ul class="list">
                           `);
 
-                          let numberAmount = 0, oddNumber = 1;
+                          // let numberAmount = 0, oddNumber = 1;
 
                           for (let row = 1; row <= 6; row++) {
                             document.write(`<li class="list__item"><span>${row} </span>`);
 
-                            numberAmount += oddNumber;
+                            // numberAmount += oddNumber;
+                            let numberAmount = Math.pow(row, 2);
 
                             for (let number = 1; number <= numberAmount; number++) {
                               document.write(`<span>${number}</span>`);
@@ -64,7 +65,7 @@
 
                             document.write('</li>');
 
-                            oddNumber += 2;
+                            // oddNumber += 2;
                           }
 
                           document.write(`
