@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //--------------------------------
+
+      // //1.Опис функції
+
+      //==========================================
+      //Задача. Визначити середню оцінку з трьох предметів
+
+      //==========================================
+      // Задача . Вивести привітання декількома мовами (створити функцію: мова задається (ua,en), а виводиться привітання на потрібній мові (‘привіт’, ‘hello’))
+
+      //==========================================
+      // Задача. Знайти розмір заробітної плати
+      // (ставка (salary) + надбавка ( benefits ) - податок (tax%))
+
+      // Задача. Знайти суму 3-х чисел
+      // function getSum(num1, num2, num3) {
+      //   //знайти результат
+      //   let sum = num1 + num2 + num3
+      //   //повернути результат
+      //   return sum
+      // // }
+      // function getSum(a, b, c) {
+      //   return a + b + c
+      // }
+      // //---- розв"язуємо задачу ----
+      // let a = parseFloat(prompt('Перше число'))
+      // let b = parseFloat(prompt('Друге число'))
+      // let c = parseFloat(prompt('Третє число'))
+      // let s = getSum(a, b, c)
+      // document.write(`Sum = ${s}`)
+      //=====================================================
+      //Задача. Ввести імена 3-х користувачів і привіти їх
+      // function greeting() {
+      //   let userName = prompt('Name')
+      //   alert(`Hello ${userName} !`)
+      // }
+
+      // for (let i = 0; i < 3; i++) {
+      //   greeting()
+      // }
+      //=====================================================
+      // //Знайти максимальне серед 2-х чисел
+      // function getMax(c1, c2) {
+      //   //Спочатку знаходимо результат
+      //   let max
+      //   if (c1 > c2) max = c1
+      //   else max = c2
+      //   //потім один раз повертаємо цей результат
+      //   return max
+      // }
+
+      // document.write(`Max(2,8) = ${getMax(2, 8)}`)
+
+      //==========================================
+      // Задача. Знайти вартість оренди авто за заданою вартістю на місяць і кількістю місяців
+      // //1)описуємо функцію
+      // function getTotalRentalCost(costPerMonth, numberOfMonths) {
+      //   return costPerMonth * numberOfMonths
+      // }
+      // //2) ---------- головна програма ---------
+      // let costPerMonth = parseFloat(prompt('Вартість за місяць'))
+      // let numberOfMonths = parseInt(prompt('Скільки місяців'))
+
+      // let money = getTotalRentalCost(costPerMonth, numberOfMonths)
+
+      // document.write(`Total = ${money}`)
+
+      //==========================================
+
+      // Задача. Знайти прибуток банку при купівлі та реалізації вказаної суми доларів.
+      // function getBankProfit(dollarBuyRate, dollarSaleRate, dollarAmount) {
+      //   return (dollarSaleRate - dollarBuyRate) * dollarAmount
+      // }
+      // //---------
+      // const dollarBuyRate = parseFloat(prompt('Курс купівлі'))
+      // const dollarSaleRate = parseFloat(prompt('Курс продажу'))
+      // const dollarAmount = parseFloat(prompt('Кількість доларів'))
+
+      // // let profit = getBankProfit(dollarBuyRate, dollarSaleRate, dollarAmount)
+      // let profit = getBankProfit(36, 37, 45)
+      // document.write(`Profit = ${profit}`)
+
+      //==========================================
+
+      // Задача. Знайти вартість путівки на вказану кількість днів (вказано вартість проживання, харчування, комплекса процедур)
+      // function getTripCost(livingCost, foodCost, proceduresCost, daysNumber) {
+      //   return (livingCost + foodCost + proceduresCost) * daysNumber
+      // }
+      // //------ головна програма
+      // const livingCost = parseFloat(prompt('Вартість проживання'))
+      // const foodCost = parseFloat(prompt('Вартість харчування'))
+      // const proceduresCost = parseFloat(prompt('Вартість процедур'))
+      // const daysNumber = parseInt(prompt('Кількість днів'))
+
+      // let total = getTripCost(livingCost, foodCost, proceduresCost, daysNumber)
+      // document.write(`Total = ${total}`)
+
+      //==========================================
+
+      // Задача. Задано ширину елемента у відсотках та шиниу контейнера у пікселях. Визначити ширину елемента у пікселях.
+      // function getElementWidthInPx(containerWidthPx, elementWidthPercent) {
+      //   return (containerWidthPx * elementWidthPercent) / 100
+      // }
+      // //---- головна програма
+      // const containerWidthPx = parseFloat(prompt('Ширина контейнера (px)'))
+      // const elementWidthPercent = parseFloat(
+      //   prompt('Ширина елемента у відсотках')
+      // )
+      // const elementWidthInPx = getElementWidthInPx(
+      //   containerWidthPx,
+      //   elementWidthPercent
+      // )
+      // document.write(`Width = ${elementWidthInPx}`)
+
+      //==========================================
+
+      // Задача. Задано ширину контейнера у пікселях та мінімальну ширину К елементів. Визначити, чи можна
+      // розмістити елементи у одному рядку.
+      // function isSpaceAvailable(elementWidth, containerWidth, elementsNumber) {
+      //   // if (elementWidth * elementsNumber <= containerWidth) return true
+      //   // else return false
+      //   //-- КРАЩЕ ТАК !!!!
+      //   return elementWidth * elementsNumber <= containerWidth
+      // }
+      // //---- головна програма
+      // let elementWidth = parseFloat(prompt('Ширина елемента (px)'))
+      // let containerWidth = parseFloat(prompt('Ширина контейнера (px)'))
+      // let elementsNumber = parseInt(prompt('Кількість елементів'))
+      // if (isSpaceAvailable(elementWidth, containerWidth, elementsNumber))
+      //   alert('Помістяться')
+      // else alert('Не помістяться')
+
+      //==========================================
+
+      // Задача. Задано покази таймера відліку. Знайти колір, який треба застосувати для його виведення (100-80 – зелений, 79-30 – жовтий, 29-0 – червоний).
+      //--- Function Declaration
+      // function getTimerColor(timerValue) {
+      //   let color
+      //   if (timerValue >= 80) color = 'green'
+      //   else if (timerValue >= 30) color = 'yellow'
+      //   else color = 'red'
+      //   return color
+      // }
+      //--- Function Expression
+      // let getTimerColor = function (timerValue) {
+      //   let color
+      //   if (timerValue >= 80) color = 'green'
+      //   else if (timerValue >= 30) color = 'yellow'
+      //   else color = 'red'
+      //   return color
+      // }
+      //--- Arrow Function (lambda expression)
+      // let getTimerColor =  (timerValue) => {
+      //   let color
+      //   if (timerValue >= 80) color = 'green'
+      //   else if (timerValue >= 30) color = 'yellow'
+      //   else color = 'red'
+      //   return color
+      // }
+      // //--Головна програма
+      // const timerValue = parseInt(prompt('Які покази таймера'))
+
+      // const timerColor = getTimerColor(timerValue)
+
+      // document.write(
+      //   `<div style="background-color:${timerColor}; width:${timerValue}%" >${timerValue}</div>`
+      // )
+
+      //==========================================
+
+      // Задача. Задано ширину екрану. Визначити тип пристрою (>1024 – desctop, 1024-700 – планшет, <700 – мобільний)
+
+      //===================================
+      //Знайти суму двох чисел.
+
+      //==========================================
+      // Задача. Двоє гравців кидають двічі разів кубик і визначається сумарна кількість балів. Визначити переможця
+      // function getRandomScore(edgeNumber) {
+      //   return 1 + Math.floor(Math.random() * edgeNumber)
+      // }
+
+      // function getTotalPlayerScore(edgeNumber) {
+      //   let score1 = getRandomScore(edgeNumber) //підкинув в перший раз
+      //   let score2 = getRandomScore(edgeNumber) //підкинув в другйи раз
+      //   return score1 + score2
+      // }
+
+      // //---- головна програма
+      // let edgeNumber = parseInt(prompt('Скільки граней у кубика?'))
+      // //визначити кількість балів першого гравця player1Score
+      // let player1ScoreTotal = getTotalPlayerScore(edgeNumber)
+
+      // //визначити кількість балів другого гравця player2Score
+      // let player2ScoreTotal = getTotalPlayerScore(edgeNumber)
+
+      // alert(
+      //   `Player 1 : ${player1ScoreTotal},  Player 2 : ${player2ScoreTotal} `
+      // )
+      // //визначити переможця
+      // if (player1ScoreTotal > player2ScoreTotal) alert('1')
+      // else if (player1ScoreTotal < player2ScoreTotal) alert('2')
+      // else alert('Нічия')
+
+      //==========================================
+      // Обчислити.    S = Max(a, b) + Min(c, d) +Max(a, c)
+      //               S =   m1      +    m2     +  m3
+
+      //==========================================
+      // Дано 4 числа. Знайти суму та добуток як результат однієї функції.
+
+      //==========================================
+      // Дано 4 числа. Знайти максимальне і мінімальне значення як результат однієї функції.
+
+      //==========================================
+      //   Дано загальну кількість секунд, яка пройшла від початку доби. Знайти показники годинника на даний момент
+      // (години, хвилини, секунди) (повернути як об’єкт)
+
+      //==========================================
+      //==========================================
+      //Задача. Дано масив з віком працівників. Визначити скільки серед  них пенсіонерів (вік>=65).
+    </script>
+  </body>
+</html>

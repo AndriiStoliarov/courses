@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test For Lesson</title>
+  </head>
+  <body>
+    <script>
+      // 1. Описати функцію
+
+      // 4. Задача. Визначити середню оцінку з трьох предметів
+
+      // 5. Задача. Вивести привітання декількома мовами (мова задається (ua,en,fr), а виводиться привітання на потрібній мові (‘привіт’, ‘hello’))
+      // function sayHello(langId) {
+      //   let res
+      //   switch (langId) {
+      //     case 'en':
+      //       res = 'Hello!'
+      //       break
+      //     case 'ua':
+      //       res = 'Привіт!'
+      //       break
+      //     case 'fr':
+      //       res = 'Bonjour!'
+      //     default:
+      //       throw new Error('Невідома мова')
+      //   }
+      //   return res
+      // }
+      // //---
+      // document.write(sayHello('aaasddd'))
+      // document.write('11111')
+
+      // 6. Задача. Знайти розмір заробітної плати (ставка (salary) + надбавка (benefits) - податок (tax%))
+
+      // 8. Задача. Знайти добуток  3-х чисел
+      // function getProduct(num1, num2, num3) {
+      //   return num1 * num2 * num3
+      // }
+      // //-------------
+      // const number1 = parseInt(prompt(`num1 = `, ''))
+      // const number2 = parseInt(prompt(`num2 = `, ''))
+      // const number3 = parseInt(prompt(`num3 = `, ''))
+      // //---
+      // const prod1 = getProduct(number1, number2, number3)
+      // document.write(`prod : ${prod1}`)
+
+      // 2. Потрібно 3 рази крутити барабан з виграшами від -100 до 500. Потрібно знайти загальний виграш за 2 спроби
+      // function getRandomScore(minScore, maxScore) {
+      //   return minScore + Math.floor(Math.random() * (maxScore - minScore + 1))
+      // }
+
+      // // const totalScore = getRandomScore(-100, 500) + getRandomScore(-100, 500)
+      // // document.write(`${totalScore}`)
+
+      // document.write(`Res : ${getRandomScore(-100, 500)}`)
+
+      // 3. Випадково вибирають два дні тижня протягом місяця коли буде чергувати шеф
+
+      // 7. Продати два товари (назва і кількість товарів вказуються). Спочатку перший, потім другий.
+
+      // 9. Задача. Знайти суму 2-х чисел (другий аргумент за замовчуванням)
+
+      // 10. Написати функцію, яка буде вітати користувачів поки не зустріне Івана
+
+      // 11. Задача. Ввести імена 3-х користувачів і привітати їх
+
+      // 12. Знайти максимальне серед 2-х чисел
+      // function getMax(num1, num2) {
+      //   if (num1 > num2) return num1
+      //   return num2
+      // }
+
+      // const n1 = parseInt(prompt(`num1`, ''))
+      // const n2 = parseInt(prompt(`num2`, ''))
+
+      // document.write(`Max =  ${getMax(n1, n2)}`)
+      // 13. Задача. Знайти вартість оренди авто за заданою вартістю на місяць і кількістю місяців
+      // function getTotalRent(rentPerMonth, monthNumber) {
+      //   return rentPerMonth * monthNumber
+      // }
+      // //-------
+      // document.write(
+      //   `total for 3 month and rent 5000 : ${getTotalRent(5000, 3)}`
+      // )
+
+      // 14. Задача. Знайти прибуток банку при купівлі та реалізації вказаної суми доларів.
+      // function getBankProfit(amountDollars, rate) {
+      //   return amountDollars*rate
+      // }
+
+      // 15. Задача. Знайти вартість путівки на вказану кількість днів (вказано вартість проживання, харчування, комплекса процедур)
+      // function getTotalPrice(daysNumber, livingPrice, foodPrice, procPrice) {
+      //   return daysNumber * (livingPrice + foodPrice + procPrice)
+      // }
+
+      // document.write(getTotalPrice(7, 5000, 2300, 4000))
+
+      // 16. Задача. Задано ширину елемента у відсотках та ширину контейнера у пікселях. Визначити ширину елемента у пікселях.
+      // function getWidthInPixels(containerWidth, elementWidthPercentage) {
+      //   return Math.floor((containerWidth * elementWidthPercentage) / 100)
+      // }
+
+      // document.write(`Width : ${getWidthInPixels(500, 50)}`)
+
+      // Розробити функцію, яка може виконувати якісь дії передані через параметри
+
+      // function show1() {
+      //   console.log(1111)
+      // }
+
+      // function show2() {
+      //   console.log(2222)
+      // }
+
+      // //---
+      // function mainShow(operationShow) {
+      //   operationShow()
+      // }
+
+      // mainShow(show2)
+      //-------------------------
+      //Функція обчислює суму 2 чисесел. А куди виводити у консоль чи на сторінку визначає користувач
+      // function doSumCalculation(num1, num2, displayResultFunction) {
+      //   const sum = num1 + num2
+      //   displayResultFunction(`Sum = ${sum}`)
+      // }
+      // //-----
+      // const n1 = parseInt(prompt(`n1 = `, ''))
+      // const n2 = parseInt(prompt(`n2 = `, ''))
+      // const userAnswer = prompt('1)log;\n2)write\nYour choice:')
+      // let userDispFunc
+      // switch (userAnswer) {
+      //   case '1':
+      //     userDispFunc = console.log
+      //     break
+      //   case '2':
+      //     userDispFunc = (res) => document.write(res)
+      //     break
+      // }
+
+      // doSumCalculation(n1, n2, userDispFunc)
+      // -----------------------
+      // const sum = function (n1,n2) {
+      //   return n1+n2
+      // }
+
+      // const sum = (n1,n2) => n1+n2
+
+      // const average = (n1, n2) => {
+      //   const s = n1 + n2
+      //   console.log(s)
+      //   return s / 2
+      // }
+
+      // 17. Задача. Задано ширину контейнера у пікселях та мінімальну ширину К елементів. Визначити, чи можна розмістити елементи у одному рядку.
+
+      // 18. Задача. Задано покази таймера відліку. Знайти колір, який треба застосувати для його виведення (100-80 – зелений, 79-30 – жовтий, 29-0 – червоний).
+      // function getColor(value) {
+      //   let color
+      //   if (value <= 29) color = 'red'
+      //   else if (value <= 79) color = 'yellow'
+      //   else color = 'green'
+      //   return color
+      // }
+
+      // function displayTimerValue(value) {
+      //   const color = getColor(value)
+
+      //   document.write(`<div style = "color:${color};">${value}</div>`)
+      // }
+      // // ------
+      // displayTimerValue(45)
+      // displayTimerValue(15)
+      // displayTimerValue(85)
+
+      // 19. Задача. Задано ширину екрану. Визначити тип пристрою (>1024 – desctop, 1024-700 – планшет, <700 – мобільний)
+
+      // 20. Знайти суму двох чисел.
+
+      // =================
+      // function getRes(a, b = 9, c = 100) {
+      //   return a + b + c
+      // }
+
+      // const sum = getRes(10, 2, 1)
+
+      // document.write(`sum : ${sum}`)
+
+      // 21. Задача. Двоє гравців кидають двічі разів кубик і визначається сумарна кількість балів. Визначити переможця
+
+      // 22. Обчислити. S = Max(a, b) + Min(c, d) + Max(a, c)
+
+      // 23. Дано 4 числа. Знайти суму та добуток як результат однієї функції.
+
+      // 24. Дано 4 числа. Знайти максимальне і мінімальне значення як результат однієї функції.
+
+      // 25. Дано загальну кількість секунд, яка пройшла від початку доби. Знайти показники годинника на даний момент (години, хвилини, секунди) (повернути як об’єкт)
+
+      // 26. Задача. Дано масив з віком працівників. Визначити скільки серед них пенсіонерів (вік>=65).
+    </script>
+  </body>
+</html>
