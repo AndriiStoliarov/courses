@@ -38,7 +38,7 @@
                     </li>
                     <li class="tasks__item">
                       <script>
-                        // if (confirm('Почати тестування?')) {
+                        if (confirm('Почати тестування?')) {
                           document.write(`
                             <p>
                               <span class="tasks__title">Відповідь:</span>
@@ -46,25 +46,40 @@
                           `);
                           const dayOfWeekNumber = parseInt(prompt('Введіть номер дня тижня:', '5'));
 
-                          isWorkingDay(dayOfWeekNumber);
+                          document.write(`
+                            <li class="list__item">
+                              <span>${isWorkingDay(dayOfWeekNumber)}</span>
+                            </li>
+                          `);
 
                           function isWorkingDay(dayOfWeekNumber) {
-                            let dayOfWeekName = '';
+                            let dayOfWeekName = "";
 
                             switch (dayOfWeekNumber) {
-                              case value:
-                                
+                              case 1:
+                              case 2:
+                              case 3:
+                              case 4:
+                              case 5:
+                                dayOfWeekName = "Цей день є робочим.";
                                 break;
-                            
+                              case 6:
+                              case 7:
+                                dayOfWeekName = "Цей день є вихідним.";
+                                break;
+
                               default:
-                                break;
+                                dayOfWeekName = "Такого дня тижня не існує.";
                             }
+
+                            return dayOfWeekName;
                           }
+
                           document.write(`
                               </ul>
                             </p>
                           `);
-                        // }
+                        }
                       </script>
                     </li>
                   </ul>
