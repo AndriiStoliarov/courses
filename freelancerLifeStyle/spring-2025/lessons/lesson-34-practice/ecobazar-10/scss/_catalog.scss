@@ -1,0 +1,165 @@
+@use "sass:math";
+@use "_colors.scss" as *;
+@use "_mixins.scss" as *;
+//========================================================================================================================================================
+.catalog {
+	@include adaptiveValue("padding-bottom", 80, 30);
+	// .catalog__container
+	&__container {
+	}
+	// .catalog__form
+	&__form {
+		overflow: clip;
+	}
+	// .catalog__filter
+	&__filter {
+		@media (min-width: toEm($mobile)) {
+			margin-left: toRem(-336);
+			flex-basis: toRem(336);
+			padding-right: toRem(24);
+			transition: margin-left 0.3s;
+			.open-filter & {
+				margin-left: 0;
+			}
+		}
+		@media (max-width: toEm($mobile)) {
+			display: none;
+			padding-top: toRem(15);
+			.open-filter & {
+				display: block;
+			}
+		}
+	}
+	// .catalog__body
+	&__body {
+		display: flex;
+		align-items: flex-start;
+		position: relative;
+	}
+	// .catalog__content
+	&__content {
+		flex-grow: 1;
+	}
+	// .catalog__items
+	&__items {
+		gap: toRem(24);
+		@include adaptiveValue("margin-bottom", 40, 25);
+	}
+}
+.filter {
+	@media (min-width: toEm($mobile)) {
+		position: sticky;
+		top: toRem(210);
+	}
+	// .filter__body
+	&__body {
+	}
+	// .filter__item
+	&__item {
+	}
+}
+.item-filter {
+	// .item-filter__header
+	&__header {
+		@include typography("XL", 500);
+		color: $grey9;
+		appearance: none;
+		display: flex;
+	}
+	// .item-filter__body
+	&__body {
+	}
+}
+.header-catalog {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: toRem(10) toRem(20);
+	min-height: toRem(46);
+	&:not(:last-child) {
+		margin-bottom: toRem(22);
+	}
+	@media (max-width: toEm($mobile)) {
+		display: block;
+	}
+	// .header-catalog__filter
+	&__filter {
+		flex-basis: toRem(312);
+		@media (max-width: toEm($mobile)) {
+			margin-bottom: toRem(15);
+		}
+	}
+	// .header-catalog__button
+	&__button {
+		.open-filter & {
+			background-color: $successDark;
+		}
+		@media (max-width: toEm($mobile)) {
+			width: 100%;
+		}
+	}
+	// .header-catalog__body
+	&__body {
+		flex-grow: 1;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: toRem(10) toRem(20);
+		justify-content: space-between;
+	}
+	// .header-catalog__sort
+	&__sort {
+	}
+	// .header-catalog__result
+	&__result {
+		@include typography("M");
+		color: $grey6;
+		span {
+			color: $grey9;
+			font-weight: 600;
+		}
+	}
+}
+.sort-catalog {
+	display: flex;
+	align-items: center;
+	@include typography("S");
+	gap: toRem(8);
+	@media (max-width: toEm($mobileSmall)) {
+		flex-grow: 1;
+	}
+	// .sort-catalog__label
+	&__label {
+		color: $grey5;
+	}
+	// .sort-catalog__body
+	&__body {
+		position: relative;
+		&::before {
+			position: absolute;
+			right: toRem(16);
+			top: 50%;
+			z-index: 2;
+			translate: 0 -50%;
+			font-size: toRem(6);
+		}
+		@media (max-width: toEm($mobileSmall)) {
+			flex-grow: 1;
+		}
+	}
+	// .sort-catalog__select
+	&__select {
+		padding-right: toRem(40);
+		appearance: none;
+		border-radius: toRem(4);
+		height: toRem(41);
+		color: $grey7;
+		padding-left: toRem(16);
+		border: toRem(1) solid $grey1;
+		width: 100%;
+	}
+	// .sort-catalog__item
+	&__item {
+	}
+}
