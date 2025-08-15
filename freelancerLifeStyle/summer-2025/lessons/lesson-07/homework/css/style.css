@@ -150,6 +150,11 @@ body {
   text-align: center;
 }
 
+figure,
+figcaption {
+  text-align: center;
+}
+
 /* @media ============================== */
 @media (any-hover: hover), (pointer: fine) {
   .tasks__link:hover {

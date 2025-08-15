@@ -33,16 +33,24 @@
                     <li class="tasks__item">
                       <p><span class="tasks__title">Задача 3.</span> Створити окремі функції, які для 4 чисел знаходять:
                         <ul class="list">
-                          <li class="list__item"><span>1) суму;</span></li>
-                          <li class="list__item"><span>2) добуток;</span></li>
-                          <li class="list__item"><span>3) середнє арифметичне;</span></li>
-                          <li class="list__item"><span>4) мінімальне значення.</span></li>
+                          <li class="list__item">
+                            <span>1) суму;</span>
+                          </li>
+                          <li class="list__item">
+                            <span>2) добуток;</span>
+                          </li>
+                          <li class="list__item">
+                            <span>3) середнє арифметичне;</span>
+                          </li>
+                          <li class="list__item">
+                            <span>4) мінімальне значення.</span>
+                          </li>
                         </ul>
                       </p>
                     </li>
                     <li class="tasks__item">
                       <script>
-                        // if (confirm('Почати тестування?')) {
+                        if (confirm('Почати тестування?')) {
                           const firstNumber = parseInt(prompt("Введіть перше число:", "5"));
                           const secondNumber = parseInt(prompt("Введіть друге число:", "15"));
                           const thirdNumber = parseInt(prompt("Введіть трете число:", "7"));
@@ -56,22 +64,27 @@
 
                           document.write(`
                             <li class="list__item">
+                              <span>Значення аргументів: ${firstNumber}, ${secondNumber}, ${thirdNumber}, ${fourthNumber}.</span>
+                            </li><br>
+                          `);
+                          document.write(`
+                            <li class="list__item">
                               <span>Сума: ${getSum(firstNumber, secondNumber, thirdNumber, fourthNumber)};</span>
                             </li>
                           `);
                           document.write(`
                             <li class="list__item">
-                              <span>Сума = ${getSum(firstNumber, secondNumber, thirdNumber, fourthNumber)};</span>
+                              <span>Добуток: ${getMultiplication(firstNumber, secondNumber, thirdNumber, fourthNumber)};</span>
                             </li>
                           `);
                           document.write(`
                             <li class="list__item">
-                              <span>Сума = ${getSum(firstNumber, secondNumber, thirdNumber, fourthNumber)};</span>
+                              <span>Середнє арифметичне: ${getMean(firstNumber, secondNumber, thirdNumber, fourthNumber)};</span>
                             </li>
                           `);
                           document.write(`
                             <li class="list__item">
-                              <span>Мінімальне значення: ${isMinNumber(firstNumber, secondNumber, thirdNumber, fourthNumber)};</span>
+                              <span>Мінімальне значення: ${isMinNumber(firstNumber, secondNumber, thirdNumber, fourthNumber)}.</span>
                             </li>
                           `);
 
@@ -103,6 +116,11 @@
                           function isMinNumber(firstNumber, secondNumber, thirdNumber, fourthNumber) {
                             const minNumber = Math.min(firstNumber, secondNumber, thirdNumber, fourthNumber);
 
+                            // let minNumber = firstNumber;
+                            // if (secondNumber < minNumber) minNumber = secondNumber;
+                            // if (thirdNumber < minNumber) minNumber = thirdNumber;
+                            // if (fourthNumber < minNumber) minNumber = fourthNumber;
+
                             return minNumber;
                           }
 
@@ -110,7 +128,7 @@
                               </ul>
                             </p>
                           `);
-                        // }
+                        }
                       </script>
                     </li>
                   </ul>
