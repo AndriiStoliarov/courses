@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //=================== ФУНКЦІЇ ===========================
+
+      //==============================================
+      //Задача. Створити функцію, яка дозволяє визначити чи вказаний місяць (1-12) є літнім (6-8)
+      // function isSummerMonth(monthNumber) {
+      //   return 6 <= monthNumber && monthNumber <= 8
+      // }
+
+      // const userMonthNumber = parseInt(prompt('Введіть номер місяця'))
+      // if (isSummerMonth(userMonthNumber)) document.write('Summer')
+      // else document.write('Not summer')
+      //==============================================
+      //Задача. Створити функцію, яка дозволяє визначити чи є працівник пенсіонером(вік >=65)
+      // function isEmployeeRetired(age) {
+      //   return age >= 65
+      // }
+
+      // const userAge = parseInt(prompt('Введіть вік користувача'))
+
+      // document.write(
+      //   isEmployeeRetired(userAge) ? 'Пенсіонер' : 'Не є пенсіонером'
+      // )
+
+      //==============================================
+      //Задача. Створити функцію, яка дозволяє визначити чи є вказаний день робочим (1-5)
+      // function isWorkingDay(dayNumber) {
+      //   return dayNumber >= 1 && dayNumber <= 5
+      // }
+
+      // const userDayNumber = parseInt(prompt('Введіть номер дня'))
+
+      // const resultMessage = isWorkingDay(userDayNumber)
+      //   ? 'День робочий'
+      //   : 'День не є робочим'
+
+      // document.write(resultMessage)
+
+      //==============================================
+      //Задача. Створити функцію, яка дозволяє визначити за числовим значення значення оцінки (1-12) прописом
+      // function getScoreTitle(score) {
+      //   let scoreTitle
+      //   switch (score) {
+      //     case 1:
+      //     case 2:
+      //     case 3:
+      //       scoreTitle = 'Незадовільно'
+      //       break
+      //     case 4:
+      //     case 5:
+      //     case 6:
+      //       scoreTitle = 'задовільно'
+      //       break
+      //     case 7:
+      //     case 8:
+      //     case 9:
+      //       scoreTitle = 'добре'
+      //       break
+      //     default:
+      //       scoreTitle = 'відмінно'
+      //       break
+      //   }
+      //   return scoreTitle
+      // }
+
+      // const userScore = parseInt(prompt('Ваша оцінка'))
+
+      // document.write(getScoreTitle(userScore))
+
+      //==============================================
+      //Задача. Поступово генеруються R випадкових чисел у вказаному діапазоні. Знайти суму тільки парних.
+
+      // function getRandomNumber(minV, maxV) {
+      //   return minV + Math.floor(Math.random() * (maxV - minV + 1))
+      // }
+
+      // function isEven(num) {
+      //   return num % 2 === 0
+      // }
+
+      // function getEvenNumbersSum(R, minValue = 1, maxValue = 100) {
+      //   let sum = 0
+      //   //  R разів повторити
+      //   for (let i = 0; i < R; i++) {
+      //     // згенерувати число randNum
+      //     let randNum = getRandomNumber(minValue, maxValue)
+
+      //     // якщо воно парне,
+      //     //то додати до суми sum
+      //     if (isEven(randNum)) sum += randNum
+      //
+      //     // if (randNum%2 === 0) sum += randNum
+      //   }
+      //   return sum
+      // }
+
+      // const R = parseInt(prompt('R='))
+      // const minV = parseInt(prompt('min value='))
+      // const maxV = parseInt(prompt('max value='))
+
+      // //const resultSum = getEvenNumbersSum(R)  // minV=1, maxV=100
+      // const resultSum = getEvenNumbersSum(R, minV, maxV)
+
+      // document.write(resultSum)
+
+      //==============================================
+      //Задача. Поступово генеруються випадкові числа у вказаному діапазоні. Знайти кількість таких, які більші за М.
+
+      //==============================================
+      //Задача. Поступово генеруються випадкові пари чисел (R -пар). Користувач вводить число і виграє, якщо його число співпало хоча би з одним із них. Підрахувати кількість вгаданих чисел.
+
+      // function getRandomNumber(minV, maxV) {
+      //   return minV + Math.floor(Math.random() * (maxV - minV + 1))
+      // }
+
+      // function getGuessedNumber(R, minV, maxV) {
+      //   let guessedNumber = 0
+      //   for (let i = 0; i < R; i++) {
+      //     //згенерувати перше число randNum1
+      //     let randNum1 = getRandomNumber(minV, maxV)
+
+      //     //згенерувати дгуре число randNum2
+      //     let randNum2 = getRandomNumber(minV, maxV)
+
+      //     //Вводимо число користувача userNum
+      //     const userNum = parseInt(prompt('Ввдіть Ваше число'))
+
+      //     //Якщо userNum дорывнює randNum1 або randNum2
+      //     // то кількість вгаданих gussedNumber збільшити на 1
+      //     if (userNum === randNum1 || userNum === randNum2) guessedNumber++
+      //   }
+
+      //   return guessedNumber
+      // }
+
+      // const R = parseInt(prompt('R='))
+      // const minV = parseInt(prompt('min value='))
+      // const maxV = parseInt(prompt('max value='))
+
+      // let result = getGuessedNumber(R, minV, maxV)
+
+      // document.write(`Ви вгадали ${result} чисел`)
+      //==============================================
+      //Задача. Створити функцію, яка виводить на екран  числа у вказаному діапазоні
+
+      //==============================================
+      //Задача. Створити функцію, яка виводить на екран можливі значення секунд на годиннику
+
+      //==============================================
+      //Задача. Створити функцію, яка виводить на екран можливі значення номерів місяців
+
+      //==============================================
+      //Задача. Створити функцію, яка виводить на екран можливі значення номерів літніх місяців
+      //==============================================
+
+      // Задача. За допомогою функцій розробити документ, який має М параграфів (заголовок і якийсь фрагмент тексту). Також сформувати
+      // за допомогою посилань на параграфи зміст.
+      // ----- Зміст ------
+      //   <p>
+      //     <a href="#p1">Paragraph 1</a>
+      //   </p>
+      //   <p>
+      //     <a href="#p2">Paragraph 2</a>
+      //   </p>
+      //    .........................
+      //    .........................
+      //------ Тіло документу ----------
+      //   <div>
+      //     <h1 id="p1">Title 1</h1>
+      //     <p>
+      //       word word word word word word word word word word word word word word
+      //       word word word word word word word word word word word word word word
+      //       word word word word word word word word word word word word word word
+      //       word
+      //     </p>
+      //   </div>
+      //   ..........................
+      //   ..........................
+      // function getLinkComponent(linkHref, linkTitle) {
+      //   return `
+      //   <p>
+      //     <a href="${linkHref}"> ${linkTitle} </a>
+      //   </p>  `
+      // }
+
+      // function getPagraphComponent(
+      //   paragraphId,
+      //   paragraphTitle,
+      //   paragraphContent
+      // ) {
+      //   return `
+      //   <div>
+      //     <h1 id="${paragraphId}">${paragraphTitle}</h1>
+      //     <p>
+      //       ${paragraphContent}
+      //     </p>
+      //   </div>
+      //   `
+      // }
+
+      // function printDocument(paragraphNumber) {
+      //   //Виводимо посилання
+      //   for (let i = 1; i <= paragraphNumber; i++) {
+      //     document.write(getLinkComponent(`#p${i}`, `Paragraph ${i}`))
+      //   }
+
+      //   const content = ` word word word word word word word word word word word word word word
+      // //       word word word word word word word word word word word word word word
+      // //       word word word word word word word word word word word word word word
+      // //       word`
+      //   //Виводимо параграфи
+      //   for (let i = 1; i <= paragraphNumber; i++) {
+      //     document.write(getPagraphComponent(`p${i}`, `Title ${i}`, content))
+      //   }
+      // }
+
+      // printDocument(5)
+
+      //==============================================
+      //Задача. Задано деякий діапазон років. Вивести на екран не більше ніх К парних років (від початку діапазону).
+
+      //==============================================
+      //Задача. Задано деякий діапазон років. Вивести на екран не більше ніх К парних років (від кінця діапазону).
+
+      //==============================================
+      //Задача. Задано деякий діапазон років. Вивести на екран не більше ніх К високосних років.
+
+      //==============================================
+      //Задача. Задано деякий діапазон років. Вивести на екран К років починаючи з першого високосного року.
+
+      //==============================================
+      //Задача. Задано деякий діапазон років. Вивести на екран не більше ніх К років починаючи з першого високосного року.
+
+      //================== МАСИВИ ============================
+      //==============================================
+      //==============================================
+      //==============================================
+      //==============================================
+      //==============================================
+      //==============================================
+      //==============================================
+      // Задача. Дано вартості товарів, яку купив користувач. Знайти загальну вартість усіх товарів
+
+      // function getToraPrice(prices) {
+      //   let totalPrice = 0
+      //   for (let i = 0; i < prices.length; i++) {          //Як змінюються номери елементів масиву
+      //     totalPrice += prices[i] //Що робити з кожним із елементів
+      //   }
+      //   return totalPrice
+      // }
+
+      //               // 0  1    2   3  4    5    6    7  8  9
+      // const prices = [12, 23, 45, 23, 12, 345, 678, 23, 1, 90]
+
+      // let totalPrice = getToraPrice(prices)
+
+      // document.write(`Total price = ${totalPrice}`)
+
+      //==============================================
+      // Задача. Дано розміри доходу магазину за кожен місяць протягом року. Знайти:
+      // 1) загальний дохід за рік (1-12)
+      // 2) загальний дохід за 1-ше півріччя (1-6)
+      // 3) загальний дохід за 2-ге півріччя (7-12)
+      // 4) загальний дохід за 2-гий квартал (4-6)
+      // 5) загальний дохід за 2-гий і 3-тій квартал (4-9)
+      //--- ФУНКЦІЯ ДЛЯ ВВЕДЕННЯ МАСИВУ (ВКАЗУЄМО КІЛЬКІСТЬ ПОТІРБНИХ ЕЛЕМЕНТІВ)
+      // function inputArray(itemsNumber) {
+      //   let arr = []
+      //   for (let i = 0; i < itemsNumber; i++) {
+      //     const monthIncome = parseFloat(prompt(`Ввдеіть дохід за ${i} місяць`))
+      //     arr.push(monthIncome)
+      //   }
+      //   return arr
+      // }
+      // //--- Функція для знаходження суми елементів де номери змінюються від startMonthNumber  до endMonthNumber
+      // function getIncomeSum(incomesList, startMonthNumber, endMonthNumber) {
+      //   let sum = 0
+      //   for (let month = startMonthNumber; month <= endMonthNumber; month++) {//Як змінюються номери елментів
+      //     sum += incomesList[month - 1] //Що зробити з кожним із елементів
+      //   }
+      //   return sum
+      // }
+      // //---------------------------
+      // //Вводимо елементи масиву
+      // const incomesList = inputArray(12)
+      // //Знаходимо результат
+      // // 1) загальний дохід за рік (1-12)
+      // const sumYear = getIncomeSum(incomesList, 1, 12)
+      // document.write(sumYear)
+      // // 2) загальний дохід за 1-ше півріччя (1-6)
+      // const sum_1_6 = getIncomeSum(incomesList, 1, 6)
+      // document.write(sum_1_6)
+      // // 3) загальний дохід за 2-ге півріччя (7-12)
+      // const sum_7_12 = getIncomeSum(incomesList, 7, 12)
+      // document.write(sum_7_12)
+      // // 4) загальний дохід за 2-гий квартал (4-6)
+      // // 5) загальний дохід за 2-гий і 3-тій квартал (4-9)
+
+      //==============================================
+      //Задача. Створити функцію, яка для довільної кількості цін товарів знаходить суму цін товарів, які більші за 100.
+
+      //--- Розв"язок з використанням arguments
+      // function getSumOfPricesGrateThan_100() {
+      //   let sum = 0
+      //   // arguments = [2,130,312,45,2133,3]
+      //   for (let i = 0; i < arguments.length; i++) { //Як змінюєть номер елементів
+      //     sum += arguments[i]       //Що треба зробити з кожним із елементів
+      //   }
+      //   return sum
+      // }
+      //--- Розв"язок з використанням масиву і спред оператора
+      function getSumOfPricesGrateThan_100(...prices) {
+        let sum = 0
+        for (let i = 0; i < prices.length; i++) {
+          //Як змінюєть номер елементів
+          sum += prices[i] //Що треба зробити з кожним із елементів
+        }
+        return sum
+      }
+
+      let sum1 = getSumOfPricesGrateThan_100(2, 130, 312, 45, 2133, 3)
+
+      //==============================================
+      //       Задача. Створити функцію, яка приймає рік виходу на пенсію, та довільну
+      // кількість значень років працівників. Визначити кількість пенсіонерів.
+    </script>
+
+    <!-- <p>
+      <a href="#p1">Paragraph 1</a>
+    </p>
+    <p>
+      <a href="#p2">Paragraph 2</a>
+    </p>
+    <p>
+      <a href="#p3">Paragraph 3</a>
+    </p>
+
+    <div>
+      <h1 id="p1">Title 1</h1>
+      <p>
+        word word word word word word word word word word word word word word
+        word word word word word word word word word word word word word word
+        word word word word word word word word word word word word word word
+        word
+      </p>
+    </div>
+    <div>
+      <h1 id="p2">Title 2</h1>
+      <p>
+        word word word word word word word word word word word word word word
+        word word word word word word word word word word word word word word
+        word word word word word word word word word word word word word word
+        word
+      </p>
+    </div>
+    <div>
+      <h1 id="p3">Title 3</h1>
+      <p>
+        word word word word word word word word word word word word word word
+        word word word word word word word word word word word word word word
+        word word word word word word word word word word word word word word
+        word
+      </p>
+    </div> -->
+  </body>
+</html>
