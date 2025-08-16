@@ -31,16 +31,25 @@
                 <div class="tasks__inner">
                   <ul class="tasks__items">
                     <li class="tasks__item">
-                      <p><span class="tasks__title">Задача 3.</span> Дано масив імен учнів. Зсувати скільки разів зустрічається ім’я «Іван».
+                      <p><span class="tasks__title">Задача 3.</span> Дано масив імен учнів. з'ясувати скільки разів зустрічається ім’я
+                        «Іван».
                       </p>
                     </li>
                     <li class="tasks__item">
                       <script>
                         if (confirm('Почати тестування?')) {
-                          const firstNumber = parseInt(prompt("Введіть перше число:", "5"));
-                          const secondNumber = parseInt(prompt("Введіть друге число:", "15"));
-                          const thirdNumber = parseInt(prompt("Введіть трете число:", "7"));
-                          const fourthNumber = parseInt(prompt("Введіть четверте число:", "27"));
+                          const pupilNamesArray = [
+                            "Василь",
+                            "Галина",
+                            "Марічка",
+                            "Іван",
+                            "Тарас",
+                            "Стас",
+                            "Микола",
+                            "Оля",
+                            "Юля",
+                            "Іван",
+                          ];
 
                           document.write(`
                             <p>
@@ -48,66 +57,44 @@
                               <ul class="list">
                           `);
 
+                          showArray(pupilNamesArray);
+
+                          document.write('<br>');
+
+                          const amountIvan = searchName("Іван", pupilNamesArray);
+
                           document.write(`
                             <li class="list__item">
-                              <span>Значення аргументів: ${firstNumber}, ${secondNumber}, ${thirdNumber}, ${fourthNumber}.</span>
-                            </li><br>
-                          `);
-                          document.write(`
-                            <li class="list__item">
-                              <span>Сума: ${getSum(firstNumber, secondNumber, thirdNumber, fourthNumber)};</span>
-                            </li>
-                          `);
-                          document.write(`
-                            <li class="list__item">
-                              <span>Добуток: ${getMultiplication(firstNumber, secondNumber, thirdNumber, fourthNumber)};</span>
-                            </li>
-                          `);
-                          document.write(`
-                            <li class="list__item">
-                              <span>Середнє арифметичне: ${getMean(firstNumber, secondNumber, thirdNumber, fourthNumber)};</span>
-                            </li>
-                          `);
-                          document.write(`
-                            <li class="list__item">
-                              <span>Мінімальне значення: ${isMinNumber(firstNumber, secondNumber, thirdNumber, fourthNumber)}.</span>
+                              <span>Імя "Іван" зустрічається: ${amountIvan} рази.</span>
                             </li>
                           `);
 
-                          function getSum(firstNumber, secondNumber, thirdNumber, fourthNumber) {
-                            const sumNumbers = firstNumber + secondNumber + thirdNumber + fourthNumber;
+                          function searchName(name, namesArray) {
+                            let counterName = 0;
 
-                            return sumNumbers;
+                            for (let i = 0; i < namesArray.length; i++) {
+                              if (namesArray[i] === name) counterName++;
+                            }
+
+                            return counterName;
                           }
 
-                          function getMultiplication(
-                            firstNumber,
-                            secondNumber,
-                            thirdNumber,
-                            fourthNumber
-                          ) {
-                            const multiplicationNumbers =
-                              firstNumber * secondNumber * thirdNumber * fourthNumber;
+                          function showArray(array) {
+                            document.write(`
+                              <li class="list__item">
+                                <span>Массив імен: [</span>
+                            `);
 
-                            return multiplicationNumbers;
-                          }
+                            for (let index = 0; index < array.length; index++) {
+                              document.write(`
+                                  <span>${array[index]}</span>
+                              `);
+                            }
 
-                          function getMean(firstNumber, secondNumber, thirdNumber, fourthNumber) {
-                            const meanNumbers =
-                              (firstNumber + secondNumber + thirdNumber + fourthNumber) / 4;
-
-                            return meanNumbers;
-                          }
-
-                          function isMinNumber(firstNumber, secondNumber, thirdNumber, fourthNumber) {
-                            const minNumber = Math.min(firstNumber, secondNumber, thirdNumber, fourthNumber);
-
-                            // let minNumber = firstNumber;
-                            // if (secondNumber < minNumber) minNumber = secondNumber;
-                            // if (thirdNumber < minNumber) minNumber = thirdNumber;
-                            // if (fourthNumber < minNumber) minNumber = fourthNumber;
-
-                            return minNumber;
+                            document.write(`
+                                <span>].</span>
+                              </li>
+                            `);
                           }
 
                           document.write(`

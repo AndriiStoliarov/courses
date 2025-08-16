@@ -40,17 +40,21 @@
                     <li class="tasks__item">
                       <script>
                         if (confirm('Почати тестування?')) {
+                          const subjectAmount = parseInt(prompt("Введіть кількість предметів:", "10"));
+
+                          const gradesArray = createArray(subjectAmount);
+                          const averageGrade = getAverageGrade(gradesArray);
+                          const pupilStatus = getPupilStatus(averageGrade);
+
                           document.write(`
                             <p>
                               <span class="tasks__title">Відповідь:</span>
                               <ul class="list">
                           `);
 
-                          const subjectAmount = parseInt(prompt("Введіть кількість предметів:", "10"));
+                          showArray(gradesArray);
 
-                          const gradesArray = createArray(subjectAmount);
-                          const averageGrade = getAverageGrade(gradesArray);
-                          const pupilStatus = getPupilStatus(averageGrade);
+                          document.write('<br>');
 
                           document.write(`
                             <li class="list__item">
@@ -124,6 +128,25 @@
                               Math.floor(Math.random() * (RANDOM_NUMBER_FROM - RANDOM_NUMBER_TO + 1));
 
                             return randomNumber;
+                          }
+
+                          // функція, яка виводить масив
+                          function showArray(array) {
+                            document.write(`
+                              <li class="list__item">
+                                <span>Массив оцінок: [</span>
+                            `);
+
+                            for (let index = 0; index < array.length; index++) {
+                              document.write(`
+                                  <span>${array[index]}</span>
+                              `);
+                            }
+
+                            document.write(`
+                                <span>].</span>
+                              </li>
+                            `);
                           }
 
                           document.write(`

@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <title>Урок 07</title>
+    <title>Урок 08</title>
   </head>
 
   <body>
@@ -17,7 +17,7 @@
       <header class="header" id="up">
         <div class="header__container">
           <div class="header__inner">
-            <h1 class="header__title">Домашне завдання № 7</h1>
+            <h1 class="header__title">Домашне завдання № 8</h1>
           </div><!-- /. header__inner -->
         </div><!-- /. header__container -->
       </header>
@@ -31,51 +31,146 @@
                 <div class="tasks__inner">
                   <ul class="tasks__items">
                     <li class="tasks__item">
-                      <p><span class="tasks__title">Задача 6.</span> Створити функцію, яка створює таблицю з вказаною кількістю рядків і
-                        стовпців (таблиця заповнюється заданим фіксованим повідомленням).
+                      <p><span class="tasks__title">Задача 6.</span> Дано послідовність цін товарів та назв (у окремих масивах). Вивести на
+                        екран ті, які може собі дозволити користувач (кількість грошей задається).
+                        <ul class="list">
+                          <li class="list__item">
+                            <span>Приклад збереження даних:</span>
+                          </li>
+                          <li class="list__item">
+                            <span>let productsPrices = [1000, 20, 31];</span>
+                          </li>
+                          <li class="list__item">
+                            <span>let productsTitles = [‘cheese’, ‘juice’, ‘bread’];</span>
+                          </li>
+                        </ul>
                       </p>
                     </li>
                     <li class="tasks__item">
                       <script>
                         if (confirm('Почати тестування?')) {
-                          const amountRows = parseInt(prompt("Введіть кількість рядків:", "3"));
-                          const amountColumns = parseInt(prompt("Введіть кількість колонок:", "7"));
+                          const productsTitles = [
+                            "сир",
+                            "сік",
+                            "хліб",
+                            "банани",
+                            "молоко",
+                            "картопля",
+                            "малина",
+                            "масло",
+                            "помідори",
+                            "шоколад",
+                          ];
+                          const productsPrices = [123, 41, 25, 38, 64, 32, 200, 178, 94, 50];
+
+                          const moneyAmount = parseInt(prompt("Введіть кількість грошей:", "500"));
+
+                          const productsAmountIndex = getProductsAmount(productsPrices, moneyAmount);
+                          const productsTitlesUserCan = getProductsTitles(productsTitles, productsAmountIndex);
 
                           document.write(`
                             <p>
                               <span class="tasks__title">Відповідь:</span>
                               <ul class="list">
-                                <li class="tasks__item">
                           `);
 
-                          document.write(`${createTable(amountRows, amountColumns)}`);
+                          showArray(productsPrices, 'Масив цін');
+                          showArray(productsTitles, 'Масив продуктів');
 
-                          function createTable(amountRows, amountColumns) {
-                            let table = `
-                              <table class="tasks__table  table">
-                                <tbody>
-                            `;
+                          document.write('<br>');
 
-                            for (let row = 0; row < amountRows; row++) {
-                              table += '<tr class="table__row">';
+                          document.write(`
+                            <li class="list__item">
+                              <span>Кількість грошей: ${moneyAmount} грн.</span>
+                            </li>
+                          `);
 
-                              for (let cell = 0; cell < amountColumns; cell++) {
-                                table += `<td class="table__data">7</td>`;
-                              }
+                          showArrayList(productsTitlesUserCan);
 
-                              table += "</tr>";
+                          // функція повертає перелік товарів
+                          function getProductsTitles(productsTitles, productsAmountIndex) {
+                            let productsTitlesArray = [];
+
+                            for (let i = 0; i < productsAmountIndex.length; i++) {
+                              productsTitlesArray.push(productsTitles[productsAmountIndex[i]]);
                             }
 
-                            table += `
-                                </tbody>
-                              </table>
-                            `;
+                            return productsTitlesArray;
+                          }
 
-                            return table;
+                          // функція повертає кількість продуктів
+                          function getProductsAmount(productsPrices, moneyAmount) {
+                            let currentMoneyAmount = moneyAmount;
+                            let counterProductsIndex = [];
+
+
+                            for (let i = 0; i < productsPrices.length; i++) {
+                              if (currentMoneyAmount > 0 && currentMoneyAmount >= productsPrices[i]) {
+
+                                if (currentMoneyAmount === productsPrices[i]) counterProductsIndex.push(i);
+
+                                currentMoneyAmount -= productsPrices[i];
+
+                                if (currentMoneyAmount <= 0) {
+                                  break;
+                                } else {
+                                  counterProductsIndex.push(i);
+                                }
+                              }
+                            }
+
+                            return counterProductsIndex;
+                          }
+
+                          // функція, яка виводить масив
+                          function showArray(array, caption) {
+                            document.write(`
+                              <li class="list__item">
+                                <span>${caption}: [</span>
+                            `);
+
+                            for (let index = 0; index < array.length; index++) {
+                              document.write(`
+                                  <span>${array[index]}</span>
+                              `);
+                            }
+
+                            document.write(`
+                                <span>].</span>
+                              </li>
+                            `);
+                          }
+
+                          // функція, яка виводить список продуктів
+                          function showArrayList(array) {
+                            if (array.length !== 0) {
+                              document.write(`
+                                <li class="list__item">
+                                  <span>Користувач може собі дозволити:</span>
+                                </li>
+                              `);
+                            } else {
+                              document.write(`
+                                <li class="list__item">
+                                  <span>Користувач не може собі нічого дозволити. Не вистачає грошей.</span>
+                                </li>
+                              `);
+                            }
+
+                            document.write('<ul class="list">');
+
+                            for (let index = 0; index < array.length; index++) {
+                              document.write(`
+                                <li class="list__item">
+                                  <span> - ${array[index]};</span>
+                                </li>
+                              `);
+                            }
+
+                            document.write('</ul>');
                           }
 
                           document.write(`
-                                </li>
                               </ul>
                             </p>
                           `);

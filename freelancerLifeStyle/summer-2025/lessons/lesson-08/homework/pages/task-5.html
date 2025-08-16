@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <title>Урок 07</title>
+    <title>Урок 08</title>
   </head>
 
   <body>
@@ -17,7 +17,7 @@
       <header class="header" id="up">
         <div class="header__container">
           <div class="header__inner">
-            <h1 class="header__title">Домашне завдання № 7</h1>
+            <h1 class="header__title">Домашне завдання № 8</h1>
           </div><!-- /. header__inner -->
         </div><!-- /. header__container -->
       </header>
@@ -31,16 +31,16 @@
                 <div class="tasks__inner">
                   <ul class="tasks__items">
                     <li class="tasks__item">
-                      <p><span class="tasks__title">Задача 5.</span> Створити окремі функції, які переводять:
+                      <p><span class="tasks__title">Задача 5.</span> Дано послідовність оцінок учня. Підрахувати кількість:
                         <ul class="list">
                           <li class="list__item">
-                            <span>1) сантиметри у дюйми;</span>
+                            <span>1) двійок;</span>
                           </li>
                           <li class="list__item">
-                            <span>2) кілограми у фунти;</span>
+                            <span>2) кількість хороших оцінок (добре, відмінно);</span>
                           </li>
                           <li class="list__item">
-                            <span>3) кілометри у милі.</span>
+                            <span>3) кількість оцінок, які нижче середнього.</span>
                           </li>
                         </ul>
                       </p>
@@ -48,9 +48,13 @@
                     <li class="tasks__item">
                       <script>
                         if (confirm('Почати тестування?')) {
-                          const centimeters = parseInt(prompt("Введіть кількість сантиметрів:", "120"));
-                          const kilograms = parseInt(prompt("Введіть кількість кілограм:", "10"));
-                          const kilometers = parseInt(prompt("Введіть кількість кілометрів:", "350"));
+                          const markAmount = parseInt(prompt("Введіть кількість оцінок:", "10"));
+
+                          const marksArray = createArray(markAmount);
+                          const twoAmount = getTwoAmount(marksArray);
+                          const goodMarks = getGoodMarks(marksArray);
+                          const averageMark = getAverageMark(marksArray);
+                          const belowAverageMarks = getBelowAverageMarks(marksArray, averageMark);
 
                           document.write(`
                             <p>
@@ -58,44 +62,108 @@
                               <ul class="list">
                           `);
 
+                          showArray(marksArray);
+
+                          document.write('<br>');
+
                           document.write(`
                             <li class="list__item">
-                              <span>1) ${centimeters} см. = ${convertCentToInches(centimeters)}";</span>
+                              <span>Кількість двійок: ${twoAmount};</span>
                             </li>
-                          `);
-                          document.write(`
                             <li class="list__item">
-                              <span>2) ${kilograms} кг. = ${convertKiloToPounds(kilograms)} ф.;</span>
+                              <span>Кількість хороших оцінок: ${goodMarks};</span>
                             </li>
-                          `);
-                          document.write(`
                             <li class="list__item">
-                              <span>3) ${kilometers} м. = ${convertKilometersToMiles(kilometers)} км.</span>
+                              <span>Кількість оцінок, які нижче середнього: ${belowAverageMarks}.</span>
                             </li>
                           `);
 
-                          function convertCentToInches(centimeters) {
-                            const CENT_IN_INCH = 2.54;
+                          // функція повертає кількість оцінок, які нижче середнього
+                          function getBelowAverageMarks(array, averageMark) {
+                            let counterBelowAverageMarks = 0;
 
-                            const inches = centimeters / CENT_IN_INCH;
+                            for (let i = 0; i < array.length; i++) {
+                              if (array[i] < averageMark) counterBelowAverageMarks++;
+                            }
 
-                            return inches.toFixed(2);
+                            return counterBelowAverageMarks;
                           }
 
-                          function convertKiloToPounds(kilograms) {
-                            const KILO_IN_POUND = 2.20462;
+                          // функція повертає кількість хороших оцінок
+                          function getGoodMarks(array) {
+                            let counterGoodMarks = 0;
 
-                            const pounds = kilograms * KILO_IN_POUND;
-
-                            return pounds.toFixed(3);
+                            for (let i = 0; i < array.length; i++) {
+                              if (array[i] === 4 || array[i] === 5) counterGoodMarks++;
+                            }
+                            console.log('counterGoodMarks :>> ', counterGoodMarks);
+                            return counterGoodMarks;
                           }
 
-                          function convertKilometersToMiles(kilometers) {
-                            const KILOMETER_IN_MILE = 0.621371;
+                          // функція повертає кількість двійок
+                          function getTwoAmount(array) {
+                            let counterTwo = 0;
 
-                            const miles = kilometers * KILOMETER_IN_MILE;
+                            for (let i = 0; i < array.length; i++) {
+                              if (array[i] === 2) counterTwo++;
+                            }
 
-                            return miles.toFixed(3);
+                            return counterTwo;
+                          }
+
+                          // функція повертає середній бал
+                          function getAverageMark(marksArray) {
+                            let marksSum = 0;
+
+                            for (let mark = 0; mark < marksArray.length; mark++) {
+                              marksSum += marksArray[mark];
+                            }
+
+                            const averageMark = marksSum / marksArray.length;
+
+                            return Math.round(averageMark);
+                          }
+
+                          // функція повертає масив оцінок
+                          function createArray(sizeArray) {
+                            let array = [];
+
+                            for (let index = 0; index < sizeArray; index++) {
+                              array.push(generateRandomNumber(2, 5));
+                            }
+
+                            return array;
+                          }
+
+                          // функція повертає випадкове число в заданому інтервалі
+                          function generateRandomNumber(startRange, endRange) {
+                            const RANDOM_NUMBER_TO = startRange,
+                              RANDOM_NUMBER_FROM = endRange;
+
+                            const randomNumber =
+                              RANDOM_NUMBER_TO +
+                              Math.floor(Math.random() * (RANDOM_NUMBER_FROM - RANDOM_NUMBER_TO + 1));
+
+                            return randomNumber;
+                          }
+
+                          // функція, яка виводить масив
+                          function showArray(array) {
+                            document.write(`
+                              <li class="list__item">
+                                <span>Массив оцінок: [</span>
+                            `);
+
+                            for (let index = 0; index < array.length; index++) {
+                              document.write(`
+                                  <span>${array[index]}</span>
+                              `);
+                            }
+
+                            document.write(`
+                                <span>].</span>
+                              </li>
+                            `);
                           }
 
                           document.write(`
