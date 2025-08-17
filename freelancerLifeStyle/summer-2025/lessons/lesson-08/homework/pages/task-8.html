@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <title>Урок 07</title>
+    <title>Урок 08</title>
   </head>
 
   <body>
@@ -17,7 +17,7 @@
       <header class="header" id="up">
         <div class="header__container">
           <div class="header__inner">
-            <h1 class="header__title">Домашне завдання № 7</h1>
+            <h1 class="header__title">Домашне завдання № 8</h1>
           </div><!-- /. header__inner -->
         </div><!-- /. header__container -->
       </header>
@@ -31,40 +31,111 @@
                 <div class="tasks__inner">
                   <ul class="tasks__items">
                     <li class="tasks__item">
-                      <p><span class="tasks__title">Задача 8.</span> Створити функцію, яка виводить банер (у функцію передаються:
-                        зображення, заголовок та посилання, куди переходимо при кліку на зображення) тег img повинен знаходитись у середині
-                        тега a: &lt;a&gt;&lt;img src=”шлях”&gt;&lt;/a&gt;.
+                      <p><span class="tasks__title">Задача 8.</span> Дано одновимірний масив, у якому зберігається певна виграшна сума
+                        (елементи заповнюються випадковим чином значеннями від -500 до 500). Надаючи користувачу можливість вибирати номери
+                        елементів (поки він не відмовиться). Знаходити сумарний виграш.
                       </p>
                     </li>
                     <li class="tasks__item">
 
                       <script>
                         if (confirm('Почати тестування?')) {
+                          const elements = createArray(10);
+
                           document.write(`
                             <p>
                               <span class="tasks__title">Відповідь:</span>
                               <ul class="list">
-                                <li class="tasks__item">
                           `);
 
-                          showBanner('https://upload.wikimedia.org/wikipedia/en/9/93/IsaacClarke.png', 'Isaac Clarke', 'https://en.wikipedia.org/wiki/Isaac_Clarke');
+                          showArray(elements, "Масив виграшів");
 
-                          function showBanner(imageSrc, imageTitle, sourceLink) {
-                            document.write(`
-                              <figure>
-                                <a href="${sourceLink}" target="_blank" title="Go to Wikipedia" rel="noopener noreferrer">
-                                  <img src="${imageSrc}">
-                                </a>
-                                <figcaption>${imageTitle}</figcaption>
-                              </figure>
-                            `);
-                          }
+                          document.write("<br>");
+
+                          const winNumbers = getWinNumbers();
+                          const winElementsSum = getWinElementsSum(elements, winNumbers);
 
                           document.write(`
-                                </li>
+                            <li class="list__item">
+                              <span>Сума виграшу = ${winElementsSum} грн.</span>
+                            </li>
+                          `);
+
+                          document.write(`
                               </ul>
                             </p>
                           `);
+
+                          // функція, яка повертає сумарний виграш
+                          function getWinElementsSum(elements, winNumbers) {
+                            let winElementsSum = 0;
+
+                            for (let number = 0; number < winNumbers.length; number++) {
+                              winElementsSum += elements[winNumbers[number]];
+                            }
+
+                            return winElementsSum;
+                          }
+
+                          // функція, яка повертає виграшні номери
+                          function getWinNumbers() {
+                            let winNumbers = [];
+
+                            while (true) {
+                              const winNumber = prompt("Введіть номер комірки від 0 до 9:", "3");
+                              const winNumberParse = parseInt(winNumber);
+
+                              if (winNumber !== null && winNumberParse < 10) {
+                                winNumbers.push(winNumberParse);
+                              } else {
+                                break;
+                              }
+                            }
+
+                            return winNumbers;
+                          }
+
+                          // функція повертає масив виграшів
+                          function createArray(sizeArray) {
+                            let array = [];
+
+                            for (let index = 0; index < sizeArray; index++) {
+                              array.push(generateRandomNumber(-500, 500));
+                            }
+
+                            return array;
+                          }
+
+                          // функція повертає випадкове число в заданому інтервалі
+                          function generateRandomNumber(startRange, endRange) {
+                            const RANDOM_NUMBER_TO = startRange,
+                              RANDOM_NUMBER_FROM = endRange;
+
+                            const randomNumber =
+                              RANDOM_NUMBER_TO +
+                              Math.floor(Math.random() * (RANDOM_NUMBER_FROM - RANDOM_NUMBER_TO + 1));
+
+                            return randomNumber;
+                          }
+
+                          // функція, яка виводить масив
+                          function showArray(array, caption) {
+                            document.write(`
+                              <li class="list__item">
+                                <span>${caption}: [</span>
+                            `);
+
+                            for (let index = 0; index < array.length; index++) {
+                              document.write(`
+                                  <span>${array[index]}</span>
+                              `);
+                            }
+
+                            document.write(`
+                                <span>].</span>
+                              </li>
+                            `);
+                          }
                         }
                       </script>
                     </li>

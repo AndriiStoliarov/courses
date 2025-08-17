@@ -87,6 +87,11 @@
 
                           showArrayList(productsTitlesUserCan);
 
+                          document.write(`
+                              </ul>
+                            </p>
+                          `);
+
                           // функція повертає перелік товарів
                           function getProductsTitles(productsTitles, productsAmountIndex) {
                             let productsTitlesArray = [];
@@ -169,11 +174,6 @@
 
                             document.write('</ul>');
                           }
-
-                          document.write(`
-                              </ul>
-                            </p>
-                          `);
                         }
                       </script>
                     </li>
