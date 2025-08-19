@@ -31,13 +31,13 @@
                 <div class="tasks__inner">
                   <ul class="tasks__items">
                     <li class="tasks__item">
-                      <p><span class="tasks__title">Задача 3.</span> Користувач вводить кількість елементів. Створити масив, у якому перші 5
-                        елементів заповнені 1-цями, а інші до кінця масиву заповнені 7-ками.
+                      <p><span class="tasks__title">Задача 2.</span> Користувач вводить кількість елементів.
+                        Створити масив, у якому перша половина заповнена 1-цями, а друга заповнена 7-ками.
                       </p>
                     </li>
                     <li class="tasks__item">
                       <script>
-                        // if (confirm('Почати тестування?')) {
+                        if (confirm('Почати тестування?')) {
                           const elements = parseInt(prompt("Введіть кількість елементів:", "10"));
 
                           // функція повертає масив з вказаної кількості елементів.
@@ -45,9 +45,9 @@
 
                           let arrayElements = createArray(elements);
 
-                          const RANGE_ARRAY_INDEX = 5;
+                          const halfArray = Math.floor(arrayElements.length / 2);
 
-                          arrayElements.fill(1, 0, RANGE_ARRAY_INDEX).fill(7, RANGE_ARRAY_INDEX);
+                          arrayElements.fill(1, 0, halfArray).fill(7, halfArray);
 
                           document.write(`
                             <p>
@@ -88,7 +88,7 @@
                               </li>
                             `);
                           }
-                        // }
+                        }
                       </script>
                     </li>
                   </ul>
