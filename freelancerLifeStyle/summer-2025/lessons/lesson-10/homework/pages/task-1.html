@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <title>Урок 08</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <!-- Header -->
+      <header class="header" id="up">
+        <div class="header__container">
+          <div class="header__inner">
+            <h1 class="header__title">Домашне завдання № 8</h1>
+          </div><!-- /. header__inner -->
+        </div><!-- /. header__container -->
+      </header>
+
+      <main class="page">
+        <div class="page__container">
+          <div class="page__inner">
+            <!-- Tasks -->
+            <div class="tasks">
+              <div class="tasks__container">
+                <div class="tasks__inner">
+                  <ul class="tasks__items">
+                    <li class="tasks__item">
+                      <p><span class="tasks__title">Задача 1.</span>
+                        Дано масив, який містить оцінки з К предметів. Знайти середній бал і з'ясувати до якої категорії він відноситься
+                        (відмінник, двієчник (має хоча би одну двійку), хорошист (оцінки добре і відмінно), трієчник (є хоча би одна
+                        трійка)).
+                      </p>
+                    </li>
+                    <li class="tasks__item">
+                      <script>
+                        if (confirm('Почати тестування?')) {
+                          const subjectAmount = parseInt(prompt("Введіть кількість предметів:", "10"));
+
+                          const gradesArray = createArray(subjectAmount);
+                          const averageGrade = getAverageGrade(gradesArray);
+                          const pupilStatus = getPupilStatus(averageGrade);
+
+                          document.write(`
+                            <p>
+                              <span class="tasks__title">Відповідь:</span>
+                              <ul class="list">
+                          `);
+
+                          showArray(gradesArray);
+
+                          document.write('<br>');
+
+                          document.write(`
+                            <li class="list__item">
+                              <span>Середній бал: ${averageGrade};</span>
+                            </li>
+                            <li class="list__item">
+                              <span>Статус учня: ${pupilStatus}</span>
+                            </li>
+                          `);
+
+                          document.write(`
+                              </ul>
+                            </p>
+                          `);
+
+                          // функція повертає статус учня
+                          function getPupilStatus(averageGrade) {
+                            let gradeStatus = "";
+
+                            switch (averageGrade) {
+                              case 5:
+                                gradeStatus = "відмінник.";
+                                break;
+
+                              case 4:
+                                gradeStatus = "хорошист.";
+                                break;
+
+                              case 3:
+                                gradeStatus = "трієчник.";
+                                break;
+
+                              case 2:
+                              case 1:
+                                gradeStatus = "двієчник.";
+                                break;
+
+                              default:
+                                throw new Error("учня вигнали зі школи.");
+                            }
+
+                            return gradeStatus;
+                          }
+
+                          // функція повертає середній бал
+                          function getAverageGrade(gradesArray) {
+                            let gradesSum = 0;
+
+                            for (let grade = 0; grade < gradesArray.length; grade++) {
+                              gradesSum += gradesArray[grade];
+                            }
+
+                            const averageGrade = gradesSum / gradesArray.length;
+
+                            return Math.round(averageGrade);
+                          }
+
+                          // функція повертає масив оцінок
+                          function createArray(sizeArray) {
+                            let array = [];
+
+                            for (let index = 0; index < sizeArray; index++) {
+                              array.push(generateRandomNumber(1, 5));
+                            }
+
+                            return array;
+                          }
+
+                          // функція повертає випадкове число в заданому інтервалі
+                          function generateRandomNumber(startRange, endRange) {
+                            const RANDOM_NUMBER_TO = startRange,
+                              RANDOM_NUMBER_FROM = endRange;
+
+                            const randomNumber =
+                              RANDOM_NUMBER_TO +
+                              Math.floor(Math.random() * (RANDOM_NUMBER_FROM - RANDOM_NUMBER_TO + 1));
+
+                            return randomNumber;
+                          }
+
+                          // функція, яка виводить масив
+                          function showArray(array) {
+                            document.write(`
+                              <li class="list__item">
+                                <span>Массив оцінок: [</span>
+                            `);
+
+                            for (let index = 0; index < array.length; index++) {
+                              document.write(`
+                                  <span>${array[index]}</span>
+                              `);
+                            }
+
+                            document.write(`
+                                <span>].</span>
+                              </li>
+                            `);
+                          }
+                        }
+                      </script>
+                    </li>
+                  </ul>
+                </div><!-- /.tasks__inner -->
+              </div><!-- /.tasks__container -->
+            </div><!-- /.tasks -->
+
+            <div class="up  up--left">
+              <div class="up__container">
+                <a class="up__link" href="../index.html">на головну</a>
+              </div>
+            </div>
+          </div><!-- /.page__inner -->
+        </div><!-- /.page__container -->
+      </main><!-- /.page -->
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer__container">
+          <div class="footer__inner">
+            <div class="footer__text"><span>&#169; </span>2025 Andrii Stoliarov</div>
+          </div>
+        </div><!-- /.footer__inner-->
+      </footer>
+    </div><!-- /.wrapper -->
+  </body>
+</html>
