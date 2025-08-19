@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //================== задачі по функціях
+      // Задача 4. Створити функцію, яка для 3 заданих чисел знаходить одночасно декілька результатів: кількість парних, кількість додатних, кількість більших за 100.
+
+      // Задача 9. Дано покази температур (довільна кількість). Розробити функцію, яка дозволить підрахувати кількість від’ємних показів температури.
+
+      // Задача 10. Дано покази температур (довільна кількість). Розробити функцію, яка дозволить знайти середнє значення для додатних показів температури.
+
+      //======================
+      //Приклад. Описати порожній масив products
+
+      //Приклад. Описати масив з 7 порожніх елементів
+
+      // Приклад. Описати масив з 7 елементів зі значенням 22
+
+      //Приклад. Описати масив, що містить перелік посад, що є у компанії
+
+      // Приклад. Описати масив, що містить назви моделей автомобілів, що використовуються у компанії
+
+      // Приклад. Описати масив, що містить номери місяців, коли треба подавати декларації
+
+      //-------- for - of -   forEach-----
+      //Приклад. Дано масив показників температур. Вивести на екран додатні значення показників
+
+      // let temperaturesList = [-10, 3, -21, 20, 18]
+      // //1) for..of
+      // for (const temperature of temperaturesList) {
+      //   if (temperature > 0) document.write(temperature)
+      // }
+      // //2) forEach
+
+      // temperaturesList.forEach((temperature) => {
+      //   if (temperature > 0) document.write(temperature)
+      // })
+
+      //Приклад. Масив цін товарів. Знайти суму цін, які більші за 100.
+      // let prices = [222, 123, 23, 23, 2000]
+      // let sum = 0
+      // for (const price of prices) {
+      //   if (price > 100) sum += price
+      // }
+      // document.write(`Sum = ${sum}`)
+
+      //Приклад. Дано масив показників температур. Від’ємні замінити на 0
+
+      // let temperaturesList = [-10, 3, -21, 20, 18]
+      // //1) forEach
+
+      // temperaturesList.forEach((temperature, index, arrRef) => {
+      //   if (temperature < 0) arrRef[index] = 0
+      // })
+
+      //Задача.Кожне парне число збільшити на 5.
+      // let arr = [2,5,7,6,78,2]
+
+      // arr.forEach(
+
+      //  (element, index, arrRef) => {
+      //   if(element%2===0)
+      //     arrRef[index]+=5
+      //  }
+
+      // )
+
+      // ------------- MAP ------------
+      //       Дано масив цін. Створити новий масив додавши 20% ( * 1.2).
+      // let prices = [222, 123, 23, 23, 2000]
+      // let newPrices = prices.map((price) => price * 1.2)
+
+      // Дано масив років народження працівників (усі народились 1 січня). Створити масив з кількістю років (2023 - year)
+      // let birthYearsList = [1998, 1967, 1921,1976, 2003]
+      // const currentYear = 2023
+      // let agesList = birthYearsList.map(year =>  currentYear - year)
+
+      // Дано масив вартості товару у доларах. Створити масив цін у гривнях (*kurs)
+      // let pricesDollar = [222, 123, 23, 23, 2000]
+      // const currentCourse = 42
+      // let pricesGRN = pricesDollar.map(price => price*currentCourse)
+
+      //Задача.Дано масив імен працівників.
+      //Сформувати новий масив, який складається з
+      //перших літер імен.
+
+      //Задача. Дано масив показників термометра протягом місяця. З’ясувати, чи усі показники є більшими за 10 градусів.
+      // -------------  filter
+      //       Дано покази термометра за місяць. Сформувати покази тільки доданих значень(>0)
+
+      // let temperaturesList = [-10, 3, -21, 20, 18]
+
+      // let positiveTemperaturesList = temperaturesList.filter(
+      //   (temperature) => temperature > 0
+      // )
+
+      // document.write(positiveTemperaturesList)
+
+      // Дано покази термометра за місяць. Сформувати покази тільки значень, які знаходяться між 10 і 15 градусами цельсія
+      let temperaturesList = [-10, 3, -21, 20, 18]
+
+      let newTemperaturesList = temperaturesList.filter(
+        (temperature) => temperature >= 10 && temperature <= 15
+      )
+
+      document.write(newTemperaturesList)
+
+      // Дано масив цін. Сформувати новий масив, який складається з цін більших за 100 грн.
+
+      // -------------
+      // -------------
+      // -------------
+      // -------------
+      // -------------  some - every
+      // Задача. Дано масив показників термометра протягом місяця. З’ясувати, чи є серед них дні, коли температура була меншою за 5 градусів.
+
+      // Задача. Визначити, чи є серед вказаних цін товарів ті, які дорожчі за 1000 грн.
+      // -------------
+      // ------------- Reduce
+      // Задача. Знайти добуток від’ємних елементів масиву.
+      // Задача. Знайти суму парних елементів
+      // -------------
+      /*------------- Sort
+Приклад. Упорядквати за спаданням
+
+
+Приклад. Упорядкувати за зростанням за другою буквою
+
+*/
+
+      /*
+       */
+
+      //Створити новий масив, у якому усі елемени помножині на 3
+
+      //Базовий масив (з якого будемо брати елементи для обчислення нових)
+
+      // const oldArray = [1, 33, 2, 1, 9]
+
+      // ------ Створення нового масиву  -----
+      // const newArray = oldArray.map((element) => element * 3)
+
+      // // Функція обчислення нового елемента
+      // function transformOperationFunction(element, index, baseArrRef) {
+      //   return item * 3
+      // }
+
+      // // ------ Створення нового масиву  -----
+      // let newArray = []   //Спочатку масив порожній
+
+      // //-- перегляду усіх елементів базового масиву, обчислення нових і додвання у новий масив
+      // for (let i = 0; i < oldArray.length; i++) {
+      //   const element = oldArray[i]     //Копія поточного (і-го) елемента
+      //   const index = i                 //індекс поточного елемента
+      //   const baseArrRef = oldArray     //посилання на базовий масив
+
+      //   let newElement = transformOperationFunction(element, index, baseArrRef) //обчислення нового елемента
+
+      //   newArray.push(newElement) //додавання нового очисленого елемента до нового масиву
+      // }
+
+      // const newArray = oldArray.map(element => element*3)
+
+      //Дано масив чисел. Елементи більші за 7 замінити на 0
+      // let arr = [2, 3, 9, 8, 1, 51]
+
+      // //---- Функція для виконання операцій над одним елементом масиву
+      // function elementOperation(element, index, baseArrRef) {
+      //   if (element > 7) baseArrRef[index] = 0 // рівносильно arr[index]=0
+      // }
+
+      // //---- Перегляд усіх елементів
+      // for (let index = 0; index < arr.length; index++) {
+      //   const element = arr[i] //Копія поточного (і-го) елемента
+      //   const index = i //індекс поточного елемента
+      //   const baseArrRef = oldArray //посилання на базовий масив
+      //   //Виклик фунції для викоання дій на поточним елментом масиву
+      //   elementOperation(element, index, baseArrRef)
+      // }
+
+      // arr.forEach((element, index, baseArrRef) => {
+      //   if (element > 7) baseArrRef[index] = 0 // рівносильно arr[index]=0
+      // })
+    </script>
+  </body>
+</html>
