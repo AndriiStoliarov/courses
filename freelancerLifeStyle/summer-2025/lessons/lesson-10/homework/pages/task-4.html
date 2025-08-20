@@ -31,8 +31,7 @@
                 <div class="tasks__inner">
                   <ul class="tasks__items">
                     <li class="tasks__item">
-                      <p><span class="tasks__title">Задача 3.</span> Користувач вводить кількість елементів. Створити масив, у якому перші 5
-                        елементів заповнені 1-цями, а інші до кінця масиву заповнені 7-ками.
+                      <p><span class="tasks__title">Задача 4.</span> Дано масив елементів. Вивести на екран елементи, що більші за 100.
                       </p>
                     </li>
                     <li class="tasks__item">
@@ -40,14 +39,7 @@
                         if (confirm('Почати тестування?')) {
                           const elements = parseInt(prompt("Введіть кількість елементів:", "10"));
 
-                          // функція повертає масив з вказаної кількості елементів.
-                          let createArray = sizeArray => new Array(sizeArray);
-
-                          let arrayElements = createArray(elements);
-
-                          const RANGE_ARRAY_INDEX = 5;
-
-                          arrayElements.fill(1, 0, RANGE_ARRAY_INDEX).fill(7, RANGE_ARRAY_INDEX);
+                          const randomNumbers = createArray(elements);
 
                           document.write(`
                             <p>
@@ -55,20 +47,52 @@
                               <ul class="list">
                           `);
 
-                          document.write(`
-                            <li class="list__item">
-                              <span>Кількість елементів: ${elements}.</span>
-                            </li>
-                          `);
+                          showArray(randomNumbers, 'Масив елементів');
 
                           document.write('<br>');
 
-                          showArray(arrayElements, 'Масив елементів');
+                          const numbersBigger100 = getNumbersBigger100(randomNumbers);
+
+                          showArray(numbersBigger100, 'Масив елементів, що більші за 100');
 
                           document.write(`
                               </ul>
                             </p>
                           `);
+
+                          // функція повертає масив елементів, що більші за 100
+                          function getNumbersBigger100(numbers) {
+                            let array = [];
+
+                            for (let number of numbers) {
+                              if (number > 100) array.push(number);
+                            }
+
+                            return array;
+                          }
+
+                          // функція повертає масив випадкових елементів
+                          function createArray(sizeArray) {
+                            let array = [];
+
+                            for (let index = 0; index < sizeArray; index++) {
+                              array.push(generateRandomNumber(0, 200));
+                            }
+
+                            return array;
+                          }
+
+                          // функція повертає випадкове число в заданому інтервалі
+                          function generateRandomNumber(startRange, endRange) {
+                            const RANDOM_NUMBER_TO = startRange,
+                              RANDOM_NUMBER_FROM = endRange;
+
+                            const randomNumber =
+                              RANDOM_NUMBER_TO +
+                              Math.floor(Math.random() * (RANDOM_NUMBER_FROM - RANDOM_NUMBER_TO + 1));
+
+                            return randomNumber;
+                          }
 
                           // функція, яка виводить масив
                           function showArray(array, caption) {

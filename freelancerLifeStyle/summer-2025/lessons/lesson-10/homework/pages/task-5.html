@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <title>Урок 08</title>
+    <title>Урок 10</title>
   </head>
 
   <body>
@@ -17,7 +17,7 @@
       <header class="header" id="up">
         <div class="header__container">
           <div class="header__inner">
-            <h1 class="header__title">Домашне завдання № 8</h1>
+            <h1 class="header__title">Домашне завдання № 10</h1>
           </div><!-- /. header__inner -->
         </div><!-- /. header__container -->
       </header>
@@ -31,30 +31,15 @@
                 <div class="tasks__inner">
                   <ul class="tasks__items">
                     <li class="tasks__item">
-                      <p><span class="tasks__title">Задача 5.</span> Дано послідовність оцінок учня. Підрахувати кількість:
-                        <ul class="list">
-                          <li class="list__item">
-                            <span>1) двійок;</span>
-                          </li>
-                          <li class="list__item">
-                            <span>2) кількість хороших оцінок (добре, відмінно);</span>
-                          </li>
-                          <li class="list__item">
-                            <span>3) кількість оцінок, які нижче середнього.</span>
-                          </li>
-                        </ul>
+                      <p><span class="tasks__title">Задача 5.</span> Дано масив елементів. Знайти добуток додатних елементів
                       </p>
                     </li>
                     <li class="tasks__item">
                       <script>
                         if (confirm('Почати тестування?')) {
-                          const markAmount = parseInt(prompt("Введіть кількість оцінок:", "10"));
+                          const elements = parseInt(prompt("Введіть кількість елементів:", "10"));
 
-                          const marksArray = createArray(markAmount);
-                          const twoAmount = getTwoAmount(marksArray);
-                          const goodMarks = getGoodMarks(marksArray);
-                          const averageMark = getAverageMark(marksArray);
-                          const belowAverageMarks = getBelowAverageMarks(marksArray, averageMark);
+                          const randomNumbers = createArray(elements);
 
                           document.write(`
                             <p>
@@ -62,79 +47,48 @@
                               <ul class="list">
                           `);
 
-                          showArray(marksArray);
+                          showArray(randomNumbers, 'Масив елементів');
 
                           document.write('<br>');
 
-                          document.write(`
-                            <li class="list__item">
-                              <span>Кількість двійок: ${twoAmount};</span>
-                            </li>
-                            <li class="list__item">
-                              <span>Кількість хороших оцінок: ${goodMarks};</span>
-                            </li>
-                            <li class="list__item">
-                              <span>Кількість оцінок, які нижче середнього: ${belowAverageMarks}.</span>
-                            </li>
-                          `);
+                          const multiplicationPositiveNumbers = getMultiplicationPositiveNumbers(randomNumbers);
+
+                          if (multiplicationPositiveNumbers !== 1) {
+                            document.write(`
+                              <li class="list__item">
+                                <span>Добуток додатних елементів = ${multiplicationPositiveNumbers}.</span>
+                              </li>
+                            `);
+                          } else {
+                            document.write(`
+                              <li class="list__item">
+                                <span>В масиві немає додатних елементів.</span>
+                              </li>
+                            `);
+                          }
 
                           document.write(`
                               </ul>
                             </p>
                           `);
 
-                          // функція повертає кількість оцінок, які нижче середнього
-                          function getBelowAverageMarks(array, averageMark) {
-                            let counterBelowAverageMarks = 0;
+                          // функція повертає добуток додатних елементів
+                          function getMultiplicationPositiveNumbers(numbers) {
+                            let multiplication = 1;
 
-                            for (let i = 0; i < array.length; i++) {
-                              if (array[i] < averageMark) counterBelowAverageMarks++;
+                            for (let number of numbers) {
+                              if (number > 0) multiplication *= number;
                             }
 
-                            return counterBelowAverageMarks;
+                            return multiplication;
                           }
 
-                          // функція повертає кількість хороших оцінок
-                          function getGoodMarks(array) {
-                            let counterGoodMarks = 0;
-
-                            for (let i = 0; i < array.length; i++) {
-                              if (array[i] === 4 || array[i] === 5) counterGoodMarks++;
-                            }
-                            console.log('counterGoodMarks :>> ', counterGoodMarks);
-                            return counterGoodMarks;
-                          }
-
-                          // функція повертає кількість двійок
-                          function getTwoAmount(array) {
-                            let counterTwo = 0;
-
-                            for (let i = 0; i < array.length; i++) {
-                              if (array[i] === 2) counterTwo++;
-                            }
-
-                            return counterTwo;
-                          }
-
-                          // функція повертає середній бал
-                          function getAverageMark(marksArray) {
-                            let marksSum = 0;
-
-                            for (let mark = 0; mark < marksArray.length; mark++) {
-                              marksSum += marksArray[mark];
-                            }
-
-                            const averageMark = marksSum / marksArray.length;
-
-                            return Math.round(averageMark);
-                          }
-
-                          // функція повертає масив оцінок
+                          // функція повертає масив випадкових елементів
                           function createArray(sizeArray) {
                             let array = [];
 
                             for (let index = 0; index < sizeArray; index++) {
-                              array.push(generateRandomNumber(2, 5));
+                              array.push(generateRandomNumber(-200, 100));
                             }
 
                             return array;
@@ -153,10 +107,10 @@
                           }
 
                           // функція, яка виводить масив
-                          function showArray(array) {
+                          function showArray(array, caption) {
                             document.write(`
                               <li class="list__item">
-                                <span>Массив оцінок: [</span>
+                                <span>${caption}: [</span>
                             `);
 
                             for (let index = 0; index < array.length; index++) {
