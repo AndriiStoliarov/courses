@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Дано послідовність платіжок протягом року. Знайти сумарну кількість грошей за:
+      // 1.	за весь рік (1-12);
+      // 2.	у першій половині року (1-6);
+      // 3.	у другій половині року (7-12);
+      // 4.	за літо (6-8);
+      // 5.	за ІІ квартал (4-6);
+      // 6.	за парні місяці (з парними номерами) (2,4,6,8,10,12);
+      // 7.	за місяці, які є початковими у сезоні (весна, літо, осінь, зима) (3,6,9,12).
+
+      // function getRandomNum(minValue, maxValue) {
+      //   return minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+      // }
+      // function getRandomArray(valuesNumber, minValue, maxValue) {
+      //   const arr = []
+      //   for (let i = 0; i < valuesNumber; i++) {
+      //     const randNum =
+      //       minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+      //     arr.push(randNum)
+      //   }
+      //   return arr
+      // }
+      // function getPaymentsSumInRange(
+      //   paymentsList,
+      //   minMonthIndex,
+      //   maxMonthIndex,
+      //   step = 1
+      // ) {
+      //   let sum = 0
+      //   for (
+      //     let month = minMonthIndex - 1;
+      //     month < maxMonthIndex;
+      //     month += step
+      //   ) {
+      //     sum += paymentsList[month]
+      //   }
+      //   return sum
+      // }
+
+      // const paymentsList = getRandomArray(12, 1, 100)
+
+      // //             // 1.	за весь рік (1-12);
+      // const summYear = getPaymentsSumInRange(paymentsList, 1, 12)
+      // document.write(summYear)
+      // //             // 2.	у першій половині року (1-6);
+      // const summFistHalfOfYear = getPaymentsSumInRange(paymentsList, 1, 6)
+      // document.write(summFistHalfOfYear)
+      // //             // 3.	у другій половині року (7-12);
+      // const summSecondHalfOfYear = getPaymentsSumInRange(paymentsList, 7, 12)
+      // document.write(summSecondHalfOfYear)
+
+      // // 4.	за літо (6-8);
+      // const summSummer = getPaymentsSumInRange(paymentsList, 6, 8)
+      // document.write(summSummer)
+
+      // //             // 5.	за ІІ квартал (4-6);
+      // const secondQuater = getPaymentsSumInRange(paymentsList, 4, 6)
+      // document.write(secondQuater)
+
+      // //             // 6.	за парні місяці (з парними номерами) (2,4,6,8,10,12);
+      // const sumEvenMonth = getPaymentsSumInRange(paymentsList, 2, 12, 2) //step=2
+      // document.write(sumEvenMonth)
+
+      // //             // 7.	за місяці, які є початковими у сезоні (весна, літо, осінь, зима) (3,6,9,12).
+      // const summStartSeasonMonth = getPaymentsSumInRange(paymentsList, 3, 12, 3) //step=3
+      // document.write(summStartSeasonMonth)
+
+      //==============================================================
+      //       //==================================
+      //             // Морський бій. Користувач вводить кількість клітинок одновимірного масиву
+      //             // та кількість одиночних кораблів. Комп’ютер довільно розміщує ці одиночні
+      //             // кораблі у масиві по один у клітинці якщо у клітинці 0, то клітинка пуста,
+      //             // якщо 1 – то це означає, що там є корабель. Користувач вводить номер
+      //             // клітинки, куди стріляє. Гра продовжується до тих пір, поки не будуть
+      //             // потоплені усі кораблі.
+
+      //----- Сформувати поле гри (одновимірний масив із розміщеними кораблями)
+      //   function getRandomNum(minValue, maxValue) {
+      //     return minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+      //   }
+
+      //   function getFreeCell(gameField) {
+      //     let shipIndex
+      //     const lastIndex = gameField.length - 1
+      //     do {
+      //       shipIndex = getRandomNum(0, lastIndex)
+      //     } while (gameField[shipIndex] === 1)
+      //     return shipIndex
+      //   }
+
+      //   function createGameField(cellsNumber, shipsNumber) {
+      //     const gameField = new Array(cellsNumber).fill(0) //gameField = [0,0,0,0,0]
+      //     for (let i = 0; i < shipsNumber; i++) {
+      //       let shipIndex = getFreeCell(gameField)
+      //       gameField[shipIndex] = 1
+      //     } //gameField = [0,1,0,1,1]
+      //     return gameField
+      //   }
+
+      //   //----- Гра корстувача
+      //   function game(gameField, shipsNumber) {
+      //     //             0 1 2 3 4
+      //     //gameField = [0,1,0,1,1], shipsNumber=3
+      //     do {
+
+      //       const userStrikePosition =
+      //         parseInt(prompt(`Куди стріляємо (1-${gameField.length})?`)) - 1
+
+      //       if (gameField[userStrikePosition] === 1) {
+      //         shipsNumber--
+      //         alert('Попали')
+      //         gameField[userStrikePosition] = 0
+      //       } else alert('Промазав!')
+      //     } while (shipsNumber > 0)
+      //   }
+
+      //   const gameField = createGameField(10,3)
+      //   game(gameField, 3)
+
+      //   //================== задачі по функціях
+      //// Задача 4. Створити функцію, яка для 3 заданих чисел знаходить одночасно декілька результатів: кількість парних, кількість додатних, кількість більших за 100.
+      //   function get_Even_Positive_Greater100() {
+      //     let evenNumbers = 0
+      //     let positiveNumbers = 0
+      //     let greater100Numbers = 0
+      //     for (let i = 0; i < arguments.length; i++) {
+      //       if (arguments[i] % 2 === 0) evenNumbers++
+      //       if (arguments[i] > 0) positiveNumbers++
+      //       if (arguments[i] > 100) greater100Numbers++
+      //     }
+      //     return [evenNumbers, positiveNumbers, greater100Numbers]
+      //   }
+
+      //   // const resArray = get_Even_Positive_Greater100(23,1230,12)  //resArray = [2, 3, 1]
+      //   // document.write(`Even = ${resArray[0]}, POsitive = ${resArray[1]}  Greater than 100 =${resArray[2]}`)
+      //   const [evenNumbers, positiveNumbers, greater100Numbers] =
+      //     get_Even_Positive_Greater100(23, 1230, 12)
+      //   document.write(
+      //     `Even = ${evenNumbers}, POsitive = ${positiveNumbers}  Greater than 100 =${greater100Numbers}`
+      //   )
+
+      //// Задача 9. Дано покази температур (довільна кількість). Розробити функцію, яка дозволить підрахувати кількість від’ємних показів температури.
+      //   // function getNegativeTeperaturesNumber() {
+      //   //     let negativeTemperaturesNumber = 0
+      //   //     for (let i = 0; i < arguments.length; i++) {
+      //   //         if(arguments[i]<0)
+      //   //           negativeTemperaturesNumber++
+      //   //     }
+      //   //     return negativeTemperaturesNumber
+      //   // }
+      //   function getNegativeTeperaturesNumber(...temperaturesList) {
+      //     let negativeTemperaturesNumber = 0
+      //     for (let i = 0; i < temperaturesList.length; i++) {
+      //       if (temperaturesList[i] < 0) negativeTemperaturesNumber++
+      //     }
+      //     return negativeTemperaturesNumber
+      //   }
+
+      // //   const temperaturesList = [12,1,3,12,43,1,3]
+      // //   const negativeTemperaturesNumber = getNegativeTeperaturesNumber(...temperaturesList)
+      //   const negativeTemperaturesNumber = getNegativeTeperaturesNumber(12,1,3,12,43,1,3)
+
+      //// Задача 10. Дано покази температур (довільна кількість). Розробити функцію, яка дозволить знайти середнє значення для додатних показів температури.
+      //       //==================================
+
+      // ------------- MAP ------------
+
+      //Задача.Дано масив імен працівників.
+      //Сформувати новий масив, який складається з
+      //перших літер імен.
+      //         01234
+      // let s= 'Hello'  //s[0]=='H'  s[3] ='l'
+      //   let names = ['Ivan', 'Petro', 'Olga']
+      //   const firstLettersNamesList = names.map((name) => name[0])
+      //   console.log(firstLettersNamesList)
+
+      //Задача. Дано масив показників термометра протягом місяця. З’ясувати, чи усі показники є більшими за 10 градусів.
+      //   const temperaturesList = [-23, 12, 34, -2, 34, 2, -21]
+      //   //   function isAllGreaterThanValue(temperaturesList, value) {
+      //   //     for (const temp of temperaturesList) {
+      //   //       if (temp <= value) return false
+      //   //     }
+      //   //     return true
+      //   //   }
+      //   //   const res = isAllGreaterThanValue(temperaturesList, 10)
+      //   //   const res = temperaturesList.every((temp) => temp > 10)
+
+      //   //Задача. Чи є від"ємні покази температру
+      //   // function someNegativeValue(temperaturesList) {
+      //   //   for (const temp of temperaturesList) {
+      //   //     if (temp < 0) return true
+      //   //   }
+      //   //   return false
+      //   // }
+      //   const isNegativeTemperature = temperaturesList.some((temp) => temp < 0)
+
+      // Дано масив цін. Сформувати новий масив, який складається з цін більших за 100 грн.
+      //   const prices = [234, 123, 45, 23, 4635, 34, 45]
+      //   const pricessGreaterThan100 = prices.filter((price) => price > 100)
+      //   console.log(pricessGreaterThan100)
+
+      // -------------
+      // -------------
+      // -------------
+      // -------------
+      // -------------  some - every
+      // Задача. Дано масив показників термометра протягом місяця. З’ясувати, чи є серед них дні, коли температура була меншою за 5 градусів.
+
+      // Задача. Визначити, чи є серед вказаних цін товарів ті, які дорожчі за 1000 грн.
+      // -------------
+      // ------------- Reduce
+      // Задача. Знайти добуток від’ємних елементів масиву.
+
+      // function checkElementAndGetNextResult(prevNegativeNumberProduct, element, index, baseArrRef) {
+      //     // if(element<0) return prevNegativeNumberProduct * element
+      //     // else return prevNegativeNumberProduct
+      //     return element<0 ? prevNegativeNumberProduct * element : prevNegativeNumberProduct
+      // }
+
+      // let arr=[12,-34,2,3,-23,34,-7]
+
+      // // let prevNegativeNumberProduct=0
+      // // for (let i = 0; i < arr.length; i++) {
+      // //     let element = arr[i]
+      // //     let index = i
+      // //     let baseArrRef= arr
+      // //     prevNegativeNumberProduct = checkElementAndGetNextResult(prevNegativeNumberProduct,element,index,baseArrRef)
+      // // }
+
+      // // let prevNegativeNumberProduct= arr.reduce( checkElementAndGetNextResult ,0)
+      // let prevNegativeNumberProduct= arr.reduce(
+      //     (prevNegativeNumberProduct, element, index, baseArrRef)=>
+      //     element<0 ? prevNegativeNumberProduct * element : prevNegativeNumberProduct ,
+      //     1
+      //     )
+
+      //   //                         // Задача. Знайти суму парних елементів
+
+      //   let arr = [12, 34, 2, 3, 23, 34, 7]
+
+      //   //   const sumEvenNumber =  arr.reduce( (prevSum,element, index, baseArr) =>{
+      //   //     if(element%2===0) return prevSum + element
+      //   //     else return prevSum
+      //   //   }  ,0)
+
+      //   //   const sumEvenNumber = arr.reduce(
+      //   //     (prevSum, element) => (element % 2 === 0 ? prevSum + element : prevSum),
+      //   //     0
+      //   //   )
+
+      //   let sumEvenNumber = 0
+      //   for (let i = 0; i < arr.length; i++) {
+      //     const element = arr[i]
+      //     if (element % 2 === 0) sumEvenNumber = sumEvenNumber + element
+      //   }
+      //Задача. Дано масив. Підрахувати кількість 7
+      //   let arr = [12, 34, 2, 3, 23, 34, 7]
+
+      //   // let sevenNumber = 0
+      //   // for (let i = 0; i < arr.length; i++) {
+      //   //     const element = arr[i];
+      //   //     if(element === 7) sevenNumber=sevenNumber+1
+      //   // }
+      //   let sevenNumber = arr.reduce(
+      //     (prevSevenNumber, element) =>
+      //       element === 7 ? prevSevenNumber + 1 : prevSevenNumber,
+      //     0
+      //   )
+
+      //Знайти суму елментів
+      //     let arr = [12, 34, 2, 3, 23, 34, 7]
+
+      // // let sum = arr[0]
+      // // for (let i = 1; i < arr.length; i++) {
+      // //     const element = arr[i];
+      // //     sum = sum+element
+      // // }
+      // // let sum = arr.reduce( (prevSum, element) => prevSum+element, arr[0] ) //Якщо поч. == arr[0], то можна не писати
+      // let sum = arr.reduce( (prevSum, element) => prevSum+element )
+
+      //   //Знайти максимальний елемент
+      //   let arr = [12, 34, 2, 3, 23, 34, 7]
+
+      //   // let max = arr[0]
+      //   // for (let i = 1; i < arr.length; i++) {
+      //   //     const element = arr[i];
+      //   //     if(element>max) max = element
+      //   // }
+      //   let max = arr.reduce((prevMax, element) =>
+      //     element > prevMax ? element : prevMax
+      //   )
+      //Знайти максимальний серед від"ємних елемент
+      //   let arr = [12, -34, 2, -3, 23, 34, 7]
+
+      // //   let maxNegative = -Infinity
+      // //   for (let i = 0; i < array.length; i++) {
+      // //     const element = arr[i];
+      // //     if(element<0 && element>maxNegative) maxNegative = element
+      // //   }
+      // let maxNegative = arr.reduce(
+      //      (prevMaxNegative, element) => (element<0 && element>prevMaxNegative) ? element : prevMaxNegative,-Infinity )
+
+      //------------- Sort
+      // Приклад. Упорядквати за спаданням
+      // let arr = [12, -34, 2, -3, 23, 34, 7]
+
+      // arr.sort((el1, el2) => el2 - el1)
+      // document.write(arr)
+
+      // Приклад. Упорядкувати за зростанням за другою буквою
+      //            0123    0123    01234
+      //   let names = ['Ivan', 'Lara', 'Peter']
+      //   names.sort((name1, name2) => {
+      //     if (name1[1] > name2[1]) return 1
+      //     else if (name1[1] < name2[1]) return -1
+      //     return 0
+      //   })
+      //   document.write(names)
+      //Приклад. Упорядкувати за спаданням за другою буквою
+
+      //   let names = ['Ivan', 'Lara', 'Peter']
+      //   names.sort((name1, name2) => {
+      //     let compRes
+      //     if (name1[1] > name2[1]) compRes = -1
+      //     else if (name1[1] < name2[1]) compRes = 1
+      //     else compRes = 0
+      //     return compRes
+      //   })
+      //   document.write(names)
+    </script>
+  </body>
+</html>
