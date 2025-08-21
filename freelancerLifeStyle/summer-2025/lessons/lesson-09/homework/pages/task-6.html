@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <title>Урок 08</title>
+    <title>Урок 09</title>
   </head>
 
   <body>
@@ -17,7 +17,7 @@
       <header class="header" id="up">
         <div class="header__container">
           <div class="header__inner">
-            <h1 class="header__title">Домашне завдання № 8</h1>
+            <h1 class="header__title">Домашне завдання № 9</h1>
           </div><!-- /. header__inner -->
         </div><!-- /. header__container -->
       </header>
@@ -31,42 +31,16 @@
                 <div class="tasks__inner">
                   <ul class="tasks__items">
                     <li class="tasks__item">
-                      <p><span class="tasks__title">Задача 6.</span> Дано послідовність цін товарів та назв (у окремих масивах). Вивести на
-                        екран ті, які може собі дозволити користувач (кількість грошей задається).
-                        <ul class="list">
-                          <li class="list__item">
-                            <span>Приклад збереження даних:</span>
-                          </li>
-                          <li class="list__item">
-                            <span>let productsPrices = [1000, 20, 31];</span>
-                          </li>
-                          <li class="list__item">
-                            <span>let productsTitles = [‘cheese’, ‘juice’, ‘bread’];</span>
-                          </li>
-                        </ul>
+                      <p><span class="tasks__title">Задача 6.</span> Дано масив елементів. Усі елементи, які більші за перший елемент
+                        помножити на 2.
                       </p>
                     </li>
                     <li class="tasks__item">
                       <script>
-                        if (confirm('Почати тестування?')) {
-                          const productsTitles = [
-                            "сир",
-                            "сік",
-                            "хліб",
-                            "банани",
-                            "молоко",
-                            "картопля",
-                            "малина",
-                            "масло",
-                            "помідори",
-                            "шоколад",
-                          ];
-                          const productsPrices = [123, 41, 25, 38, 64, 32, 200, 178, 94, 50];
+                        // if (confirm('Почати тестування?')) {
+                          const elements = parseInt(prompt("Введіть кількість елементів:", "10"));
 
-                          const moneyAmount = parseInt(prompt("Введіть кількість грошей:", "500"));
-
-                          const productsAmountIndex = getProductsAmount(productsPrices, moneyAmount);
-                          const productsTitlesUserCan = getProductsTitles(productsTitles, productsAmountIndex);
+                          let randomNumbers = createArray(elements);
 
                           document.write(`
                             <p>
@@ -74,57 +48,44 @@
                               <ul class="list">
                           `);
 
-                          showArray(productsPrices, 'Масив цін');
-                          showArray(productsTitles, 'Масив продуктів');
+                          showArray(randomNumbers, 'Масив елементів');
 
                           document.write('<br>');
 
-                          document.write(`
-                            <li class="list__item">
-                              <span>Кількість грошей: ${moneyAmount} грн.</span>
-                            </li>
-                          `);
+                          randomNumbers.forEach((element, index, baseArrRef) => {
+                            if (element > baseArrRef[0]) randomNumbers[index] * 2;
 
-                          showArrayList(productsTitlesUserCan);
+                            // baseArrRef[index] > baseArrRef[0] ? baseArrRef[index] * 2 : baseArrRef[index];
+                          });
+
+                          showArray(randomNumbers, 'Змінений масив елементів');
 
                           document.write(`
                               </ul>
                             </p>
                           `);
 
-                          // функція повертає перелік товарів
-                          function getProductsTitles(productsTitles, productsAmountIndex) {
-                            let productsTitlesArray = [];
+                          // функція повертає масив випадкових елементів
+                          function createArray(sizeArray) {
+                            let array = [];
 
-                            for (let i = 0; i < productsAmountIndex.length; i++) {
-                              productsTitlesArray.push(productsTitles[productsAmountIndex[i]]);
+                            for (let index = 0; index < sizeArray; index++) {
+                              array.push(generateRandomNumber(0, 100));
                             }
 
-                            return productsTitlesArray;
+                            return array;
                           }
 
-                          // функція повертає кількість продуктів
-                          function getProductsAmount(productsPrices, moneyAmount) {
-                            let currentMoneyAmount = moneyAmount;
-                            let counterProductsIndex = [];
+                          // функція повертає випадкове число в заданому інтервалі
+                          function generateRandomNumber(startRange, endRange) {
+                            const RANDOM_NUMBER_TO = startRange,
+                              RANDOM_NUMBER_FROM = endRange;
 
+                            const randomNumber =
+                              RANDOM_NUMBER_TO +
+                              Math.floor(Math.random() * (RANDOM_NUMBER_FROM - RANDOM_NUMBER_TO + 1));
 
-                            for (let i = 0; i < productsPrices.length; i++) {
-                              if (currentMoneyAmount > 0 && currentMoneyAmount >= productsPrices[i]) {
-
-                                if (currentMoneyAmount === productsPrices[i]) counterProductsIndex.push(i);
-
-                                currentMoneyAmount -= productsPrices[i];
-
-                                if (currentMoneyAmount <= 0) {
-                                  break;
-                                } else {
-                                  counterProductsIndex.push(i);
-                                }
-                              }
-                            }
-
-                            return counterProductsIndex;
+                            return randomNumber;
                           }
 
                           // функція, яка виводить масив
@@ -145,36 +106,7 @@
                               </li>
                             `);
                           }
-
-                          // функція, яка виводить список продуктів
-                          function showArrayList(array) {
-                            if (array.length !== 0) {
-                              document.write(`
-                                <li class="list__item">
-                                  <span>Користувач може собі дозволити:</span>
-                                </li>
-                              `);
-                            } else {
-                              document.write(`
-                                <li class="list__item">
-                                  <span>Користувач не може собі нічого дозволити. Не вистачає грошей.</span>
-                                </li>
-                              `);
-                            }
-
-                            document.write('<ul class="list">');
-
-                            for (let index = 0; index < array.length; index++) {
-                              document.write(`
-                                <li class="list__item">
-                                  <span> - ${array[index]};</span>
-                                </li>
-                              `);
-                            }
-
-                            document.write('</ul>');
-                          }
-                        }
+                        // }
                       </script>
                     </li>
                   </ul>
