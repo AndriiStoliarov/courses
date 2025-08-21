@@ -1,0 +1,20 @@
+filter: drop-shadow(0 toRem(4) toRem(4) rgba(0, 0, 0, 0.25)); - він кладе тінь під елементи зображення.
+
+/* перевірка мобільного браузера */
+isMobile = { Android: function () { return navigator.userAgent.match(/Android/i); }, BlackBerry: function () { return navigator.userAgent.match(/BlackBerry/i); }, iOS: function () { return navigator.userAgent.match(/iPhone|iPad|iPod/i); }, Opera: function () { return navigator.userAgent.match(/Opera Mini/i); }, Windows: function () { return navigator.userAgent.match(/IEMobile/i); }, any: function () { return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()); } };
+
+// прибрати стрілочки за замовченням у поля input type="number"
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+
+Заняття 37. Практика. Частина №13.
+
+🟢 Посилання на урок:
+https://youtube.com/live/P1MorWe_v7Y?feature=share
