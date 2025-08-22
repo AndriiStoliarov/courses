@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="uk">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="icon" href="favicon.svg" type="image/svg+xml">
+		<title>Урок 10</title>
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<!-- Header -->
+			<header class="header" id="up">
+				<div class="header__container">
+					<div class="header__inner">
+						<h1 class="header__title">Домашне завдання № 10</h1>
+					</div><!-- /. header__inner -->
+				</div><!-- /. header__container -->
+			</header>
+
+			<main class="page">
+				<div class="page__container">
+					<div class="page__inner">
+						<!-- Tasks -->
+						<div class="tasks">
+							<div class="tasks__container">
+								<div class="tasks__inner">
+									<ul class="tasks__items">
+										<li class="tasks__item">
+											<p><span class="tasks__title">Задача.</span> Дано історію цін на цінні папери за деякий період (згенерувати
+												від 1 до 10000):
+												<ul class="list">
+													<li class="list__item">
+														<span>1) Сформувати новий масив, у якому є тільки ті, що більші за 1000 грн.</span>
+													</li>
+													<li class="list__item">
+														<span>2) Сформувати новий масив, у якому є номери тільки тих, що більші за 1000 грн.</span>
+													</li>
+													<li class="list__item">
+														<span>3) Сформувати список з тих цін, які більші за попереднє значення.</span>
+													</li>
+													<li class="list__item">
+														<span>4) Сформувати новий масив, що міститиме значення цін у відсотках стосовно максимального.</span>
+													</li>
+													<li class="list__item">
+														<span>5) Підрахувати кількість змін цін.</span>
+													</li>
+													<li class="list__item">
+														<span>6) Визначити, чи є ціна, що менше 1000.</span>
+													</li>
+													<li class="list__item">
+														<span>7) Визначати, чи усі ціни більше за 1000.</span>
+													</li>
+													<li class="list__item">
+														<span>8) Підрахувати кількість цін, що більше за 1000.</span>
+													</li>
+													<li class="list__item">
+														<span>9) Підрахувати суму цін, що більше за 1000.</span>
+													</li>
+													<li class="list__item">
+														<span>10) Знайти першу ціну, що більше за 1000.</span>
+													</li>
+													<li class="list__item">
+														<span>11) Знайти індекс першої ціни, що більше за 1000.</span>
+													</li>
+													<li class="list__item">
+														<span>12) Знайти останню ціну, що більше за 1000.</span>
+													</li>
+													<li class="list__item">
+														<span>13) Знайти індекс останньої ціни, що більше за 1000.</span>
+													</li>
+												</ul>
+											</p>
+
+											<br>
+
+											<script>
+												// if (confirm('Почати тестування?')) {
+													const ELEMENTS_AMOUNT = 10;
+
+													const prices = createArray(ELEMENTS_AMOUNT);
+
+													document.write(`
+														<p>
+															<span class="tasks__title">Відповідь:</span>
+															<ul class="list">
+													`);
+
+													showArray(prices, 'Масив цін');
+
+													document.write('<br>');
+													// task 1
+													const pricesBigger1000 = prices.filter(element => element > 1000);
+
+													showArray(pricesBigger1000, '1) Масив цін, що більші за 1000 грн.');
+
+													// task 2
+													// use forEach!!!
+													// const pricesIndexAll = prices.map((element, index) => {
+													// 	if (element > 1000) return index;
+													// });
+													// const pricesIndexBigger1000 = pricesIndexAll.filter...
+
+													showArray(pricesIndexBigger1000, '2) Масив цін, що більші за 1000 грн.');
+
+													document.write(`
+															</ul>
+														</p>
+													`);
+
+													// функція повертає масив випадкових елементів
+													function createArray(sizeArray) {
+														let array = [];
+
+														for (let index = 0; index < sizeArray; index++) {
+															array.push(generateRandomNumber(1, 10000));
+														}
+
+														return array;
+													}
+
+													// функція повертає випадкове число в заданому інтервалі
+													function generateRandomNumber(startRange, endRange) {
+														const RANDOM_NUMBER_TO = startRange,
+															RANDOM_NUMBER_FROM = endRange;
+
+														const randomNumber =
+															RANDOM_NUMBER_TO +
+															Math.floor(Math.random() * (RANDOM_NUMBER_FROM - RANDOM_NUMBER_TO + 1));
+
+														return randomNumber;
+													}
+
+													// функція, яка виводить масив
+													function showArray(array, caption) {
+														document.write(`
+															<li class="list__item">
+																<span>${caption}: [</span>
+														`);
+
+														for (let index = 0; index < array.length; index++) {
+															document.write(`
+																	<span>${array[index]}</span>
+															`);
+														}
+
+														document.write(`
+																<span>].</span>
+															</li>
+														`);
+													}
+												// }
+											</script>
+										</li>
+										<!-- <li class="tasks__item">
+											<p><a href="pages/task-2.html" class="tasks__link">Задача 2.</a> Користувач вводить кількість елементів.
+												Створити масив, у якому перша половина заповнена 1-цями, а друга заповнена 7-ками.
+											</p>
+										</li>
+										<li class="tasks__item">
+											<p><a href="pages/task-3.html" class="tasks__link">Задача 3.</a> Користувач вводить кількість елементів.
+												Створити масив, у якому перші 5 елементів заповнені 1-цями, а інші до кінця масиву заповнені 7-ками.
+											</p>
+										</li> -->
+									</ul><!-- /.tasks__items -->
+								</div><!-- /.tasks__inner -->
+							</div><!-- /.tasks__container -->
+						</div><!-- /.tasks -->
+
+						<div class="up">
+							<div class="up__container">
+								<a class="up__link" href="#up">на гору</a>
+							</div>
+						</div>
+					</div><!-- /.page__inner -->
+				</div><!-- /.page__container -->
+			</main><!-- /.page -->
+
+			<!-- Footer -->
+			<footer class="footer">
+				<div class="footer__container">
+					<div class="footer__inner">
+						<div class="footer__text"><span>&#169; </span>2025 Andrii Stoliarov</div>
+					</div>
+				</div><!-- /.footer__inner-->
+			</footer>
+		</div><!-- /.wrapper -->
+	</body>
+</html>
