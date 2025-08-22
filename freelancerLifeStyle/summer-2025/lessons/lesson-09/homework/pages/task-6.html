@@ -37,10 +37,10 @@
                     </li>
                     <li class="tasks__item">
                       <script>
-                        // if (confirm('Почати тестування?')) {
-                          const elements = parseInt(prompt("Введіть кількість елементів:", "10"));
+                        if (confirm('Почати тестування?')) {
+                          const ELEMENTS_AMOUNT = 10;
 
-                          let randomNumbers = createArray(elements);
+                          const numbers = createArray(ELEMENTS_AMOUNT);
 
                           document.write(`
                             <p>
@@ -48,17 +48,15 @@
                               <ul class="list">
                           `);
 
-                          showArray(randomNumbers, 'Масив елементів');
+                          showArray(numbers, 'Масив елементів');
 
                           document.write('<br>');
 
-                          randomNumbers.forEach((element, index, baseArrRef) => {
-                            if (element > baseArrRef[0]) randomNumbers[index] * 2;
-
-                            // baseArrRef[index] > baseArrRef[0] ? baseArrRef[index] * 2 : baseArrRef[index];
+                          numbers.forEach((element, index, array) => {
+                            if (element > array[0]) array[index] *= 2;
                           });
-
-                          showArray(randomNumbers, 'Змінений масив елементів');
+                          
+                          showArray(numbers, 'Змінений масив елементів');
 
                           document.write(`
                               </ul>
@@ -106,7 +104,7 @@
                               </li>
                             `);
                           }
-                        // }
+                        }
                       </script>
                     </li>
                   </ul>

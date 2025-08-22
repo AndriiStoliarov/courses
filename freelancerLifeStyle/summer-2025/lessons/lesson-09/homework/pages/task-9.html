@@ -31,15 +31,20 @@
                 <div class="tasks__inner">
                   <ul class="tasks__items">
                     <li class="tasks__item">
-                      <p><span class="tasks__title">Задача 5.</span> Дано масив елементів. Знайти добуток додатних елементів
+                      <p><span class="tasks__title">Задача 9.</span> Дано масив імен. Сформувати масив з перших літер цих імен.
                       </p>
                     </li>
                     <li class="tasks__item">
                       <script>
                         if (confirm('Почати тестування?')) {
-                          const ELEMENTS_AMOUNT = 10;
-
-                          const numbers = createArray(ELEMENTS_AMOUNT);
+                          const names = [
+                            "Андрій", "Олександр", "Іван", "Володимир", "Сергій",
+                            "Дмитро", "Микола", "Петро", "Юрій", "Василь",
+                            "Олег", "Максим", "Тарас", "Роман", "Богдан",
+                            "Євген", "Ігор", "Віталій", "Ярослав", "Михайло",
+                            "Олена", "Марія", "Ірина", "Наталія", "Тетяна",
+                            "Світлана", "Анна", "Вікторія", "Оксана", "Катерина"
+                          ];
 
                           document.write(`
                             <p>
@@ -47,64 +52,18 @@
                               <ul class="list">
                           `);
 
-                          showArray(numbers, 'Масив елементів');
+                          showArray(names, 'Масив імен');
 
                           document.write('<br>');
 
-                          const multiplicationPositiveNumbers = getMultiplicationPositiveNumbers(numbers);
+                          const letters = names.map(name => name[0]);
 
-                          if (multiplicationPositiveNumbers !== 1) {
-                            document.write(`
-                              <li class="list__item">
-                                <span>Добуток додатних елементів = ${multiplicationPositiveNumbers}.</span>
-                              </li>
-                            `);
-                          } else {
-                            document.write(`
-                              <li class="list__item">
-                                <span>В масиві немає додатних елементів.</span>
-                              </li>
-                            `);
-                          }
+                          showArray(letters, 'Масив з перших літер імен');
 
                           document.write(`
                               </ul>
                             </p>
                           `);
-
-                          // функція повертає добуток додатних елементів
-                          function getMultiplicationPositiveNumbers(numbers) {
-                            let multiplication = 1;
-
-                            for (let number of numbers) {
-                              if (number > 0) multiplication *= number;
-                            }
-
-                            return multiplication;
-                          }
-
-                          // функція повертає масив випадкових елементів
-                          function createArray(sizeArray) {
-                            let array = [];
-
-                            for (let index = 0; index < sizeArray; index++) {
-                              array.push(generateRandomNumber(-200, 100));
-                            }
-
-                            return array;
-                          }
-
-                          // функція повертає випадкове число в заданому інтервалі
-                          function generateRandomNumber(startRange, endRange) {
-                            const RANDOM_NUMBER_TO = startRange,
-                              RANDOM_NUMBER_FROM = endRange;
-
-                            const randomNumber =
-                              RANDOM_NUMBER_TO +
-                              Math.floor(Math.random() * (RANDOM_NUMBER_FROM - RANDOM_NUMBER_TO + 1));
-
-                            return randomNumber;
-                          }
 
                           // функція, яка виводить масив
                           function showArray(array, caption) {

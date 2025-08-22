@@ -31,7 +31,8 @@
                 <div class="tasks__inner">
                   <ul class="tasks__items">
                     <li class="tasks__item">
-                      <p><span class="tasks__title">Задача 5.</span> Дано масив елементів. Знайти добуток додатних елементів
+                      <p><span class="tasks__title">Задача 10.</span> Дано масив цін у грн. Податок складає 20%. Сформувати масив, який буде
+                        містити величину сплаченого податку у грн.
                       </p>
                     </li>
                     <li class="tasks__item">
@@ -39,7 +40,7 @@
                         if (confirm('Почати тестування?')) {
                           const ELEMENTS_AMOUNT = 10;
 
-                          const numbers = createArray(ELEMENTS_AMOUNT);
+                          const prices = createArray(ELEMENTS_AMOUNT);
 
                           document.write(`
                             <p>
@@ -47,48 +48,29 @@
                               <ul class="list">
                           `);
 
-                          showArray(numbers, 'Масив елементів');
+                          showArray(prices, 'Масив цін');
 
                           document.write('<br>');
 
-                          const multiplicationPositiveNumbers = getMultiplicationPositiveNumbers(numbers);
+                          const tax20Percent = prices.map(price => {
+                            const TAX_IN_PERCENTAGE = 20 / 100;
 
-                          if (multiplicationPositiveNumbers !== 1) {
-                            document.write(`
-                              <li class="list__item">
-                                <span>Добуток додатних елементів = ${multiplicationPositiveNumbers}.</span>
-                              </li>
-                            `);
-                          } else {
-                            document.write(`
-                              <li class="list__item">
-                                <span>В масиві немає додатних елементів.</span>
-                              </li>
-                            `);
-                          }
+                            return Math.round(price * TAX_IN_PERCENTAGE);
+                          });
+
+                          showArray(tax20Percent, 'Змінений масив елементів');
 
                           document.write(`
                               </ul>
                             </p>
                           `);
 
-                          // функція повертає добуток додатних елементів
-                          function getMultiplicationPositiveNumbers(numbers) {
-                            let multiplication = 1;
-
-                            for (let number of numbers) {
-                              if (number > 0) multiplication *= number;
-                            }
-
-                            return multiplication;
-                          }
-
                           // функція повертає масив випадкових елементів
                           function createArray(sizeArray) {
                             let array = [];
 
                             for (let index = 0; index < sizeArray; index++) {
-                              array.push(generateRandomNumber(-200, 100));
+                              array.push(generateRandomNumber(20, 2000));
                             }
 
                             return array;

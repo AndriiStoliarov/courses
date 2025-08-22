@@ -37,9 +37,9 @@
                     <li class="tasks__item">
                       <script>
                         if (confirm('Почати тестування?')) {
-                          const elements = parseInt(prompt("Введіть кількість елементів:", "10"));
+                          const ELEMENTS_AMOUNT = 10;
 
-                          const randomNumbers = createArray(elements);
+                          const numbers = createArray(ELEMENTS_AMOUNT);
 
                           document.write(`
                             <p>
@@ -47,11 +47,11 @@
                               <ul class="list">
                           `);
 
-                          showArray(randomNumbers, 'Масив елементів');
+                          showArray(numbers, 'Масив елементів');
 
                           document.write('<br>');
 
-                          const numbersBigger100 = getNumbersBigger100(randomNumbers);
+                          const numbersBigger100 = getNumbersBigger100(numbers);
 
                           showArray(numbersBigger100, 'Масив елементів, що більші за 100');
 

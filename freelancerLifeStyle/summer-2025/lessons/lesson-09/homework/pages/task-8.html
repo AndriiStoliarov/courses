@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <title>Урок 08</title>
+    <title>Урок 09</title>
   </head>
 
   <body>
@@ -17,7 +17,7 @@
       <header class="header" id="up">
         <div class="header__container">
           <div class="header__inner">
-            <h1 class="header__title">Домашне завдання № 8</h1>
+            <h1 class="header__title">Домашне завдання № 9</h1>
           </div><!-- /. header__inner -->
         </div><!-- /. header__container -->
       </header>
@@ -31,16 +31,16 @@
                 <div class="tasks__inner">
                   <ul class="tasks__items">
                     <li class="tasks__item">
-                      <p><span class="tasks__title">Задача 8.</span> Дано одновимірний масив, у якому зберігається певна виграшна сума
-                        (елементи заповнюються випадковим чином значеннями від -500 до 500). Надаючи користувачу можливість вибирати номери
-                        елементів (поки він не відмовиться). Знаходити сумарний виграш.
+                      <p><span class="tasks__title">Задача 8.</span> Дано масив номерів авто. Сформувати новий масив тих, які починаються на
+                        «А».
                       </p>
                     </li>
                     <li class="tasks__item">
-
                       <script>
                         if (confirm('Почати тестування?')) {
-                          const elements = createArray(10);
+                          const ELEMENTS_AMOUNT = 10;
+
+                          const carNumbers = generateCarNumbers(ELEMENTS_AMOUNT);
 
                           document.write(`
                             <p>
@@ -48,62 +48,41 @@
                               <ul class="list">
                           `);
 
-                          showArray(elements, "Масив виграшів");
+                          showArray(carNumbers, 'Масив номерів авто');
 
-                          document.write("<br>");
+                          document.write('<br>');
 
-                          const winNumbers = getWinNumbers();
-                          const winElementsSum = getWinElementsSum(elements, winNumbers);
+                          const carNumbersStartingWithA = carNumbers.filter(carNumber => carNumber[0] === 'A');
 
-                          document.write(`
-                            <li class="list__item">
-                              <span>Сума виграшу = ${winElementsSum} грн.</span>
-                            </li>
-                          `);
+                          if (carNumbersStartingWithA.length !== 0) {
+                            showArray(carNumbersStartingWithA, 'Масив номерів, які починаються на "А"');
+                          } else {
+                            document.write(`
+                                <li class="list__item">
+                                  <span>Номери, які починаються на "А" в масиві відсутні.</span>
+                                </li>
+                              `);
+                          }
 
                           document.write(`
                               </ul>
                             </p>
                           `);
 
-                          // функція, яка повертає сумарний виграш
-                          function getWinElementsSum(elements, winNumbers) {
-                            let winElementsSum = 0;
+                          // функція повертає масив випадкових номері авто
+                          function generateCarNumbers(sizeArray) {
+                            const carNumbers = [];
 
-                            for (let number = 0; number < winNumbers.length; number++) {
-                              winElementsSum += elements[winNumbers[number]];
-                            }
+                            for (let i = 0; i < sizeArray; i++) {
+                            // формат: A123BC
+                            const firstPartOfCarNumber = generateRandomCapitalLetter();
+                            const secondPartOfCarNumber = generateRandomNumber(100, 900) // три цифри
+                            const thirdPartOfCarNumber = generateRandomCapitalLetter() + generateRandomCapitalLetter();
 
-                            return winElementsSum;
+                            carNumbers.push(firstPartOfCarNumber + secondPartOfCarNumber + thirdPartOfCarNumber);
                           }
 
-                          // функція, яка повертає виграшні номери
-                          function getWinNumbers() {
-                            let winNumbers = [];
-
-                            while (true) {
-                              const winNumber = prompt("Введіть номер комірки від 0 до 9:", "3");
-                              const winNumberParse = parseInt(winNumber);
-
-                              if (winNumber !== null && winNumberParse < 10) {
-                                winNumbers.push(winNumberParse);
-                              } else {
-                                break;
-                              }
-                            }
-
-                            return winNumbers;
-                          }
-
-                          // функція повертає масив виграшів
-                          function createArray(sizeArray) {
-                            let array = [];
-
-                            for (let index = 0; index < sizeArray; index++) {
-                              array.push(generateRandomNumber(-500, 500));
-                            }
-
-                            return array;
+                          return carNumbers;
                           }
 
                           // функція повертає випадкове число в заданому інтервалі
@@ -116,6 +95,17 @@
                               Math.floor(Math.random() * (RANDOM_NUMBER_FROM - RANDOM_NUMBER_TO + 1));
 
                             return randomNumber;
+                          }
+
+                          // функція повертає випадкову велику літеру англійського алфавіту
+                          function generateRandomCapitalLetter() {
+                            const englishAlphabet = [
+                            "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
+                            ];
+
+                            const randomIndex = Math.floor(Math.random() * englishAlphabet.length);
+
+                            return englishAlphabet[randomIndex];
                           }
 
                           // функція, яка виводить масив
