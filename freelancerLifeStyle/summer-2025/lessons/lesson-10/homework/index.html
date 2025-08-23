@@ -79,7 +79,7 @@
 											<br>
 
 											<script>
-												// if (confirm('Почати тестування?')) {
+												if (confirm('Почати тестування?')) {
 													const ELEMENTS_AMOUNT = 10;
 
 													const prices = createArray(ELEMENTS_AMOUNT);
@@ -93,19 +93,142 @@
 													showArray(prices, 'Масив цін');
 
 													document.write('<br>');
-													// task 1
+													// task 1 ==================================================
 													const pricesBigger1000 = prices.filter(element => element > 1000);
 
 													showArray(pricesBigger1000, '1) Масив цін, що більші за 1000 грн.');
 
-													// task 2
-													// use forEach!!!
-													// const pricesIndexAll = prices.map((element, index) => {
-													// 	if (element > 1000) return index;
-													// });
-													// const pricesIndexBigger1000 = pricesIndexAll.filter...
 
-													showArray(pricesIndexBigger1000, '2) Масив цін, що більші за 1000 грн.');
+													// task 2 ==================================================
+													let pricesIndexBigger1000 = [];
+
+													prices.forEach((element, index) => {
+														if (element > 1000) pricesIndexBigger1000.push(index);
+													});
+
+													showArray(pricesIndexBigger1000, '2) Масив номерів, що більші за 1000 грн.');
+
+
+													// task 3 ==================================================
+													const pricesBiggerThanPrevious = prices.filter((element, index, array) => element > array[index - 1]);
+
+													showArray(pricesBiggerThanPrevious, '3) Масив цін, які більші за попереднє значення.');
+
+
+													// task 4 ==================================================
+													const maxPrice = Math.max(...prices);
+													// const maxPrice = prices.reduce((previousResult, element) => previousResult > element ? previousResult : element);
+
+													const pricesPercentageOfMax = prices.map(element => Math.round(element * 100 / maxPrice));
+
+													showArray(pricesPercentageOfMax, '4) Масив ціну відсотках стосовно максимального.');
+
+
+													// task 5 ==================================================
+													const countDifferencePrices = prices.reduce((previousResult, element, index, array) => (element === array[index - 1] ? previousResult : ++previousResult), -1);
+
+													document.write(`
+														<li class="list__item">
+															<span>5) Кількість змін цін = ${countDifferencePrices}.</span>
+														</li>
+													`);
+
+
+													// task 6 ==================================================
+													const isPriceLessThan1000 = prices.some(element => element < 1000);
+
+													if (isPriceLessThan1000 === true) {
+														document.write(`
+															<li class="list__item">
+																<span>6) В масиві є ціна, що менше 1000 грн.</span>
+															</li>
+														`);
+													} else {
+														document.write(`
+															<li class="list__item">
+																<span>6) Масив не має ціни, що менше 1000 грн.</span>
+															</li>
+														`);
+													}
+
+
+													// task 7 ==================================================
+													const isPricesBiggerThan1000 = prices.every(element => element > 1000);
+
+													if (isPricesBiggerThan1000 === false) {
+														document.write(`
+															<li class="list__item">
+																<span>7) В масиві не усі ціни більші за 1000 грн.</span>
+															</li>
+														`);
+													} else {
+														document.write(`
+															<li class="list__item">
+																<span>7) В масиві усі ціни більші за 1000 грн.</span>
+															</li>
+														`);
+													}
+
+
+													// task 8 ==================================================
+													const countPricesBiggerThan1000 = prices.reduce((previousResult, element) => (element > 1000 ? ++previousResult : previousResult), 0);
+
+													document.write(`
+														<li class="list__item">
+															<span>8) Кількість цін, що більше за 1000: ${countPricesBiggerThan1000}.</span>
+														</li>
+													`);
+
+
+													// task 9 ==================================================
+													const sumPricesBiggerThan1000 = prices.reduce((previousResult, element) => (element > 1000 ? previousResult + element : previousResult), 0);
+
+													document.write(`
+														<li class="list__item">
+															<span>9) Сума цін, що більше за 1000: ${sumPricesBiggerThan1000} грн.</span>
+														</li>
+													`);
+
+
+													// task 10 ==================================================
+													const firstPriceBiggerThan1000 = prices.find(element => element > 1000);
+
+													document.write(`
+														<li class="list__item">
+															<span>10) Перша ціна, що більша за 1000: ${firstPriceBiggerThan1000} грн.</span>
+														</li>
+													`);
+
+
+													// task 11 ==================================================
+													const firstPriceIndexBiggerThan1000 = prices.findIndex(element => element > 1000);
+													// const firstPriceIndexBiggerThan1000 = prices.indexOf(firstPriceBiggerThan1000);
+
+													document.write(`
+														<li class="list__item">
+															<span>11) Індекс першої ціни, що більша за 1000: ${firstPriceIndexBiggerThan1000}.</span>
+														</li>
+													`);
+
+
+													// task 12 ==================================================
+													const lastPriceBiggerThan1000 = prices.findLast(element => element > 1000);
+
+													document.write(`
+														<li class="list__item">
+															<span>12) Остання ціна, що більша за 1000: ${lastPriceBiggerThan1000} грн.</span>
+														</li>
+													`);
+
+
+													// task 13 ==================================================
+													const lastPriceIndexBiggerThan1000 = prices.findLastIndex(element => element > 1000);
+
+													document.write(`
+														<li class="list__item">
+															<span>13) Індекс останньої ціни, що більша за 1000: ${lastPriceIndexBiggerThan1000}.</span>
+														</li>
+													`);
 
 													document.write(`
 															</ul>
@@ -153,7 +276,7 @@
 															</li>
 														`);
 													}
-												// }
+												}
 											</script>
 										</li>
 										<!-- <li class="tasks__item">
