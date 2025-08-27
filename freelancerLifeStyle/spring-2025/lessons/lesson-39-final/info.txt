@@ -1,7 +1,43 @@
-❗️ CSS ASPECT-RATIO. Все що треба знати про співвідношення сторін на практиці. Дивитись: https://youtu.be/2Z0I2WxKlJk
+Безкоштовні макети:
+https://www.figma.com/community/website-templates?resource_type=mixed&editor_type=all&price=free
+
+CSS ASPECT-RATIO. Все що треба знати про співвідношення сторін на практиці. Дивитись: https://youtu.be/2Z0I2WxKlJk
+
+ЗАБУДЬ ПРО РУТИНУ ПІД ЧАС РОЗРОБКИ. Презентація стартового шаблону (збірки) "Чертоги Фрілансера" 4.
+https://www.youtube.com/watch?v=U60ajH7Ekck
+
+Pavlo_K рекомендує подивитись: Розробка інтерфейсу "Arik".
+https://www.youtube.com/watch?v=xx2J7TZ76Og&list=PLM6XATa8CAG7_PusCSNClTnb2zTSWyjlY
+https://www.youtube.com/playlist?list=PLM6XATa8CAG7_PusCSNClTnb2zTSWyjlY
+
+Завантажити "Чертоги Фрілансера" 4
+https://www.patreon.com/posts/127347092
+
+Документація ЧФ4
+https://www.patreon.com/collection/1439491?view=condensed
+
+❗️ Потрібно встановити для збірки «Чертоги Фрілансера» 4.
+Provides path completion for visual studio code and VS Code for Web.
+https://marketplace.visualstudio.com/items?itemName=ionutvmi.path-autocomplete
+
+❗️ How I Fixed the “crypto.hash is not a function” Error in Vite.
+https://medium.com/@bensedrinedonia/how-i-fixed-the-crypto-hash-is-not-a-function-error-in-vite-on-windows-node-js-18-bf494185f952
+
+❗️ Структура HTML-файлов, в сборке, организована на основе инструмента, постпроцессора PostHTML. Окремий плагін, який дуже відредагований автором і адаптований під vite.
+PostHTML, инструмент для трансформации HTML с помощью JS-плагинов, по модели PostCSS — https://github.com/posthtml/posthtml.
+PostHTML is a tool to transform HTML/XML with JS plugins. It includes a HTML parser, API, and stringifier. All transformations are done by plugins.
 
 
 Заняття 39. Чертоги Фрілансера. Підсумки.
 
 🟢 Посилання на урок:
 https://youtube.com/live/p6lBzKcyakg?feature=share
+
+
+🎉 А ось і ваші сертифікати!
+
+🤓 Вказуйте своє ім'я і зберігайте зображення:
+🇺🇦 Українська: https://edu.fls.guru/sert/certificate.html
+🇬🇧 English: https://edu.fls.guru/sert/certificate-eng.html
+
+💪 Успіхів!
