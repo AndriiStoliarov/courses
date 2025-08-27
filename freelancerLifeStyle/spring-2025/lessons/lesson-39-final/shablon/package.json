@@ -30,8 +30,8 @@
     "autoprefixer": "latest",
     "chart.js": "latest",
     "cssnano": "latest",
+    "fonteditor-core": "v2.4.0",
     "fontmin": "v2.0.0",
-	 "fonteditor-core":"v2.4.0",
     "gh-pages": "latest",
     "glob": "latest",
     "gsap": "latest",
@@ -65,7 +65,6 @@
     "swiper": "latest",
     "tailwindcss": "latest",
     "tippy.js": "latest",
-    "vite": "latest",
     "vite-plugin-ftp": "latest",
     "vite-plugin-inspect": "latest",
     "vite-plugin-nunjucks": "^0.2.0",
@@ -80,5 +79,8 @@
   },
   "optionalDependencies": {
     "@img/sharp-win32-x64": "latest"
+  },
+  "dependencies": {
+    "vite": "^5.4.2"
   }
 }
