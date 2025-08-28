@@ -119,13 +119,13 @@
 													const maxPrice = Math.max(...prices);
 													// const maxPrice = prices.reduce((previousResult, element) => previousResult > element ? previousResult : element);
 
-													const pricesPercentageOfMax = prices.map(element => Math.round(element * 100 / maxPrice));
+													const pricesPercentageOfMax = prices.map(element => (element * 100 / maxPrice).toFixed());
 
 													showArray(pricesPercentageOfMax, '4) Масив ціну відсотках стосовно максимального.');
 
 
 													// task 5 ==================================================
-													const countDifferencePrices = prices.reduce((previousResult, element, index, array) => (element === array[index - 1] ? previousResult : ++previousResult), -1);
+													const countDifferencePrices = prices.reduce((previousResult, element, index, array) => ((index > 0 && element !== array[index - 1]) ? previousResult + 1 : previousResult), 0);
 
 													document.write(`
 														<li class="list__item">
