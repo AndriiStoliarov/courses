@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //=========================================================================================
+      //Задача. Дано випадкові значення виграшів - результати ігрового барабана (від -500 до 500)
+      // let scores = [
+      //   -56, -78, 252, 23, -122, 0, 122, 436, -111, 344, 21, 3, -356, 342,
+      // ]
+      // Обчислити:
+      //  -3) Сформувати масив з виграшних (>0)
+      // const res = scores.filter((el) => el > 0)
+      //  -2) Вивести виграшні значення (>100)
+      // const res = scores.filter((el) => el > 100)
+      //  -1) Від виграшних значень відняти 20% (*0,8)
+      // scores.forEach((el, index, baseArr) => {
+      //   if (el > 0) baseArr[index] *= 0.8
+      // })
+      // document.write(scores)
+      //  0) Сформувати новий, перевівши їх у долари (/ курс_долара)
+      // const DOLLAR_RATE = 40
+      // const res = scores.map((el) => el / DOLLAR_RATE)
+      //  1) Кінцеву виграшну суму (суму усіх елементів)
+      // const res = scores.reduce((prevSum, el) => prevSum + el)
+      //  2) Суму тільки виграшних значень (суму більших за 0)
+      // const res = scores.reduce(
+      //   (prevSum, el) => (el > 0 ? prevSum + el : prevSum),
+      //   0
+      // )
+
+      //  3) Суму тільки програшних значень (суму менших за 0)
+      // const res = scores.reduce(
+      //   (prevSum, el) => (el < 0 ? prevSum + el : prevSum),
+      //   0
+      // )
+      //  4) Визначити чи був 0
+      // const res = scores.includes(0)
+      //  5) Підрахувати кількість нулів
+      // const res = scores.reduce(
+      //   (prevCount, el) => prevCount + (el === 0 ? 1 : 0),
+      //   0
+      // )
+      //  7) Підрахувати кількість значень більших за 100
+      // const res = scores.reduce(
+      //   (prevCount, el) => prevCount + (el > 100 ? 1 : 0),
+      //   0
+      // )
+      //  10) Сформувати список тих, які були після першого нуля
+      // const firstZeroIndex = scores.indexOf(0)
+      // let res = []
+      // if (firstZeroIndex !== -1) res = scores.slice(firstZeroIndex + 1)
+      //  11) Сформувати список тих, які були після останнього нуля (<0)
+      // const lastZeroIndex = scores.lastIndexOf(0)
+      // let res = []
+      // if (lastZeroIndex !== -1) res = scores.slice(lastZeroIndex + 1)
+      //  12) Видалити ті, які є меншими за 20
+      // scores = scores.filter((el) => el >= 20)
+      // document.write(scores)
+      //  13) Видалити нулі
+      // scores = scores.filter((el) => el !== 0)
+      // document.write(scores)
+      //  14) Видалити перше нульове значення
+      // const firstZeroIndex = scores.indexOf(0)
+      // scores.splice(firstZeroIndex, 1)
+      // document.write(scores)
+      //  15) Упорядквати за зростанням
+      // scores.sort((a, b) => a - b)
+      // document.write(scores)
+      //  16) Упорядквати за спаданням
+      // scores.sort((a, b) => b - a)
+      // document.write(scores)
+      //  17) Упорядкувати так, щоб спочатку були від"ємні (без зміни їх слідування), потім всі інші(без зміни їх слідування)
+      // scores.sort((a, b) => {
+      //   if (a >= 0 && b < 0) return 1
+      //   if (a < 0 && b >= 0) return -1
+      //   return 0
+      // })
+      // document.write(scores)
+      //  18) Упорядкувати так, щоб спочатку були нулі, потім від"ємні, потім додатні
+      // scores.sort((a, b) => {
+      //   if ((a !== 0 && b === 0) || (a > 0 && b < 0)) return 1
+      //   if ((a === 0 && b !== 0) || (a < 0 && b > 0)) return -1
+      //   return 0
+      // })
+      // document.write(scores)
+      //  18) Упорядкувати так, щоб спочатку були виграші >200, потім всі інші
+      // scores.sort((a, b) => {
+      //   if (a <= 200 && b > 200) return 1
+      //   if (a > 200 && b <= 200) return -1
+      //   return 0
+      // })
+      // document.write(scores)
+
+      // document.write(res)
+      //-------------------------
+      //Дано упорядкований за зростанням масив цін. Сформувати новий масив, який складається тільки з різних значень
+      // let prices = [67, 89, 89, 89, 76, 90, 90, 122, 122, 122, 900]
+      // let res = prices.reduce((prevArr, el) => {
+      //   if (prevArr.includes(el)) return prevArr
+      //   else return [...prevArr, el]
+      // }, [])
+      // ----
+      // let res = []
+      // prices.forEach((el) => {
+      //   if (!res.includes(el)) res.push(el)
+      // })
+      // document.write(res)
+
+      //========================================================================
+      // Задача. Дано історію цін на цінні папери за деякий період (згенерувати від 1 до 10000)
+      // const actPrices = Array.from(
+      //   { length: 35 },
+      //   () => 1 + Math.floor(Math.random() * 10000)
+      // )
+
+      // 2)Сформувати новий масив, у якому є номери тільки тих, що більші за 1000 грн.
+      // const res = actPrices.reduce((prevArr, el, index) => {
+      //   if (el > 1000) prevArr.push(index)
+      //   return prevArr
+      // }, [])
+      // document.write(res)
+      // 3)Сформувати список з тих цін, які більші за попереднє значення
+      // const res = actPrices.filter(
+      //   (el, index, baseArr) => index > 0 && el > baseArr[index - 1]
+      // )
+      // document.write(res)
+      // 5)Підрахувати кількість змін цін
+      // const res = actPrices.reduce(
+      //   (prevCount, el, index, baseArr) =>
+      //     index > 0 && el !== baseArr[index - 1] ? prevCount + 1 : prevCount,
+      //   0
+      // )
+      // document.write(res)
+
+      //========================================================================
+      //========================================================================
+      //========================================================================
+      //============================БАГАТОВИМІРНІ МАСИВИ =======================================
+
+      //Задача. Дано прибуток магазину за К тижнів. Знайти загальний прибуток
+
+      // const getRandomRow = (elCount, min, max) =>
+      //   Array.from(
+      //     { length: elCount },
+      //     () => min + Math.floor(Math.random() * (max - min + 1))
+      //   )
+
+      // const getRandMatrix = (rowCount, colCount, min, max) =>
+      //   Array.from({ length: rowCount }, () => getRandomRow(colCount, min, max))
+
+      // console.log(getRandMatrix(2, 3, 100, 200))
+
+      let incomes = [
+        // 0  1  2  3  4  5  6
+        [1, 2, 5, 2, 1, 2, 9], // 0
+        [1, 2, 1, 2, 1, 2, 9], // 1
+        [1, 1, 5, 2, 1, 2, 9], // 2
+        [1, 6, 5, 2, 1, 2, 9], // 3
+        [1, 2, 23, 2, 1, 2, 9], // 4
+        [0, 1, 5, 2, 1, 2, 9], // 5
+        [1, 1, 54, 21, 1, 2, 9], // 6
+        [14, 11, 54, 21, 1, 2, 9], // 7
+      ]
+
+      //1) ------Загальний прибуток
+      // let sum = 0
+      // // for (let rowIndex = 0; rowIndex <= 7; rowIndex++) {
+      // //   for (let colIndex = 0; colIndex < 6; colIndex++) {
+      // //     sum += incomes[rowIndex][colIndex]
+      // //   }
+      // // }
+      // // document.write(`sum=${sum}`)
+      //----------
+      // let sum = 0
+      // for (let rowIndex = 0; rowIndex < incomes.length; rowIndex++) {
+      //   for (
+      //     let colIndex = 0;
+      //     colIndex < incomes[rowIndex].length;
+      //     colIndex++
+      //   ) {
+      //     sum += incomes[rowIndex][colIndex]
+      //   }
+      // }
+      // 2) --- Сума за робочі дні
+      // let sum = 0
+      // for (let rowIndex = 0; rowIndex < incomes.length; rowIndex++) {
+      //   for (let colIndex = 0; colIndex < 5; colIndex++) {
+      //     sum += incomes[rowIndex][colIndex]
+      //   }
+      // }
+      // document.write(`sum : ${sum}`)
+      //----
+      // let sum = 0
+      // for (const row of incomes) {
+      //   for (let colIndex = 0; colIndex < 5; colIndex++) {
+      //     sum += row[colIndex]
+      //   }
+      // }
+      // document.write(`sum : ${sum}`)
+      //Знайти суму за тижні від індекса 2 до індекса 5 включно
+      // let sum = 0
+      // for (let rowIndex = 2; rowIndex <= 5; rowIndex++) {
+      //   for (const element of incomes[rowIndex]) {
+      //     sum += element
+      //   }
+      // }
+      // document.write(`sum : ${sum}`)
+      //========================================================================
+      // Задача. Дано кількість відвідувачів кафе протягом року (для кожного місяця за кожен заокруглений тиждень - 4).
+      const visitors = [
+        [1200, 1500, 1700, 1600], // Прибуток за перший місяць
+        [1400, 1600, 1800, 1700], // Прибуток за другий місяць
+        [1300, 1550, 1750, 1650], // Прибуток за третій місяць
+        [1100, 1450, 1600, 1550], // Прибуток за четвертий місяць
+        [1250, 1500, 1850, 1800], // Прибуток за п’ятий місяць
+        [1350, 1600, 1900, 1700], // Прибуток за шостий місяць
+        [1450, 1700, 2000, 1800], // Прибуток за сьомий місяць
+        [1500, 1750, 2100, 1900], // Прибуток за восьмий місяць
+        [1550, 1800, 2200, 2000], // Прибуток за дев’ятий місяць
+        [1600, 1850, 2300, 2100], // Прибуток за десятий місяць
+        [1650, 1900, 2400, 2200], // Прибуток за одинадцятий місяць
+        [1700, 2000, 2500, 2300], // Прибуток за дванадцятий місяць
+      ]
+
+      // Визначити :
+      // 1) загальну кількість відвідувачів;
+      // let sum = 0
+      // for (const month of visitors) {
+      //   for (const weekValue of month) {
+      //     sum += weekValue
+      //   }
+      // }
+      //----
+      // const sum = visitors.reduce(
+      //   (prevTotalSum, month) =>
+      //     prevTotalSum +
+      //     month.reduce((prevMonthSum, weekValue) => prevMonthSum + weekValue),
+      //   0
+      // )
+      // document.write(`sum : ${sum}`)
+      // // 2) кількість відвідувачів за літо
+      // let sum = 0
+      // for (let monthIndex = 5; monthIndex < 8; monthIndex++) {
+      //   for (const weekValue of visitors[monthIndex]) {
+      //     sum += weekValue
+      //   }
+      // }
+      // document.write(`sum : ${sum}`)
+      // 2) кількість відвідувачів за літо з непарними індексами тижнів
+      // let sum = 0
+      // for (let monthIndex = 5; monthIndex < 8; monthIndex++) {
+      //   for (
+      //     let weekIndex = 0;
+      //     weekIndex < visitors[monthIndex].length;
+      //     weekIndex += 2
+      //   ) {
+      //     sum += visitors[monthIndex][weekIndex]
+      //   }
+      // }
+      // document.write(`sum : ${sum}`)
+      // 3) кількість відвідувачів за друге півріччя
+      // let sum = 0
+      // for (let monthIndex = 6; monthIndex < visitors.length; monthIndex++) {
+      //   for (const weekValue of visitors[monthIndex]) {
+      //     sum += weekValue
+      //   }
+      // }
+      // document.write(`sum : ${sum}`)
+
+      // document.write(sum)
+      // //========================================================================
+      // // Задача. Дано зріст учнів у школі (у кожному із класів кількість учнів може бути різною). Знайти :
+      let usersHeignts = [
+        [167, 176, 190, 171, 167], //0
+        [167, 176, 167], //1
+        [167, 176, 190, 171, 167, 145, 134], //2    usersHeignts[2]
+        [167, 176], //3
+      ]
+      // // 1)найвищого учня у школі
+      // let max = -Infinity
+      // for (const row of usersHeignts) {
+      //   for (const height of row) {
+      //     if (height > max) max = height
+      //   }
+      // }
+      // document.write(`max : ${max}`)
+      //---
+      // let max = -Infinity
+      // for (const row of usersHeignts) {
+      //   const maxRow = Math.max(...row)
+      //   if (maxRow > max) max = maxRow
+      // }
+      // document.write(`max : ${max}`)
+      //---
+      // let max = -Infinity
+      // let maxRowIndex, maxColIndex
+      // for (let rowIndex = 0; rowIndex < usersHeignts.length; rowIndex++) {
+      //   for (
+      //     let colIndex = 0;
+      //     colIndex < usersHeignts[rowIndex].length;
+      //     colIndex++
+      //   ) {
+      //     if (usersHeignts[rowIndex][colIndex] > max) {
+      //       max = usersHeignts[rowIndex][colIndex]
+      //       maxRowIndex = rowIndex
+      //       maxColIndex = colIndex
+      //     }
+      //   }
+      // }
+      // document.write(
+      //   `max : ${max}, rowIndex = ${maxRowIndex}, colIndex = ${maxColIndex}`
+      // )
+
+      // 2)найвищого учня у кожному класі
+      // for (const row of usersHeignts) {
+      //   document.write(`${Math.max(...row)}<br>`)
+      // }
+
+      //========================================================================
+      //   У місті є К шкіл по 11 класів у кожній. Відомі величини зросту учнів. Знайти найвищого учня
+      // const schools = [
+      //   [
+      //     // школа 1
+      //     [160, 170, 165, 180, 175], // клас 1
+      //     [162, 168, 171, 177, 169], // клас 2
+      //     [158, 172, 166, 174, 170], // клас 3
+      //     [161, 169, 173, 178, 167], // клас 4
+      //     [159, 171, 168, 176, 172], // клас 5
+      //     [163, 170, 175, 179, 168], // клас 6
+      //     [164, 172, 169, 177, 171], // клас 7
+      //     [160, 168, 174, 180, 173], // клас 8
+      //     [162, 170, 167, 175, 169], // клас 9
+      //     [161, 169, 172, 178, 170], // клас 10
+      //     [159, 171, 168, 176, 172], // клас 11
+      //   ],
+      //   [
+      //     // школа 2
+      //     [165, 172, 168, 177, 170],
+      //     [163, 170, 175, 179, 168],
+      //     [164, 172, 169, 177, 171],
+      //     [160, 168, 174, 180, 173],
+      //     [162, 170, 167, 175, 169],
+      //     [161, 169, 172, 178, 170],
+      //     [159, 171, 168, 176, 172],
+      //     [160, 170, 165, 180, 175],
+      //     [162, 168, 171, 177, 169],
+      //     [158, 172, 166, 174, 170],
+      //     [161, 169, 173, 178, 167],
+      //   ],
+      //   [
+      //     // школа 3
+      //     [159, 171, 168, 176, 172],
+      //     [163, 170, 175, 179, 168],
+      //     [164, 172, 169, 177, 171],
+      //     [160, 168, 174, 180, 173],
+      //     [162, 170, 167, 175, 169],
+      //     [161, 169, 172, 178, 170],
+      //     [159, 171, 168, 176, 172],
+      //     [160, 170, 165, 180, 175],
+      //     [162, 168, 171, 177, 169],
+      //     [158, 172, 166, 174, 170],
+      //     [161, 169, 173, 178, 167],
+      //   ],
+      // ]
+      // //---------------
+      // let max = -Infinity
+      // for (const school of schools) {
+      //   for (const class_ of school) {
+      //     for (const pupilHeight of class_) {
+      //       if (pupilHeight > max) max = pupilHeight
+      //     }
+      //   }
+      // }
+
+      // document.write(`max : ${max}`)
+      //---------
+      // const max = Math.max(...schools.flat(Infinity))
+      // document.write(`max : ${max}`)
+
+      //========================================================================
+      //  Дано величини прибутку від кожного працівника рекламної компанії, що складається з К філіалів.
+      // У кожному філіалі є певна кількість працівників (у кожному філіалі кількість працівників може бути різною).
+      // Знайти загальний прибуток та прибуток у кожному із філіалів.
+      // const branches = [
+      //   [1200, 1500, 1700], // 1-й філіал: 3 працівники
+      //   [1400, 1600], // 2-й філіал: 2 працівники
+      //   [1300, 1550, 1750, 1650], // 3-й філіал: 4 працівники
+      //   [1100, 1450], // 4-й філіал: 2 працівники
+      // ]
+      // const sumArr = branches.map((branch) =>
+      //   branch.reduce((prevSum, el) => prevSum + el)
+      // )
+      // document.write(sumArr)
+      // const max = Math.max(...branches.flat())
+      // document.write(`max : ${max}`)
+      // const sum = branches.flat().reduce((prevSum, el) => prevSum + el)
+      // document.write(`sum : ${sum}`)
+
+      //========================================================================
+      //Задача. Дано покази температур за К тижнів. Сформувати список, що містить тільки додатні покази.
+      // const temperatures = [
+      //   [12, -3, 5, 0, 8, -7, 10], // 1-й тиждень
+      //   [4, 6, -2, 0, 9, 11, -5], // 2-й тиждень
+      //   [-1, 7, 3, 2, -4, 0, 5], // 3-й тиждень
+      // ]
+
+      // const positiveValues = temperatures.flat().filter((el) => el > 0)
+      // document.write(positiveValues)
+
+      //========================================================================
+      //Задача. Дано зріст учнів у К школах. Сформувати список, тільки з тих величин зросту, які більші за 150см
+      const schools = [
+        [
+          // школа 1
+          [160, 170, 165, 180, 175], // клас 1
+          [162, 168, 171, 177, 169], // клас 2
+          [158, 172, 166, 174, 170], // клас 3
+          [161, 169, 173, 178, 167], // клас 4
+          [159, 171, 168, 176, 172], // клас 5
+          [163, 170, 175, 179, 168], // клас 6
+          [164, 172, 169, 177, 171], // клас 7
+          [160, 168, 174, 180, 173], // клас 8
+          [162, 170, 167, 175, 169], // клас 9
+          [161, 169, 172, 178, 170], // клас 10
+          [159, 171, 168, 176, 172], // клас 11
+        ],
+        [
+          // школа 2
+          [165, 172, 168, 177, 170],
+          [163, 170, 175, 179, 168],
+          [164, 172, 169, 177, 171],
+          [160, 168, 174, 180, 173],
+          [162, 170, 167, 175, 169],
+          [161, 169, 172, 178, 170],
+          [159, 171, 168, 176, 172],
+          [160, 170, 165, 180, 175],
+          [162, 168, 171, 177, 169],
+          [158, 172, 166, 174, 170],
+          [161, 169, 173, 178, 167],
+        ],
+        [
+          // школа 3
+          [159, 171, 168, 176, 172],
+          [163, 170, 175, 179, 168],
+          [164, 172, 169, 177, 171],
+          [160, 168, 174, 180, 173],
+          [162, 170, 167, 175, 169],
+          [161, 169, 172, 178, 170],
+          [159, 171, 168, 176, 172],
+          [160, 170, 165, 180, 175],
+          [162, 168, 171, 177, 169],
+          [158, 172, 166, 174, 170],
+          [161, 169, 173, 178, 167],
+        ],
+      ]
+
+      // const greaterThan150 = schools.flat(Infinity).filter((el) => el > 150)
+      // document.write(greaterThan150)
+      //========================================================================
+      // Дано покази продажу автомобілів компанії за країнами, областями, містами і моделями.
+      // (поки зберігаємо за номерами (номер країни, номер області, номер міста, номер моделі) як 4-вимірний масив)
+      const sales = [
+        [
+          // країна 1
+          [
+            // область 1
+            [5, 2, 3], // місто 1: модель1, модель2, модель3
+            [1, 0, 4], // місто 2
+          ],
+          [
+            // область 2
+            [2, 3, 1], // місто 1
+            [0, 2, 2], // місто 2
+          ],
+        ],
+        [
+          // країна 2
+          [
+            // область 1
+            [3, 1, 2], // місто 1
+            [2, 2, 1], // місто 2
+          ],
+          [
+            // область 2
+            [4, 0, 3], // місто 1
+            [1, 1, 2], // місто 2
+          ],
+        ],
+      ]
+      // Знайти:
+      // 1) загальну кількість проданих авто
+      // const total = sales.flat(Infinity).reduce((prevSum, el) => prevSum + el)
+      // document.write(`total : ${total}`)
+      // 2) загальну кількість проданих моделей кожного виду
+      // const cities = sales.flat(2)
+      // let modelsSum = [0, 0, 0]
+      // for (const citySales of cities) {
+      //   for (let i = 0; i < 3; i++) {
+      //     modelsSum[i] += citySales[i]
+      //   }
+      // }
+      // document.write(modelsSum)
+
+      // 3) загальну кількість проданих авто у кожній із країн
+      // for (const country of sales) {
+      //   const sum = country.flat(Infinity).reduce((prevSum, el) => prevSum + el)
+      //   document.write(`${sum}<br>`)
+      // }
+      // 4) загальну кількість проданих моделей у кожному із міст
+      // const cities = sales.flat(2)
+      // citiesSum = cities.map((city) => city[0] + city[1] + city[2])
+      // document.write(`citiesSum : ${citiesSum}`)
+    </script>
+  </body>
+</html>
