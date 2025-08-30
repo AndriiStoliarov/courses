@@ -78,7 +78,7 @@
 
                           // const shopsAmount = parseInt(prompt("Введіть кількість магазинів:", "10"));
 
-                          const shopsProfitInWeek = getTwoDimensionalArray(DAYS_OF_WEEK, 10, START_RANGE, END_RANGE);
+                          const shopsProfit = getTwoDimensionalArray(DAYS_OF_WEEK, 7, START_RANGE, END_RANGE);
 
                           document.write(`
 														<p>
@@ -86,17 +86,27 @@
 														  <ul class="list">
 													`);
 
-													showTwoDimensionalArray(shopsProfitInWeek, 'Масив прибутків магазинів протягом тижня')
+													showTwoDimensionalArray(shopsProfit, 'Масив прибутків магазинів протягом тижня');
 
                           document.write('<br>');
 
-													// task 1 ==================================================
-                          let sum = 0
 
-                          for (const month of visitors) {
-                            for (const weekValue of month) {
-                              sum += weekValue
+													// task 1 ==================================================
+                          const shopsProfitInWeek = getShopsProfitInWeek(shopsProfit);
+
+                          function getShopsProfitInWeek(shopsProfit) {
+                            let shopsProfitInWeek = [], profitInWeek = 0;
+
+                            for (const shop of shopsProfit) {
+                              // const profitInWeek = shop.reduce((profitInWeek, profitInDay) => profitInWeek += profitInDay);
+                              for (const profitInDay of shop) {
+                                profitInWeek += profitInDay;
+                              }
+
+                              shopsProfitInWeek.push(profitInWeek);
                             }
+
+                            return shopsProfitInWeek;
                           }
 
 													document.write(`
@@ -104,6 +114,28 @@
                               <span>1) загальний прибуток кожного магазину за тиждень;</span>
                             </li>
                           `);
+
+                          showArray(shopsProfitInWeek, '1) загальний прибуток кожного магазину за тиждень');
+
+
+													// task 2 ==================================================
+                          const shopsProfitDays = getShopsProfitDays(shopsProfit);
+
+                          function getShopsProfitDays(shopsProfit) {
+                            let shopsProfitDays = [], profitDay = 0;
+
+                            for (let week = 0; week < shopsProfit.length; week++) {
+                              if (week)
+                                profitDay += week[profitDayOfWeek];
+                              
+                              // profitInWeek += profitInDay;
+                              // shopsProfitInWeek.push(profitInWeek);
+                            }
+
+                            return shopsProfitInWeek;
+                          }
+
+                          showArray(shopsProfitInWeek, '2) загальний прибуток усіх магазинів по дням (загальний прибуток усіх магазинів за понеділок, за вівторок, і т.д.)');
 
                           document.write(`
                               </ul>
@@ -170,6 +202,25 @@
                               </li>
                             `);
                           }
+
+                          // функція, яка виводить масив
+													function showArray(array, caption) {
+														document.write(`
+															<li class="list__item">
+																<span>${caption}: [</span>
+														`);
+
+														for (let index = 0; index < array.length; index++) {
+															document.write(`
+																	<span>${array[index]}</span>
+															`);
+														}
+
+														document.write(`
+																<span>];</span>
+															</li>
+														`);
+													}
                         // }
                       </script>
                     </li>
