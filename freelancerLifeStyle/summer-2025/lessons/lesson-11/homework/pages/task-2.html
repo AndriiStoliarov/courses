@@ -74,11 +74,11 @@
                       <script>
                         // if (confirm('Почати тестування?')) {
                           const DAYS_OF_WEEK = 7;
-													const START_RANGE = 1000, END_RANGE = 9999;
+													const START_RANGE = 100, END_RANGE = 300;
 
                           // const shopsAmount = parseInt(prompt("Введіть кількість магазинів:", "10"));
 
-                          const shopsProfit = getTwoDimensionalArray(DAYS_OF_WEEK, 7, START_RANGE, END_RANGE);
+                          const shopsProfit = getTwoDimensionalArray(DAYS_OF_WEEK, 3, START_RANGE, END_RANGE);
 
                           document.write(`
 														<p>
@@ -95,9 +95,10 @@
                           const shopsProfitInWeek = getShopsProfitInWeek(shopsProfit);
 
                           function getShopsProfitInWeek(shopsProfit) {
-                            let shopsProfitInWeek = [], profitInWeek = 0;
+                            let shopsProfitInWeek = [];
 
                             for (const shop of shopsProfit) {
+                              let profitInWeek = 0
                               // const profitInWeek = shop.reduce((profitInWeek, profitInDay) => profitInWeek += profitInDay);
                               for (const profitInDay of shop) {
                                 profitInWeek += profitInDay;
@@ -109,12 +110,6 @@
                             return shopsProfitInWeek;
                           }
 
-													document.write(`
-                            <li class="list__item">
-                              <span>1) загальний прибуток кожного магазину за тиждень;</span>
-                            </li>
-                          `);
-
                           showArray(shopsProfitInWeek, '1) загальний прибуток кожного магазину за тиждень');
 
 
@@ -122,20 +117,117 @@
                           const shopsProfitDays = getShopsProfitDays(shopsProfit);
 
                           function getShopsProfitDays(shopsProfit) {
-                            let shopsProfitDays = [], profitDay = 0;
+                            let shopsProfitDays = [];
 
-                            for (let week = 0; week < shopsProfit.length; week++) {
-                              if (week)
-                                profitDay += week[profitDayOfWeek];
-                              
-                              // profitInWeek += profitInDay;
-                              // shopsProfitInWeek.push(profitInWeek);
-                            }
+                            for (let columnIndex = 0; columnIndex < DAYS_OF_WEEK; columnIndex++) {
+                                let profitDay = 0;
 
-                            return shopsProfitInWeek;
+                                for (let rowIndex = 0; rowIndex < shopsProfit.length; rowIndex++) {
+                                  profitDay += shopsProfit[rowIndex][columnIndex];
+                                }
+                                shopsProfitDays.push(profitDay);
+                              }
+
+                            return shopsProfitDays;
                           }
 
-                          showArray(shopsProfitInWeek, '2) загальний прибуток усіх магазинів по дням (загальний прибуток усіх магазинів за понеділок, за вівторок, і т.д.)');
+                          showArray(shopsProfitDays, '2) загальний прибуток усіх магазинів по дням (загальний прибуток усіх магазинів за понеділок, за вівторок, і т.д.)');
+
+
+													// task 3 ==================================================
+                          const shopsProfitWorkDays = getShopsProfitWorkDays(shopsProfit);
+
+                          function getShopsProfitWorkDays(shopsProfit) {
+                            let shopsProfitWorkDays = 0;
+
+                            for (let week = 0; week < shopsProfit.length; week++) {
+                              for (let dayOfWeek = 0; dayOfWeek < 7; dayOfWeek++) {
+                                shopsProfitWorkDays += shopsProfit[week][dayOfWeek];
+                              }
+                            }
+
+                            return shopsProfitWorkDays;
+                          }
+
+                          document.write(`
+                            <li class="list__item">
+                              <span>3) загальний прибуток за робочі дні 
+                                : ${shopsProfitWorkDays};</span>
+                            </li>
+                          `);
+
+
+													// task 4 ==================================================
+                          const shopsProfitHolidayDays = getShopsProfitHolidayDays(shopsProfit);
+
+                          function getShopsProfitHolidayDays(shopsProfit) {
+                            let shopsProfitHolidayDays = 0;
+
+                            for (let week = 0; week < shopsProfit.length; week++) {
+                              for (let dayOfWeek = 5; dayOfWeek < 7; dayOfWeek++) {
+                                shopsProfitHolidayDays += shopsProfit[week][dayOfWeek];
+                              }
+                            }
+
+                            return shopsProfitHolidayDays;
+                          }
+
+                          document.write(`
+                            <li class="list__item">
+                              <span>4) загальний прибуток за вихідні дні: ${shopsProfitHolidayDays};</span>
+                            </li>
+                          `);
+
+
+													// task 5 ==================================================
+                          const shopsMaxProfitInWednesday = getShopsMaxProfitInWednesday(shopsProfit);
+
+                          function getShopsMaxProfitInWednesday(shopsProfit) {
+                            let maxProfitInWednesdays = [];
+
+                            for (let week = 0; week < shopsProfit.length; week++) {
+                              for (let dayOfWeek = 2; dayOfWeek < 3 ; dayOfWeek++) {
+                                maxProfitInWednesdays.push(shopsProfit[week][dayOfWeek]);
+                              }
+                            }
+
+                            // const maxProfitInWednesday = Math.max(...maxProfitInWednesdays);
+                            const maxProfitInWednesday = maxProfitInWednesdays.reduce((previousResult, price) => previousResult > price ? previousResult : price);
+
+                            return maxProfitInWednesday;
+                          }
+
+                          document.write(`
+                            <li class="list__item">
+                              <span>5) максимальний прибуток за середу: ${shopsMaxProfitInWednesday};</span>
+                            </li>
+                          `);
+
+
+                          // task 6 ==================================================
+                          const pricesBigger200 = shopsProfit.flat().filter(price => price > 200);
+
+                          document.write(`
+                            <li class="list__item">
+                              <span>6) загальний список (одновимірний масив) зі значенням, які що більші за 200:</span>
+                            </li>
+                          `);
+
+                          showArray(pricesBigger200, '');
+
+
+                          // task 7 ==================================================
+                          shopsProfit.forEach(week => week.sort((a, b) => a - b));
+
+                          showTwoDimensionalArray(shopsProfit, '7) кожен тиждень відсортований за зростанням')
+
+
+                          // task 8 ==================================================
+                          // shopsProfit.forEach(week => week.sort((a, b) => a - b));
+
+                          // const maxProfitInWednesday = Math.max(...maxProfitInWednesdays);
+
+                          showTwoDimensionalArray(shopsProfit, '7) кожен тиждень відсортований за зростанням')
 
                           document.write(`
                               </ul>
@@ -205,10 +297,17 @@
 
                           // функція, яка виводить масив
 													function showArray(array, caption) {
-														document.write(`
+                            if (caption !== '') {
+                              document.write(`
 															<li class="list__item">
 																<span>${caption}: [</span>
 														`);
+                            } else {
+                              document.write(`
+															<li class="list__item">
+																<span>${caption} [</span>
+														`);
+                            }
 
 														for (let index = 0; index < array.length; index++) {
 															document.write(`
