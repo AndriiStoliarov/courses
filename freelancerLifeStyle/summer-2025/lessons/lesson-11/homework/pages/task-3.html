@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <title>Урок 09</title>
+    <title>Урок 11</title>
   </head>
 
   <body>
@@ -17,7 +17,7 @@
       <header class="header" id="up">
         <div class="header__container">
           <div class="header__inner">
-            <h1 class="header__title">Домашне завдання № 9</h1>
+            <h1 class="header__title">Домашне завдання № 11</h1>
           </div><!-- /. header__inner -->
         </div><!-- /. header__container -->
       </header>
@@ -31,55 +31,144 @@
                 <div class="tasks__inner">
                   <ul class="tasks__items">
                     <li class="tasks__item">
-                      <p><span class="tasks__title">Задача 3.</span> Користувач вводить кількість елементів. Створити масив, у якому перші 5
-                        елементів заповнені 1-цями, а інші до кінця масиву заповнені 7-ками.
+                      <p><span class="tasks__title">Задача 3.</span> Морський бій. Випадковим чином на двовимірному полі розміром 6*6
+                        розташовується 5 кораблів. Користувач стріляє вказуючи координати. Гра продовжується поки не потоплено усі кораблі
+                        або у
+                        користувача не закінчаться снаряди.
                       </p>
                     </li>
                     <li class="tasks__item">
                       <script>
-                        if (confirm('Почати тестування?')) {
-                          const elements = parseInt(prompt("Введіть кількість елементів:", "10"));
+                        // if (confirm('Почати тестування?')) {
+													const ROWS_AMOUNT = 6, COLUMNS_AMOUNT = 6;
+													const START_RANGE = 0, END_RANGE = 0;
+                          const SHIPS_ON_FIELD = 7;
 
-                          // функція повертає масив з вказаної кількості елементів.
-                          let createArray = sizeArray => new Array(sizeArray);
+                          // const shopsAmount = parseInt(prompt("Введіть кількість магазинів:", "7"));
 
-                          let arrayElements = createArray(elements);
-
-                          const RANGE_ARRAY_INDEX = 5;
-
-                          arrayElements.fill(1, 0, RANGE_ARRAY_INDEX).fill(7, RANGE_ARRAY_INDEX);
+                          // створюємо поле розмиром 6 на 6 заповнене 0
+                          const battlefield = getTwoDimensionalArray(ROWS_AMOUNT, COLUMNS_AMOUNT, START_RANGE, END_RANGE);
 
                           document.write(`
-                            <p>
-                              <span class="tasks__title">Відповідь:</span>
-                              <ul class="list">
-                          `);
+														<p>
+														  <span class="tasks__title">Відповідь:</span>
+														  <ul class="list">
+													`);
 
-                          document.write(`
-                            <li class="list__item">
-                              <span>Кількість елементів: ${elements}.</span>
-                            </li>
-                          `);
+													showTwoDimensionalArray(battlefield, 'Поле битви');
 
                           document.write('<br>');
 
-                          showArray(arrayElements, 'Масив елементів');
+                          document.write(`
+                            <li class="list__item">
+                              <span>5) максимальний прибуток за середу: ;</span>
+                            </li>
+                          `);
 
                           document.write(`
                               </ul>
                             </p>
                           `);
 
-                          // функція, яка виводить масив
-                          function showArray(array, caption) {
+                          const battlefieldWithWhips = setShipsOnBattlefield(battlefield, SHIPS_ON_FIELD);
+
+                          showTwoDimensionalArray(battlefield, 'Поле битви');
+
+                          // функція, яка повертає результат гри
+                          function getGameResult(battlefieldWithWhips, ships, bullets) {
+                            let bulletsAmount = bullets;
+                            let shipsAmount = ships;
+
+                            while (bulletsAmount <= bullets || shipsAmount <= ships) {
+                              const coordinateY = parseInt(prompt("Введіть координату Y (від 0 до 5):", "2"));
+                              const coordinateX = parseInt(prompt("Введіть координату X (від 0 до 5):", "2"));
+
+                              if (battlefieldWithWhips[coordinateY][coordinateX] === 1) {
+                                battlefieldWithWhips[coordinateY][coordinateX] = 0;
+                                bulletsAmount--;
+                              } else {
+                                bulletsAmount--;
+                              };
+                              
+                              // if (winNumber !== null && winNumberParse < 10) {
+                              //   winNumbers.push(winNumberParse);
+                              // } else {
+                              //   break;
+                              // }
+                            }
+
+                            return winNumbers;
+                          }
+
+													// функция, яка в розташовує/додає корабли на поле
+                          function setShipsOnBattlefield(field, shipsAmountOnField) {
+                            let shipsAmountCounter = 0;
+
+                            while (shipsAmountCounter < shipsAmountOnField) {
+                              const randomIndexRow = generateRandomNumber(0, 5);
+                              const randomIndexColumn = generateRandomNumber(0, 5);
+                              // перевірка сусідніх комірок, щоб кораблі не розміщувалися поряд один до одному.
+                              if ((field[randomIndexRow][randomIndexColumn - 1] !== 1) && 
+                              (field[randomIndexRow][randomIndexColumn] !== 1) && 
+                              (field[randomIndexRow][randomIndexColumn + 1] !== 1)) {
+                                  field[randomIndexRow][randomIndexColumn] = 1;
+                                  shipsAmountCounter++;
+                              };
+                            }
+                          }
+
+                          // функція повертає двовимірний масив
+													function getTwoDimensionalArray(rowsAmount, columnsAmount, startRange, endRange) {
+                            return Array.from(
+                              { length: columnsAmount },
+                              () => getRowsOfArray(rowsAmount, startRange, endRange)
+                            );
+													}
+
+                          // функція повертає рядки для двовимірного массиву
+													function getRowsOfArray(rowsAmount, startRange, endRange) {
+                            return Array.from(
+                              { length: rowsAmount },
+                              () => generateRandomNumber(startRange, endRange)
+                            );
+													}
+
+													// функція повертає випадкове число в заданому інтервалі
+													function generateRandomNumber(startRange, endRange) {
+														const RANDOM_NUMBER_TO = startRange,
+															RANDOM_NUMBER_FROM = endRange;
+
+														const randomNumber =
+															RANDOM_NUMBER_TO +
+															Math.floor(Math.random() * (RANDOM_NUMBER_FROM - RANDOM_NUMBER_TO + 1));
+
+														return randomNumber;
+													}
+
+                          // функція, яка виводить двовимірний масив
+                          function showTwoDimensionalArray(array, caption) {
                             document.write(`
                               <li class="list__item">
                                 <span>${caption}: [</span>
+																<br>
                             `);
 
-                            for (let index = 0; index < array.length; index++) {
+                            for (let row of array) {
                               document.write(`
-                                  <span>${array[index]}</span>
+																<span>&nbsp;</span>
+																<span>&nbsp;</span>
+																<span>[</span>
+                              `);
+
+															for (let cell of row) {
+																document.write(`
+																	<span>${cell}</span>
+																`);
+															}
+
+															document.write(`
+																<span>]</span>
+																<br>
                               `);
                             }
 
@@ -88,7 +177,26 @@
                               </li>
                             `);
                           }
-                        }
+
+                          // функція, яка виводить масив
+													function showArray(array, caption) {
+                              document.write(`
+															<li class="list__item">
+																<span>${caption}: [</span>
+														`);
+
+														for (let index = 0; index < array.length; index++) {
+															document.write(`
+																	<span>${array[index]}</span>
+															`);
+														}
+
+														document.write(`
+																<span>];</span>
+															</li>
+														`);
+													}
+                        // }
                       </script>
                     </li>
                   </ul>
@@ -99,6 +207,12 @@
             <div class="up  up--left">
               <div class="up__container">
                 <a class="up__link" href="../index.html">на головну</a>
+              </div>
+            </div>
+
+            <div class="up">
+              <div class="up__container">
+                <a class="up__link" href="#up">на гору</a>
               </div>
             </div>
           </div><!-- /.page__inner -->

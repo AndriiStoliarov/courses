@@ -72,13 +72,13 @@
                     </li>
                     <li class="tasks__item">
                       <script>
-                        // if (confirm('Почати тестування?')) {
+                        if (confirm('Почати тестування?')) {
                           const DAYS_OF_WEEK = 7;
 													const START_RANGE = 100, END_RANGE = 300;
 
-                          // const shopsAmount = parseInt(prompt("Введіть кількість магазинів:", "10"));
+                          const shopsAmount = parseInt(prompt("Введіть кількість магазинів:", "7"));
 
-                          const shopsProfit = getTwoDimensionalArray(DAYS_OF_WEEK, 3, START_RANGE, END_RANGE);
+                          const shopsProfit = getTwoDimensionalArray(DAYS_OF_WEEK, shopsAmount, START_RANGE, END_RANGE);
 
                           document.write(`
 														<p>
@@ -207,27 +207,35 @@
                           // task 6 ==================================================
                           const pricesBigger200 = shopsProfit.flat().filter(price => price > 200);
 
-                          document.write(`
-                            <li class="list__item">
-                              <span>6) загальний список (одновимірний масив) зі значенням, які що більші за 200:</span>
-                            </li>
-                          `);
-
-                          showArray(pricesBigger200, '');
+                          showArray(pricesBigger200, '6) загальний список (одновимірний масив) зі значенням, які що більші за 200');
 
 
                           // task 7 ==================================================
-                          shopsProfit.forEach(week => week.sort((a, b) => a - b));
+                          let shopsProfitCopy7 = shopsProfit.slice();
 
-                          showTwoDimensionalArray(shopsProfit, '7) кожен тиждень відсортований за зростанням')
+                          shopsProfitCopy7.forEach(week => week.sort((a, b) => a - b));
 
+                          showTwoDimensionalArray(shopsProfitCopy7, '7) кожен тиждень відсортований за зростанням')
 
                           // task 8 ==================================================
-                          // shopsProfit.forEach(week => week.sort((a, b) => a - b));
+                          let shopsProfitCopy8 = [...shopsProfit];
 
-                          // const maxProfitInWednesday = Math.max(...maxProfitInWednesdays);
+                          shopsProfitCopy8.sort((a, b) => Math.max(...b) - Math.max(...a));
 
-                          showTwoDimensionalArray(shopsProfit, '7) кожен тиждень відсортований за зростанням')
+                          showTwoDimensionalArray(shopsProfitCopy8, '8) відсортовані тижні (рядки) за спаданням максимального елементи у цьому тижні (рядку), тобто при порівнянні рядків потрібно порівнювати максимальні елементи у кожному з цих рядків')
+
+
+                          // task 9 ==================================================
+                          let shopsProfitCopy9 = shopsProfit.slice();
+
+                          shopsProfitCopy9.sort((a, b) => {
+                            const sumPricesA = a.reduce((sum, price) => sum + price);
+                            const sumPricesB = b.reduce((sum, price) => sum + price);
+
+                            return sumPricesB - sumPricesA;
+                          });
+
+                          showTwoDimensionalArray(shopsProfitCopy9, '9) упорядковані тижні (рядки) за спаданням суми елементів у рядку (тобто при порівнянні двох рядків треба знайти суму кожного з рядків і порівнювати ці суми, на основі цих сум буде зрозуміло, який з елементів повинен іти раніше)')
 
                           document.write(`
                               </ul>
@@ -297,17 +305,10 @@
 
                           // функція, яка виводить масив
 													function showArray(array, caption) {
-                            if (caption !== '') {
                               document.write(`
 															<li class="list__item">
 																<span>${caption}: [</span>
 														`);
-                            } else {
-                              document.write(`
-															<li class="list__item">
-																<span>${caption} [</span>
-														`);
-                            }
 
 														for (let index = 0; index < array.length; index++) {
 															document.write(`
@@ -320,7 +321,7 @@
 															</li>
 														`);
 													}
-                        // }
+                        }
                       </script>
                     </li>
                   </ul>
