@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //=============== Задачі з одновимірними масивами ============================================
+      let arr = [
+        56, -78, 252, 23, -122, 356, 122, 436, -111, 344, 21, 3, -356, 342,
+      ]
+      //=========================================================================================
+      //Список тих цін, які більші за попереднє значення
+      // let resArr = []
+      // for (let i = 1; i < arr.length; i++) {
+      //   if(arr[i]>arr[i-1])
+      //     resArr.push(arr[i])
+      // }
+      // alert(resArr)
+      //=========================================================================================
+      //=========================================================================================
+      //=========================================================================================
+      //=========================================================================================
+      //=========================================================================================
+      //=========================================================================================
+      // let scores = [
+      //   56, -78, 252, 23, -122, 356, 0, 122, 436, -111, 0, 344, 21, 3, -356,
+      //   342,
+      // ]
+      //=========================================================================================
+      //Задача. Дано випадкові значення виграшів - результати ігрового барабана (від -500 до 500)
+
+      // //  15) Упорядквати за зростанням
+      // scores.sort((el1, el2) => el1 - el2)
+      // document.write(`${scores}<br><br>`)
+
+      // //  16) Упорядквати за спаданням
+      // scores.sort((el1, el2) => el2 - el1)
+      // document.write(`${scores}<br><br>`)
+
+      // //  17) Упорядкувати так, щоб спочатку були від"ємні (без зміни їх слідування), потім всі інші(без зміни їх слідування)
+      // scores.sort((el1, el2) => {
+      //   if (el1 < 0 && el2 < 0) return 0 //  (-2, -7) => (-2, -7)
+      //   if (el1 < 0 && el2 >= 0) return -1 //  (-2, 5) => (-2, 5)
+      //   if (el1 >= 0 && el2 < 0) return 1 //  (5, -2) => (-2, 5)
+      //   if (el1 >= 0 && el2 >= 0) return 0 //  (2, 5) => (2, 5)
+      // })
+      // document.write(`${scores}<br><br>`)
+      // console.log(scores)
+      let scores = [
+        56, -78, 252, 23, -122, 356, 0, 122, 436, -111, 0, 344, 21, 3, -356,
+        342,
+      ]
+      //  18) Упорядкувати так, щоб спочатку були нулі, потім від"ємні, потім додатні
+
+      //Задача. Запрограмувати пошук бінарним методом
+      //       0   1  2  3   4   5   6  7  <- індекси (length = 8) (номер останнього = (length-1)
+      let a = [23, 0, 0, 4, 11, -2, 9, -5]
+
+      //---- Сортування включеннями
+      function insertSort(arr) {
+        for (let k = 1; k < arr.length; k++) {
+          const currentElement = arr[k]
+          let i = k - 1
+          while (i >= 0 && arr[i] > currentElement) {
+            arr[i + 1] = a[i]
+            i = i - 1
+          }
+          arr[i + 1] = currentElement
+        }
+      }
+
+      //---- Перевірка належності елемента упорядкованого масиву
+      //     (належить - true, не належить - false)
+      function includes_binarySearch(arr, searchElement) {
+        let start = 0
+        let end = arr.length - 1
+        while (start <= end) {
+          const middle = Math.floor((start + end) / 2)
+          if (a[middle] === searchElement) return true
+          if (a[middle] < searchElement) start = middle + 1
+          if (a[middle] > searchElement) end = middle - 1
+        }
+        return false
+      }
+      //---- Знаходження інексу елемента у масиві (якщо немає, то результат = -1)
+      function findIndex_binarySearch(arr, searchElement) {
+        let start = 0
+        let end = arr.length - 1
+        while (start <= end) {
+          const middle = Math.floor((start + end) / 2)
+          if (a[middle] === searchElement) return middle
+          if (a[middle] < searchElement) start = middle + 1
+          if (a[middle] > searchElement) end = middle - 1
+        }
+        return -1
+      }
+
+      const sortedArray = insertSort(a)
+      document.write(a)
+      if (includes_binarySearch(a, 4)) alert('4 воходить у масив')
+      else alert('4 не воходить у масив')
+
+      const searchIndex = findIndex_binarySearch(a, 4)
+      if (searchIndex !== -1)
+        alert(`4 воходить у масив під індексом ${searchIndex}`)
+      else alert('4 не воходить у масив')
+
+      // let r = [23, 0, 0, 4, 11, -2, 9, -5] // => [0, 0, -2,-5,  23,4,11,8]
+      //----- 1 --- ok
+      // let zeros = r.filter((el) => el === 0)
+      // let lowerZero = r.filter((el) => el < 0)
+      // let greaterZero = r.filter((el) => el > 0)
+      // let rez = [...zeros, ...lowerZero, ...greaterZero]
+      //------ 2
+      // r.sort((el1, el2) => {
+      //   // el1-el2 : 0 коли вважаються рівні, -1 - якщо el1  має йти раніше, 1 - якщо el1 має йти пізніше el2
+      //   if (el1 === 0 && el2 === 0) return 0 //(0,0) => (0,0)
+      //   if (el1 !== 0 && el2 === 0) return 1 //(2,0) => (0,2)
+      //   if (el1 === 0 && el2 !== 0) return -1 //(0,2) => (0,2)
+      //   if (el1 * el2 < 0) return el1 - el2 //якщо елементи різних знаків
+      //   return 0
+      // })
+      // document.write(r)
+      //  18) Упорядкувати так, щоб спочатку були виграші >200, потім всі інші
+      // scores.sort((el1, el2) => {
+      //   if (el1 > 200 && el2 <= 200) return -1
+      //   if (el1 <= 200 && el2 > 200) return 1
+      //   return 0
+      // })
+      // document.write(scores)
+      //  19) Упорядкувати так, щоб спочатку були виграші/програші(тобто по модулю) <10, потім <100,потім <200,потім <300,потім 400,потім <=500
+      // scores.sort((el1, el2) => {
+      //   return  // Використати модуль
+      // })
+
+      // document.write(scores)
+
+      //========================================================================
+      //Задача. Дано масив імен користувачів
+      let names = [
+        'John',
+        'Paul',
+        'Olga',
+        'Andrew',
+        'Abrams',
+        'Peter',
+        'Tina',
+        'Olga',
+        'Jack',
+        'Peter',
+      ]
+      // 1) Упорядкувати масив за зростанням
+      // names.sort()
+      // 2) Упорядкувати масив за спаданням
+      //---- 1 ---  names.sort().reverse()
+      //---- 2 ---
+      // names.sort((el1, el2) => {
+      //   if (el1 > el2) return -1  ///  'Olga' > 'Andrew' ('0'=85 > 'A'=65)  //'Andrew' >'Abrams' => ('n'>'b')
+      //   if (el1 < el2) return 1
+      //   return 0
+      // })
+
+      // 3) Упорядкувати масив за першою літерою за спаданням
+      // names.sort((el1, el2) => {
+      //   if (el1[0] > el2[0]) return -1
+      //   if (el1[0] < el2[0]) return 1
+      //   return 0
+      // })
+      // 4) Упорядкувати масив за другою літерою за спаданням
+      // names.sort((el1, el2) => {
+      //   if (el1[1] > el2[1]) return -1
+      //   if (el1[1] < el2[1]) return 1
+      //   return 0
+      // })
+      // 5) Упорядкувати масив за зростанням довжин імен
+      // names.sort((el1, el2) => {
+      //   return el1.length - el2.length
+      // })
+
+      // 6) Упорядкувати масив за спаданням довжин імен
+      // names.sort((el1, el2) => {
+      //   return el2.length - el2.length
+      // })
+
+      // 7) Упорядкувати масив так, щоб спочатку були Peter, потім всі інші
+      // names.sort((el1, el2) => {
+      //   if (el1 === 'Peter' && el2 !== 'Peter') return -1
+      //   if (el1 !== 'Peter' && el2 === 'Peter') return 1
+      //   return 0
+      // })
+      //--- 2 ----
+      // const namesPeter = names.filter((name) => name === 'Peter')
+      // const namesNotPeter = names.filter((name) => name !== 'Peter')
+      // let res = [...namesPeter, ...namesNotPeter]
+
+      // 8) Упорядкувати масив так, щоб спочатку були Peter, в кінці Olga потім всі інші
+
+      // document.write(names)
+      //========================================================================
+      //   2)Сформувати новий масив, у якому є номери тільки тих, що більші за 1000 грн.
+      // let ar=[12,3544,12,6565,23,5656,1,23,2343434]
+      // // let resIndexList= arr.reduce(
+      // //     (prevList, el,index) => {
+      // //         if (el>1000)
+      // //             prevList.push(index)
+      // //         retun prevList
+      // //     },
+      // //     []
+      // // )
+      // let resIndexList =[]
+      // for (let index = 0; index < arr.length; index++) {
+      //     if(arr[index]>1000) resIndexList.push(index)
+      // }
+
+      //========================================================================
+      //========================================================================
+      //========================================================================
+      //============================БАГАТОВИМІРНІ МАСИВИ =======================================
+      //Задача. Дано прибуток магазину за К тижнів. Знайти загальний прибуток
+
+      //========================================================================
+      //Задача. Дано кількість відвідувачів кафе протягом року (для кожного місяця за кожен день). Визначити :
+      // 1) загальну кількість відвідувачів;
+      // 2) кількість відвідувачів за літо
+      // 3) кількість відвідувачів за друге півріччя
+
+      //========================================================================
+      // Задача. Дано зріст учнів у школі (у кожному із класів кількість учнів може бути різною). Знайти :
+      // 1)найвищого учня у школі
+      // 2)найвищого учня у кожному класі
+
+      //========================================================================
+      //   У місті є К шкіл по 11 класів у кожній. Відомі величини зросту учнів. Знайти найвищого учня
+      function getRandomNumber(minV, maxV) {
+        return minV + Math.floor(Math.random() * (maxV - minV + 1))
+      }
+      //Формування рандомного одновимірного масиву
+      function getRandomArray(arrLength, minV, maxV) {
+        let arr = []
+        for (let i = 0; i < arrLength; i++) {
+          const randNum = getRandomNumber(minV, maxV)
+          arr.push(randNum)
+        }
+        return arr
+      }
+      //Формування рандомного двовимірного масиву
+      function getRandomTable(rowsNumber, colsNumber, minV, maxV) {
+        let table = []
+        for (let rowNumber = 0; rowNumber < rowsNumber; rowNumber++) {
+          const randRow = getRandomArray(colsNumber, minV, maxV)
+          table.push(randRow)
+        }
+        return table
+      }
+      //Формування рандомного трвивиірного масиву
+      // function getRandom_3D_Array(maxIndex0, maxIndex1,maxIndex2,minV, maxV) {
+      function getRandom_3D_Array(
+        layersNumber,
+        rowsNumber,
+        colsNumber,
+        minV,
+        maxV
+      ) {
+        let array_3D = []
+        for (let i = 0; i < layersNumber; i++) {
+          const table = getRandomTable(rowsNumber, colsNumber, minV, maxV)
+          array_3D.push(table)
+        }
+        return array_3D
+      }
+      //----------------------
+      const CLASS_NUMBER = 11
+      const schoolNumber = parseInt(prompt('Скільки є шкіл?'))
+      const studentsNumber = parseInt(prompt('Скільки учнів є у одному класі?'))
+
+      const studentsHeightInSchools = getRandom_3D_Array(
+        schoolNumber,
+        CLASS_NUMBER,
+        studentsNumber,
+        100,
+        250
+      )
+
+      //---- 1 ------ читати або змінювати (можна вказати індекси які потрібно)
+      // let max = studentsHeightInSchools[0][0][0]
+      // for (let school = 0; school < studentsHeightInSchools.length; school++) {
+      //   for (
+      //     let classNum = 0;
+      //     classNum < studentsHeightInSchools[school].length;
+      //     classNum++
+      //   ) {
+      //     for (
+      //       let studentsNum = 0;
+      //       studentsNum < studentsHeightInSchools[school][classNum].length;
+      //       studentsNum++
+      //     ) {
+      //       const studentHeight =
+      //         studentsHeightInSchools[school][classNum][studentsNum]
+      //       if (studentHeight > max) max = studentHeight
+      //     }
+      //   }
+      // }
+      //---- 2----  Okkk --- тільки читати (розгляюаться усі елементи)
+      // let max = studentsHeightInSchools[0][0][0]
+      // for (const school of studentsHeightInSchools) {
+      //   for (const class_ of school) {
+      //     for (const studentHeight of class_) {
+      //       if (studentHeight > max) max = studentHeight
+      //     }
+      //   }
+      // }
+      //----- 3 ----- тут взагалі робота тільки з значеннями без прив"язки індексів
+      // let max = Math.max(...studentsHeightInSchools.flat(Infinity))
+
+      // document.write(`Найвищий учень має зріст : ${max}`)
+
+      //========================================================================
+      //  Дано величини прибутку від кожного працівника рекламної компанії, що складається з К філіалів.
+      // У кожному філіалі є певна кількість працівників (у кожному філіалі кількість працівників може бути різною).
+      // Знайти загальний прибуток та прибуток у кожному із філіалів.
+
+      //========================================================================
+      //Задача. Дано покази температур за К тижнів. Сформувати список, що містить тільки додатні покази.
+
+      //========================================================================
+      //Задача. Дано зріст учнів у К школах. Сформувати список, тільки з тих величин зросту, які більші за 150см
+
+      //========================================================================
+      // Дано покази продажу автомобілів компанії за країнами, областями, містами і моделями.
+      // (поки зберігаємо за номерами (номер країни, номер області, номер міста, номер моделі) як 4-вимірний масив)
+      // Знайти:
+      // 1) загальну кількість проданих авто
+      // 2) загальну кількість проданих моделей кожного виду
+      // 3) загальну кількість проданих авто у кожній із країн
+      // 4) загальну кількість проданих моделей у кожному із міст
+
+      //========================================================================
+    </script>
+  </body>
+</html>

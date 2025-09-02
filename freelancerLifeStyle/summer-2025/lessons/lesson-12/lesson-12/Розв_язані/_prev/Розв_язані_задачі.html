@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //------
+      //Задача. Дано двовимірний масив (матриця) великої розміності. Вибираючи випадковим чином 20 елементів
+      //зробити оцінку кількості додатних і від"ємних елементів (яких більше)
+      // const bigArray = [
+      //   [0, -1, 2, 4, 1, -2, -3, 0, 1, 0, -1, -2], // Січень
+      //   [1, 0, 2, 4, 3, 0, 1, 2, 1, 0, 1, -1], // Лютий
+      //   [5, 4, 6, 7, 5, 4, 6, 7, 6, 5, 4, 3], // Березень
+      //   [10, 9, 11, 12, 10, 9, 11, 12, 11, 10, 9, 8], // Квітень
+      //   [15, 14, 16, 18, 17, 15, 16, 17, 18, 16, 15, 14], // Травень
+      //   [20, 21, 22, 23, 21, 22, 23, 24, 23, 22, 21, 20], // Червень
+      //   [25, 26, 27, 28, 27, 26, 28, 29, 28, 27, 26, 25], // Липень
+      //   [24, 23, 25, 26, 25, 24, 26, 27, 26, 25, 24, 23], // Серпень
+      //   [19, 18, 20, 21, 20, 19, 21, 22, 21, 20, 19, 18], // Вересень
+      //   [14, 13, 15, 16, 15, 14, 16, 17, 16, 15, 14, 13], // Жовтень
+      //   [8, 7, 9, 10, 9, 8, 10, 11, 10, 9, 8, 7], // Листопад
+      //   [3, 2, 4, 5, 4, 3, 5, 6, 5, 4, 3, 2], // Грудень
+      // ]
+      // //------ функція для знаходження точного результату
+      // function getPositiveAndNegativeNumber(matrArray) {
+      //   let positiveNumber = 0,
+      //     negativeNumber = 0
+      //   //переглядаємо усі рядки
+      //   for (const row of matrArray) {
+      //     //переглядаємо усі елементи у рядку row
+      //     for (const element of row) {
+      //       if (element > 0) positiveNumber++
+      //       else if (element < 0) negativeNumber++
+      //     }
+      //   }
+      //   return [positiveNumber, negativeNumber]
+      // }
+      // //--- функція для знаходження наближеного результату
+      // function getAproximatePositiveAndNegativeNumber(
+      //   matrArray,
+      //   randomNumberForCheck = 20
+      // ) {
+      //   let positiveNumber = 0,
+      //     negativeNumber = 0
+      //   for (let i = 0; i < randomNumberForCheck; i++) {
+      //     //-- випадковим чином вибираємно номер рядка
+      //     let randomRowNumber = Math.floor(Math.random() * matrArray.length)
+      //     //-- випадковим чином вибираємо номер елемента у рядку
+      //     let randColumnNumber = Math.floor(
+      //       Math.random() * matrArray[randomRowNumber].length
+      //     )
+      //     //--пееревіряємо випадковим чином вибраний елемент
+      //     if (matrArray[randomRowNumber][randColumnNumber] > 0) positiveNumber++
+      //     else if (matrArray[randomRowNumber][randColumnNumber] < 0)
+      //       negativeNumber++
+      //   }
+      //   return [positiveNumber, negativeNumber]
+      // }
+      // const [positiveNum, negativeNum] = getPositiveAndNegativeNumber(bigArray)
+      // document.write(
+      //   `Точний результат:додатних: ${positiveNum}, від"ємних: ${negativeNum} <br>`
+      // )
+
+      // const [positiveNumA, negativeNumA] =
+      //   getAproximatePositiveAndNegativeNumber(bigArray)
+      // document.write(
+      //   `Точний результат:додатних: ${positiveNumA}, від"ємних: ${negativeNumA} <br>`
+      // )
+      //---------------------------------------------------------
+      //Задача. Дано покази темпратур протягом року
+      const temperatures = [
+        [0, -1, 2, 4, 1, -2, -3, 0, 1, 0, -1, -2], // Січень
+        [1, 0, 2, 4, 3, 0, 1, 2, 1, 0, 1, -1], // Лютий
+        [5, 4, 6, 7, 5, 4, 6, 7, 6, 5, 4, 3], // Березень
+        [10, 9, 11, 12, 10, 9, 11, 12, 11, 10, 9, 8], // Квітень
+        [15, 14, 16, 18, 17, 15, 16, 17, 18, 16, 15, 14], // Травень
+        [20, 21, 22, 23, 21, 22, 23, 24, 23, 22, 21, 20], // Червень
+        [25, 26, 27, 28, 27, 26, 28, 29, 28, 27, 26, 25], // Липень
+        [24, 23, 25, 26, 25, 24, 26, 27, 26, 25, 24, 23], // Серпень
+        [19, 18, 20, 21, 20, 19, 21, 22, 21, 20, 19, 18], // Вересень
+        [14, 13, 15, 16, 15, 14, 16, 17, 16, 15, 14, 13], // Жовтень
+        [8, 7, 9, 10, 9, 8, 10, 11, 10, 9, 8, 7], // Листопад
+        [3, 2, 4, 5, 4, 3, 5, 6, 5, 4, 3, 2], // Грудень
+      ]
+      //1)підрахувати кількість додатних показів
+      // function getPositiveTempNumber(temperaturesList) {
+      //   //------- розв"язок за допомогою циклів ---------
+      //   // let count = 0
+      //   // for (const row of temperaturesList) {
+      //   //   for (const tempElement of row) {
+      //   //     if (tempElement > 0) count++
+      //   //   }
+      //   // }
+      //   //--------- розв"язок з використанням reduce
+      //   return temperaturesList.reduce(
+      //     (prevTotalCount, row) =>
+      //       prevTotalCount +
+      //       // ---- підрахунок кількосіті доданих у рядку row
+      //       row.reduce(
+      //         (prevRowCount, tempElement) =>
+      //           tempElement > 0 ? prevRowCount + 1 : prevRowCount,
+      //         0
+      //       ),
+      //     0
+      //   )
+      // }
+      // //---
+      // document.write(getPositiveTempNumber(temperatures))
+      //2)знайти середню температуру кожного місяця
+      // function getAverageMonthTemp(temperaturesList) {
+      //   //---- розв"язок з використаням reduce
+      //   return temperaturesList.map(
+      //     (row) => row.reduce((prevSum, el) => prevSum + el) / row.length
+      //   )
+      //   //---розв"язок з використанням циклів
+      //   // let averageArray = []
+      //   // for (const row of temperaturesList) {
+      //   //   let sum = 0
+      //   //   for (const element of row) {
+      //   //     sum += element
+      //   //   }
+      //   //   let avg = sum / row.length
+      //   //   averageArray.push(avg)
+      //   // }
+      //   // return averageArray
+      // }
+      // document.write(getAverageMonthTemp(temperatures))
+
+      //3)підрахувати середню температуру у кожному півріччі
+      // function getAverageTempMonthRange(
+      //   temperaturesList,
+      //   startMonthIndex,
+      //   endMonthIndex
+      // ) {
+      //   let sum = 0, //загальна сума
+      //     count = 0 //загальна кількість елементів
+      //   //---як змінюються номери місяців
+      //   for (
+      //     let monthIndex = startMonthIndex;
+      //     monthIndex <= endMonthIndex;
+      //     monthIndex++
+      //   ) {
+      //     //--- що треба зробити з кожним показом температури
+      //     for (const element of temperaturesList[monthIndex]) {
+      //       sum += element
+      //     }
+      //     count += temperaturesList[monthIndex].length
+      //   }
+      //   return sum / count
+      // }
+
+      // const firstYearPart = getAverageTempMonthRange(temperatures, 0, 5)
+      // document.write(`firstYearPart : ${firstYearPart.toFixed(2)} <br>`)
+      // const secondYearPart = getAverageTempMonthRange(temperatures, 6, 11)
+      // document.write(`secondYearPart : ${secondYearPart}`)
+
+      //4)знайти суму температур беручи з кожного місяця 3-тє значення
+      // function getSumOnSpecifiedDay(temperaturesList, dayNum) {
+      //   let sum = 0
+      //   //--- так краще
+      //   for (const row of temperaturesList) {
+      //     sum += row[dayNum]
+      //   }
+      //   //--- так гірше
+      //   // for (let rowIndex = 0; rowIndex < temperaturesList.length; rowIndex++) {
+      //   //   sum += temperaturesList[rowIndex][dayNum]
+      //   // }
+
+      //   return sum
+      // }
+
+      // let sum = getSumOnSpecifiedDay(temperatures, 2)
+      // document.write(`sum : ${sum}`)
+      //5)знайти суму температур беручи з кожного місяця останнє значення
+      // function getSumOnLastDay(temperaturesList) {
+      //   let sum = 0
+      //   //--- так краще
+      //   for (const row of temperaturesList) {
+      //     sum += row.at(-1) // (так краще)з кожжного рядка беремо останній елемент
+      //     // sum += row[row.length-1] //з кожжного рядка беремо останній елемент
+      //   }
+      //   return sum
+      // }
+
+      // let sum = getSumOnLastDay(temperatures, 2)
+      // document.write(`sum : ${sum}`)
+      //--------------------------------
+      //Задача. Дано послідовності ідентифікаторів відвідувачів N тренажерних залів
+      //       const gymVisitors = [
+      //   [101, 102, 103, 104], // Зал 1
+      //   [102, 105, 106, 107], // Зал 2
+      //   [103, 108, 109], // Зал 3
+      //   [110, 104, 107, 111], // Зал 4
+      //   [101, 112, 113], // Зал 5
+      //   [114, 105, 110, 115], // Зал 6
+      //   [103, 106, 111, 116]  // Зал 7
+      // ];
+
+      //1)визначити номери залів, які відвідував користувач з вказаним ідентифікатором
+      //2)визначити кількість залів, де він був першим відвідувачем
+      //3)визначити кількість залів, де він був останнім відвідувачем
+      //4)з"ясувати чи відвідував він усі заклади
+      //5)підрахувати загальну кількість відвідувань вказаного користувача
+      //6)підрахувати загальну кількість відвідувань усіх користувачів
+      //------
+      //Задача. Дано мінне поле (масив з нулями (немає мін) і символами "@"" (міни)). Заповнити клітинка числами, що відповідають кількості мін у сусідніх клітинках (як у грі сапер)
+      // const gameField = [
+      //   [0, 0, '@', 0, 0],
+      //   [0, '@', 0, 0, 0],
+      //   [0, 0, 0, '@', 0],
+      //   ['@', 0, 0, '@', 0],
+      //   [0, 0, 0, 0, 0],
+      // ]
+
+      // function setMarks(arr, mineChar = '@') {
+      //   for (let rIndex = 0; rIndex < arr.length; rIndex++) {
+      //     //як зміннюються номери рядків
+      //     for (let cIndex = 0; cIndex < arr[rIndex].length; cIndex++) {
+      //       //як змінюються номери елементів у рядку (номерис стовпців)
+      //       if (arr[rIndex][cIndex] !== mineChar) {
+      //         //-- знаходимо кількість мін довкола клітинки arr[rIndex][cIndex]
+      //         let mineCount = 0
+
+      //         let minRow = Math.max(rIndex - 1, 0),
+      //           maxRow = Math.min(rIndex + 1, arr.length - 1)
+      //         let minCol = Math.max(cIndex - 1, 0),
+      //           maxCol = Math.min(cIndex + 1, arr[0].length - 1)
+
+      //         for (let r = minRow; r <= maxRow; r++) {
+      //           for (let c = minCol; c <= maxCol; c++) {
+      //             if (arr[r][c] === mineChar) mineCount++
+      //           }
+      //         }
+      //         //записумєо кількість сусідніх мін
+      //         arr[rIndex][cIndex] = mineCount
+      //       }
+      //     }
+      //   }
+      // }
+      // setMarks(gameField)
+      // console.log(gameField)
+
+      //------
+      // Тестовий масив
+      // let arr = [
+      //   56, -78, 252, 23, -122, 356, 122, 436, -111, 344, 21, 3, -356, 342,
+      // ]
+      // let ind = arr.indexOf(3)
+
+      // let searchElement = 3
+
+      // //--- лінійний пошук елемента у масиві
+      // function myIndexOf(arr, searchElement) {
+      //   for (let i = 0; i < arr.length; i++) {
+      //     if(arr[i]===searchElement)
+      //       return i
+      //   }
+      //   return -1
+      // }
+      // //-------- Сортування бульбашкою
+      // let leftIndex = 0
+      // let rightIndex = arr.length - 1
+      // while (leftIndex < rightIndex) {
+      //   //--- проходимось зліва-направо
+      //   let changed = false
+      //   for (let i = leftIndex + 1; i <= rightIndex; i++) {
+      //     if (arr[i - 1] > arr[i]) {
+      //       let temp = arr[i - 1]
+      //       arr[i - 1] = arr[i]
+      //       arr[i] = temp
+      //       changed = true
+      //     }
+      //   }
+      //   rightIndex--
+      //   if (changed === false) break
+      //   //---- проходимось справа-наліво
+      //   changed = false
+      //   for (let i = rightIndex; i > leftIndex; i--) {
+      //     if (arr[i - 1] > arr[i]) {
+      //       let temp = arr[i - 1]
+      //       arr[i - 1] = arr[i]
+      //       arr[i] = temp
+      //       changed = true
+      //     }
+      //   }
+      //   leftIndex++
+      //   if (changed === false) break
+      // }
+      // document.write(arr)
+
+      // //----- Сортування вибором 1.
+      // // const prevLastIndex = arr.length - 2
+      // // let counter = 0
+      // // for (let i = 0; i <= prevLastIndex; i++) {
+      // //   for (let j = i + 1; j < arr.length; j++) {
+      // //     if (arr[i] < arr[j]) {
+      // //       let temp = arr[i]
+      // //       arr[i] = arr[j]
+      // //       arr[j] = temp
+      // //       counter++
+      // //     }
+      // //   }
+      // // }
+      // // document.write(arr)
+      // // console.log(counter)
+      // //----- Сортування вибором 2
+      // // const prevLastIndex = arr.length - 2
+      // // let counter = 0
+      // // for (let i = 0; i <= prevLastIndex; i++) {
+      // //   let minIndex = i
+      // //   //----- пошук індекса мінімального елемента від і-до останнього
+      // //   for (let j = i + 1; j < arr.length; j++) {
+      // //     if (arr[j] < arr[minIndex]) {
+      // //       minIndex = j
+      // //     }
+      // //   }
+      // //   //---- якщо мінімалаьний не у позиції "і" то міняємо місцями
+      // //   if (i !== minIndex) {
+      // //     let temp = arr[i]
+      // //     arr[i] = arr[minIndex]
+      // //     arr[minIndex] = temp
+      // //     counter++
+      // //   }
+      // // }
+      // // document.write(arr)
+      // // console.log(counter)
+
+      // //------------Quick ---
+      // //Функція обміну елементів місцями
+      // function swap(A, i, j) {
+      //   let temp = A[i]
+      //   A[i] = A[j]
+      //   A[j] = temp
+      // }
+
+      // //Поділ фрагменту від p до q
+      // //на дві частини (<=pivot та >pivot)
+      // function Partition(A, p, q) {
+      //   let pivot = A[q]
+      //   let i = p - 1
+      //   for (let j = p; j < q; j++) {
+      //     if (A[j] <= pivot) {
+      //       i = i + 1
+      //       swap(A, i, j)
+      //     }
+      //   }
+      //   swap(A, i + 1, q)
+      //   //повертаємо нову позицію pivot
+      //   return i + 1
+      // }
+
+      // //Основна функція
+      // function Quicksort(A, p, q) {
+      //   if (p >= q) return
+      //   //ділимо на дві частини
+      //   let i = Partition(A, p, q)
+      //   //окремо сортуємо першу частину
+      //   Quicksort(A, p, i - 1)
+      //   //окремо сортуємо другу частину
+      //   Quicksort(A, i + 1, q)
+      // }
+
+      // Quicksort(arr, 0, arr.length - 1)
+      // document.write(arr)
+
+      //=============== Задачі з одновимірними масивами ============================================
+      // let arr = [
+      //   56, -78, 252, 23, -122, 356, 122, 436, -111, 344, 21, 3, -356, 342,
+      // ]
+      //=========================================================================================
+      //Список тих цін, які більші за попереднє значення
+      // let resArr = arr.filter(
+      //   (el, ind, baseArr) => ind > 0 && el > baseArr[ind - 1]
+      // )
+      // let resArr = arr.reduce(
+      //   (prevRes,el,ind, baseArr)=> ind>0 && el>baseArr[ind-1]? [...prevRes,el]:prevRes,
+      //   []
+      // )
+      // alert(resArr)
+      //=========================================================================================
+      //=========================================================================================
+      //=========================================================================================
+      //=========================================================================================
+      //=========================================================================================
+      //=========================================================================================
+      // let scores = [
+      //   56, -78, 252, 23, -122, 356, 0, 122, 436, -111, 0, 344, 21, 3, -356,
+      //   342,
+      // ]
+      //=========================================================================================
+      //Задача. Дано випадкові значення виграшів - результати ігрового барабана (від -500 до 500)
+      // //  15) Упорядквати за зростанням
+      // scores.sort((a, b) => a - b)
+      // //  16) Упорядквати за спаданням
+      // scores.sort((a,b)=>b-a)
+
+      // //  17) Упорядкувати так, щоб спочатку були від"ємні (без зміни їх слідування), потім всі інші(без зміни їх слідування)
+      // scores.sort((a, b) => {
+      //   if (a < 0 && b >= 0) return -1 //а - лівіше від b
+      //   if (a >= 0 && b < 0) return 1  //а - правіше від b (треба міняти місцями)
+      //   return 0 // міняти місцями не потрібно
+      // })
+
+      // document.write(`${scores}<br><br>`)
+      // console.log(scores)
+      let scores = [
+        56, -78, 252, 23, -122, 356, 0, 122, 436, -111, 0, 344, 21, 3, -356,
+        342,
+      ]
+      //  18.1) Упорядкувати так, щоб спочатку були нулі потім всі інші
+      // scores.sort((a, b) => {
+      //   if (a === 0 && b !== 0) return -1
+      //   if (a !== 0 && b === 0) return 1
+      //   return 0
+      // })
+      // document.write(`${scores}<br><br>`)
+
+      //  18.2) Упорядкувати так, щоб спочатку були нулі, потім від"ємні, потім додатні
+      // scores.sort((a, b) => {
+      //   if ((a === 0 && b !== 0) || (a < 0 && b > 0)) return -1
+      //   if ((a !== 0 && b === 0) || (a > 0 && b < 0)) return 1
+      //   return 0
+      // })
+      // document.write(`${scores}<br><br>`)
+      //  18.3) Упорядкувати так, щоб спочатку були від"ємні, потім  нулі, потім додатні
+      // scores.sort((a, b) => {
+      //   if ((a < 0 && b >= 0) || (a === 0 && b > 0)) return -1
+      //   if ((a >= 0 && b < 0) || (a > 0 && b === 0)) return 1
+      //   return 0
+      // })
+      // document.write(`${scores}<br><br>`)
+      //========================================================================
+      //Задача. Дано масив імен користувачів
+      let names = [
+        'John',
+        'Paul',
+        'Olga',
+        'Andrew',
+        'Abrams',
+        'Abba',
+        'Peter',
+        'Tina',
+        'Olga',
+        'Jack',
+        'Peter',
+      ]
+      // 1) Упорядкувати масив за зростанням
+      // names.sort()
+      // document.write(names)
+      // 2) Упорядкувати масив за спаданням
+      // names.sort().reverse() /// arr = [1,2,3,4] => []
+      // names.sort((a, b) => {
+      //   if (a < b) return 1
+      //   if (a > b) return -1
+      //   return 0
+      // })
+      // document.write(names)
+
+      // 3) Упорядкувати масив за першою літерою за зростанням
+      // names.sort((a, b) => {
+      //   if (a[0] < b[0]) return -1
+      //   if (a[0] > b[0]) return 1
+      //   return 0
+      // })
+      // names.sort((a, b) => a.charCodeAt(0) - b.charCodeAt(0))
+      // document.write(names)
+      // 3) Упорядкувати масив за першою літерою за спаданням
+      // 4) Упорядкувати масив за другою літерою за спаданням
+      // 5) Упорядкувати масив за зростанням довжин імен
+      // names.sort((a, b) => {
+      //   if (a.length < b.length) return -1
+      //   if (a.length > b.length) return 1
+      //   return 0
+      // })
+      // names.sort((a, b) => a.length - b.length)
+      // document.write(names)
+      // 6) Упорядкувати масив за спаданням довжин імен
+      // 7) Упорядкувати масив так, щоб спочатку були Peter, потім всі інші
+      // 8) Упорядкувати масив так, щоб спочатку були Peter, в кінці Olga потім всі інші
+      //========================================================================
+      //   2)Сформувати новий масив, у якому є номери тільки тих, що більші за 1000 грн.
+      //========================================================================
+      // Морський бій. Випадковим чином на двовимірному полі розміром 6*6 розташовується 5 кораблів. Користувач стріляє вказуючи координати. Гра продовжується поки не потоплено усі кораблі або у користувача не закінчаться снаряди.
+      // function generateGameField(rowNumber = 6, colNumber = 6, shipNumber = 5) {
+      //   //--- сстворюємо таблицю з нулями
+      //   let gameField = []
+      //   for (let r = 0; r < rowNumber; r++) {
+      //     let row = new Array(colNumber).fill(0) // row  = [0,0,0,0,0]
+      //     gameField.push(row)
+      //   }
+      //   //---- розміщуємо випадковим чином кораблі (ставимо у клітинки 1)
+      //   for (let s = 0; s < shipNumber; ) {
+      //     let r = Math.floor(Math.random() * rowNumber)
+      //     let c = Math.floor(Math.random() * colNumber)
+      //     //-- перевіряємо чи клітинка не зайнята (чи не є вже там 1)
+      //     if (gameField[r][c] !== 1) {
+      //       gameField[r][c] = 1
+      //       s++
+      //     }
+      //   }
+      //   return gameField
+      // }
+      // function play(shipNumber, missleNumber, gameField) {
+      //   while (shipNumber > 0 && missleNumber > 0) {
+      //     let r = parseInt(prompt('Введіть рядок ')) - 1
+      //     let c = parseInt(prompt('Введіть стовпець ')) - 1
+      //     missleNumber--
+
+      //     if (gameField[r][c] === 1) {
+      //       alert('Попав!')
+      //       shipNumber--
+      //       gameField[r][c] = 0
+      //     } else alert('мимо')
+      //   }
+      //   if (shipNumber === 0) return 'Перемога'
+      //   else return 'Програш'
+      // }
+
+      // function game(
+      //   shipNumber = 5,
+      //   missleNumber = 7,
+      //   rowNumber = 6,
+      //   colNumber = 6
+      // ) {
+      //   let gameField = generateGameField(rowNumber, colNumber, shipNumber)
+      //   console.log(gameField)
+      //   let res = play(shipNumber, missleNumber, gameField)
+      //   alert(res)
+      // }
+
+      // game()
+
+      //========================================================================
+      // let arr = [
+      //   [1, 3, 0, 8, 2],
+      //   [1, 0, 0, 18, 2],
+      //   [0, 3, 0, 1, 0],
+      // ]
+      //========================================================================
+      // Знайти суму елементів у вказаній області: у парних рядках – непарні стовпці, у непарних – парні.
+      //========================================================================
+      // Знайти загальну кількість нулів у двовимірному масиві
+
+      //========================================================================
+      // Знайти максимальну кількість нулів у одному рядку
+
+      //========================================================================
+      //відсортувати тижні (рядки) за спаданням максимального елементи у цьому тижні (рядку), тобто при порівнянні рядків потрібно порівнювати максимальні елементи у кожному з цих рядків
+      // 1) потрібно створити масив з максимальних елементів рядків  maxRowsElements
+      // 2) упорядковувати масив maxRowsElements (і якщо міняємо якісь елементи у масиві maxRowsElements, то
+      // треба міняти місцями і відповідні рядки)
+
+      //========================================================================
+      //========================================================================
+    </script>
+  </body>
+</html>

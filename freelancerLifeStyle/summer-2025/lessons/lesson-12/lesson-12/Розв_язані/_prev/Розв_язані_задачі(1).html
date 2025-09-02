@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Тестовий масив
+      // let arr = [
+      //   56, -78, 252, 23, -122, 356, 122, 436, -111, 344, 21, 3, -356, 342,
+      // ]
+      // let searchElement = 3
+
+      // //--- лінійний пошук елемента у масиві
+      // function myIndexOf(arr, searchElement) {
+      //   for (let i = 0; i < arr.length; i++) {
+      //     if(arr[i]===searchElement)
+      //       return i
+      //   }
+      //   return -1
+      // }
+      // //-------- Сортування бульбашкою
+      // let leftIndex = 0
+      // let rightIndex = arr.length - 1
+      // while (leftIndex < rightIndex) {
+      //   //--- проходимось зліва-направо
+      //   let changed = false
+      //   for (let i = leftIndex + 1; i <= rightIndex; i++) {
+      //     if (arr[i - 1] > arr[i]) {
+      //       let temp = arr[i - 1]
+      //       arr[i - 1] = arr[i]
+      //       arr[i] = temp
+      //       changed = true
+      //     }
+      //   }
+      //   rightIndex--
+      //   if (changed === false) break
+      //   //---- проходимось справа-наліво
+      //   changed = false
+      //   for (let i = rightIndex; i > leftIndex; i--) {
+      //     if (arr[i - 1] > arr[i]) {
+      //       let temp = arr[i - 1]
+      //       arr[i - 1] = arr[i]
+      //       arr[i] = temp
+      //       changed = true
+      //     }
+      //   }
+      //   leftIndex++
+      //   if (changed === false) break
+      // }
+      // document.write(arr)
+
+      // //----- Сортування вибором 1.
+      // // const prevLastIndex = arr.length - 2
+      // // let counter = 0
+      // // for (let i = 0; i <= prevLastIndex; i++) {
+      // //   for (let j = i + 1; j < arr.length; j++) {
+      // //     if (arr[i] < arr[j]) {
+      // //       let temp = arr[i]
+      // //       arr[i] = arr[j]
+      // //       arr[j] = temp
+      // //       counter++
+      // //     }
+      // //   }
+      // // }
+      // // document.write(arr)
+      // // console.log(counter)
+      // //----- Сортування вибором 2
+      // // const prevLastIndex = arr.length - 2
+      // // let counter = 0
+      // // for (let i = 0; i <= prevLastIndex; i++) {
+      // //   let minIndex = i
+      // //   //----- пошук індекса мінімального елемента від і-до останнього
+      // //   for (let j = i + 1; j < arr.length; j++) {
+      // //     if (arr[j] < arr[minIndex]) {
+      // //       minIndex = j
+      // //     }
+      // //   }
+      // //   //---- якщо мінімлаьний не у позиції "і" то міняємо місцями
+      // //   if (i !== minIndex) {
+      // //     let temp = arr[i]
+      // //     arr[i] = arr[minIndex]
+      // //     arr[minIndex] = temp
+      // //     counter++
+      // //   }
+      // // }
+      // // document.write(arr)
+      // // console.log(counter)
+
+      // //------------Quick ---
+      // //Функція обміну елементів місцями
+      // function swap(A, i, j) {
+      //   let temp = A[i]
+      //   A[i] = A[j]
+      //   A[j] = temp
+      // }
+
+      // //Поділ фрагменту від p до q
+      // //на дві частини (<=pivot та >pivot)
+      // function Partition(A, p, q) {
+      //   let pivot = A[q]
+      //   let i = p - 1
+      //   for (let j = p; j < q; j++) {
+      //     if (A[j] <= pivot) {
+      //       i = i + 1
+      //       swap(A, i, j)
+      //     }
+      //   }
+      //   swap(A, i + 1, q)
+      //   //повертаємо нову позицію pivot
+      //   return i + 1
+      // }
+
+      // //Основна функція
+      // function Quicksort(A, p, q) {
+      //   if (p >= q) return
+      //   //ділимо на дві частини
+      //   let i = Partition(A, p, q)
+      //   //окремо сортуємо першу частину
+      //   Quicksort(A, p, i - 1)
+      //   //окремо сортуємо другу частину
+      //   Quicksort(A, i + 1, q)
+      // }
+
+      // Quicksort(arr, 0, arr.length - 1)
+      // document.write(arr)
+
+      //=============== Задачі з одновимірними масивами ============================================
+      let arr = [
+        56, -78, 252, 23, -122, 356, 122, 436, -111, 344, 21, 3, -356, 342,
+      ]
+      //=========================================================================================
+      //Список тих цін, які більші за попереднє значення
+      // let resArr = arr.filter(
+      //   (el, ind, baseArr) => ind > 0 && el > baseArr[ind - 1]
+      // )
+      // let resArr = arr.reduce(
+      //   (prevRes,el,ind, baseArr)=> ind>0 && el>baseArr[ind-1]? [...prevRes,el]:prevRes,
+      //   []
+      // )
+      // alert(resArr)
+      //=========================================================================================
+      //=========================================================================================
+      //=========================================================================================
+      //=========================================================================================
+      //=========================================================================================
+      //=========================================================================================
+      // let scores = [
+      //   56, -78, 252, 23, -122, 356, 0, 122, 436, -111, 0, 344, 21, 3, -356,
+      //   342,
+      // ]
+      //=========================================================================================
+      //Задача. Дано випадкові значення виграшів - результати ігрового барабана (від -500 до 500)
+      // //  15) Упорядквати за зростанням
+      // scores.sort((a, b) => a - b)
+      // //  16) Упорядквати за спаданням
+      // scores.sort((a,b)=>b-a)
+
+      // //  17) Упорядкувати так, щоб спочатку були від"ємні (без зміни їх слідування), потім всі інші(без зміни їх слідування)
+      // scores.sort((a, b) => {
+      //   if (a < 0 && b >= 0) return -1 //а - лівіше від b
+      //   if (a >= 0 && b < 0) return 1  //а - правіше від b (треба міняти місцями)
+      //   return 0 // міняти місцями не потрібно
+      // })
+
+      // document.write(`${scores}<br><br>`)
+      // console.log(scores)
+      let scores = [
+        56, -78, 252, 23, -122, 356, 0, 122, 436, -111, 0, 344, 21, 3, -356,
+        342,
+      ]
+      //  18.1) Упорядкувати так, щоб спочатку були нулі потім всі інші
+      // scores.sort((a, b) => {
+      //   if (a === 0 && b !== 0) return -1
+      //   if (a !== 0 && b === 0) return 1
+      //   return 0
+      // })
+      // document.write(`${scores}<br><br>`)
+
+      //  18.2) Упорядкувати так, щоб спочатку були нулі, потім від"ємні, потім додатні
+      // scores.sort((a, b) => {
+      //   if ((a === 0 && b !== 0) || (a < 0 && b > 0)) return -1
+      //   if ((a !== 0 && b === 0) || (a > 0 && b < 0)) return 1
+      //   return 0
+      // })
+      // document.write(`${scores}<br><br>`)
+      //  18.3) Упорядкувати так, щоб спочатку були від"ємні, потім  нулі, потім додатні
+      // scores.sort((a, b) => {
+      //   if ((a < 0 && b >= 0) || (a === 0 && b > 0)) return -1
+      //   if ((a >= 0 && b < 0) || (a > 0 && b === 0)) return 1
+      //   return 0
+      // })
+      // document.write(`${scores}<br><br>`)
+      //========================================================================
+      //Задача. Дано масив імен користувачів
+      let names = [
+        'John',
+        'Paul',
+        'Olga',
+        'Andrew',
+        'Abrams',
+        'Abba',
+        'Peter',
+        'Tina',
+        'Olga',
+        'Jack',
+        'Peter',
+      ]
+      // 1) Упорядкувати масив за зростанням
+      // names.sort()
+      // document.write(names)
+      // 2) Упорядкувати масив за спаданням
+      // names.sort().reverse() /// arr = [1,2,3,4] => []
+      // names.sort((a, b) => {
+      //   if (a < b) return 1
+      //   if (a > b) return -1
+      //   return 0
+      // })
+      // document.write(names)
+
+      // 3) Упорядкувати масив за першою літерою за зростанням
+      // names.sort((a, b) => {
+      //   if (a[0] < b[0]) return -1
+      //   if (a[0] > b[0]) return 1
+      //   return 0
+      // })
+      // names.sort((a, b) => a.charCodeAt(0) - b.charCodeAt(0))
+      // document.write(names)
+      // 3) Упорядкувати масив за першою літерою за спаданням
+      // 4) Упорядкувати масив за другою літерою за спаданням
+      // 5) Упорядкувати масив за зростанням довжин імен
+      // names.sort((a, b) => {
+      //   if (a.length < b.length) return -1
+      //   if (a.length > b.length) return 1
+      //   return 0
+      // })
+      // names.sort((a, b) => a.length - b.length)
+      // document.write(names)
+      // 6) Упорядкувати масив за спаданням довжин імен
+      // 7) Упорядкувати масив так, щоб спочатку були Peter, потім всі інші
+      // 8) Упорядкувати масив так, щоб спочатку були Peter, в кінці Olga потім всі інші
+      //========================================================================
+      //   2)Сформувати новий масив, у якому є номери тільки тих, що більші за 1000 грн.
+      //========================================================================
+      // Морський бій. Випадковим чином на двовимірному полі розміром 6*6 розташовується 5 кораблів. Користувач стріляє вказуючи координати. Гра продовжується поки не потоплено усі кораблі або у користувача не закінчаться снаряди.
+      function generateGameField(rowNumber = 6, colNumber = 6, shipNumber = 5) {
+        //--- сстворюємо таблицю з нулями
+        let gameField = []
+        for (let r = 0; r < rowNumber; r++) {
+          let row = new Array(colNumber).fill(0) // row  = [0,0,0,0,0]
+          gameField.push(row)
+        }
+        //---- розміщуємо випадковим чином кораблі (ставимо у клітинки 1)
+        for (let s = 0; s < shipNumber; ) {
+          let r = Math.floor(Math.random() * rowNumber)
+          let c = Math.floor(Math.random() * colNumber)
+          //-- перевіряємо чи клітинка не зайнята (чи не є вже там 1)
+          if (gameField[r][c] !== 1) {
+            gameField[r][c] = 1
+            s++
+          }
+        }
+        return gameField
+      }
+      function play(shipNumber, missleNumber, gameField) {
+        while (shipNumber > 0 && missleNumber > 0) {
+          let r = parseInt(prompt('Введіть рядок ')) - 1
+          let c = parseInt(prompt('Введіть стовпець ')) - 1
+          missleNumber--
+
+          if (gameField[r][c] === 1) {
+            alert('Попав!')
+            shipNumber--
+            gameField[r][c] = 0
+          } else alert('мимо')
+        }
+        if (shipNumber === 0) return 'Перемога'
+        else return 'Програш'
+      }
+
+      function game(
+        shipNumber = 5,
+        missleNumber = 7,
+        rowNumber = 6,
+        colNumber = 6
+      ) {
+        let gameField = generateGameField(rowNumber, colNumber, shipNumber)
+        console.log(gameField)
+        let res = play(shipNumber, missleNumber, gameField)
+        alert(res)
+      }
+
+      game()
+
+      //========================================================================
+      // let arr = [
+      //   [1, 3, 0, 8, 2],
+      //   [1, 0, 0, 18, 2],
+      //   [0, 3, 0, 1, 0],
+      // ]
+      //========================================================================
+      // Знайти суму елементів у вказаній області: у парних рядках – непарні стовпці, у непарних – парні.
+      //========================================================================
+      // Знайти загальну кількість нулів у двовимірному масиві
+
+      //========================================================================
+      // Знайти максимальну кількість нулів у одному рядку
+
+      //========================================================================
+      //відсортувати тижні (рядки) за спаданням максимального елементи у цьому тижні (рядку), тобто при порівнянні рядків потрібно порівнювати максимальні елементи у кожному з цих рядків
+      // 1) потрібно створити масив з максимальних елементів рядків  maxRowsElements
+      // 2) упорядковувати масив maxRowsElements (і якщо міняємо якісь елементи у масиві maxRowsElements, то
+      // треба міняти місцями і відповідні рядки)
+
+      //========================================================================
+      //========================================================================
+    </script>
+  </body>
+</html>
