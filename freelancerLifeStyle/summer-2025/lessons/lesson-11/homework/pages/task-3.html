@@ -39,65 +39,62 @@
                     </li>
                     <li class="tasks__item">
                       <script>
-                        // if (confirm('Почати тестування?')) {
+                        if (confirm('Почати тестування?')) {
 													const ROWS_AMOUNT = 6, COLUMNS_AMOUNT = 6;
-													const START_RANGE = 0, END_RANGE = 0;
-                          const SHIPS_ON_FIELD = 7;
-
-                          // const shopsAmount = parseInt(prompt("Введіть кількість магазинів:", "7"));
+                          const SHIPS_AMOUNT = 5, BULLETS_AMOUNT = 10;
 
                           // створюємо поле розмиром 6 на 6 заповнене 0
-                          const battlefield = getTwoDimensionalArray(ROWS_AMOUNT, COLUMNS_AMOUNT, START_RANGE, END_RANGE);
+                          const battlefield = getTwoDimensionalArrayWithZero(ROWS_AMOUNT, COLUMNS_AMOUNT);
+
+                          // розмістили корабли на полі
+                          setShipsOnBattlefield(battlefield, SHIPS_AMOUNT);
 
                           document.write(`
-														<p>
-														  <span class="tasks__title">Відповідь:</span>
-														  <ul class="list">
-													`);
+                            <p>
+                              <span class="tasks__title">Відповідь:</span>
+                              <ul class="list">
+                          `);
 
-													showTwoDimensionalArray(battlefield, 'Поле битви');
+                          setGameResult(battlefield, SHIPS_AMOUNT, BULLETS_AMOUNT);
 
                           document.write('<br>');
 
-                          document.write(`
-                            <li class="list__item">
-                              <span>5) максимальний прибуток за середу: ;</span>
-                            </li>
-                          `);
+                          showTwoDimensionalArray(battlefield, 'Поле битви');
 
                           document.write(`
                               </ul>
                             </p>
                           `);
 
-                          const battlefieldWithWhips = setShipsOnBattlefield(battlefield, SHIPS_ON_FIELD);
+                          // функція, яка ... результат гри
+                          function setGameResult(battlefield, ships, bullets) {
+                            let bulletsAmount = bullets, shipsAmount = ships;
 
-                          showTwoDimensionalArray(battlefield, 'Поле битви');
-
-                          // функція, яка повертає результат гри
-                          function getGameResult(battlefieldWithWhips, ships, bullets) {
-                            let bulletsAmount = bullets;
-                            let shipsAmount = ships;
-
-                            while (bulletsAmount <= bullets || shipsAmount <= ships) {
+                            while (bulletsAmount > 0 && shipsAmount > 0) {
                               const coordinateY = parseInt(prompt("Введіть координату Y (від 0 до 5):", "2"));
+
+                              if (Number.isNaN(coordinateY) || coordinateY < 0 || coordinateY > 5) break;
+
                               const coordinateX = parseInt(prompt("Введіть координату X (від 0 до 5):", "2"));
 
-                              if (battlefieldWithWhips[coordinateY][coordinateX] === 1) {
-                                battlefieldWithWhips[coordinateY][coordinateX] = 0;
+                              if (Number.isNaN(coordinateX) || coordinateX < 0 || coordinateX > 5) break;
+
+                              if (battlefield[coordinateY][coordinateX] === 1) {
                                 bulletsAmount--;
+
+                                battlefield[coordinateY][coordinateX] = 'X';
+
+                                shipsAmount--;
                               } else {
                                 bulletsAmount--;
                               };
-                              
-                              // if (winNumber !== null && winNumberParse < 10) {
-                              //   winNumbers.push(winNumberParse);
-                              // } else {
-                              //   break;
-                              // }
                             }
 
-                            return winNumbers;
+                            document.write(`
+                              <li class="list__item">
+                                <span>Кінець гри. Результат бою.</span>
+                              </li>
+                            `);
                           }
 
 													// функция, яка в розташовує/додає корабли на поле
@@ -117,19 +114,11 @@
                             }
                           }
 
-                          // функція повертає двовимірний масив
-													function getTwoDimensionalArray(rowsAmount, columnsAmount, startRange, endRange) {
-                            return Array.from(
-                              { length: columnsAmount },
-                              () => getRowsOfArray(rowsAmount, startRange, endRange)
-                            );
-													}
-
-                          // функція повертає рядки для двовимірного массиву
-													function getRowsOfArray(rowsAmount, startRange, endRange) {
+                          // функція повертає двовимірний масив заповнений нулями
+													function getTwoDimensionalArrayWithZero(rowsAmount, columnsAmount) {
                             return Array.from(
                               { length: rowsAmount },
-                              () => generateRandomNumber(startRange, endRange)
+                              () => new Array(columnsAmount).fill(0)
                             );
 													}
 
@@ -177,26 +166,7 @@
                               </li>
                             `);
                           }
-
-                          // функція, яка виводить масив
-													function showArray(array, caption) {
-                              document.write(`
-															<li class="list__item">
-																<span>${caption}: [</span>
-														`);
-
-														for (let index = 0; index < array.length; index++) {
-															document.write(`
-																	<span>${array[index]}</span>
-															`);
-														}
-
-														document.write(`
-																<span>];</span>
-															</li>
-														`);
-													}
-                        // }
+                        }
                       </script>
                     </li>
                   </ul>
@@ -207,12 +177,6 @@
             <div class="up  up--left">
               <div class="up__container">
                 <a class="up__link" href="../index.html">на головну</a>
-              </div>
-            </div>
-
-            <div class="up">
-              <div class="up__container">
-                <a class="up__link" href="#up">на гору</a>
               </div>
             </div>
           </div><!-- /.page__inner -->
