@@ -11,44 +11,132 @@ document.write(`
   </header>
 
   <main class="page">
-    <div class="page__container">
-      <div class="page__inner">
-        <!-- Tasks -->
-        <div class="tasks">
-          <div class="tasks__container">
-            <div class="tasks__inner">
-              <ul class="tasks__items">
-                <li class="tasks__item">
-                  <p><span class="tasks__title">Задача 1.</span> Дано масив 30 випадкових цілих чисел. Підрахувати скільки було
-                    обмінів під час сортування бульбашкою.
-                  </p>
-                </li>
-              </ul>
+    <!-- Tasks -->
+    <div class="tasks">
+      <div class="tasks__container">
+        <div class="tasks__inner">
+          <ul class="tasks__items">
+            <li class="tasks__item">
+              <p><span class="tasks__title">Задача 1.</span> Дано масив 30 випадкових цілих чисел. Підрахувати скільки було
+                обмінів під час сортування бульбашкою.
+              </p>
+            </li>
 `);
-// /**
-//  * Знаходить суму двох чисел
-//  * @param{number} num1 - перше число
-//  * @param{number} num2 - друге число
-//  * @returns{number} - суму двох чисел
-//  */
-function sum(num1, num2) {
-    return num1 + num2;
+if (confirm("Почати тестування?")) {
+    // // /**
+    // //  * Знаходить суму двох чисел
+    // //  * @param{number} num1 - перше число
+    // //  * @param{number} num2 - друге число
+    // //  * @returns{number} - суму двох чисел
+    // //  */
+    // function sum(num1: number, num2: number): number {
+    //   return num1 + num2;
+    // }
+    // const sumRes = sum(2, 5);
+    // const sum = (num1, num2) => num1 + num2;
+    const ELEMENTS_AMOUNT = 30;
+    const RANDOM_NUMBER_FROM = 10, RANDOM_NUMBER_TO = 99;
+    let numbersArray = createArray(ELEMENTS_AMOUNT, RANDOM_NUMBER_FROM, RANDOM_NUMBER_TO);
+    document.write(`
+    <li>
+      <p>
+        <span class="tasks__title">Відповідь:</span>
+        <ul class="list">
+    `);
+    showArray(numbersArray, "Масив випадкових чисел");
+    document.write("<br>");
+    const changeAmountBubbleSort = getChangeAmountBubbleSort(numbersArray);
+    showArray(numbersArray, "Масив відсортованих чисел");
+    document.write(`
+  <li class="list__item">
+    <span>Кількість обмінів під час сортування: ${changeAmountBubbleSort}.</span>
+  </li>
+`);
+    document.write(`
+      </ul>
+    </p>
+  <li>
+`);
+    // функция, яка повертає кількість змін при бульбашковому сортуванні массива
+    function getChangeAmountBubbleSort(array) {
+        let endIndexLimit = array.length;
+        let change = false;
+        let changeCounter = 0;
+        do {
+            change = false;
+            for (let index = 1; index < endIndexLimit; index++) {
+                if (array[index - 1] > array[index]) {
+                    const temp = array[index - 1];
+                    array[index - 1] = array[index];
+                    array[index] = temp;
+                    change = true;
+                    changeCounter++;
+                }
+            }
+            endIndexLimit--;
+        } while (change);
+        return changeCounter;
+    }
+    /**
+     * Функція повертає масив випадкових елементів.
+     * @param sizeArray
+     * @param startRange
+     * @param endRange
+     * @returns
+     */
+    function createArray(sizeArray, startRange, endRange) {
+        let array = [];
+        for (let index = 0; index < sizeArray; index++) {
+            array.push(generateRandomNumber(startRange, endRange));
+        }
+        return array;
+    }
+    /**
+     * Функція повертає випадкове число в заданому інтервалі.
+     *
+     * @param {number} startRange - Число для початку интервала.
+     * @param {number} endRange - Число для кінця интервалу.
+     * @returns {number} Випадково згенероване число.
+     */
+    function generateRandomNumber(startRange, endRange) {
+        const RANDOM_NUMBER_FROM = startRange, RANDOM_NUMBER_TO = endRange;
+        const randomNumber = RANDOM_NUMBER_FROM +
+            Math.floor(Math.random() * (RANDOM_NUMBER_TO - RANDOM_NUMBER_FROM + 1));
+        return randomNumber;
+    }
+    /**
+     * Функція, яка виводить масив.
+     *
+     * @param {number[]} array - Масив який треба вивести.
+     * @param {string} caption - Підпис/заголовок до масиву.
+     */
+    function showArray(array, caption) {
+        document.write(`
+    <li class="list__item">
+      <span>${caption}: [</span>
+  `);
+        for (let index = 0; index < array.length; index++) {
+            document.write(`
+      <span>${array[index]}</span>
+    `);
+        }
+        document.write(`
+      <span>].</span>
+    </li>
+  `);
+    }
 }
-const sumRes = sum(2, 5);
-// const sum = (num1, num2) => num1 + num2;
-document.write(`${sumRes}`);
 document.write(`
-              </div><!-- /.tasks__inner -->
-            </div><!-- /.tasks__container -->
-          </div><!-- /.tasks -->
+            </ul>
+          </div><!-- /.tasks__inner -->
+        </div><!-- /.tasks__container -->
+      </div><!-- /.tasks -->
 
-          <div class="up  up--left">
-            <div class="up__container">
-              <a class="up__link" href="../index.html">на головну</a>
-            </div>
-          </div>
-        </div><!-- /.page__inner -->
-      </div><!-- /.page__container -->
+      <div class="up  up--left">
+        <div class="up__container">
+          <a class="up__link" href="../index.html">на головну</a>
+        </div>
+      </div>
     </main><!-- /.page -->
 
     <!-- Footer -->
