@@ -16,8 +16,7 @@ document.write(`
         <div class="tasks__inner">
           <ul class="tasks__items">
             <li class="tasks__item">
-              <p><span class="tasks__title">Задача 1.</span> Дано масив 30 випадкових цілих чисел. Підрахувати скільки було
-                обмінів під час сортування бульбашкою.
+              <p><span class="tasks__title">Задача 3.</span> Дано масив 30 випадкових цілих чисел. Підрахувати скільки було обмінів під час сортування включеннями.
               </p>
             </li>
 `);
@@ -43,14 +42,14 @@ if (confirm("Почати тестування?")) {
 
   document.write("<br>");
 
-  const changeAmountBubbleSort: number =
-    getChangeAmountBubbleSort(numbersArray);
+  const changeAmountInsertionSort: number =
+    getChangeAmountInsertionSort(numbersArray);
 
   showArray(numbersArray, "Масив відсортованих чисел");
 
   document.write(`
     <li class="list__item">
-      <span>Кількість обмінів під час сортування: ${changeAmountBubbleSort}.</span>
+      <span>Кількість обмінів під час сортування: ${changeAmountInsertionSort}.</span>
     </li>
   `);
 
@@ -60,28 +59,22 @@ if (confirm("Почати тестування?")) {
     <li>
   `);
 
-  // функция, яка повертає кількість змін при бульбашковому сортуванні массива
-  function getChangeAmountBubbleSort(array: number[]): number {
-    let endIndexLimit: number = array.length;
-    let change: boolean = false;
+  // функция, яка повертає кількість змін при сортуванні массива методом включенням
+  function getChangeAmountInsertionSort(array: number[]): number {
     let changeCounter: number = 0;
 
-    do {
-      change = false;
+    for (let k: number = 0; k < array.length; k++) {
+      let key: number = array[k],
+        index: number = k - 1;
 
-      for (let index = 1; index < endIndexLimit; index++) {
-        if (array[index - 1] > array[index]) {
-          const temp = array[index - 1];
-          array[index - 1] = array[index];
-          array[index] = temp;
-
-          change = true;
-          changeCounter++;
-        }
+      while (index >= 0 && array[index] > key) {
+        array[index + 1] = array[index];
+        changeCounter++;
+        index--;
       }
 
-      endIndexLimit--;
-    } while (change);
+      array[index + 1] = key;
+    }
 
     return changeCounter;
   }

@@ -16,8 +16,7 @@ document.write(`
         <div class="tasks__inner">
           <ul class="tasks__items">
             <li class="tasks__item">
-              <p><span class="tasks__title">Задача 1.</span> Дано масив 30 випадкових цілих чисел. Підрахувати скільки було
-                обмінів під час сортування бульбашкою.
+              <p><span class="tasks__title">Задача 2.</span> Дано масив 30 випадкових цілих чисел. Підрахувати скільки було обмінів під час сортування змішуванням.
               </p>
             </li>
 `);
@@ -43,14 +42,14 @@ if (confirm("Почати тестування?")) {
 
   document.write("<br>");
 
-  const changeAmountBubbleSort: number =
-    getChangeAmountBubbleSort(numbersArray);
+  const changeAmountShakerSort: number =
+    getChangeAmountShakerSort(numbersArray);
 
   showArray(numbersArray, "Масив відсортованих чисел");
 
   document.write(`
     <li class="list__item">
-      <span>Кількість обмінів під час сортування: ${changeAmountBubbleSort}.</span>
+      <span>Кількість обмінів під час сортування: ${changeAmountShakerSort}.</span>
     </li>
   `);
 
@@ -60,16 +59,16 @@ if (confirm("Почати тестування?")) {
     <li>
   `);
 
-  // функция, яка повертає кількість змін при бульбашковому сортуванні массива
-  function getChangeAmountBubbleSort(array: number[]): number {
-    let endIndexLimit: number = array.length;
-    let change: boolean = false;
+  // функция, яка повертає кількість змін при сортуванні массива методом змішування
+  function getChangeAmountShakerSort(array: number[]): number {
+    let leftIndex: number = 0,
+      rightIndex: number = array.length - 1;
     let changeCounter: number = 0;
 
-    do {
-      change = false;
-
-      for (let index = 1; index < endIndexLimit; index++) {
+    while (leftIndex < rightIndex) {
+      let change: boolean = false;
+      // рух зліва направо
+      for (let index = leftIndex + 1; index <= rightIndex; index++) {
         if (array[index - 1] > array[index]) {
           const temp = array[index - 1];
           array[index - 1] = array[index];
@@ -80,8 +79,27 @@ if (confirm("Почати тестування?")) {
         }
       }
 
-      endIndexLimit--;
-    } while (change);
+      rightIndex--;
+
+      if (change === false) break;
+      // рух з права наліво
+      change = false;
+
+      for (let index = rightIndex; index > leftIndex; index--) {
+        if (array[index - 1] > array[index]) {
+          let temp = array[index - 1];
+          array[index - 1] = array[index];
+          array[index] = temp;
+
+          change = true;
+          changeCounter++;
+        }
+      }
+
+      leftIndex++;
+
+      if (change === false) break;
+    }
 
     return changeCounter;
   }
