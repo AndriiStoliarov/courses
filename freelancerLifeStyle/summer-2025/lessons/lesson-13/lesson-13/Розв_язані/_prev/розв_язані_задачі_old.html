@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //============================================================
+      let arr = [64, 25, 12, 22, 11]
+      // Сортування вибором 1 - поганий
+      //Цикл_для кожної позиції "і" від 0 до передостанньої
+      // const preLastIndex = arr.length - 1
+      // for (let i = 0; i < preLastIndex; i++) {
+      //   //   ----- поставити мінімальний від "і" до останнього у поздицію "і" -----
+      //   //   Цикл_для номерів "j" від "і+1" до останнього
+      //   for (let j = i + 1; j < arr.length; j++) {
+      //     //      якщо елемент з номером "j" менше за елемент з номером "і"
+      //     if (arr[j] < arr[i]) {
+      //       let tmp = arr[j] //           -- то міняти місцями елементи з номерами "і" та "j"
+      //       arr[j] = arr[i]
+      //       arr[i] = tmp
+      //     }
+      //   }
+      //   //   кінець_циклу_для_номера_ j
+      // }
+      //кінець_циклу_для_номера_і
+      //============================================================
+
+      //============================================================
+      // Сортування вибором 2 - кращий
+      //Цикл_для кожної позиції "і" від 0 до передостанньої
+      //   ----- Знайти "currentMinIndex" - індекс мінімального  елемента з номером від "і" до останнього
+      //   ---------------------------------------------------------------------
+      //      спочатку "currentMinIndex" = "і"
+      //   Цикл_для номерів "j" від "і+1" до останнього
+      //      якщо елемент з номером "j" менше за елемент з номером "currentMinIndex"
+      //           -- то "currentMinIndex" = "j"
+      //   кінець_циклу_для_номера_ j
+      //   ---------------------------------------------------------------------
+      //   Якщо "currentMinIndex" не дорівнює позиції "і"
+      //        -- то поміняти місцями елементи з номерами "і" та "currentMinIndex"
+      //кінець_циклу_для
+      //============================================================
+      // function sortSelect(arr) {
+      //   const preLastIndex = arr.length - 1
+      //   for (let i = 0; i < preLastIndex; i++) {
+      //     let currentMinIndex = i
+      //     for (let j = i + 1; j < arr.length; j++) {
+      //       if (arr[j] < arr[currentMinIndex]) currentMinIndex = j
+      //     }
+      //     if (i !== currentMinIndex) {
+      //       let tmp = arr[i]
+      //       arr[i] = arr[currentMinIndex]
+      //       arr[currentMinIndex] = tmp
+      //     }
+      //   }
+      //   return arr
+      // }
+      // document.write(sortSelect(arr))
+      // let matr = [
+      //   [1, 23, 4, 23, 45, 67],
+      //   [1, 23, 4, 23, 45, 67],
+      //   [1, 23, 4, 23, 45, 67],
+      //   [1, 23, 4, 23, 45, 67],
+      //   [1, 23, 4, 23, 45, 67],
+      // ]
+      // 1.Знайти суми елементів у вказаній області
+      //  7) У парних рядках – непарні стовпці, у непарних – парні.
+      // let sum = 0
+      // for (let rowIndex = 0; rowIndex < matr.length; rowIndex++) {
+      //   let startColIndex
+      //   if (rowIndex % 2 === 0) startColIndex = 1
+      //   else startColIndex = 0
+
+      //   for (
+      //     let colIndex = startColIndex;
+      //     colIndex < matr[rowIndex].length;
+      //     colIndex += 2
+      //   ) {
+      //     sum += matr[rowIndex][colIndex]
+      //   }
+      // }
+      //---- 2
+      // let sum = 0
+      // for (let rowIndex = 0; rowIndex < matr.length; rowIndex++) {
+      //   // let startColIndex
+      //   // if (rowIndex % 2 === 0) startColIndex = 1
+      //   // else startColIndex = 0
+
+      //   for (
+      //     let colIndex = 1 - (rowIndex % 2);   colIndex < matr[rowIndex].length;  colIndex += 2
+      //   ) {
+      //     sum += matr[rowIndex][colIndex]
+      //   }
+      // }
+
+      //============================================================
+      // 8) відсортувати тижні (рядки) за спаданням максимального елементи у цьому тижні (рядку), тобто при порівнянні рядків потрібно порівнювати максимальні елементи у кожному з цих рядків
+      let matr = [
+        [2, 3, 4], // -> max = 4
+        [1, 2, 3], //-> max = 3
+        [2, 1, 2], //-> max = 2
+        [0, 1, 1], //-> max = 1
+      ]
+      //------ 1
+      // matr.sort(
+      //   (row1, row2)=>{
+      //     let max1 = Math.max(...row1)
+      //     let max2 = Math.max(...row2)
+      //     return max2-max1
+      //   }
+      // )
+      //------ 1
+      // поубуємо масив з максимальних елементів рядків
+      // let maxRowsElements = matr.map(
+      //   // (row) => row.reduce((prevMax, element)=> prevMax>element?prevMax:element)
+      //   (row) => Math.max(...row)
+      // )
+      // функція сортування одночасно масиву з максимальними і відповідно двовимірного масиву
+      // function sortSelect(arrMax, matr) {
+      //   const preLastIndex = arrMax.length - 1
+      //   for (let i = 0; i < preLastIndex; i++) {
+      //     let currentMaxIndex = i
+      //     for (let j = i + 1; j < arrMax.length; j++) {
+      //       if (arrMax[j] > arrMax[currentMaxIndex]) currentMaxIndex = j
+      //     }
+      //     if (i !== currentMaxIndex) {
+      //       //---- Робимо обмін елементів у масиві з максимальними arrMax
+      //       let tmp = arrMax[i]
+      //       arrMax[i] = arrMax[currentMaxIndex]
+      //       arrMax[currentMaxIndex] = tmp
+
+      //       //---- Робимо обмін елементів (рядків) у двовимірному масиві   matr
+      //       tmp = matr[i]
+      //       matr[i] = matr[currentMaxIndex]
+      //       matr[currentMaxIndex] = tmp
+      //     }
+      //   }
+      //   return matr
+      // }
+      // const matrCopy = JSON.parse(JSON.stringify(matr))
+      // const sortedMatr = sortSelect(maxRowsElements, matrCopy)
+
+      // console.table(matr)
+      //============================================================
+      // 9) упорядкувати тижні (рядки) за спаданням суми елементів у рядку (тобто при порівнянні двох рядків треба знайти суму кожного з рядків і порівнювати ці суми, на основі цих сум буде зрозуміло, який з елементів повинен іти раніше).
+      //=========================================
+      // function createCounter(startValue, step) {
+      //   let currentValue = startValue
+      //   function couter() {
+      //     currentValue += step
+      //     return currentValue
+      //   }
+
+      //   return couter
+      // }
+
+      // let cntr1 = createCounter(10, 5)
+      // console.log('--------- cntr1 -----')
+      // console.log(cntr1)
+      // let cntr2 = createCounter(2, 4)
+      // let cntr3 = createCounter(1, 7)
+
+      // document.write(`${cntr1()} <br>`) //15
+      // document.write(`${cntr1()} <br>`) //20
+      // document.write(`${cntr1()} <br>`) //25
+
+      // document.write(`${cntr2()} <br>`) //6
+      // document.write(`${cntr2()} <br>`) //10
+
+      // document.write(`${cntr1()} <br>`) //30
+
+      //============================================================
+      //   Задача. Чере 3 секунди після відкриття сторінки привітати користувача
+      // setTimeout(() => alert('hello'), 3000)
+
+      // let intervalId = setInterval(() => alert('hello'), 1000)
+
+      // setTimeout(() => clearInterval(intervalId), 3000)
+
+      // for (let i = 1; i < 5; i++) {
+      //   setTimeout(
+      //     function () {
+      //       alert(i)
+      //     },
+
+      //     2000
+      //   )
+      // }
+
+      //============================================================
+      // Задача. Кожні 10 секнуд нагадувати користувачу, що бажано зареєструватися (виводити повідомлення)
+    </script>
+  </body>
+</html>

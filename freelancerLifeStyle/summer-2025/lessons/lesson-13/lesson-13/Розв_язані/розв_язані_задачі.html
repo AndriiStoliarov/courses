@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //======================= ЗАМИКАННЯ =====================================
+      // Створити конрольований банківський рахунок
+      // function createBalance(initMoney) {
+      //   let balance = initMoney
+      //   function addMoney(val) {
+      //     if (val > 0) {
+      //       balance += val
+      //       return val
+      //     }
+      //     return 0
+      //   }
+      //   function withdrawMoney(val) {
+      //     if (balance > 0 && val > 0 && balance >= val) {
+      //       balance -= val
+      //       return val
+      //     }
+      //     return 0
+      //   }
+      //   function getBalance() {
+      //     return balance
+      //   }
+      //   return [addMoney, withdrawMoney, getBalance]
+      // }
+
+      // let [addMoney, withdrawMoney, getBalance] = createBalance(100)
+
+      // let userChoice
+      // while (userChoice !== '4') {
+      //   userChoice = prompt('1.Add\n2.Withdraw\n3.Get_balance\n4.Exit')
+      //   let money
+      //   switch (userChoice) {
+      //     case '1':
+      //       money = parseInt(prompt('Скільки ставиш на рахунок?'))
+      //       alert(addMoney(money))
+      //       break
+      //     case '2':
+      //       money = parseInt(prompt('Скільки знаяти з рахунку?'))
+      //       alert(withdrawMoney(money))
+      //       break
+      //     case '3':
+      //       alert(`На рунку: ${getBalance()}`)
+      //       break
+      //   }
+      // }
+
+      //============================================================
+      // const timer1 = setTimeout(
+      //   () => {
+      //      alert('ok')
+      //   },
+      //  3000)
+
+      // setTimeout(() => {
+      //   clearTimeout(timer1)
+      // }, 2000)
+      // setInterval(() => {
+      //   document.write('ok')
+      // }, 1000)
+      //============================================================
+      //--- Створити ітератор по номерам місяців
+
+      //---- Створити ітератор для постового обчислення і повертання квадратів деякого масиву
+      // let colors = ['red', 'green', 'blue', 'yellow']
+
+      //--- Створити ітератор по літерам слова
+
+      //=========================================
+      // function createCounter(startValue, step) {
+      //   let currentValue = startValue
+      //   function couter() {
+      //     currentValue += step
+      //     return currentValue
+      //   }
+
+      //   return couter
+      // }
+
+      // let cntr1 = createCounter(10, 5)
+      // console.log('--------- cntr1 -----')
+      // console.log(cntr1)
+      // let cntr2 = createCounter(2, 4)
+      // let cntr3 = createCounter(1, 7)
+
+      // document.write(`${cntr1()} <br>`) //15
+      // document.write(`${cntr1()} <br>`) //20
+      // document.write(`${cntr1()} <br>`) //25
+
+      // document.write(`${cntr2()} <br>`) //6
+      // document.write(`${cntr2()} <br>`) //10
+
+      // document.write(`${cntr1()} <br>`) //30
+      //======================= ТАЙМЕРИ =====================================
+
+      //============================================================
+      //   Задача. Чере 3 секунди після відкриття сторінки привітати користувача
+      // setTimeout(() => {
+      //   alert('Hello!')
+      // }, 3000)
+
+      //============================================================
+      //Кожні 10 секунд нагадувати про авторизацію!
+      // setInterval(() => {
+      //   alert('Зареєструйся!')
+      // }, 10000)
+      //============================================================
+      //При заході на сайт попросити користувача авторизватись. Встановити інервал на 5секунд(з нагадування необхідності авторизації), але якщо користувач підвердить вхід. то відмінити таймер
+      // const timer1 = setInterval(() => {
+      //   alert('Зареєструйся!')
+      // }, 5000)
+
+      // if (confirm('Бажаєте зараєструватись ?')) clearInterval(timer1)
+
+      //============================================================
+      //Через 3 серкунди перейти на укрнет (window.location.href = 'https://www.ukr.net/')
+      // setTimeout(() => {
+      //   window.location.href = 'https://www.ukr.net/'
+      // }, 3000)
+
+      //============================================================
+      //кожні 2 секунди виводити 'Hello'
+      //---- без очікування виконання попередньої функції
+      // setInterval(() => {
+      //   alert('Hello')
+      // }, 2000)
+      //---- з очікуванням виконання попередньої функції (між повідомленнями буде рівно 2000 мс)
+      // function showDelayedMessage(msg, ms) {
+      //   setTimeout(() => {
+      //     alert(msg)
+      //     showDelayedMessage(msg, ms)
+      //   }, ms)
+      // }
+
+      // showDelayedMessage('Hello', 2000)
+
+      //============================================================
+      // Задача. Кожні 3 секнуди нагадувати користувачу, що бажано зареєструватися (виводити повідомлення)
+      // Але через 10 секунд припинити нагадування.
+      // const timer1 = setInterval(() => {
+      //   alert('Зареєструйся!')
+      // }, 3000)
+
+      // setTimeout(() => {
+      //   clearInterval(timer1)
+      // }, 10000)
+
+      //============================================================
+
+      // Що побачить користувач 1
+      // for (let i = 1; i < 5; i++) {
+      //   setTimeout(function () {
+      //     alert(i)
+      //   }, 2000)
+      // }
+      //============================================================
+      // for (var i = 1; i < 5; i++) {
+      //   setTimeout(function () {
+      //     alert(i)
+      //   }, 2000)
+      // }
+      //============================================================
+
+      // Що побачить користувач 2
+      // let i
+      // for (i = 1; i < 5; i++) {
+      //   setTimeout(
+      //     function () {
+      //       alert(i)
+      //     },
+
+      //     2000
+      //   )
+      // }
+
+      //============================================================
+
+      // Що побачить користувач 3
+      // let num = 0
+      // let myTimer = setInterval(function () {
+      //   if (num === 5) {
+      //     alert('Stop')
+      //     clearInterval(myTimer)
+      //   } else {
+      //     num++
+      //     alert(num)
+      //   }
+      // }, 1000)
+      //============================================================
+
+      // Що побачить користувач 4
+      // function myFunc(num) {
+      //   setTimeout(
+      //     () => {
+      //       if (num < 5) {
+      //         alert(num)
+      //         myFunc(num + 1)
+      //       }
+      //     },
+
+      //     1000
+      //   )
+      // }
+      // myFunc(1)
+    </script>
+  </body>
+</html>

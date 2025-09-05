@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //======================= масиви 1 =====================================
+      //       При розв’язанні задач намагайтесь використовувати відповідні методи (map, filter, reduce,…) всюди, де це можливо
+      // Задача. Дано історію цін на цінні папери за деякий період (згенерувати від 1 до 10000)
+      // let arr = [12, 12300, 23, 1222, 2311, 34, 34]
+      //       1)Сформувати новий масив, у якому є тільки ті, що більші за 1000 грн.
+      // let res = arr.filter((el) => el > 1000)
+      // document.write(res)
+
+      //       2)Сформувати новий масив, у якому є номери тільки тих, що більші за 1000 грн.
+      //--- варіант 1 (з створенням нового масиву на кожному кроці)
+      // let res = arr.reduce(
+      // (prevRes, el, ind)=>el>1000?[...prevRes, ind]:prevRes,
+      // []
+      // )
+      //---- варіант 2 (без створення нового масиву на кожному кроці)
+      // let res = arr.reduce((prevRes, el, ind) => {
+      //   if (el > 1000) prevRes.push(ind)
+      //   return prevRes
+      // }, [])
+      //       3)Сформувати список з тих цін, які більші за попереднє значення
+      // let res = arr.reduce((prevRes, el, ind, baseArr) => {
+      //   if (ind > 0 && el > baseArr[ind - 1]) prevRes.push(el)
+      //   return prevRes
+      // }, [])
+
+      // let res = arr.filter(
+      //   (el, ind, baseArr) => ind > 0 && el > baseArr[ind - 1]
+      // )
+      //       4)Сформувати новий масив, що міститиме значення цін у відсотках стосовно максимального
+      // let max = Math.max(...arr)
+      // //    max - 100%
+      // //    el   - x %
+      // //  x= el  * (100/max)   // k = (100/max)
+      // let k = 100 / max
+      // let res = arr.map((el) => el * k)
+
+      //       5)Підрахувати кількість змін цін
+      // let res = arr.reduce(
+      //   (prevCount, el, ind, baseArr) =>
+      //     ind > 0 && el !== baseArr[ind - 1] ? prevCount + 1 : prevCount,
+      //   0
+      // )
+      //       6)Визначити, чи є ціна, що менше 1000
+      // let res = arr.some((el) => el < 1000)
+      //       7)Визначати, чи усі ціни більше за 1000
+      // let res = arr.every((el) => el > 1000)
+      //       8)Підрахувати кількість цін, що більше за 1000
+      // let res = arr.reduce(
+      //   (prevCount, el) => (el > 1000 ? prevCount + 1 : prevCount),
+      //   0
+      // )
+      //       9)Підрахувати суму цін, що більше за 1000
+      // let res = arr.reduce(
+      //   (prevSum, el) => (el > 1000 ? prevSum + el : prevSum),
+      //   0
+      // )
+      //       10)Знайти першу ціну, що більше за 1000
+      // let res = arr.find((el) => el > 1000)
+      //       11)Знайти індекс першої ціни, що більше за 1000
+      // let res = arr.findIndex((el) => el > 1000)
+      //       12)Знайти останню ціну, що більше за 1000
+      // let res = arr.findLast((el) => el > 1000)
+      //       13)Знайти індекс останньої ціни, що більше за 1000
+      // let res = arr.findLastIndex((el) => el > 1000)
+      // document.write(res)
+      //======================= масиви 2 =====================================
+      // let arr = [
+      //   [56, 72, 89, 41, 98, 12, 34],
+      //   [23, 87, 65, 78, 54, 91, 76],
+      //   [45, 32, 67, 10, 88, 50, 19],
+      //   [77, 99, 43, 55, 30, 68, 80],
+      //   [14, 66, 22, 97, 33, 70, 44],
+      // ]
+      // // Задача 1
+      // function getSumInRange(
+      //   arr,
+      //   startRowIndex,
+      //   endRowIndex,
+      //   startColIndex,
+      //   endColIndex,
+      //   rowStep = 1,
+      //   colStep = 1,
+      //   checkFunc
+      // ) {
+      //   let sum = 0
+      //   for (
+      //     let rowIndex = startRowIndex;
+      //     rowIndex <= endRowIndex;
+      //     rowIndex += rowStep
+      //   ) {
+      //     for (
+      //       let colIndex = startColIndex;
+      //       colIndex <= endColIndex;
+      //       colIndex += colStep
+      //     ) {
+      //       if (!checkFunc || checkFunc(rowIndex, colIndex))
+      //         sum += arr[rowIndex][colIndex]
+      //     }
+      //   }
+      //   return sum
+      // }
+      // let halfRowsNumber = Math.floor(arr.length / 2)
+      // let lastRowIndex = arr.length - 1
+
+      // let halfColNumber = Math.floor(arr[0].length / 2)
+      // let lastColIndex = arr[0].length - 1
+      // //1)
+      // // let res = getSumInRange(arr, 0, halfRowsNumber, 0, halfColNumber)
+      // //2)
+      // // let res = getSumInRange(
+      // //   arr,
+      // //   0,
+      // //   halfRowsNumber,
+      // //   halfColNumber + 1,
+      // //   lastColIndex
+      // // )
+      // //5) парні рядки
+      // // let res = getSumInRange(arr, 0,lastRowIndex, 0, lastColIndex, 2)
+      // // 6) Суму непарних стовпців
+      // // let res = getSumInRange(arr, 0,lastRowIndex, 1, lastColIndex, 1, 2)
+      // // 7) У парних рядках – непарні стовпці, у непарних – парні.
+      // // let res1 = getSumInRange(arr, 0, lastRowIndex, 1, lastColIndex, 2, 2)
+      // // let res2 = getSumInRange(arr, 1, lastRowIndex, 0, lastColIndex, 2, 2)
+      // // let res = res1 + res2
+      // //------
+      // let res = getSumInRange(
+      //   arr,
+      //   0,
+      //   lastRowIndex,
+      //   0,
+      //   lastColIndex,
+      //   1,
+      //   1,
+      //   (rowIndex, colIndex) =>
+      //     (rowIndex % 2 === 0 && colIndex % 2 !== 0) ||
+      //     (rowIndex % 2 !== 0 && colIndex % 2 === 0)
+      // )
+
+      // document.write(res)
+      // Задача 2. Дано інформацію про прибуток К магазинів протягом тижня. Знайти :
+      let incomes = [
+        [56, 72, 89, 41, 98, 12, 34],
+        [23, 87, 65, 78, 54, 91, 76],
+        [45, 32, 67, 10, 88, 50, 19],
+        [77, 99, 43, 55, 30, 68, 80],
+        [14, 66, 22, 97, 33, 70, 44],
+      ]
+
+      // 1) загальний прибуток кожного масиву (магазину) за тиждень;
+      // let res = incomes.map((shopData) =>
+      //   shopData.reduce((prevSum, price) => prevSum + price)
+      // )
+      // 2) загальний прибуток усіх магазинів по дням (загальний прибуток усіх магазинів за понеділок, за вівторок, і т.д.);
+      // let res = []
+      // for (let colIndex = 0; colIndex < incomes[0].length; colIndex++) {
+      //   let sum = 0
+      //   for (let rowIndex = 0; rowIndex < incomes.length; rowIndex++) {
+      //     sum += incomes[rowIndex][colIndex]
+      //   }
+      //   res.push(sum)
+      // }
+      // 3) загальний прибуток за робочі дні (0-4)
+      // let sum = 0
+      // for (let r = 0; r < incomes.length; r++) {
+      //   for (let c = 0; c < 5; c++) {
+      //     sum += incomes[r][c]
+      //   }
+      // }
+      // 4) загальний прибуток за вихідні дні (5-6)
+      // let sum = 0
+      // for (let r = 0; r < incomes.length; r++) {
+      //   for (let c = 5; c < 7; c++) {
+      //     sum += incomes[r][c]
+      //   }
+      // }
+      // 5) максимальний прибуток за середу (wedIndex =2)
+      // let max = -Infinity
+      // const wedIndex = 2
+      // for (let rowIndex = 0; rowIndex < incomes.length; rowIndex++) {
+      //   if (incomes[r][wedIndex] > max) max = incomes[r][wedIndex]
+      // }
+      // 6) сформувати загальний список (одновимірний масив) зі значенням, які що більші за 200
+      // let res = []
+      // for (let r = 0; r < incomes.length; r++) {
+      //   for (let c = 5; c < incomes[r].length; c++) {
+      //     if (incomes[r][c] > 200) res.push(incomes[r][c])
+      //   }
+      // }
+      //------
+      // let res = incomes.flat().filter(el=>el>200)
+      // 7) відсортувати кожен тиждень за зростанням
+      // incomes.forEach((row) => row.sort((el1, el2) => el1 - el2))
+      // console.log(incomes)
+      // 7) відсортувати кожен тиждень за спаданням
+      // incomes.forEach((row) => row.sort((el1, el2) => el2 - el1))
+      // console.log(incomes)
+      // 8) відсортувати тижні (рядки) за спаданням максимального елементи у цьому тижні (рядку), тобто при порівнянні рядків потрібно порівнювати максимальні елементи у кожному з цих рядків
+      // //----- створимо масив з максимальними елементами рядків
+      // let maxArr = incomes.map((row) => Math.max(...row))
+      // //-----
+      // for (let rowIndex = 0; rowIndex < incomes.length - 1; rowIndex++) {
+      //   let maxIndex = rowIndex
+      //   for (let i = rowIndex + 1; i < incomes.length; i++) {
+      //     if (maxArr[maxIndex] < maxArr[i]) maxIndex = i
+      //   }
+      //   if (maxIndex !== rowIndex) {
+      //     //---- поміняли місцями елеменнти у масиві максимальних
+      //     let temp = maxArr[rowIndex]
+      //     maxArr[rowIndex] = maxArr[maxIndex]
+      //     maxArr[maxIndex] = temp
+      //     //----  поміняли місцями відповідні рядки
+      //     let tempRow = incomes[rowIndex]
+      //     incomes[rowIndex] = incomes[maxIndex]
+      //     incomes[maxIndex] = tempRow
+      //   }
+      // }
+      // console.log(incomes)
+      //------ ДУЖЕ, ДУЖЕ, ДУЖЕ, ..... НЕ ОПТИМАЛЬНО!!!
+      // incomes.sort((row1, row2) => {
+      //   const max1 = Math.max(...row1)
+      //   const max2 = Math.max(...row2)
+      //   return max2 - max1
+      // })
+      // 8) упорядкувати тижні (рядки) за спаданням суми елементів у рядку (тобто при порівнянні двох рядків треба знайти суму кожного з рядків і порівнювати ці суми, на основі цих сум буде зрозуміло, який з елементів повинен іти раніше).
+      //------ ДУЖЕ, ДУЖЕ, ДУЖЕ, ..... НЕ ОПТИМАЛЬНО!!!
+      // incomes.sort((row1, row2) => {
+      //   const sum1 = row1.reduce((prevSum, el) => prevSum + el)
+      //   const sum2 = row2.reduce((prevSum, el) => prevSum + el)
+      //   return sum2 - sum1
+      // })
+      //---- оптимальний шлях
+      //----- створимо масив з сумами елементами
+      // let summArr = incomes.map((row) =>
+      //   row.reduce((prevSum, el) => prevSum + el)
+      // )
+      // //-----
+      // for (let rowIndex = 0; rowIndex < incomes.length - 1; rowIndex++) {
+      //   let maxIndex = rowIndex
+      //   for (let i = rowIndex + 1; i < incomes.length; i++) {
+      //     if (summArr[maxIndex] < summArr[i]) maxIndex = i
+      //   }
+      //   if (maxIndex !== rowIndex) {
+      //     //---- поміняли місцями елеменнти у масиві максимальних
+      //     let temp = summArr[rowIndex]
+      //     summArr[rowIndex] = summArr[maxIndex]
+      //     summArr[maxIndex] = temp
+      //     //----  поміняли місцями відповідні рядки
+      //     let tempRow = incomes[rowIndex]
+      //     incomes[rowIndex] = incomes[maxIndex]
+      //     incomes[maxIndex] = tempRow
+      //   }
+      // }
+      // console.log(incomes)
+      // document.write(res)
+      //======================= РЕКУРСІЯ =====================================
+
+      //---- Вивести на екран усі перестановки заданої послідовності чисел
+      // function nextB(step, resArr) {
+      //   if (step === 5) document.write(`${resArr} <br>`)
+      //   else {
+      //     nextB(step + 1, [...resArr, 0])
+      //     nextB(step + 1, [...resArr, 1])
+      //   }
+      // }
+
+      // nextB(0, [])
+      //============================================================
+      //---- Вивести на екран усі перестановки заданої послідовності чисел
+      // let arr = [31, 12, 8, 34, 55]
+      // function next(baseArr, resArr) {
+      //   if (baseArr.length === 0) document.write(`${resArr} <br>`)
+      //   else {
+      //     for (let i = 0; i < baseArr.length; i++) {
+      //       next(
+      //         baseArr.filter((el, ind) => ind !== i),
+      //         [...resArr, baseArr[i]]
+      //       )
+      //     }
+      //   }
+      // }
+      // next(arr, [])
+      //======================= ЗАМИКАННЯ =====================================
+
+      //============================================================
+      //--- Створити ітератор по номерам місяців
+
+      // function getMonthIterator(monthNum, min = 1, max = 12) {
+      //   // --- правило коректної зміни номера місяця
+      //   function getNextMonth() {
+      //     if (monthNum === max) monthNum = 1
+      //     else ++monthNum
+      //     return monthNum
+      //   }
+      //   // --- повертаємо правило зміни місяця
+      //   return getNextMonth
+      // }
+
+      // let nextMonth = getMonthIterator(7)
+      // for (let i = 0; i < 30; i++) {
+      //   document.write(`${nextMonth()}<br>`)
+      // }
+      //---- Створити ітератор для постового обчислення і повертання квадратів деякого масиву
+      // let colors = ['red', 'green', 'blue', 'yellow']
+
+      // function getColorSelector(colors, currentColorIndex) {
+      //   currentColorIndex ??= colors.length - 1
+      //   function getNextColor() {
+      //     currentColorIndex++
+      //     if (currentColorIndex === colors.length) currentColorIndex = 0
+      //     return colors[currentColorIndex]
+      //   }
+      //   return getNextColor
+      // }
+
+      // let nextColorSelector = getColorSelector(colors, 1)
+      // for (let i = 0; i < 30; i++) {
+      //   document.write(`${nextColorSelector()}<br>`)
+      // }
+
+      //--- Створити ітератор по літерам слова
+      // function getLettersInWord(word) {}
+      // function translator(word, description) {
+      //   let taskInfo = alert(
+      //     `Перекладіть англійською мовою: ${description} (${word.length} букв)`
+      //   )
+      //   let wordInLetters = getLettersInWord(word)
+      //   let counter = 0
+      //   let userLettersArr = []
+      //   for (let letter = 0; letter < word.length; letter++) {
+      //     const userLetter = prompt(
+      //       `Введіть ${letter + 1} букву перекладу`
+      //     ).toLowerCase()
+      //     const wrightLetter = wordInLetters()
+
+      //     userLettersArr.push(userLetter)
+      //     if (wrightLetter === userLetter) counter++
+      //   }
+      //   return [userLettersArr, counter]
+      // }
+      // let word = 'spring'
+      // let description =
+      //   'Oдна з чотирьох пір року між зимою та літом, характерна для помірних широт '
+      // let [userLettersArr, counter] = translator(word, description)
+      // document.write(
+      //   `Переклад слова: ${word}. &lt;br&gt; Ви ввели букви: ${userLettersArr}.
+      // Кількість правильно вгаданих букв: ${counter}`
+      // )
+
+      //=========================================
+      // function createCounter(startValue, step) {
+      //   let currentValue = startValue
+      //   function couter() {
+      //     currentValue += step
+      //     return currentValue
+      //   }
+
+      //   return couter
+      // }
+
+      // let cntr1 = createCounter(10, 5)
+      // console.log('--------- cntr1 -----')
+      // console.log(cntr1)
+      // let cntr2 = createCounter(2, 4)
+      // let cntr3 = createCounter(1, 7)
+
+      // document.write(`${cntr1()} <br>`) //15
+      // document.write(`${cntr1()} <br>`) //20
+      // document.write(`${cntr1()} <br>`) //25
+
+      // document.write(`${cntr2()} <br>`) //6
+      // document.write(`${cntr2()} <br>`) //10
+
+      // document.write(`${cntr1()} <br>`) //30
+      //======================= ТАЙМЕРИ =====================================
+
+      //============================================================
+      //   Задача. Чере 3 секунди після відкриття сторінки привітати користувача
+      // setTimeout(
+      //   () => alert('hello'),
+      //   3000
+      //   )
+      // setTimeout(() => alert('hi'), 1000)
+
+      //============================================================
+      //При заході на сайт попросити користувача авторизватись. Встановити інервал на 5секунд(з нагадування необхідності авторизації), але якщо користувач підвердить вхід. то відмінити таймер
+      // let myTimerId = setTimeout(() => alert('Краще авторизуватись'), 5000)
+
+      // if (confirm('Бажаєте авторизуватись ?')) clearTimeout(myTimerId)
+
+      //============================================================
+      //Через 3 серкунди перейти на укрнет (window.location.href = 'https://www.ukr.net/')
+      // setTimeout(() => (window.location.href = 'https://www.ukr.net/'), 3000)
+
+      //============================================================
+      //кожні 2 секунди виводити 'Hello'
+      //---- без очікування виконання попередньої функції
+      // setInterval(() => alert('Hello'), 2000)
+      //---- з очікуванням виконання попередньої функції (між повідомленнями буде рівно 2000 мс)
+      // function sayHello() {
+      //   alert('Hello')
+      //   setTimeout(sayHello, 2000)
+      // }
+
+      // setTimeout(sayHello, 2000)
+      //============================================================
+      // Задача. Кожні 3 секнуди нагадувати користувачу, що бажано зареєструватися (виводити повідомлення)
+      // Але через 10 секунд припинити нагадування.
+      // let reminderIntervalId = setInterval(
+      //   () => alert('Бажано авторизватись'),
+      //   3000
+      // )
+      // setTimeout(() => clearInterval(reminderIntervalId), 10000)
+
+      //============================================================
+
+      // Що побачить користувач 1
+      // for (let i = 1; i < 5; i++) {
+      //   setTimeout(
+      //     function () {
+      //       alert(i)
+      //     },
+
+      //     2000
+      //   )
+      // }
+      //============================================================
+
+      // Що побачить користувач 2
+      // let i
+      // for (i = 1; i < 5; i++) {
+      //   setTimeout(
+      //     function () {
+      //       alert(i)
+      //     },
+
+      //     2000
+      //   )
+      // }
+
+      //============================================================
+
+      // Що побачить користувач 3
+      // let num = 0
+      // let myTimer = setInterval(() => {
+      //   if (num === 5) {
+      //     alert('Stop')
+      //     clearInterval(myTimer)
+      //   } else alert(num++)
+      // }, 1000)
+      //============================================================
+
+      // Що побачить користувач 4
+      // function myFunc(num) {
+      //   setTimeout(() => {
+      //     if (num < 5) {
+      //       alert(num)
+      //       myFunc(num + 1)
+      //     }
+      //   }, 1000)
+      // }
+      // myFunc(1)
+    </script>
+  </body>
+</html>

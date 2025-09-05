@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function nextB(step, arr) {
+        if (step === 5) document.write(`${arr} <br>`)
+        else {
+          nextB(step + 1, [...arr, 0])
+          nextB(step + 1, [...arr, 1])
+        }
+      }
+
+      nextB(0, [])
+    </script>
+  </body>
+</html>

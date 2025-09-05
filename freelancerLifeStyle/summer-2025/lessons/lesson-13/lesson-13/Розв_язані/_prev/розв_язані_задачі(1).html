@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //============================================================
+      // //Сформувати масив з 7 елементів з випадковими числами
+      // function getRandomValue(min = 1, max = 100) {
+      //   return min + Math.floor(Math.random() * (max - min + 1))
+      // }
+      // //-------------  нерекурсивна функція заповнення масиву виппадковими числами (так краще) ------
+      // function fillArrayWithRandomValues(arr, elementsNumber) {
+      //   for (let i = 0; i < elementsNumber; i++) {
+      //     const randValue = getRandomValue()
+      //     arr.push(randValue)
+      //   }
+      //   return arr
+      // }
+      // //------------- РЕКУРСИВНА функція заповнення масиву виппадковими числами ------
+      // // ------------------ valueNumber - номер випадкового значепння, яке ми додаємо у масив
+      // function fillArrayWithRandomValuesRecursive(
+      //   arr,
+      //   totalElementsNumber,
+      //   valueNumber
+      // ) {
+      //   //якщо номер значення, яке треба додати менше потрібної кількості  (totalElementsNumber)
+      //   if (valueNumber < totalElementsNumber) {
+      //     //  то згенерувати число і додати у масив
+      //     const randValue = getRandomValue()
+      //     arr.push(randValue)
+      //     //  і перейти до всавки наступного значення (номер на 1 більше  ==== valueNumber+1)
+      //     fillArrayWithRandomValuesRecursive(
+      //       arr,
+      //       totalElementsNumber,
+      //       valueNumber + 1
+      //     )
+      //   }
+      //   //інакше можемо вивисти на екран
+      //   else document.write(arr)
+      // }
+      // //-------------
+      // // resArr = []
+      // // fillArrayWithRandomValues(resArr, 7)
+      // // document.write(resArr)
+      // let resArr = []
+      // fillArrayWithRandomValuesRecursive(resArr, 7, 0)
+
+      //============================================================
+      //Перебір усіх комбінацій з 5 чисел (вгадуємо пароль)
+      // for (let c1 = 0; c1 <= 9; c1++) {
+      //   for (let c2 = 0; c2 <= 9; c2++) {
+      //     for (let c3 = 0; c3 <= 9; c3++) {
+      //       for (let c4 = 0; c4 <= 9; c4++) {
+      //         for (let c5 = 0; c5 <= 9; c5++) {
+      //           document.write(`${c1}${c2}${c3}${c4}${c5} <br>`)
+      //         }
+      //       }
+      //     }
+      //   }
+      // }
+      // function nextDigit(currentDigitNumber, totalDigitNumber, digitArray) {
+      //   if (currentDigitNumber < totalDigitNumber) {
+      //     //----- для поточної цифри треба перебрати усі можливі варіанти
+      //     for (let c = 0; c <= 9; c++) {
+      //       nextDigit(currentDigitNumber + 1, totalDigitNumber, [
+      //         ...digitArray,
+      //         c,
+      //       ])
+      //     }
+      //   } else document.write(digitArray + '<br>')
+      // }
+      // nextDigit(0, 4, [])
+
+      //============================================================
+      // function getCounter(startValue) {
+      //   let privateValue = startValue
+      //   // ----- внутрішня функція ----
+      //   function changer() {
+      //     privateValue += 2
+      //     return privateValue
+      //   }
+      //   // ----- ретурнимо внутрішню функцію ---
+      //   return changer
+      // }
+      // //-------
+      // let mySuperHonestCounter = getCounter(4)
+
+      // document.write(`${mySuperHonestCounter()} <br>`)
+      // privateValue = 9000
+      // document.write(`${mySuperHonestCounter()} <br>`)
+      // document.write(`${mySuperHonestCounter()} <br>`)
+      //============================================================
+      //   Задача. Чере 3 секунди після відкриття сторінки привітати користувача
+      // function sayHello(userName, timerId) {
+      //   if (!confirm(`Hello  ${userName}! Хочеш бачити одиниці?`)) {
+      //     clearTimeout(timerId)
+      //   }
+      // }
+
+      // let myTimerId = setTimeout(() => alert('11111'), 5000)
+
+      // setTimeout(sayHello, 3000, 'Olga', myTimerId)
+
+      //============================================================
+      // Задача. Кожні 3 секнуди нагадувати користувачу, що бажано зареєструватися (виводити повідомлення)
+      const myIntervalId = setInterval(
+        () => document.write('Зараєструйтесь ! '),
+        3000
+      )
+
+      setTimeout(() => clearInterval(myIntervalId), 10000)
+    </script>
+  </body>
+</html>

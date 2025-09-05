@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function getWeekDayNumCounter(initValue) {
+        let currenDayNum
+        function setInitValue() {
+          if (initValue >= 1 && initValue <= 7) currenDayNum = initValue
+          else throw new Error('Значення дня тижня некоректне!')
+        }
+        setInitValue(initValue)
+
+        function getCurrentDayNum() {
+          return currenDayNum
+        }
+        function incrementDayNum() {
+          if (currenDayNum < 7) currenDayNum++
+        }
+        function decrementDayNum() {
+          if (currenDayNum > 1) currenDayNum--
+        }
+
+        return [getCurrentDayNum, incrementDayNum, decrementDayNum]
+      }
+      //------------------
+      const [getDay, incDay, decDay] = getWeekDayNumCounter(2)
+      //------------
+      setInterval(() => {
+        incDay()
+        document.write(`${getDay()}<br>`)
+      }, 2000)
+    </script>
+  </body>
+</html>
