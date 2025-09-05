@@ -17,104 +17,89 @@ document.write(`
         <div class="tasks__inner">
           <ul class="tasks__items">
             <li class="tasks__item">
-              <p><span class="tasks__title">Задача 1.</span> Дано масив 30 випадкових цілих чисел. Підрахувати скільки було
-                обмінів під час сортування бульбашкою.
+              <p><span class="tasks__title">Задача 1.</span> <span class="tasks__text  tasks__text--weight">Генерація всіх підмножин:</span> Реалізуйте рекурсивну функцію, яка генерує всі можливі підмножини заданого масиву. Наприклад, для масиву [1, 2, 3] можливі підмножини: [], [1], [2], [3], [1, 2], [1, 3], [2, 3], [1, 2, 3].
               </p>
             </li>
 `);
-if (confirm("Почати тестування?")) {
-    const ELEMENTS_AMOUNT = 30;
-    const RANDOM_NUMBER_FROM = 10, RANDOM_NUMBER_TO = 99;
-    let numbersArray = createArray(ELEMENTS_AMOUNT, RANDOM_NUMBER_FROM, RANDOM_NUMBER_TO);
-    document.write(`
+// if (confirm("Почати тестування?")) {
+const ELEMENTS_AMOUNT = 30;
+const RANDOM_NUMBER_FROM = 10, RANDOM_NUMBER_TO = 99;
+let numbersArray = createArray(ELEMENTS_AMOUNT, RANDOM_NUMBER_FROM, RANDOM_NUMBER_TO);
+document.write(`
     <li>
       <p>
         <span class="tasks__title">Відповідь:</span>
         <ul class="list">
   `);
-    showArray(numbersArray, "Масив випадкових чисел");
-    document.write("<br>");
-    const changeAmountBubbleSort = getChangeAmountBubbleSort(numbersArray);
-    showArray(numbersArray, "Масив відсортованих чисел");
-    document.write(`
+showArray(numbersArray, "Масив випадкових чисел");
+document.write("<br>");
+document.write(`
     <li class="list__item">
-      <span>Кількість обмінів під час сортування: ${changeAmountBubbleSort}.</span>
+      <span>Кількість обмінів під час сортування: .</span>
     </li>
   `);
-    document.write(`
+document.write(`
         </ul>
       </p>
     <li>
   `);
-    // функция, яка повертає кількість змін при бульбашковому сортуванні массива
-    function getChangeAmountBubbleSort(array) {
-        let endIndexLimit = array.length;
-        let change = false;
-        let changeCounter = 0;
-        do {
-            change = false;
-            for (let index = 1; index < endIndexLimit; index++) {
-                if (array[index - 1] > array[index]) {
-                    const temp = array[index - 1];
-                    array[index - 1] = array[index];
-                    array[index] = temp;
-                    change = true;
-                    changeCounter++;
-                }
-            }
-            endIndexLimit--;
-        } while (change);
-        return changeCounter;
+function generatesSubsets(inputArray, step, resultArray) {
+    if (step === inputArray.length - 1) {
+        return resultArray;
     }
-    /**
-     * Функція повертає масив випадкових елементів.
-     * @param sizeArray
-     * @param startRange
-     * @param endRange
-     * @returns
-     */
-    function createArray(sizeArray, startRange, endRange) {
-        let array = [];
-        for (let index = 0; index < sizeArray; index++) {
-            array.push(generateRandomNumber(startRange, endRange));
-        }
-        return array;
+    else {
+        // generatesSubsets();
     }
-    /**
-     * Функція повертає випадкове число в заданому інтервалі.
-     *
-     * @param {number} startRange - Число для початку интервала.
-     * @param {number} endRange - Число для кінця интервалу.
-     * @returns {number} Випадково згенероване число.
-     */
-    function generateRandomNumber(startRange, endRange) {
-        const RANDOM_NUMBER_FROM = startRange, RANDOM_NUMBER_TO = endRange;
-        const randomNumber = RANDOM_NUMBER_FROM +
-            Math.floor(Math.random() * (RANDOM_NUMBER_TO - RANDOM_NUMBER_FROM + 1));
-        return randomNumber;
+}
+/**
+ * Функція повертає масив випадкових чисел.
+ * @param sizeArray
+ * @param startRange
+ * @param endRange
+ * @returns
+ */
+function createArray(sizeArray, startRange, endRange) {
+    let array = [];
+    for (let index = 0; index < sizeArray; index++) {
+        array.push(generateRandomNumber(startRange, endRange));
     }
-    /**
-     * Функція, яка виводить масив.
-     *
-     * @param {number[]} array - Масив який треба вивести.
-     * @param {string} caption - Підпис/заголовок до масиву.
-     */
-    function showArray(array, caption) {
-        document.write(`
+    return array;
+}
+/**
+ * Функція повертає випадкове число в заданому інтервалі.
+ *
+ * @param {number} startRange - Число для початку интервала.
+ * @param {number} endRange - Число для кінця интервалу.
+ * @returns {number} Випадково згенероване число.
+ */
+function generateRandomNumber(startRange, endRange) {
+    const RANDOM_NUMBER_FROM = startRange, RANDOM_NUMBER_TO = endRange;
+    const randomNumber = RANDOM_NUMBER_FROM +
+        Math.floor(Math.random() * (RANDOM_NUMBER_TO - RANDOM_NUMBER_FROM + 1));
+    return randomNumber;
+}
+/**
+ * Функція, яка виводить масив.
+ *
+ * @param {number[]} array - Масив який треба вивести.
+ * @param {string} caption - Підпис/заголовок до масиву.
+ */
+function showArray(array, caption) {
+    document.write(`
     <li class="list__item">
       <span>${caption}: [</span>
   `);
-        for (let index = 0; index < array.length; index++) {
-            document.write(`
+    for (let index = 0; index < array.length; index++) {
+        document.write(`
       <span>${array[index]}</span>
     `);
-        }
-        document.write(`
+    }
+    document.write(`
       <span>].</span>
     </li>
   `);
-    }
 }
+// }
 document.write(`
             </ul>
           </div><!-- /.tasks__inner -->
