@@ -16,7 +16,7 @@ document.write(`
         <div class="tasks__inner">
           <ul class="tasks__items">
             <li class="tasks__item">
-              <p><span class="tasks__title">Задача 5.</span> Дано масив імен. Застосовуючи відповідне сортування та бінарний пошук визначити, чи є у масиві ім’я «Olga» і під яким індексом.
+              <p><span class="tasks__title">Задача 5.</span> Дано масив імен. Застосовуючи відповідне сортування та бінарний пошук визначити, чи є у масиві ім’я довжиною 5 символів і під яким індексом.
               </p>
             </li>
 `);
@@ -61,19 +61,22 @@ if (confirm("Почати тестування?")) {
 
   document.write("<br>");
 
-  const isElementIncludeArray: boolean = includeBinarySearch(
+  const LENGTH_STRING: number = 5;
+
+  const lengthElementBinarySearch: string = getLengthElementBinarySearch(
     namesArray,
-    "Olga"
-  );
-  const isIndexElementIncludeArray: number = findIndexBinarySearch(
-    namesArray,
-    "Olga"
+    LENGTH_STRING
   );
 
-  if (isElementIncludeArray) {
+  const isIndexElementIncludeArray: number = findIndexBinarySearch(
+    namesArray,
+    lengthElementBinarySearch
+  );
+
+  if (lengthElementBinarySearch) {
     document.write(`
     <li class="list__item">
-      <span>В масиві є ім’я "Olga", під індексом: ${isIndexElementIncludeArray}.</span>
+      <span>В масиві є ім’я довжиною 5 символів, під індексом: ${isIndexElementIncludeArray}.</span>
     </li>
   `);
   } else {
@@ -109,23 +112,24 @@ if (confirm("Почати тестування?")) {
     return -1;
   }
 
-  // функция, яка перевіряє належність елемента в упорядкованому масиві.
-  function includeBinarySearch(
-    sortedArray: (number | string)[],
-    searchElement: number | string
-  ): boolean {
+  // функция, яка повертає елемент певної довжини в упорядкованому масиві.
+  function getLengthElementBinarySearch(
+    sortedArray: string[],
+    lengthElement: number
+  ): string {
     let start: number = 0,
       end: number = sortedArray.length - 1;
 
     while (start <= end) {
       const middle: number = Math.floor((start + end) / 2);
 
-      if (sortedArray[middle] === searchElement) return true;
-      if (sortedArray[middle] < searchElement) start = middle + 1;
-      if (sortedArray[middle] > searchElement) end = middle - 1;
+      if (sortedArray[middle].length === lengthElement)
+        return sortedArray[middle];
+      if (sortedArray[middle].length < lengthElement) start = middle + 1;
+      if (sortedArray[middle].length > lengthElement) end = middle - 1;
     }
 
-    return false;
+    return "";
   }
 
   // функция, яка сортує массив швидким методом.

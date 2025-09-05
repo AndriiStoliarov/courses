@@ -17,7 +17,7 @@ document.write(`
         <div class="tasks__inner">
           <ul class="tasks__items">
             <li class="tasks__item">
-              <p><span class="tasks__title">Задача 5.</span> Дано масив імен. Застосовуючи відповідне сортування та бінарний пошук визначити, чи є у масиві ім’я «Olga» і під яким індексом.
+              <p><span class="tasks__title">Задача 5.</span> Дано масив імен. Застосовуючи відповідне сортування та бінарний пошук визначити, чи є у масиві ім’я довжиною 5 символів і під яким індексом.
               </p>
             </li>
 `);
@@ -55,12 +55,13 @@ if (confirm("Почати тестування?")) {
     changeArrayQuickSort(namesArray, 0, namesArray.length - 1);
     showArray(namesArray, "Відсортований масив імен");
     document.write("<br>");
-    const isElementIncludeArray = includeBinarySearch(namesArray, "Olga");
-    const isIndexElementIncludeArray = findIndexBinarySearch(namesArray, "Olga");
-    if (isElementIncludeArray) {
+    const LENGTH_STRING = 5;
+    const lengthElementBinarySearch = getLengthElementBinarySearch(namesArray, LENGTH_STRING);
+    const isIndexElementIncludeArray = findIndexBinarySearch(namesArray, lengthElementBinarySearch);
+    if (lengthElementBinarySearch) {
         document.write(`
     <li class="list__item">
-      <span>В масиві є ім’я "Olga", під індексом: ${isIndexElementIncludeArray}.</span>
+      <span>В масиві є ім’я довжиною 5 символів, під індексом: ${isIndexElementIncludeArray}.</span>
     </li>
   `);
     }
@@ -90,19 +91,19 @@ if (confirm("Почати тестування?")) {
         }
         return -1;
     }
-    // функция, яка перевіряє належність елемента в упорядкованому масиві.
-    function includeBinarySearch(sortedArray, searchElement) {
+    // функция, яка повертає елемент певної довжини в упорядкованому масиві.
+    function getLengthElementBinarySearch(sortedArray, lengthElement) {
         let start = 0, end = sortedArray.length - 1;
         while (start <= end) {
             const middle = Math.floor((start + end) / 2);
-            if (sortedArray[middle] === searchElement)
-                return true;
-            if (sortedArray[middle] < searchElement)
+            if (sortedArray[middle].length === lengthElement)
+                return sortedArray[middle];
+            if (sortedArray[middle].length < lengthElement)
                 start = middle + 1;
-            if (sortedArray[middle] > searchElement)
+            if (sortedArray[middle].length > lengthElement)
                 end = middle - 1;
         }
-        return false;
+        return "";
     }
     // функция, яка сортує массив швидким методом.
     function changeArrayQuickSort(array, p, q) {

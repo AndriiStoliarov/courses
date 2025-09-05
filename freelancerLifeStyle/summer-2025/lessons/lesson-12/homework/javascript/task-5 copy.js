@@ -57,10 +57,11 @@ if (confirm("Почати тестування?")) {
     document.write("<br>");
     const isElementIncludeArray = includeBinarySearch(namesArray, "Olga");
     const isIndexElementIncludeArray = findIndexBinarySearch(namesArray, "Olga");
+    console.log("isIndexElementIncludeArray :>> ", isIndexElementIncludeArray);
     if (isElementIncludeArray) {
         document.write(`
     <li class="list__item">
-      <span>В масиві є ім’я "Olga", під індексом: ${isIndexElementIncludeArray}.</span>
+      <span>В масиві є ім’я "Olga", під индексом: ${isIndexElementIncludeArray}.</span>
     </li>
   `);
     }
