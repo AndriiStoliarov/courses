@@ -5,7 +5,7 @@ document.write(`
   <header class="header" id="up">
     <div class="header__container">
       <div class="header__inner">
-        <h1 class="header__title">Домашне завдання № 12</h1>
+        <h1 class="header__title">Домашне завдання № 13</h1>
       </div><!-- /. header__inner -->
     </div><!-- /. header__container -->
   </header>
@@ -43,14 +43,25 @@ document.write(`
       </p>
     <li>
   `);
-function generatesSubsets(inputArray, step, resultArray) {
-    if (step === inputArray.length - 1) {
-        return resultArray;
+// Рекурсивна функция, яка генерує всі можливі підмножини заданого масиву.
+function generatesSubsets(inputArray, 
+// resultArray: number[],
+indexAmount) {
+    let resultArray = inputArray;
+    if (resultArray.length === 0) {
+        return;
     }
     else {
-        // generatesSubsets();
+        resultArray.splice(indexAmount, 1);
+        // console.log("inputArray :>> ", inputArray);
+        // resultArray = inputArray;
+        console.log("resultArray :>> ", resultArray);
+        generatesSubsets(resultArray, resultArray.length - 1);
     }
 }
+let arr = [1, 2, 3];
+const temp = generatesSubsets(arr, arr.length);
+console.log("temp :>> ", temp);
 /**
  * Функція повертає масив випадкових чисел.
  * @param sizeArray

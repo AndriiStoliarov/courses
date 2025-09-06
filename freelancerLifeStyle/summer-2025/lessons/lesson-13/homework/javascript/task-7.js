@@ -5,7 +5,7 @@ document.write(`
   <header class="header" id="up">
     <div class="header__container">
       <div class="header__inner">
-        <h1 class="header__title">Домашне завдання № 12</h1>
+        <h1 class="header__title">Домашне завдання № 13</h1>
       </div><!-- /. header__inner -->
     </div><!-- /. header__container -->
   </header>
@@ -17,129 +17,100 @@ document.write(`
         <div class="tasks__inner">
           <ul class="tasks__items">
             <li class="tasks__item">
-              <p><span class="tasks__title">Задача 7.</span> Сформувати двовимірний масив (4 * 8) з номерами днів (описати окремий тип для днів). Заповнити його випадковим чином. Підрахувати для кожного рядка кількість неділь.
+              <p><span class="tasks__title">Задача 7.</span> Тренажер додавання. Кожні 10 секунд користувачу задають випадковий приклад з додавання двох цифр і робиться перевірка.
               </p>
             </li>
 `);
-if (confirm("Почати тестування?")) {
-    document.write(`
-    <li>
-      <p>
-        <span class="tasks__title">Відповідь:</span>
-        <ul class="list">
-  `);
-    const ROWS_LENGTH = 8, COLUMNS_AMOUNT = 4;
-    const daysOfWeekArray = getTwoDimensionalArray(ROWS_LENGTH, COLUMNS_AMOUNT);
-    showTwoDimensionalArray(daysOfWeekArray, "Двовимірний масив з номерами днів тижня");
-    document.write("<br>");
-    document.write(`
-    <li class="list__item">
-      <span>Кількість неділь в кожному рядку: [</span>
-      <br>
-  `);
-    for (const row of daysOfWeekArray) {
-        const sundayAmount = row.reduce((previousResult, element) => element === 7 ? ++previousResult : previousResult, 0);
-        document.write(`
-    <li class="list__item">
-      <span>&nbsp;</span>
-      <span>&nbsp;</span>
-      <span>[${sundayAmount}]</span>
-    </li>
-  `);
-    }
-    document.write(`
-    <span>].</span>
-  </li>
-`);
-    document.write(`
-      </ul>
-    </p>
+// if (confirm("Почати тестування?")) {
+const NUMBER_FROM = 10, NUMBER_TO = 99;
+let leftOperand = generateRandomNumber(NUMBER_FROM, NUMBER_TO);
+let rightOperand = generateRandomNumber(NUMBER_FROM, NUMBER_TO);
+let sumResult = leftOperand + rightOperand;
+let sumResultAnswer = prompt(`Скільки буде ${leftOperand} + ${rightOperand} = ?`, "");
+verificationResult(sumResult, sumResultAnswer);
+let timerId = setInterval(() => {
+    leftOperand = generateRandomNumber(NUMBER_FROM, NUMBER_TO);
+    rightOperand = generateRandomNumber(NUMBER_FROM, NUMBER_TO);
+    sumResult = leftOperand + rightOperand;
+    sumResultAnswer = prompt(`Скільки буде ${leftOperand} + ${rightOperand} = ?`, "");
+    console.log("sumResult :>> ", sumResult);
+    console.log("sumResultAnswer :>> ", sumResultAnswer);
+    verificationResult(sumResult, sumResultAnswer);
+}, 10000);
+document.write(`
   <li>
+    <p>
+      <span class="tasks__title">Відповідь:</span>
+      <ul class="list">
 `);
-    /**
-     * Функція повертає двовимірний масив.
-     *
-     * @param {number} rowsLength - Довжина рядка.
-     * @param {number} rowsAmount - Кількість рядків.
-     * @returns {number[][]} двовимірний масив числ.
-     */
-    function getTwoDimensionalArray(rowsLength, rowsAmount) {
-        return Array.from({ length: rowsAmount }, () => getRowsOfArray(rowsLength));
-        /**
-         * Функція повертає рядки для двовимірного массиву.
-         *
-         * @param {number} rowsLength - Довжина рядка.
-         * @returns {number[]} Масив рядків з числами, для двовимірного массиву.
-         */
-        function getRowsOfArray(rowsLength) {
-            return Array.from({ length: rowsLength }, () => getRandomDayOfWeek());
-        }
-    }
-    /**
-     * Функція повертає випадкове день тижня.
-     *
-     * @returns {daysOfWeek} Згенерований випадковий день тижня.
-     */
-    function getRandomDayOfWeek() {
-        const START_WEEK = 1, END_WEEK = 7;
-        const daysOfWeek = START_WEEK + Math.floor(Math.random() * (END_WEEK - START_WEEK + 1));
-        return daysOfWeek;
-    }
-    /**
-     * Функція, яка виводить двовимірний масив.
-     *
-     * @param {(number | string)[][]} array - Масив який треба вивести.
-     * @param {string} caption - Підпис/заголовок до масиву.
-     */
-    function showTwoDimensionalArray(array, caption) {
+function verificationResult(sumResult, sumResultAnswer) {
+    if (sumResultAnswer === null) {
+        clearInterval(timerId);
         document.write(`
     <li class="list__item">
-      <span>${caption}: [</span>
-      <br>
-  `);
-        for (let row of array) {
-            document.write(`
-      <span>&nbsp;</span>
-      <span>&nbsp;</span>
-      <span>[</span>
-    `);
-            for (let cell of row) {
-                document.write(`
-        <span>${cell}</span>
-      `);
-            }
-            document.write(`
-      <span>]</span>
-      <br>
-    `);
-        }
-        document.write(`
-      <span>].</span>
+      <span>Кінець гри.</span>
     </li>
   `);
     }
-    /**
-     * Функція, яка виводить масив.
-     *
-     * @param {(number | string)[]} array - Масив який треба вивести.
-     * @param {string} caption - Підпис/заголовок до масиву.
-     */
-    function showArray(array, caption) {
+    else if (String(sumResult) === sumResultAnswer) {
         document.write(`
     <li class="list__item">
-      <span>${caption}: [</span>
+      <span>Відповідь вірна! Сума чисел: ${sumResult}.</span>
+    </li>
   `);
-        for (let index = 0; index < array.length; index++) {
-            document.write(`
-      <span>${array[index]}</span>
-    `);
-        }
+    }
+    else {
         document.write(`
-      <span>].</span>
+    <li class="list__item">
+      <span>Відповідь не вірна. Сума чисел: ${sumResult}.</span>
     </li>
   `);
     }
 }
+// const timerId = setInterval(
+//   additionSimulator,
+//   10000,
+//   leftOperand,
+//   rightOperand
+// );
+// функция, яка емулює тренажер додавання.
+// function additionSimulator(leftOperand: number, rightOperand: number): void {
+//   const sumResult = leftOperand + rightOperand;
+//   let sumResultAnswer: number = Number(
+//     prompt(`Скільки буде ${leftOperand} + ${rightOperand} = ?`, "")
+//   );
+//   if (sumResult === sumResultAnswer) {
+//     clearInterval(timerId);
+//     document.write(`
+//       <li class="list__item">
+//         <span>Відповідь вірна! Сума чисел: ${sumResult}.</span>
+//       </li>
+//     `);
+//   } else {
+//     document.write(`
+//       <li class="list__item">
+//         <span>Гру закінчено.</span>
+//       </li>
+//     `);
+//   }
+// }
+document.write(`
+      </ul>
+    </p>
+  <li>
+`);
+/**
+ * Функція повертає випадкове число в заданому інтервалі.
+ *
+ * @param {number} numberFrom - Число для початку интервала.
+ * @param {number} numberTo - Число для кінця интервалу.
+ * @returns {number} Випадково згенероване число.
+ */
+function generateRandomNumber(numberFrom, numberTo) {
+    const randomNumber = numberFrom + Math.floor(Math.random() * (numberTo - numberFrom + 1));
+    return randomNumber;
+}
+// }
 document.write(`
             </ul>
           </div><!-- /.tasks__inner -->
