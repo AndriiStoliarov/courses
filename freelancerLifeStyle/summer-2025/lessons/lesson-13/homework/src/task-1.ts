@@ -21,106 +21,112 @@ document.write(`
             </li>
 `);
 // if (confirm("Почати тестування?")) {
-const ELEMENTS_AMOUNT: number = 30;
-const RANDOM_NUMBER_FROM: number = 10,
-  RANDOM_NUMBER_TO: number = 99;
-
-let numbersArray: number[] = createArray(
-  ELEMENTS_AMOUNT,
-  RANDOM_NUMBER_FROM,
-  RANDOM_NUMBER_TO
-);
+let tempArray: number[][] = [];
+const inputArray = [1, 2, 3];
 
 document.write(`
-    <li>
-      <p>
-        <span class="tasks__title">Відповідь:</span>
-        <ul class="list">
-  `);
+  <li>
+    <p>
+      <span class="tasks__title">Відповідь:</span>
+      <ul class="list">
+`);
 
-showArray(numbersArray, "Масив випадкових чисел");
-
-document.write("<br>");
-
-document.write(`
-    <li class="list__item">
-      <span>Кількість обмінів під час сортування: .</span>
-    </li>
-  `);
+showArray(inputArray, "");
+// document.write("<br>");
 
 document.write(`
-        </ul>
-      </p>
-    <li>
-  `);
+  <li class="list__item">
+    <span>Кількість обмінів під час сортування: .</span>
+  </li>
+`);
+
+document.write(`
+      </ul>
+    </p>
+  <li>
+`);
 
 // Рекурсивна функция, яка генерує всі можливі підмножини заданого масиву.
 function generatesSubsets(
   inputArray: number[],
-  // resultArray: number[],
-  indexAmount: number
+  index: number = 0,
+  resultArray: number[] = []
 ) {
-  let resultArray: number[] = inputArray;
-
-  if (resultArray.length === 0) {
+  if (index === inputArray.length) {
+    console.log("resultArray :>> ", resultArray);
+    tempArray.push(resultArray);
     return;
   } else {
-    resultArray.splice(indexAmount, 1);
-    // console.log("inputArray :>> ", inputArray);
-    // resultArray = inputArray;
-    console.log("resultArray :>> ", resultArray);
-    generatesSubsets(resultArray, resultArray.length - 1);
+    generatesSubsets(inputArray, index + 1, resultArray);
+    generatesSubsets(inputArray, index + 1, [
+      ...resultArray,
+      inputArray[index],
+    ]);
   }
 }
 
-let arr = [1, 2, 3];
+generatesSubsets(inputArray);
+// сортуємо елементи масиву за спаданням.
+tempArray.sort((array1: any, array2: any) => array1 - array2);
 
-const temp = generatesSubsets(arr, arr.length);
-console.log("temp :>> ", temp);
-
-/**
- * Функція повертає масив випадкових чисел.
- * @param sizeArray
- * @param startRange
- * @param endRange
- * @returns
- */
-function createArray(
-  sizeArray: number,
-  startRange: number,
-  endRange: number
-): number[] {
-  let array: number[] = [];
-
-  for (let index: number = 0; index < sizeArray; index++) {
-    array.push(generateRandomNumber(startRange, endRange));
-  }
-
-  return array;
-}
+showTwoDimensionalArray(tempArray, "Масив можливих підмножин");
 
 /**
  * Функція повертає випадкове число в заданому інтервалі.
  *
- * @param {number} startRange - Число для початку интервала.
- * @param {number} endRange - Число для кінця интервалу.
+ * @param {number} numberFrom - Число для початку интервала.
+ * @param {number} numberTo - Число для кінця интервалу.
  * @returns {number} Випадково згенероване число.
  */
-function generateRandomNumber(startRange: number, endRange: number): number {
-  const RANDOM_NUMBER_FROM: number = startRange,
-    RANDOM_NUMBER_TO: number = endRange;
-
+function generateRandomNumber(numberFrom: number, numberTo: number): number {
   const randomNumber: number =
-    RANDOM_NUMBER_FROM +
-    Math.floor(Math.random() * (RANDOM_NUMBER_TO - RANDOM_NUMBER_FROM + 1));
+    numberFrom + Math.floor(Math.random() * (numberTo - numberFrom + 1));
 
   return randomNumber;
 }
 
 /**
+ * Функція, яка виводить двовимірний масив.
+ *
+ * @param {number[][]} array - Масив, який треба вивести.
+ * @param {string} caption - Підпис/опис до масиву.
+ */
+function showTwoDimensionalArray(array: number[][], caption: string): void {
+  document.write(`
+    <li class="list__item">
+      <span>${caption}: [</span>
+      <br>
+  `);
+
+  for (let row of array) {
+    document.write(`
+      <span>&nbsp;</span>
+      <span>&nbsp;</span>
+      <span>[</span>
+    `);
+
+    for (let cell of row) {
+      document.write(`
+        <span>${cell}</span>
+      `);
+    }
+
+    document.write(`
+      <span>]</span>
+      <br>
+    `);
+  }
+
+  document.write(`
+      <span>].</span>
+    </li>
+  `);
+}
+
+/**
  * Функція, яка виводить масив.
  *
- * @param {number[]} array - Масив який треба вивести.
+ * @param {number[]} array - Масив, який треба вивести.
  * @param {string} caption - Підпис/заголовок до масиву.
  */
 function showArray(array: number[], caption: string): void {
@@ -136,9 +142,9 @@ function showArray(array: number[], caption: string): void {
   }
 
   document.write(`
-      <span>].</span>
-    </li>
-  `);
+        <span>].</span>
+      </li>
+    `);
 }
 // }
 

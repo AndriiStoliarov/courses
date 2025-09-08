@@ -106,10 +106,11 @@ document.write(`
  * @param {number} numberTo - Число для кінця интервалу.
  * @returns {number} Випадково згенероване число.
  */
-function generateRandomNumber(numberFrom, numberTo) {
-    const randomNumber = numberFrom + Math.floor(Math.random() * (numberTo - numberFrom + 1));
-    return randomNumber;
-}
+// function generateRandomNumber(numberFrom: number, numberTo: number): number {
+//   const randomNumber: number =
+//     numberFrom + Math.floor(Math.random() * (numberTo - numberFrom + 1));
+//   return randomNumber;
+// }
 // }
 document.write(`
             </ul>
