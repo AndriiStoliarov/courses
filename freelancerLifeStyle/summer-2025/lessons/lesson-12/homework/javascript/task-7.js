@@ -28,8 +28,8 @@ if (confirm("Почати тестування?")) {
         <span class="tasks__title">Відповідь:</span>
         <ul class="list">
   `);
-    const ROWS_LENGTH = 8, COLUMNS_AMOUNT = 4;
-    const daysOfWeekArray = getTwoDimensionalArray(ROWS_LENGTH, COLUMNS_AMOUNT);
+    const ROWS_LENGTH = 8, ROWS_AMOUNT = 4;
+    const daysOfWeekArray = getTwoDimensionalArray(ROWS_LENGTH, ROWS_AMOUNT);
     showTwoDimensionalArray(daysOfWeekArray, "Двовимірний масив з номерами днів тижня");
     document.write("<br>");
     document.write(`
@@ -40,12 +40,12 @@ if (confirm("Почати тестування?")) {
     for (const row of daysOfWeekArray) {
         const sundayAmount = row.reduce((previousResult, element) => element === 7 ? ++previousResult : previousResult, 0);
         document.write(`
-    <li class="list__item">
-      <span>&nbsp;</span>
-      <span>&nbsp;</span>
-      <span>[${sundayAmount}]</span>
-    </li>
-  `);
+      <li class="list__item">
+        <span>&nbsp;</span>
+        <span>&nbsp;</span>
+        <span>[${sundayAmount}]</span>
+      </li>
+    `);
     }
     document.write(`
     <span>].</span>
@@ -78,7 +78,7 @@ if (confirm("Почати тестування?")) {
     /**
      * Функція повертає випадкове день тижня.
      *
-     * @returns {daysOfWeek} Згенерований випадковий день тижня.
+     * @returns {number} Згенерований випадковий день тижня.
      */
     function getRandomDayOfWeek() {
         const START_WEEK = 1, END_WEEK = 7;
