@@ -230,12 +230,16 @@
                           // task 9 ==================================================
                           let shopsProfitCopy9 = shopsProfit.slice();
 
-                          shopsProfitCopy9.sort((a, b) => {
-                            const sumPricesA = a.reduce((sum, price) => sum + price);
-                            const sumPricesB = b.reduce((sum, price) => sum + price);
+                          // shopsProfitCopy9.sort((a, b) => {
+                          //   const sumPricesA = a.reduce((sum, price) => sum + price);
+                          //   const sumPricesB = b.reduce((sum, price) => sum + price);
 
-                            return sumPricesB - sumPricesA;
-                          });
+                          //   return sumPricesB - sumPricesA;
+                          // });
+
+                          shopsProfitCopy9.forEach(week => week.push(week.reduce((sum, price) => sum + price)));
+                          shopsProfitCopy9.sort((week1, week2) => week2.at(-1) - week1.at(-1));
+                          shopsProfitCopy9.forEach(week => week.pop());
 
                           showTwoDimensionalArray(shopsProfitCopy9, '9) упорядковані тижні (рядки) за спаданням суми елементів у рядку (тобто при порівнянні двох рядків треба знайти суму кожного з рядків і порівнювати ці суми, на основі цих сум буде зрозуміло, який з елементів повинен іти раніше)')
 

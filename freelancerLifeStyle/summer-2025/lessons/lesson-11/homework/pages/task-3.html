@@ -66,7 +66,7 @@
                             </p>
                           `);
 
-                          // функція, яка ... результат гри
+                          // функція, яка визначає результат гри
                           function setGameResult(battlefield, ships, bullets) {
                             let bulletsAmount = bullets, shipsAmount = ships;
 
@@ -85,8 +85,12 @@
                                 battlefield[coordinateY][coordinateX] = 'X';
 
                                 shipsAmount--;
+
+                                confirm('Ви влучили! Корабель потоплено.');
                               } else {
                                 bulletsAmount--;
+
+                                confirm('Ви схибили.');
                               };
                             }
 
