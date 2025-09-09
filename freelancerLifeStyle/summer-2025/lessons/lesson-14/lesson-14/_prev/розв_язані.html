@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // =======================================================================
+      //описати об"єкт книга (піб автора, рік, ціна, кількість сторінок)
+      // const book = {
+      //   author: 'Ivan',
+      //   year: 2001,
+      //   price: 2100,
+      //   panesNumber: 43,
+      // }
+
+      // book.price = 900
+
+      // console.log(book)
+
+      // =======================================================================
+      //описати комп"ютер (частота, фірма, об"єм озу, ціна)
+      // const laptop = {
+      //   frequency: 50000,
+      //   company: 'Asus',
+      //   ram: 233000,
+      //   price: 232323,
+      // }
+
+      // =======================================================================
+      //описати 2 комп"ютери (частота, фірма, об"єм озу, ціна). Знайти загальну вартість
+      // const computersList = [
+      //   {
+      //     frequency: 2,
+      //     company: 'IBM',
+      //     ram: 16,
+      //     price: 32100,
+      //   },
+      //   {
+      //     frequency: 3,
+      //     company: 'LG',
+      //     ram: 64,
+      //     price: 132100,
+      //   },
+      // ]
+
+      // =======================================================================
+
+      // =======================================================================
+      //Задача.  Описати інформацію про товар
+      // ----- Властивості ------
+      // назва товару                title
+      // виробник                    manufacture
+      //  - назва підприємства          title
+      //  - адреса                      address
+      //       * код                         code
+      //       * місто                       city
+      //       * вулиця                      street
+      //       * номер будинку               number
+      // кінцевий строк споживання    expDate
+      //  * рік                         year
+      //  * місяць                      month
+      //  * день                        day
+      // ціна                         price
+      // const product = {
+      //   title: 'Tea',
+      //   manufacture: {
+      //     title: 'Lovare',
+      //     address: {
+      //       code: 3434,
+      //       city: 'London',
+      //       street: 'Basassddsfc',
+      //       number: 12,
+      //     },
+      //   },
+      //   expDate: {
+      //     year: 2028,
+      //     month: 11,
+      //     day: 3,
+      //   },
+      //   price: 2334,
+      // }
+
+      // product.manufacture.address.code = 232323
+      // console.log(product)
+
+      // =======================================================================
+      // Задача. Дано список книг (назва, автор, рік видання, вартість, кількість одиниць).
+      const booksList = [
+        {
+          title: 'Title 0',
+          author: 'Author 0',
+          year: 2000,
+          price: 2000,
+          count: 100,
+        },
+        {
+          title: 'Title 1',
+          author: 'Author 1',
+          year: 2001,
+          price: 10000,
+          count: 200,
+        },
+        {
+          title: 'Title 2',
+          author: 'Author 2',
+          year: 2005,
+          price: 200,
+          count: 20,
+        },
+        {
+          title: 'Title 3',
+          author: 'Author 3',
+          year: 2010,
+          price: 20000,
+          count: 1,
+        },
+      ]
+      // ====== Оленка купила по одній книжці. Скільки всього заплатила Оленка
+      //--- з використанянм for-of
+      // let totalPrice = 0
+      // for (const book of booksList) {
+      //   totalPrice += book.price
+      // }
+
+      //--- з використанням reduce
+      // let totalPrice = booksList.reduce(
+      //   (prevTotalPrice, book) => prevTotalPrice + book.price,
+      //   0
+      // )
+
+      // document.write(totalPrice)
+      // ======  кількість (найменувань, кількість різних) книг (кількість елементів у масиві)
+      // const totalBooksNumber = booksList.length
+      // document.write(totalBooksNumber)
+      // ======  кількість книг (загальна кількість екземплярів (усіх разом не залежно від назви))
+      // const totalItemsNumber = booksList.reduce(
+      //   (prevSumNumbers, book) => prevSumNumbers + book.count,
+      //   0
+      // )
+      // document.write(totalItemsNumber)
+      // ======  кількість книг (загальна кількість екземплярів), що було видано після 2000 року
+      // const bookAfter2000 = booksList.reduce(
+      //   (prevSumNum, book) =>
+      //     book.year > 2000 ? prevSumNum + book.count : prevSumNum,
+      //   0
+      // )
+      // document.write(bookAfter2000)
+      // ======  знайти загальну вартість всіх книг (тільки загальна ціна)
+      // const totalPrice = booksList.reduce(
+      //   (prevTotalPrice, book) => prevTotalPrice + book.price * book.count,
+      //   0
+      // )
+      // document.write(totalPrice)
+
+      // ======  знайти загальну вартість кожної із книг (назва - загальна ціна ----  як текст)
+      //---1
+      // booksList.forEach((book) =>
+      //   document.write(`${book.title} - ${book.price * book.count} <br>`)
+      // )
+
+      //---2
+      // const booksReport = booksList.map(
+      //   (book) => `${book.title} - ${book.price * book.count}`
+      // )
+      // document.write(booksReport)
+      //--- 3
+      // const booksReport = booksList.reduce((prevInfoList, book) => {
+      //   prevInfoList.push(`${book.title} - ${book.price * book.count}`)
+      //   return prevInfoList
+      // }, [])
+
+      // const booksReport = booksList.reduce(
+      //   (prevInfoString, book) =>
+      //     `${prevInfoString} <br> ${book.title} - ${book.price * book.count}`,
+      //   ''
+      // )
+      // document.write(booksReport)
+      // ======  знайти загальну вартість кожної із книг (назва і загальна ціна як об"єкт)
+      // const newBooksList = booksList.map((book) => {
+      //   return {
+      //     title: book.title,
+      //     totalPrice: book.price * book.count,
+      //   }
+      // // })
+      // const newBooksList = booksList.map((book) => ({
+      //   title: book.title,
+      //   totalPrice: book.price * book.count,
+      // }))
+      // console.log(newBooksList)
+
+      // ======  визначити, чи є книга, що була видана у 2000 році
+      // if (booksList.some((book) => book.year === 2000)) document.write('Yes')
+      // else document.write('No')
+
+      // ======  визначити, чи усі книги були видані після 2005 року
+      // if (booksList.every((book) => book.year > 2000)) document.write('Yes')
+      // else document.write('No')
+
+      // ======  сформувати список книг, ціна яких менше за 1000 грн
+      // const newList = booksList.filter((book) => book.price < 1000)
+
+      // console.log(newList)
+
+      // ======  знайти загальну вартість книг, які було видано у 2000 році
+      // const total2000 = booksList.reduce(
+      //   (prevSum, book) =>
+      //     book.year === 2000 ? prevSum + book.price * book.count : prevSum,
+      //   0
+      // )
+      // document.write(total2000)
+      // ======  знайти першу книгу (адреса об"єкта книги), вартість якої більше за 3000грн
+      // const firstBook3000 = booksList.find((book) => book.price > 3000)
+      // console.log(firstBook3000)
+      // ======  знайти номер першої книги, вартість якої більше за 3000грн
+      // const firstBook3000Index = booksList.findIndex(
+      //   (book) => book.price > 3000
+      // )
+      // document.write(firstBook3000Index)
+      //=================================================
+      // const auto = {
+      //   model: 'Audi',
+      //   price: 23324,
+      // }
+      // auto.price = 777
+
+      // auto.owner = 'Ivan'
+
+      // // console.log(auto)
+      // for (const propName in auto) {
+      //   document.write(`${propName} - ${auto[propName]} <br>`)
+      // }
+
+      //=================================================
+      // До кожної властивості додати 10
+      // const myObj = {
+      //   a: 1,
+      //   b: 2,
+      //   m: 5,
+      // }
+      // for (const propName in myObj) {
+      //   myObj[propName] += 10
+      // }
+
+      // console.log(myObj)
+      //=================================================
+      // Задача. Дано масив імен. Підхраувати кількість входжень кожного імені за зразком
+      //    namesNumberObject =   {
+      //        ‘Ivan’ : 12,
+      //        ‘Olga’ : 7,
+      //        ‘Petro’ : 2,
+      //        ‘John’ : 1,
+      //      }
+      //---------
+      // const usersNames = [
+      //   'Ivan',
+      //   'Petro',
+      //   'Olga',
+      //   'Ivan',
+      //   'Olga',
+      //   'Petro',
+      //   'Olga',
+      //   'Olga',
+      //   'Ivan',
+      //   'Sidor',
+      //   'Ivan',
+      //   'Petro',
+      // ]
+
+      // const namesNumberObject = {}
+
+      // for (const name of usersNames) {
+      //   if (name in namesNumberObject) namesNumberObject[name]++
+      //   else namesNumberObject[name] = 1
+      // }
+      // for (const name in namesNumberObject) {
+      //   document.write(`${name}  -   ${namesNumberObject[name]} <br>`)
+      // }
+      // console.log(namesNumberObject)
+      //======================================================================
+      //Дано рядок тексту підрахувати кількість входжень кожного символу
+      // const str = 'Hello'
+      // const statObj = {}
+      // for (const char of str) {
+      //   if (char in statObj) statObj[char]++
+      //   else statObj[char] = 1
+      // }
+      // console.log(statObj)
+
+      //======================================================================
+      //  Задача. Розробити функцію, яка буде аналізувати дані користувача (піб, рік, зар.плата)
+      //(перевіряти коректність) , і у якій
+      // відсутні значення будуть доповнюватися значеннями параметрів за замовчуванням (використати спред оператор)
+
+      // function checkValidity(person) {
+      //   // переданий об"єкт person ми допомовнили відсутні поля значенням за замовчуванням
+      //   person = {
+      //     //--значення за замовчуванням
+      //     name: 'Guest',
+      //     year: 2024,
+      //     salary: 10000,
+      //     //-- реальні значення
+      //     ...person,
+      //   }
+
+      //   // ......  якісь перевірки
+      //   return person
+      // }
+      // //----------------
+      // let vasja = {
+      //   name: 'Ivan',
+      //   salary: 23233,
+      // }
+      // vasja = checkValidity(vasja)
+      // console.log(vasja)
+
+      //======================================================================
+      //  Задача. Розробити функцію, у яку передають об’єкт (день, місяць, рік). Визначити, який буде місяць через N місяців.
+      let userDate = {
+        day: 23,
+        month: 5,
+        year: 2023,
+      }
+      // //--- 1) приймаємо об"єкт
+      // //---  Math.floor( value - min +Shift)%(max-min+1) + min
+      // //-- функція без деструктуризації (передається весь об"єкт)
+      // function getMonthInN(date, N) {
+      //   return (Math.floor(date.month - 1 + N) % 12) + 1
+      // }
+
+      // //--- з деструктуризацією (беремо тільки ті властивості, які потрібно) (беремо тільки місяць - { month })
+      // //--- 2) з об"єкта беремо тільки місяць
+      function getMonthInN({ month }, N) {
+        return (Math.floor(month - 1 + N) % 12) + 1
+      }
+
+      document.write(getMonthInN(userDate, 27))
+
+      //======================================================================
+      // Задача. Розробити функцію, у яку передають об’єкт (день, місяць, рік). Визначити, який буде рік через N місяців.
+
+      //======================================================================
+
+      // Задача. Розробити функцію, яка б генерувала випадковим чином покази годинника (години, хвилини, секунди)
+      // function getRandomValue(min, max) {
+      //   return min + Math.floor(Math.random() * (max - min + 1))
+      // }
+      //-------- 1 -- повертаємо як масив
+      // function getRandomTime() {
+      //   let hours = getRandomValue(0, 11)
+      //   let minutes = getRandomValue(0, 59)
+      //   let seconds = getRandomValue(0, 59)
+      //   return [hours, minutes, seconds]
+      // }
+      // let [hours, minutes, seconds] = getRandomTime()
+      // document.write(`${hours} : ${minutes} : ${seconds}`)
+      //------ 2 --- повертаємо як об"єкт
+      // function getRandomTime() {
+      //   let hours = getRandomValue(0, 11)
+      //   let minutes = getRandomValue(0, 59)
+      //   let seconds = getRandomValue(0, 59)
+      //   return
+      //   {
+      //      hours,
+      //      minutes,
+      //      seconds
+      //   }
+      // }
+
+      // // //--- Приймаємо об"єкт і потім виводимо власитвості
+      // let randomTime = getRandomTime()
+      // document.write(
+      //   `${randomTime.hours} : ${randomTime.minutes} : ${randomTime.seconds}`
+      // )
+      // // --- Через деструктуризацію об"єкта оразу отримуємо змінні-властивості зі значеннями
+      // // let { hours, minutes, seconds } = getRandomTime()
+      // //document.write(`${hours} : ${minutes} : ${seconds}`)
+    </script>
+  </body>
+</html>

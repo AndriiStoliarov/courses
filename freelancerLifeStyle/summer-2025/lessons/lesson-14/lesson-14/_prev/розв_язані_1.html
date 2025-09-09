@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // let product ={
+      //   title: 'table',
+      //   factory: {
+      //     title:'Sun',
+      //     address:{
+      //       zipCode: 2323,
+      //       city:'AAAdsffg',
+      //       street: 'DSsdd',
+      //       num : 123
+      //     }
+      //   },
+      //   expiredDate:{
+      //     year:2023,
+      //     month:12,
+      //     day:23
+      //   },
+      //   price:2134
+      // }
+
+      // Задача. Дано список книг (назва, автор, рік видання, вартість, кількість одиниць).
+      // Знайти:
+      // кількість книг, що було видано після 2000 року
+      // знайти загальну вартість кожної із книг
+      // знайти загальну вартість усіх книг
+      // визначити, чи є книга, що була видана у 2000 році
+      // визначити, чи усі книги були визаді після 2005 року
+      // сформувати список книг, ціна яких менше за 1000 грн
+      // знайти загальну вартість книг, які було видано у 2000 році
+      // знайти першу книгу, вартість якої більше за 3000грн
+      // знайти номер першої книги, вартість якої більше за 3000грн
+      const booksList = [
+        {
+          title: 'Title 0',
+          author: 'Author 0',
+          year: 2000,
+          price: 2000,
+          count: 100,
+        },
+        {
+          title: 'Title 1',
+          author: 'Author 1',
+          year: 2001,
+          price: 10000,
+          count: 200,
+        },
+        {
+          title: 'Title 2',
+          author: 'Author 2',
+          year: 2005,
+          price: 200,
+          count: 20,
+        },
+        {
+          title: 'Title 3',
+          author: 'Author 3',
+          year: 2010,
+          price: 20000,
+          count: 1,
+        },
+      ]
+      // кількість книг (загальна кількість екземплярів), що було видано після 2000 року
+      // const numAfter2000 = booksList.reduce(
+      //   (prevNum, book) => (book.year > 2000 ? prevNum + book.count : prevNum),
+      //   0
+      // )
+      // alert(numAfter2000)
+      // знайти загальну вартість кожної із книг
+      // const booksTotalPrices = booksList.map((book) => book.price * book.count)
+      // document.write(booksTotalPrices)
+      // знайти загальну вартість кожної із книг (назва - загальна ціна)
+      // const booksTotalPrices = booksList.map(
+      //   (book) => `
+      //      ${book.title} -  ${book.price * book.count}
+      // `
+      // )
+      // document.write(booksTotalPrices)
+
+      // знайти загальну вартість кожної із книг (назва і загальна ціна як об"єкт)
+      // {
+      //   title:'Title 0 ',
+      //   totalPrice : 2220000
+      // }
+      // const booksTotalPrices = booksList.map((book) => ({
+      //   title: book.title,
+      //   totalPrice: book.price * book.count,
+      // }))
+
+      // console.log(booksTotalPrices)
+
+      // знайти загальну вартість усіх книг
+      // const totalPrice = booksList.reduce(
+      //   (prevSum, book) => prevSum + book.price * book.count,
+      //   0
+      // )
+      // alert(totalPrice)
+      // визначити, чи є книга, що була видана у 2000 році
+      // if (booksList.some((book) => book.year === 2000)) alert('Present')
+      // else alert('No')
+
+      // визначити, чи усі книги були видані після 2005 року
+      // if (booksList.every((book) => book.year > 2005)) alert('Present')
+      // else alert('No')
+      // сформувати список книг, ціна яких менше за 1000 грн
+      // const listLower100 = booksList.filter((book) => book.price < 1000)
+      // console.log(listLower100)
+      // знайти загальну вартість книг, які було видано у 2000 році
+      // //---- За допомогою reduce
+      // const totalPrice = booksList.reduce(
+      //   (prevSum, book) =>
+      //     book.year === 2000 ? prevSum + book.price * book.count : prevSum,
+      //   0
+      // )
+      // alert(totalPrice)
+      // //--- За допомогою for_of
+      // let prevSum = 0
+      // for (const book of booksList) {
+      //   if (book.year === 2000) prevSum = prevSum + book.price * book.count
+      // }
+      // знайти першу книгу (адреса об"єкта книги), вартість якої більше за 3000грн
+      // const searchBook = booksList.find((book) => book.price > 3000)
+      // console.log(searchBook)
+      // знайти номер першої книги, вартість якої більше за 3000грн
+      // const searchBookIndex = booksList.findIndex((book) => book.price > 3000)
+      // console.log(searchBookIndex)
+      //=================================================
+      // Задача. Дано масив імен. Підхраувати кількість входжень кожного імені за зразком
+      //    namesNumberObject =   {
+      //        ‘Ivan’ : 12,
+      //        ‘Olga’ : 12,
+      //        ‘Petro’ : 12,
+      //        ‘John’ : 12,
+      //      }
+      // const usersNames = [
+      //   'Ivan',
+      //   'Petro',
+      //   'Olga',
+      //   'Ivan',
+      //   'Olga',
+      //   'Petro',
+      //   'Olga',
+      //   'Olga',
+      //   'Ivan',
+      //   'Ivan',
+      //   'Petro',
+      //   'Ivan',
+      // ]
+      // //    namesNumberObject =   {
+      // //        ‘Ivan’ : 13,
+      // //        ‘Olga’ : 12,
+      // //        ‘Petro’ : 12,
+      // //        ‘John’ : 12,
+      // //        'Sara' :  1
+      // //      }
+      // const namesNumberObject = {}
+      // for (const userName of usersNames) {
+      //   if (userName in namesNumberObject)
+      //     //чи є назва властивості
+      //     //(що у середині змінніої userName) у об"єкті namesNumberObject
+      //     namesNumberObject[userName]++ //Якщо властість інснує, то значення +1
+      //   else namesNumberObject[userName] = 1 //Якщо властивості немає, то додаємо нову зі знач. 1
+      // }
+
+      // //Виводимо на екран властивості і значення об"єкта namesNumberObject
+      // for (const key in namesNumberObject) {
+      //   //               ‘Ivan’    namesNumberObject[‘Ivan’] =13
+      //   document.write(`${key} : ${namesNumberObject[key]} <br>`)
+      // }
+      //================================
+      //       Задача. Розробити функцію, у яку передають об’єкт (день, місяць, рік). Визначити, який буде місяць через N місяців.
+      // let userDate = {
+      //   day: 23,
+      //   month: 5,
+      //   year: 2023,
+      // }
+
+      // // function getShiftedMonth(userDate, N) {
+      // //   return ((userDate.month - 1 + N) % 12) + 1
+      // // }
+      // function getShiftedMonth({ month }, N) {
+      //   //      (currentValue - min +N)%(max-min+1) +min    //min=1, max =12
+      //   return ((month - 1 + N) % 12) + 1
+      // }
+
+      // const N = parseInt(prompt('N='))
+      // const shiftedMonth = getShiftedMonth(userDate, N)
+      // alert(`Через місяців ${N} буде місяць № ${shiftedMonth}`)
+
+      // Задача. Розробити функцію, у яку передають об’єкт (день, місяць, рік). Визначити, який буде рік через N місяців.
+
+      // Задача. Розробити функцію, яка б генерувала випадковим чином покази годинника (години, хвилини, секунди)
+      function getRandomValue(min, max) {
+        return min + Math.floor(Math.random() * (max - min + 1))
+      }
+      //-------- 1
+      // function getRandomTime() {
+      //   let hours = getRandomValue(0, 11)
+      //   let minutes = getRandomValue(0, 59)
+      //   let seconds = getRandomValue(0, 59)
+      //   return [hours, minutes, seconds]
+      // }
+      // let [hours, minutes, seconds] = getRandomTime()
+      // document.write(`${hours} : ${minutes} : ${seconds}`)
+      //------ 2
+      // function getRandomTime() {
+      //   let hours = getRandomValue(0, 11)
+      //   let minutes = getRandomValue(0, 59)
+      //   let seconds = getRandomValue(0, 59)
+      //   return { hours, minutes, seconds }
+      // }
+
+      // //--- Приймаємо об"єкт і потім виводимо власитвості
+      // let randomTime = getRandomTime()
+      // document.write(
+      //   `${randomTime.hours} : ${randomTime.minutes} : ${randomTime.seconds}`
+      // )
+      // // --- Через деструктуризацію об"єкта оразу отримуємо змінні-властивості зі значеннями
+      // // let { hours, minutes, seconds } = getRandomTime()
+      // //document.write(`${hours} : ${minutes} : ${seconds}`)
+    </script>
+  </body>
+</html>
