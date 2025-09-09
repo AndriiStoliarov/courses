@@ -16,157 +16,263 @@ document.write(`
         <div class="tasks__inner">
           <ul class="tasks__items">
             <li class="tasks__item">
-              <p><span class="tasks__title">Задача 1.</span> <span class="tasks__text  tasks__text--weight">Генерація всіх підмножин:</span> Реалізуйте рекурсивну функцію, яка генерує всі можливі підмножини заданого масиву. Наприклад, для масиву [1, 2, 3] можливі підмножини: [], [1], [2], [3], [1, 2], [1, 3], [2, 3], [1, 2, 3].
+              <p><span class="tasks__title">Задача 1.</span> Описати масив об'єктів – сайтів розроблених компанією з такими властивостями:
+              <ul class="list">
+                <li class="list__item">
+                  <span class="tasks__text  tasks__text--weight">----- Властивості ------</span>
+                </li>
+                <li class="list__item">
+                  <span>- назва компанії на час розробки (назву періодично змінюють)</span>
+                </li>
+                <li class="list__item">
+                  <span>- власник компанії</span>
+                </li>
+                <li class="list__item">
+                  <span>- спонсори (масив спонсорів)</span>
+                </li>
+                <li class="list__item">
+                  <ul class="list">
+                    <li class="list__item">
+                      <span>* прізвище спонсора</span>
+                    </li>
+                    <li class="list__item">
+                      <span>* ім’я спонсора</span>
+                    </li>
+                    <li class="list__item">
+                      <span>* сума вкладень спонсора</span>
+                    </li>
+                  </ul>
+                </li>
+                <li class="list__item">
+                  <span>- рік випуску</span>
+                </li>
+                <li class="list__item">
+                  <span>- вартість сайту</span>
+                </li>
+              </ul>
+              <span class="tasks__text  tasks__text--weight">Знайти:</span>
+              <ul class="list">
+                <li class="list__item">
+                  <span>1) загальну вартість усіх сайтів;</span>
+                </li>
+                <li class="list__item">
+                  <span>2) кількість сайтів, що було зроблено між 2000 та 2009 роками;</span>
+                </li>
+                <li class="list__item">
+                  <span>3) кількість сайтів, де сума спонсорських вкладень була більшою за 100000;</span>
+                </li>
+                <li class="list__item">
+                  <span>4) створити загальний список усіх спонсорів (поки можуть повторюватись, просто зібрати усі у масив);</span>
+                </li>
+                <li class="list__item">
+                  <span>5) знайти рік, коли прибуток був найбільшим;</span>
+                </li>
+                <li class="list__item">
+                  <span>6) упорядкувати список за спаданням прибутку;</span>
+                </li>
+                <li class="list__item">
+                  <span>7) створити 2 окремих списки з копіями об'єктів, що містять сайти з вартість до 10000 і більше 10000.</span>
+                </li>
+              </ul>
               </p>
             </li>
 `);
 
-if (confirm("Почати тестування?")) {
-  const elementsAmount: number = Number(
-    prompt("Введіть кількість елементів для масиву:", "3")
-  );
+// if (confirm("Почати тестування?")) {
+type Sponsor = {
+  lastName: string;
+  firstName: string;
+  investment: number;
+};
 
-  const inputArray: number[] = createArray(elementsAmount, 1, 9);
-  let tempArray: number[][] = [];
+type Site = {
+  companyName: string;
+  owner: string;
+  sponsors: Sponsor[];
+  releaseYear: number;
+  siteCost: number;
+};
 
-  document.write(`
+const sites: Site[] = [
+  {
+    companyName: "WebTech",
+    owner: "Andrii Shevchenko",
+    sponsors: [
+      { lastName: "Koval", firstName: "Ivan", investment: 50000 },
+      { lastName: "Petrenko", firstName: "Olena", investment: 30000 },
+    ],
+    releaseYear: 2005,
+    siteCost: 12000,
+  },
+  {
+    companyName: "SoftLine",
+    owner: "Olga Bondarenko",
+    sponsors: [
+      { lastName: "Bondar", firstName: "Serhii", investment: 80000 },
+      { lastName: "Tkachenko", firstName: "Iryna", investment: 25000 },
+    ],
+    releaseYear: 2012,
+    siteCost: 18000,
+  },
+  {
+    companyName: "ITFuture",
+    owner: "Dmytro Ivanov",
+    sponsors: [{ lastName: "Melnyk", firstName: "Oksana", investment: 120000 }],
+    releaseYear: 2008,
+    siteCost: 9500,
+  },
+  {
+    companyName: "NextGen",
+    owner: "Kateryna Poliakova",
+    sponsors: [
+      { lastName: "Kravchenko", firstName: "Viktor", investment: 40000 },
+      { lastName: "Sydorenko", firstName: "Anna", investment: 70000 },
+    ],
+    releaseYear: 2003,
+    siteCost: 15000,
+  },
+  {
+    companyName: "DevPro",
+    owner: "Oleksii Hrytsenko",
+    sponsors: [{ lastName: "Shvets", firstName: "Yurii", investment: 60000 }],
+    releaseYear: 2010,
+    siteCost: 11000,
+  },
+];
+
+document.write(`
   <li>
     <p>
       <span class="tasks__title">Відповідь:</span>
       <ul class="list">
   `);
 
-  showArray(inputArray, "Вхідний масив");
+const sitesTotalPrice: number = sites.reduce(
+  (previousSum, price) => previousSum + price.siteCost,
+  0
+);
 
-  document.write("<br>");
+document.write(`
+  <li class="list__item">
+    <span>1) загальна вартість усіх сайтів: ${sitesTotalPrice};</span>
+  </li>
+`);
 
-  document.write(`
+const sitesAmountReleased: number = sites.reduce(
+  (previousSitesAmount, year) =>
+    year.releaseYear >= 2000 && year.releaseYear <= 2009
+      ? previousSitesAmount + 1
+      : previousSitesAmount,
+  0
+);
+
+document.write(`
+  <li class="list__item">
+    <span>2) кількість сайтів, що були зроблені між 2000 та 2009 роками: ${sitesAmountReleased};</span>
+  </li>
+`);
+
+const sitesSponsorsAll = sites.map((sponsorsArray) => sponsorsArray.sponsors);
+console.log("sitesSponsorsAll :>> ", sitesSponsorsAll);
+
+// const sitesAmountInvestmentBigger100000
+
+document.write(`
+  <li class="list__item">
+    <span>3) кількість сайтів, де сума спонсорських вкладень була більшою за 100000;</span>
+  </li>
+`);
+document.write(`
+  <li class="list__item">
+    <span>4) створити загальний список усіх спонсорів (поки можуть повторюватись, просто зібрати усі у масив);</span>
+  </li>
+`);
+document.write(`
+  <li class="list__item">
+    <span>5) знайти рік, коли прибуток був найбільшим;</span>
+  </li>
+`);
+document.write(`
+  <li class="list__item">
+    <span>6) упорядкувати список за спаданням прибутку;</span>
+  </li>
+`);
+document.write(`
+  <li class="list__item">
+    <span>7) створити 2 окремих списки з копіями об'єктів, що містять сайти з вартість до 10000 і більше 10000.</span>
+  </li>
+`);
+
+document.write(`
         </ul>
       </p>
     <li>
   `);
 
-  // Рекурсивна функция, яка генерує всі можливі підмножини заданого масиву.
-  function generatesSubsets(
-    inputArray: number[],
-    index: number = 0,
-    resultArray: number[] = []
-  ) {
-    if (index === inputArray.length) {
-      tempArray.push(resultArray);
-      return;
-    } else {
-      generatesSubsets(inputArray, index + 1, resultArray);
-      generatesSubsets(inputArray, index + 1, [
-        ...resultArray,
-        inputArray[index],
-      ]);
-    }
-  }
+// showTwoDimensionalArray(tempArray, "Масив можливих підмножин");
 
-  generatesSubsets(inputArray);
-  // сортуємо елементи масиву за спаданням.
-  tempArray.sort((array1: any, array2: any) => array1 - array2);
-
-  showTwoDimensionalArray(tempArray, "Масив можливих підмножин");
-
-  /**
-   * Функція повертає масив випадкових елементів.
-   * @param sizeArray
-   * @param startRange
-   * @param endRange
-   * @returns
-   */
-  function createArray(
-    sizeArray: number,
-    startRange: number,
-    endRange: number
-  ): number[] {
-    let array: number[] = [];
-
-    for (let index: number = 0; index < sizeArray; index++) {
-      array.push(generateRandomNumber(startRange, endRange));
-    }
-
-    return array;
-  }
-
-  /**
-   * Функція повертає випадкове число в заданому інтервалі.
-   *
-   * @param {number} numberFrom - Число для початку интервала.
-   * @param {number} numberTo - Число для кінця интервалу.
-   * @returns {number} Випадково згенероване число.
-   */
-  function generateRandomNumber(numberFrom: number, numberTo: number): number {
-    const randomNumber: number =
-      numberFrom + Math.floor(Math.random() * (numberTo - numberFrom + 1));
-
-    return randomNumber;
-  }
-
-  /**
-   * Функція, яка виводить двовимірний масив.
-   *
-   * @param {number[][]} array - Масив, який треба вивести.
-   * @param {string} caption - Підпис/опис до масиву.
-   */
-  function showTwoDimensionalArray(array: number[][], caption: string): void {
-    document.write(`
+/**
+ * Функція, яка виводить двовимірний масив.
+ *
+ * @param {number[][]} array - Масив, який треба вивести.
+ * @param {string} caption - Підпис/опис до масиву.
+ */
+function showTwoDimensionalArray(array: number[][], caption: string): void {
+  document.write(`
       <li class="list__item">
         <span>${caption}: [</span>
         <br>
     `);
 
-    for (let row of array) {
-      document.write(`
+  for (let row of array) {
+    document.write(`
       <span>&nbsp;</span>
       <span>&nbsp;</span>
       <span>[</span>
     `);
 
-      for (let cell of row) {
-        document.write(`
+    for (let cell of row) {
+      document.write(`
         <span>${cell}</span>
       `);
-      }
-
-      document.write(`
-      <span>]</span>
-      <br>
-    `);
     }
 
     document.write(`
-        <span>].</span>
-      </li>
+      <span>]</span>
+      <br>
     `);
   }
 
-  /**
-   * Функція, яка виводить масив.
-   *
-   * @param {number[]} array - Масив, який треба вивести.
-   * @param {string} caption - Підпис/заголовок до масиву.
-   */
-  function showArray(array: number[], caption: string): void {
-    document.write(`
+  document.write(`
+        <span>].</span>
+      </li>
+    `);
+}
+
+/**
+ * Функція, яка виводить масив.
+ *
+ * @param {number[]} array - Масив, який треба вивести.
+ * @param {string} caption - Підпис/заголовок до масиву.
+ */
+function showArray(array: number[], caption: string): void {
+  document.write(`
     <li class="list__item">
       <span>${caption}: [</span>
   `);
 
-    for (let index: number = 0; index < array.length; index++) {
-      document.write(`
+  for (let index: number = 0; index < array.length; index++) {
+    document.write(`
       <span>${array[index]}</span>
     `);
-    }
+  }
 
-    document.write(`
+  document.write(`
         <span>].</span>
       </li>
     `);
-  }
 }
+// }
 
 document.write(`
             </ul>

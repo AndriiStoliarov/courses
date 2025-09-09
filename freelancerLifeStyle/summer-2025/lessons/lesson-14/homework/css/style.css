@@ -23,6 +23,10 @@
   font-weight: 700;
 }
 
+[class*="--center"] {
+  text-align: center;
+}
+
 body {
   font-family: "Roboto", "Arial", sans-serif;
   font-size: 1.5rem;
