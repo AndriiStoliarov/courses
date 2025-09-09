@@ -4,7 +4,7 @@ document.write(`
   <header class="header" id="up">
     <div class="header__container">
       <div class="header__inner">
-        <h1 class="header__title">Домашне завдання № 12</h1>
+        <h1 class="header__title">Домашне завдання № 13</h1>
       </div><!-- /. header__inner -->
     </div><!-- /. header__container -->
   </header>
@@ -16,34 +16,12 @@ document.write(`
         <div class="tasks__inner">
           <ul class="tasks__items">
             <li class="tasks__item">
-              <p><span class="tasks__title">Задача 5.</span> Дано масив імен. Застосовуючи відповідне сортування та бінарний пошук визначити, чи є у масиві ім’я «Olga» і під яким індексом.
+              <p><span class="tasks__title">Задача 5.</span> З використанням замикань розробити ітератор, тобто функцію, що буде поступово за окремими викликами видавати по одне значення від заданого мінімального до заданого максимального. Якщо значення досягне максимального, то наступним буде мінімальне значення. З використанням цієї функції реалізувати перебір номерів місяців.
               </p>
             </li>
 `);
-if (confirm("Почати тестування?")) {
-  let namesArray: string[] = [
-    "Andrii",
-    "Ivan",
-    "Volodymyr",
-    "Serhii",
-    "Mykola",
-    "Petro",
-    "Maksym",
-    "Taras",
-    "Roman",
-    "Bogdan",
-    "Yevhen",
-    "Ihor",
-    "Olga",
-    "Vitalii",
-    "Yaroslav",
-    "Olena",
-    "Mariia",
-    "Iryna",
-    "Nataliia",
-    "Tetiana",
-  ];
 
+if (confirm("Почати тестування?")) {
   document.write(`
     <li>
       <p>
@@ -51,38 +29,28 @@ if (confirm("Почати тестування?")) {
         <ul class="list">
   `);
 
-  showArray(namesArray, "Масив імен");
+  let numberMonth = numbersIterator(1, 12);
 
-  document.write("<br>");
-
-  changeArrayQuickSort(namesArray, 0, namesArray.length - 1);
-
-  showArray(namesArray, "Відсортований масив імен");
-
-  document.write("<br>");
-
-  const isElementIncludeArray: boolean = includeBinarySearch(
-    namesArray,
-    "Olga"
-  );
-  const isIndexElementIncludeArray: number = findIndexBinarySearch(
-    namesArray,
-    "Olga"
-  );
-
-  if (isElementIncludeArray) {
-    document.write(`
+  document.write(`
     <li class="list__item">
-      <span>В масиві є ім’я "Olga", під індексом: ${isIndexElementIncludeArray}.</span>
+      <span>Перебір номерів місяців:</span>
+      <span>${numberMonth()}</span>
+      <span>${numberMonth()}</span>
+      <span>${numberMonth()}</span>
+      <span>${numberMonth()}</span>
+      <span>${numberMonth()}</span>
+      <span>${numberMonth()}</span>
+      <span>${numberMonth()}</span>
+      <span>${numberMonth()}</span>
+      <span>${numberMonth()}</span>
+      <span>${numberMonth()}</span>
+      <span>${numberMonth()}</span>
+      <span>${numberMonth()}</span>
+      <span>${numberMonth()}</span>
+      <span>${numberMonth()}</span>
+      <span>${numberMonth()}</span>
     </li>
   `);
-  } else {
-    document.write(`
-    <li class="list__item">
-      <span>В масиві немає такого імені.</span>
-    </li>
-  `);
-  }
 
   document.write(`
         </ul>
@@ -90,105 +58,23 @@ if (confirm("Почати тестування?")) {
     <li>
   `);
 
-  // функция, яка знаходить індекс елемента в упорядкованому масиві.
-  function findIndexBinarySearch(
-    sortedArray: (number | string)[],
-    searchElement: number | string
-  ): number {
-    let start: number = 0,
-      end: number = sortedArray.length - 1;
+  // функция, яка поступово за окремими викликами повертає по одному значенню від заданого мінімального до заданого максимального.
+  function numbersIterator(min: number, max: number) {
+    let currentNumber: number = min - 1;
 
-    while (start <= end) {
-      const middle: number = Math.floor((start + end) / 2);
-
-      if (sortedArray[middle] === searchElement) return middle;
-      if (sortedArray[middle] < searchElement) start = middle + 1;
-      if (sortedArray[middle] > searchElement) end = middle - 1;
-    }
-
-    return -1;
-  }
-
-  // функция, яка перевіряє належність елемента в упорядкованому масиві.
-  function includeBinarySearch(
-    sortedArray: (number | string)[],
-    searchElement: number | string
-  ): boolean {
-    let start: number = 0,
-      end: number = sortedArray.length - 1;
-
-    while (start <= end) {
-      const middle: number = Math.floor((start + end) / 2);
-
-      if (sortedArray[middle] === searchElement) return true;
-      if (sortedArray[middle] < searchElement) start = middle + 1;
-      if (sortedArray[middle] > searchElement) end = middle - 1;
-    }
-
-    return false;
-  }
-
-  // функция, яка сортує массив швидким методом.
-  function changeArrayQuickSort(
-    array: (number | string)[],
-    p: number,
-    q: number
-  ): void {
-    if (p >= q) return;
-    // ділимо на дві частини
-    let i = Partition(array, p, q);
-    // окремо сортуємо першу частину
-    changeArrayQuickSort(array, p, i - 1);
-    // окремо сортуємо другу частину
-    changeArrayQuickSort(array, i + 1, q);
-
-    // функція, яка ділить фрагмент від p до q на дві частини (<= pivot та > pivot)
-    function Partition(array: (number | string)[], p: number, q: number) {
-      let pivot: number | string = array[q];
-      let i: number = p - 1;
-
-      for (let j: number = p; j < q; j++) {
-        if (array[j] <= pivot) {
-          i = i + 1;
-
-          swap(array, i, j);
-        }
+    function innerFunction(): number {
+      // currentNumber =
+      //   currentNumber < max ? currentNumber + 1 : (currentNumber = min);
+      if (currentNumber < max) {
+        currentNumber++;
+      } else {
+        currentNumber = min;
       }
-      swap(array, i + 1, q);
-      // повертаємо нову позицію pivot
-      return i + 1;
+
+      return currentNumber;
     }
 
-    // функция обміну елементів місцями
-    function swap(array: (number | string)[], i: number, j: number) {
-      const temp: number | string = array[i];
-      array[i] = array[j];
-      array[j] = temp;
-    }
-  }
-
-  /**
-   * Функція, яка виводить масив.
-   *
-   * @param {(number | string)[]} array - Масив який треба вивести.
-   * @param {string} caption - Підпис/заголовок до масиву.
-   */
-  function showArray(array: (number | string)[], caption: string): void {
-    document.write(`
-    <li class="list__item">
-      <span>${caption}: [</span>
-  `);
-
-    for (let index: number = 0; index < array.length; index++) {
-      document.write(`
-      <span>${array[index]}</span>
-    `);
-    }
-
-    document.write(`
-      <span>].</span>
-    </li>
-  `);
+    return innerFunction;
   }
 }
 

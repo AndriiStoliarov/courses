@@ -20,117 +20,49 @@ document.write(`
               </p>
             </li>
 `);
-// if (confirm("Почати тестування?")) {
-const NUMBER_FROM: number = 10,
-  NUMBER_TO: number = 99;
-let leftOperand: number = generateRandomNumber(NUMBER_FROM, NUMBER_TO);
-let rightOperand: number = generateRandomNumber(NUMBER_FROM, NUMBER_TO);
-let sumResult: number = leftOperand + rightOperand;
+if (confirm("Почати тестування?")) {
+  const NUMBER_FROM: number = 1,
+    NUMBER_TO: number = 9;
 
-let sumResultAnswer: string | null = prompt(
-  `Скільки буде ${leftOperand} + ${rightOperand} = ?`,
-  ""
-);
+  let timerId = setInterval(() => {
+    additionSimulator();
+  }, 10000);
 
-verificationResult(sumResult, sumResultAnswer);
+  // функция, яка емулює тренажер додавання.
+  function additionSimulator(): void {
+    const leftOperand: number = generateRandomNumber(NUMBER_FROM, NUMBER_TO);
+    const rightOperand: number = generateRandomNumber(NUMBER_FROM, NUMBER_TO);
+    const sumResult: number = leftOperand + rightOperand;
 
-let timerId = setInterval(() => {
-  leftOperand = generateRandomNumber(NUMBER_FROM, NUMBER_TO);
-  rightOperand = generateRandomNumber(NUMBER_FROM, NUMBER_TO);
-  sumResult = leftOperand + rightOperand;
-  sumResultAnswer = prompt(
-    `Скільки буде ${leftOperand} + ${rightOperand} = ?`,
-    ""
-  );
-  console.log("sumResult :>> ", sumResult);
-  console.log("sumResultAnswer :>> ", sumResultAnswer);
+    const sumResultAnswer: string | null = prompt(
+      `Скільки буде ${leftOperand} + ${rightOperand} = ?`
+    );
 
-  verificationResult(sumResult, sumResultAnswer);
-}, 10000);
+    if (sumResultAnswer === null) {
+      clearInterval(timerId);
 
-document.write(`
-  <li>
-    <p>
-      <span class="tasks__title">Відповідь:</span>
-      <ul class="list">
-`);
+      alert("Кінець.");
+    } else if (String(sumResult) === sumResultAnswer) {
+      alert(`Відповідь вірна! Сума чисел: ${sumResult}.`);
+    } else {
+      alert(`Відповідь не вірна. Сума чисел: ${sumResult}.`);
+    }
+  }
 
-function verificationResult(sumResult: number, sumResultAnswer: string | null) {
-  if (sumResultAnswer === null) {
-    clearInterval(timerId);
+  /**
+   * Функція повертає випадкове число в заданому інтервалі.
+   *
+   * @param {number} numberFrom - Число для початку интервала.
+   * @param {number} numberTo - Число для кінця интервалу.
+   * @returns {number} Випадково згенероване число.
+   */
+  function generateRandomNumber(numberFrom: number, numberTo: number): number {
+    const randomNumber: number =
+      numberFrom + Math.floor(Math.random() * (numberTo - numberFrom + 1));
 
-    document.write(`
-    <li class="list__item">
-      <span>Кінець гри.</span>
-    </li>
-  `);
-  } else if (String(sumResult) === sumResultAnswer) {
-    document.write(`
-    <li class="list__item">
-      <span>Відповідь вірна! Сума чисел: ${sumResult}.</span>
-    </li>
-  `);
-  } else {
-    document.write(`
-    <li class="list__item">
-      <span>Відповідь не вірна. Сума чисел: ${sumResult}.</span>
-    </li>
-  `);
+    return randomNumber;
   }
 }
-
-// const timerId = setInterval(
-//   additionSimulator,
-//   10000,
-//   leftOperand,
-//   rightOperand
-// );
-
-// функция, яка емулює тренажер додавання.
-// function additionSimulator(leftOperand: number, rightOperand: number): void {
-//   const sumResult = leftOperand + rightOperand;
-
-//   let sumResultAnswer: number = Number(
-//     prompt(`Скільки буде ${leftOperand} + ${rightOperand} = ?`, "")
-//   );
-
-//   if (sumResult === sumResultAnswer) {
-//     clearInterval(timerId);
-
-//     document.write(`
-//       <li class="list__item">
-//         <span>Відповідь вірна! Сума чисел: ${sumResult}.</span>
-//       </li>
-//     `);
-//   } else {
-//     document.write(`
-//       <li class="list__item">
-//         <span>Гру закінчено.</span>
-//       </li>
-//     `);
-//   }
-// }
-
-document.write(`
-      </ul>
-    </p>
-  <li>
-`);
-
-/**
- * Функція повертає випадкове число в заданому інтервалі.
- *
- * @param {number} numberFrom - Число для початку интервала.
- * @param {number} numberTo - Число для кінця интервалу.
- * @returns {number} Випадково згенероване число.
- */
-// function generateRandomNumber(numberFrom: number, numberTo: number): number {
-//   const randomNumber: number =
-//     numberFrom + Math.floor(Math.random() * (numberTo - numberFrom + 1));
-
-//   return randomNumber;
-// }
-// }
 
 document.write(`
             </ul>

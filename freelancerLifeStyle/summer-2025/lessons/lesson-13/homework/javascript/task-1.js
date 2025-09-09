@@ -21,112 +21,121 @@ document.write(`
               </p>
             </li>
 `);
-// if (confirm("Почати тестування?")) {
-let tempArray = [];
-const inputArray = [1, 2, 3];
-document.write(`
+if (confirm("Почати тестування?")) {
+    const elementsAmount = Number(prompt("Введіть кількість елементів для масиву:", "3"));
+    const inputArray = createArray(elementsAmount, 1, 9);
+    let tempArray = [];
+    document.write(`
   <li>
     <p>
       <span class="tasks__title">Відповідь:</span>
       <ul class="list">
-`);
-showArray(inputArray, "");
-// document.write("<br>");
-document.write(`
-  <li class="list__item">
-    <span>Кількість обмінів під час сортування: .</span>
-  </li>
-`);
-document.write(`
-      </ul>
-    </p>
-  <li>
-`);
-// Рекурсивна функция, яка генерує всі можливі підмножини заданого масиву.
-function generatesSubsets(inputArray, index = 0, resultArray = []) {
-    if (index === inputArray.length) {
-        console.log("resultArray :>> ", resultArray);
-        tempArray.push(resultArray);
-        return;
-    }
-    else {
-        generatesSubsets(inputArray, index + 1, resultArray);
-        generatesSubsets(inputArray, index + 1, [
-            ...resultArray,
-            inputArray[index],
-        ]);
-    }
-}
-generatesSubsets(inputArray);
-// сортуємо елементи масиву за спаданням.
-tempArray.sort((array1, array2) => array1 - array2);
-showTwoDimensionalArray(tempArray, "Масив можливих підмножин");
-/**
- * Функція повертає випадкове число в заданому інтервалі.
- *
- * @param {number} numberFrom - Число для початку интервала.
- * @param {number} numberTo - Число для кінця интервалу.
- * @returns {number} Випадково згенероване число.
- */
-function generateRandomNumber(numberFrom, numberTo) {
-    const randomNumber = numberFrom + Math.floor(Math.random() * (numberTo - numberFrom + 1));
-    return randomNumber;
-}
-/**
- * Функція, яка виводить двовимірний масив.
- *
- * @param {number[][]} array - Масив, який треба вивести.
- * @param {string} caption - Підпис/опис до масиву.
- */
-function showTwoDimensionalArray(array, caption) {
-    document.write(`
-    <li class="list__item">
-      <span>${caption}: [</span>
-      <br>
   `);
-    for (let row of array) {
+    showArray(inputArray, "Вхідний масив");
+    document.write("<br>");
+    document.write(`
+        </ul>
+      </p>
+    <li>
+  `);
+    // Рекурсивна функция, яка генерує всі можливі підмножини заданого масиву.
+    function generatesSubsets(inputArray, index = 0, resultArray = []) {
+        if (index === inputArray.length) {
+            tempArray.push(resultArray);
+            return;
+        }
+        else {
+            generatesSubsets(inputArray, index + 1, resultArray);
+            generatesSubsets(inputArray, index + 1, [
+                ...resultArray,
+                inputArray[index],
+            ]);
+        }
+    }
+    generatesSubsets(inputArray);
+    // сортуємо елементи масиву за спаданням.
+    tempArray.sort((array1, array2) => array1 - array2);
+    showTwoDimensionalArray(tempArray, "Масив можливих підмножин");
+    /**
+     * Функція повертає масив випадкових елементів.
+     * @param sizeArray
+     * @param startRange
+     * @param endRange
+     * @returns
+     */
+    function createArray(sizeArray, startRange, endRange) {
+        let array = [];
+        for (let index = 0; index < sizeArray; index++) {
+            array.push(generateRandomNumber(startRange, endRange));
+        }
+        return array;
+    }
+    /**
+     * Функція повертає випадкове число в заданому інтервалі.
+     *
+     * @param {number} numberFrom - Число для початку интервала.
+     * @param {number} numberTo - Число для кінця интервалу.
+     * @returns {number} Випадково згенероване число.
+     */
+    function generateRandomNumber(numberFrom, numberTo) {
+        const randomNumber = numberFrom + Math.floor(Math.random() * (numberTo - numberFrom + 1));
+        return randomNumber;
+    }
+    /**
+     * Функція, яка виводить двовимірний масив.
+     *
+     * @param {number[][]} array - Масив, який треба вивести.
+     * @param {string} caption - Підпис/опис до масиву.
+     */
+    function showTwoDimensionalArray(array, caption) {
         document.write(`
+      <li class="list__item">
+        <span>${caption}: [</span>
+        <br>
+    `);
+        for (let row of array) {
+            document.write(`
       <span>&nbsp;</span>
       <span>&nbsp;</span>
       <span>[</span>
     `);
-        for (let cell of row) {
-            document.write(`
+            for (let cell of row) {
+                document.write(`
         <span>${cell}</span>
       `);
-        }
-        document.write(`
+            }
+            document.write(`
       <span>]</span>
       <br>
     `);
-    }
-    document.write(`
-      <span>].</span>
-    </li>
-  `);
-}
-/**
- * Функція, яка виводить масив.
- *
- * @param {number[]} array - Масив, який треба вивести.
- * @param {string} caption - Підпис/заголовок до масиву.
- */
-function showArray(array, caption) {
-    document.write(`
-    <li class="list__item">
-      <span>${caption}: [</span>
-  `);
-    for (let index = 0; index < array.length; index++) {
+        }
         document.write(`
-      <span>${array[index]}</span>
-    `);
-    }
-    document.write(`
         <span>].</span>
       </li>
     `);
+    }
+    /**
+     * Функція, яка виводить масив.
+     *
+     * @param {number[]} array - Масив, який треба вивести.
+     * @param {string} caption - Підпис/заголовок до масиву.
+     */
+    function showArray(array, caption) {
+        document.write(`
+    <li class="list__item">
+      <span>${caption}: [</span>
+  `);
+        for (let index = 0; index < array.length; index++) {
+            document.write(`
+      <span>${array[index]}</span>
+    `);
+        }
+        document.write(`
+        <span>].</span>
+      </li>
+    `);
+    }
 }
-// }
 document.write(`
             </ul>
           </div><!-- /.tasks__inner -->
