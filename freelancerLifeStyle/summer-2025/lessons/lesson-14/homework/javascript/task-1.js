@@ -5,7 +5,7 @@ document.write(`
   <header class="header" id="up">
     <div class="header__container">
       <div class="header__inner">
-        <h1 class="header__title">Домашне завдання № 13</h1>
+        <h1 class="header__title">Домашне завдання № 14</h1>
       </div><!-- /. header__inner -->
     </div><!-- /. header__container -->
   </header>
@@ -130,12 +130,21 @@ document.write(`
       <span class="tasks__title">Відповідь:</span>
       <ul class="list">
   `);
+// <ul class="list">
+//               <li class="list__item">
+//                 <span>6) упорядкувати список за спаданням прибутку;</span>
+//               </li>
+//               <li class="list__item">
+//                 <span>7) створити 2 окремих списки з копіями об'єктів, що містять сайти з вартість до 10000 і більше 10000.</span>
+//               </li>
+// 1) загальну вартість усіх сайтів;
 const sitesTotalPrice = sites.reduce((previousSum, price) => previousSum + price.siteCost, 0);
 document.write(`
   <li class="list__item">
     <span>1) загальна вартість усіх сайтів: ${sitesTotalPrice};</span>
   </li>
 `);
+// 2) кількість сайтів, що було зроблено між 2000 та 2009 роками;
 const sitesAmountReleased = sites.reduce((previousSitesAmount, year) => year.releaseYear >= 2000 && year.releaseYear <= 2009
     ? previousSitesAmount + 1
     : previousSitesAmount, 0);
@@ -144,22 +153,44 @@ document.write(`
     <span>2) кількість сайтів, що були зроблені між 2000 та 2009 роками: ${sitesAmountReleased};</span>
   </li>
 `);
-const sitesSponsorsAll = sites.map((sponsorsArray) => sponsorsArray.sponsors);
-console.log("sitesSponsorsAll :>> ", sitesSponsorsAll);
-// const sitesAmountInvestmentBigger100000
+// 3) кількість сайтів, де сума спонсорських вкладень була більшою за 100000;
+const sitesAmountInvestmentBigger100000 = sites.reduce((previousSitesAmount, site) => {
+    const sponsorsTotalInvestment = site.sponsors.reduce((previousSum, sponsor) => previousSum + sponsor.investment, 0);
+    return sponsorsTotalInvestment > 100000
+        ? previousSitesAmount + 1
+        : previousSitesAmount;
+}, 0);
 document.write(`
   <li class="list__item">
-    <span>3) кількість сайтів, де сума спонсорських вкладень була більшою за 100000;</span>
+    <span>3) кількість сайтів, де сума спонсорських вкладень була більшою за 100000: ${sitesAmountInvestmentBigger100000};</span>
   </li>
 `);
+// 4) створити загальний список усіх спонсорів (поки можуть повторюватись, просто зібрати усі у масив);
+let allSponsorsList = [];
+for (const site of sites) {
+    for (const sponsor of site.sponsors) {
+        allSponsorsList.push(sponsor);
+    }
+}
+console.log("Список усіх спонсорів :>> ", allSponsorsList);
 document.write(`
   <li class="list__item">
-    <span>4) створити загальний список усіх спонсорів (поки можуть повторюватись, просто зібрати усі у масив);</span>
+    <span>4) загальний список усіх спонсорів: дивіться консоль;</span>
   </li>
 `);
+// 5) знайти рік, коли прибуток був найбільшим;
+const biggestCost = sites
+    .map((cost) => cost.siteCost)
+    .reduce((previousCost, cost) => (previousCost > cost ? previousCost : cost));
+let yearWasBiggestCost = 0;
+sites.forEach((site) => {
+    if (site.siteCost === biggestCost)
+        yearWasBiggestCost = site.releaseYear;
+});
+console.log("yearWasBiggestCost :>> ", yearWasBiggestCost);
 document.write(`
   <li class="list__item">
-    <span>5) знайти рік, коли прибуток був найбільшим;</span>
+    <span>5) рік, коли прибуток був найбільшим: ${yearWasBiggestCost};</span>
   </li>
 `);
 document.write(`
