@@ -81,7 +81,7 @@ if (confirm("Почати тестування?")) {
     show_in_site: ShowInSite | null;
   };
 
-  let dataList = [
+  let dataList: Product[] = [
     {
       id: 344277463,
       old_price: 1395,
