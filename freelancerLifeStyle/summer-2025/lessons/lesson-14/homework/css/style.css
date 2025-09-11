@@ -164,9 +164,7 @@ figcaption {
 }
 
 .tasks__image {
-  max-width: 16.25rem;
-
-  aspect-ratio: 1;
+  padding-left: 3.125rem;
 }
 
 /* @media ============================== */
