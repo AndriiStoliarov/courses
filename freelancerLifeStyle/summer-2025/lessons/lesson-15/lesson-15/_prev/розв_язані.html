@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //===================================================================
+      // const user = {
+      //   //---- властивості
+      //   name: 'Ivan',
+      //   age: 21,
+      //   //--- методи
+      //   sayHi: function () {
+      //     document.write(`Hello from ${this.name}! I'm ${this.age} years old!`)
+      //   },
+      //   sayBye() {
+      //     document.write('Bye!')
+      //   },
+      //   greeting() {
+      //     this.sayHi()
+      //     this.sayBye()
+      //   },
+      //   getLettersNumInName(letter) {
+      //     letter = letter.toLowerCase()
+      //     const lowerName = this.name.toLowerCase()
+      //     let num = 0
+      //     for (const c of lowerName) {
+      //       if (c === letter) num++
+      //     }
+      //     return num
+      //   },
+      // }
+      // //-----
+      // const res = user.getLettersNumInName('a')
+      // document.write(res)
+      //===================================================================
+      //Описати об"єкт час доби. Визначати чи вечір, чи ранок. Дії збільшекння кількості годин на 1 і збільшення кліькості хвилин на 1
+      // const dayHour = {
+      //   //--- властивості (характеристики)
+      //   hours: 11,
+      //   minutes: 59,
+      //   //--- методи (дії)
+      //   //Визначати чи вечір
+      //   isEvening(startEvening = 16) {
+      //     return this.hours > startEvening
+      //   },
+      //   //Визначати чи ранок
+      //   isMorning(endMorning = 11) {
+      //     return this.hours <= endMorning
+      //   },
+      //   // Дії збільшекння кількості годин на 1
+      //   increaseHours(hoursNum = 1) {
+      //     this.hours = (this.hours + hoursNum) % 24
+      //   },
+      //   // збільшення кліькості хвилин на 1
+      //    доробити!
+      //   //------
+      //   displayData() {
+      //     document.write(`${this.hours} : ${this.minutes}<br>`)
+      //   },
+      // }
+      // //----------
+      // dayHour.displayData()
+      // dayHour.increaseHours(5)
+      // dayHour.displayData()
+
+      //===================================================================
+      // Товари (назва, ціна, кількість). Методи: дати знижку на товар, збільшити кількість товару
+      // const product = {
+      //   //---- властивості
+      //   title: 'Tea',
+      //   price: 12,
+      //   count: 21,
+      //   //---- методи
+      //   setDiscount(discountPercentageValue) {
+      //     this.price *= 1 - discountPercentageValue / 100
+      //   },
+      //   increaseCount(prodNum) {
+      //     this.count += prodNum
+      //   },
+      //   toString() {
+      //     return `${this.title}: ${this.price}`
+      //   },
+      //   valueOf() {
+      //     return this.price
+      //   },
+      // }
+      // //-------------
+      // product.increaseCount(10)
+      // // const res = 'У мене на складі є такий товар : ' + product
+      // // document.write(res)
+      // // document.write(product)
+      // document.write(product * 2)
+      //===================================================================
+      // const obj = {
+      //   a: 11,
+      //   b: 22,
+      // }
+
+      // Object.freeze(obj)
+
+      // obj.a = 100
+      // console.log(obj)
+      //===================================================================
+      // function test(initA, initB) {
+      //   const obj = {}
+      //   obj.a = initA
+      //   obj.b = initB
+      //   return obj
+      // }
+      // const obj1 = test(11, 22)
+      // console.log(obj1)
+      //----
+      // function Test(initA, initB) {
+      //   this.a = initA
+      //   this.b = initB
+      //   this.show = function () {
+      //     document.write(`a = ${this.a}, b=${this.b}`)
+      //   }
+      // }
+
+      // const obj1 = new Test(11, 22)
+      // const obj2 = new Test(11, 22)
+      // console.log(obj1)
+      // console.log(obj2)
+      // obj1.show()
+
+      // //-----
+      // function Test(initA, initB) {
+      //   this.a = initA
+      //   this.b = initB
+      // }
+      // Test.prototype.c = 99
+      // Test.prototype.a = 77
+      // //-----
+      // const obj1 = new Test(11, 22)
+      // const obj2 = new Test(11, 22)
+      // const obj3 = new Test(11, 22)
+      // const arr = [obj1, obj2, obj3]
+      // //-----
+      // document.write(obj3.c)
+      // console.log(arr)
+      //===================================================================
+      // const obj = {
+      //   a: 11,
+      //   b: 22,
+      //   show() {
+      //     document.write(this.a)
+      //     console.log(this)
+      //   },
+      // }
+
+      // obj.show()
+
+      // let f = obj.show
+      // f()
+      //----------
+      // function test() {
+      //   console.log(this)
+      // }
+
+      // test()
+      //==================
+      // 'use strict'
+      // const obj = {
+      //   a: 11,
+      //   getShow() {
+      //     const show = () => {
+      //       document.write(this.a)
+      //       console.log(this)
+      //     }
+      //     return show
+      //   },
+      // }
+      // //-----------
+      // const myShow = obj.getShow()
+      // myShow()
+
+      //================= за допомогою функцій конструкторів =========================
+
+      // //================= за допомогою класів =========================
+
+      // //=============
+
+      //===================================================================
+      // const obj1 = {
+      //   a: 11,
+      //   b: 22,
+      //   sum() {
+      //     return this.a + this.b
+      //   },
+      // }
+      // //---
+      // const obj2 = {
+      //   a: 100,
+      //   b: 200,
+      // }
+      // //---
+      // // document.write(obj1.sum())
+      // const s2 = obj1.sum.call(obj2)
+      // document.write(s2)
+      //===================================================================
+      // const obj1 = {
+      //   a: 11,
+      //   b: 22,
+      //   sum() {
+      //     console.log(this)
+
+      //     return this.a + this.b
+      //   },
+      // }
+      // //---
+      // const obj2 = {
+      //   a: 100,
+      //   b: 200,
+      // }
+      // obj2.sum2 = obj1.sum.bind(obj1)
+      // console.log(obj2)
+      // document.write(obj2.sum2())
+      //===================================================================
+      // function example(num1,num2) {
+      //   document.write(`${num1},${num2}`)
+      // }
+
+      // // example(7,2)
+      // // example(7,5)
+      // // example(7,7)
+      // // example(7,9)
+      // const example = example.bind(null, 7)
+      // example(2)
+      // example(5)
+      // example(7)
+      // example(9)
+
+      //===================================================================
+      // function getSum() {
+      //   return [].reduce.call(arguments, (prevSum, el) => prevSum + el)
+      // }
+      // function getSum(...arr) {
+      //   return arr.reduce((prevSum, el) => prevSum + el)
+      // }
+      // const s = getSum(2, 1, 56, 3, 123)
+      // document.write(s)
+      //===================================================================
+      //учень
+      //---- властивості ---
+      //- ім"я
+      //- вік
+      //- оцінки
+      //------ методи (функ. власт. або ж дії)
+      // вивести привітання
+      // вивисти, що це учень
+      // знайти середній бал
+      // знайти мінімальну оцінку
+
+      //===================================================================
+
+      //=====================================================
+      // Приклад. Створити об’єкт товар.
+      // ----------- Властивості - характеристики ---------
+      // назва товару
+      // ціна
+      // кількість
+      // вартість зберігання в день
+      // ------------ Методи (функіональні можливості) -------------
+      // визначення загальної вартості наявної кількості одиниць
+      // визначити вартість зберігання для заданої кількості днів
+      // зменшення ціни на вказану кількість відсотків
+      // збільшення ціни на вказану кількість відсотків
+      // let product = {
+      //   // ----------- Властивості - характеристики ---------
+      //   // ------------ Методи (функіональні можливості) -------------
+      // }
+      //========== функція - конструктор ==============================
+      //==================== опис з використанням класу ==============
+      // //---зараз можемо створити багато об"єктів за спільним шаблоном (однаковими назвами властивостей і спільними методами)
+      // let pr = new Product('Tea', 200, 120, 15)
+      // let pr2 = new Product('Milk', 56, 32, 23)
+      // let pr3 = new Product('Vine', 656, 432, 323)
+      // pr2.increacePrice(30)
+      // // document.write(pr2)
+
+      // let arr = [
+      //   new Product('Tea', 200, 120, 15),
+      //   new Product('Milk', 56, 32, 23),
+      //   new Product('Vine', 656, 432, 323),
+      // ]
+      // for (const prod of arr) {
+      //   document.write(`${prod} <br>`)
+      // }
+
+      // let total = arr.reduce(
+      //   (prevSum, prodObj) => prevSum + prodObj.price * prodObj.count,
+      //   0
+      // )
+      // document.write(total)
+
+      //----
+      // document.write(product)
+      // let s = 'Hi ' + product
+      // document.write(s)
+      // let s = 3 * product
+      // document.write(s)
+      // document.write(`Total = ${product.getTotalPrice()}`)
+      // product.increacePrice(20)
+      // document.write(`Total = ${product.getTotalPrice()}`)
+
+      //=====================================================
+      //       Приклад. Описати об’єкт «Інвойс»
+      // ----- Властивості-характеристики (дані) ----
+      // номер інвойса
+      // перелік виконаних робіт
+      // сума грошей
+      // ----- Методи --------------------
+      // перетворення у рядок (вивести номер інвойса, кількість виконаних робіт, сума грошей
+      // перетворення у число (повертається сума грошей)
+
+      // Використовуючи такий опис створити масив інвойсів. Вивести інформацію про інвойси у формі нумерованого списку
+      //  та знайти загальну вартість використовуючи метод перетворення об’єкта у число
+      //=====================================================
+
+      //=====================================================
+      //       Приклад. Гра «Рулетка»
+      // ----- Властивості -------
+      // кількість полів рулетки
+      // мінімальне значення балів
+      // максимальне значення балів
+      // список згенерованих значень
+
+      // ----- Методи ----------
+      // генерування полів рулетки
+      // виведення списку згенерованих значень
+      // приведення до рядка
+      // крутити рулетку (отримання випадкового балу)
+      // метод гри (користувач крутить рулетку поки не відмовиться)
+      //           поки користувач хоче крутити
+      //                визначаємо рандомне значення рулетки
+      //                додаємо до загальної суми
+      //                повідомляємо користувача про результат та загальну кількість балів
+
+      //=====================================================
+      //       Дано два об’єкта. Обидва містять масив цілих чисел. При цьому у одному з них є функція знаходження суми, а у
+      // іншому – функція для знаходження добутку тих, які знаходяться між заданими мінімальним і максимальних значенням.
+      // Використати обидва методи стосовно обидвох об’єктів.
+
+      //=====================================================
+      // Приклад. Дано функцію без формальних параметрів. Знайти суму усіх аргументів, які буде передано у функцію,
+      // використатавши reduce стосовно argumnets
+
+      //=====================================================
+      //   Дано об’єкт, що містить масив чисел. Кожну секунду виводити випадкове число з цього масиву
+      //=====================================================
+
+      // Приклад. Розробити клас «Передбачувач». Дозволяє кожні вказані кількість секунд отримувати передбачення
+      // Властивості :
+      //      масив можливоих передбачень,
+      //      інтервал між передбаченнями
+      // Методи:
+      //      вибір випадкового передбачення
+      //      метод run, що ініціює запуск таймера і генерування передбачень
+      // class Predictor {
+      //   constructor(initialPredictionsList, initialInterval) {
+      //     this.predictionList = initialPredictionsList
+      //     this.interval = initialInterval
+      //   }
+      //   getRandomPrediction() {
+      //     const randIndex = Math.floor(
+      //       Math.random() * this.predictionList.length
+      //     )
+      //     return this.predictionList[randIndex]
+      //   }
+      //   run() {
+      //     setInterval(() => {
+      //       document.write(this.getRandomPrediction())
+      //     }, this.interval)
+      //   }
+      // }
+      // // //-------------
+      // const initialPredictionsList = [
+      //   'PEACE',
+      //   'LOVE',
+      //   'MONEY',
+      //   'BIG MONEY',
+      //   'BEER',
+      //   'Шовдарь',
+      //   'Пікниця',
+      // ]
+      // const predictor1 = new Predictor(initialPredictionsList, 2000)
+      // predictor1.run()
+      // console.log(predictor1)
+
+      // let superPredictor = new Predictor(initialPredictionsList, 2000)
+      // superPredictor.run()
+
+      //=====================================================
+      //Приклад. Розробити клас, що приймає масив імен і дозволяє вивести якийсь список з використанням маркованого або нумерованого списку. Передбачити методи фільтрації списку за якимись фрагментом тексту.
+      //=====================================================
+      //=====================================================
+      //=====================================================
+    </script>
+  </body>
+</html>

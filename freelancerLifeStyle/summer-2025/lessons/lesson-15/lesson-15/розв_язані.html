@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //===================================================================
+      // Описати об"єкт СОБАКА: кличка, швидкість, дія-гавкіт,
+      // const dog = {
+      //   name: 'Сірко',
+      //   speed: 25,
+      //   bark: function () {
+      //     console.log(`ГАВ! Бійся, я собака ${this.name}`)
+      //   },
+      //   sleep() {
+      //     console.log('T-r-r-r-r-r-r')
+      //   },
+      //   dayActions() {
+      //     this.bark()
+      //     this.bark()
+      //     this.sleep()
+      //   },
+      // }
+      // const intervalId = setInterval(() => {
+      //   dog.bark()
+      // }, 1000)
+
+      // setTimeout(() => {
+      //   clearInterval(intervalId)
+      //   dog.sleep()
+      // }, 5000)
+
+      // dog.dayActions()
+      //===================================================================
+      //Описати об"єкт час доби. Визначати чи вечір, чи ранок. Дії збільшекння кількості годин на 1 і збільшення кліькості хвилин на 1
+      // const time = {
+      //   //--- характеристики
+      //   hours: 12,
+      //   minutes: 34,
+      //   //--- дії
+      //   isMorning(startMorning = 6, endMorning = 12) {
+      //     return this.hours > startMorning && this.hours < endMorning
+      //   },
+      //   isEvening(startEvening = 18, endEvening = 23) {
+      //     return this.hours > startEvening && this.hours < endEvening
+      //   },
+      //   increaseHours() {
+      //     this.hours++
+      //     if (this.hours === 24) this.hours = 0
+      //   },
+      //   decreaseHours() {
+      //     this.hours--
+      //     if (this.hours < 0) this.hours = 23
+      //   },
+      //   increaseMinutes() {
+      //     this.minutes++
+      //     if (this.minutes === 60) {
+      //       this.increaseHours()
+      //       this.minutes = 0
+      //     }
+      //   },
+      //   decreaseMinutes() {
+      //     this.minutes--
+      //     if (this.minutes < 0) {
+      //       this.decreaseHours()
+      //       this.minutes = 59
+      //     }
+      //   },
+      // }
+
+      // document.write(time.isMorning())
+
+      //===================================================================
+      // Товари (назва, ціна, кількість). Методи: дати знижку на товар, збільшити кількість товару
+      // const product = {
+      //   title: 'Milk',
+      //   price: 34,
+      //   count: 5,
+      //   setDiscount(discountPercentageValue) {
+      //     this.price *= 1 - discountPercentageValue / 100
+      //   },
+      //   increaseProductNumber(val) {
+      //     this.count += val
+      //   },
+      //   //---- коли хочемо отримати рядкове првдставлення об"єкта
+      //   toString() {
+      //     return `${this.title} - ${this.price}`
+      //   },
+      //   //--- коли хочемо отримати числове представлення
+      //   valueOf() {
+      //     return this.count
+      //   },
+      // }
+      // //----------
+      // // product.increaseProductNumber(10)
+      // // document.write(product.count)
+      // // product.setDiscount(20)
+      // // document.write(product.price.toFixed(2))
+
+      // // document.write('Купити : ' + product)
+      // let r = 10 * product
+      // document.write(r)
+
+      //---- відсортувати працівників за зроастанням стажу
+      // const employees = [
+      //   {
+      //     name: 'Іван',
+      //     experience: 3,
+      //     salary: 15000,
+      //     valueOf() {
+      //       return this.experience
+      //     },
+      //   },
+      //   {
+      //     name: 'Олена',
+      //     experience: 5,
+      //     salary: 20000,
+      //     valueOf() {
+      //       return this.experience
+      //     },
+      //   },
+      //   {
+      //     name: 'Петро',
+      //     experience: 2,
+      //     salary: 12000,
+      //     valueOf() {
+      //       return this.experience
+      //     },
+      //   },
+      //   {
+      //     name: 'Марія',
+      //     experience: 7,
+      //     salary: 25000,
+      //     valueOf() {
+      //       return this.experience
+      //     },
+      //   },
+      //   {
+      //     name: 'Андрій',
+      //     experience: 4,
+      //     salary: 18000,
+      //     valueOf() {
+      //       return this.experience
+      //     },
+      //   },
+      // ]
+      // // employees.sort((emp1, emp2) => emp1.experience - emp2.experience)
+      // employees.sort((emp1, emp2) => emp1 - emp2)
+      // console.log(employees)
+
+      //============
+      // function testFunc(myObj) {
+      //   myObj.count++
+      //   myObj.hello = 90
+      // }
+
+      // const product = {
+      //   title: 'Tea',
+      //   count: 10,
+      //   arr: [11, 22],
+      //   toString() {
+      //     return `${this.title} - ${this.count}`
+      //   },
+      // }
+
+      // Object.freeze(product)
+
+      // testFunc(product)
+      // document.write(product)
+
+      // product.arr[0] = 777
+
+      // console.log(product)
+      //===================================================================
+      //===== створенян об"єкта =====
+      //---- з використанням метода фабрики
+      // function getProductObject(initTitle, initPrice) {
+      //   return {
+      //     title: initTitle,
+      //     price: initPrice,
+      //     toString() {
+      //       return `${this.title} - ${this.price}`
+      //     },
+      //   }
+      // }
+
+      // const pr1 = getProductObject('Tea', 900)
+      // const pr2 = getProductObject('Milk', 70)
+      //------ з використання фукнції конструктора
+      // function Product(initTitle, initPrice) {
+      //   //-- характеристики (унікальні/різні для кожного об"єкта)
+      //   this.title = initTitle
+      //   this.price = initPrice
+      // }
+
+      // //--- методи (спількні для всіх (у всіх однакові))
+      // Product.prototype.test = 100
+      // Product.prototype.toString = function () {
+      //   return `${this.title} - ${this.price}`
+      // }
+      // Product.prototype.addPrice = function (val) {
+      //   this.price += val
+      // }
+      //----- з використанням класу
+      // class Product {
+      //   constructor(initTitle, initPrice) {
+      //     //-- характеристики (унікальні/різні для кожного об"єкта)
+      //     this.title = initTitle
+      //     this.price = initPrice
+      //   }
+
+      //   //--- методи (спількні для всіх (у всіх однакові))
+
+      //   toString() {
+      //     return `${this.title} - ${this.price}`
+      //   }
+      //   addPrice(val) {
+      //     this.price += val
+      //   }
+      // }
+
+      // const pr1 = new Product('Tea', 90)
+      // const pr2 = new Product('Milk', 70)
+
+      // // pr1.addPrice(100)
+      // // document.write(pr1)
+      // // document.write(pr1.test)
+      // console.log(pr1)
+
+      // function getSum() {
+      //   // let s = 0
+      //   // for (let i = 0; i < arguments.length; i++) {
+      //   //   s += arguments[i]
+      //   // }
+      //   // return s
+      //   return [].reduce.call(arguments, (prevSum, el) => prevSum + el)
+      // }
+
+      // const s1 = getSum(2, 1, 34, 1, 12, 34)
+      // document.write(s1)
+
+      //================= за допомогою функцій конструкторів =========================
+
+      // //================= за допомогою класів =========================
+
+      // //=============
+
+      //===================================================================
+      //учень
+      //---- властивості ---
+      //- ім"я
+      //- вік
+      //- оцінки
+      //------ методи (функ. власт. або ж дії)
+      // вивести привітання
+      // вивисти, що це учень
+      // знайти середній бал
+      // знайти мінімальну оцінку
+
+      //===================================================================
+
+      //=====================================================
+      // Приклад. Створити об’єкт товар.
+      // ----------- Властивості - характеристики ---------
+      // назва товару
+      // ціна
+      // кількість
+      // вартість зберігання в день
+      // ------------ Методи (функіональні можливості) -------------
+      // визначення загальної вартості наявної кількості одиниць
+      // визначити вартість зберігання для заданої кількості днів
+      // зменшення ціни на вказану кількість відсотків
+      // збільшення ціни на вказану кількість відсотків
+      // let product = {
+      //   // ----------- Властивості - характеристики ---------
+      //   // ------------ Методи (функіональні можливості) -------------
+      // }
+      //========== функція - конструктор ==============================
+      //==================== опис з використанням класу ==============
+      // //---зараз можемо створити багато об"єктів за спільним шаблоном (однаковими назвами властивостей і спільними методами)
+      // let pr = new Product('Tea', 200, 120, 15)
+      // let pr2 = new Product('Milk', 56, 32, 23)
+      // let pr3 = new Product('Vine', 656, 432, 323)
+      // pr2.increacePrice(30)
+      // // document.write(pr2)
+
+      // let arr = [
+      //   new Product('Tea', 200, 120, 15),
+      //   new Product('Milk', 56, 32, 23),
+      //   new Product('Vine', 656, 432, 323),
+      // ]
+      // for (const prod of arr) {
+      //   document.write(`${prod} <br>`)
+      // }
+
+      // let total = arr.reduce(
+      //   (prevSum, prodObj) => prevSum + prodObj.price * prodObj.count,
+      //   0
+      // )
+      // document.write(total)
+
+      //----
+      // document.write(product)
+      // let s = 'Hi ' + product
+      // document.write(s)
+      // let s = 3 * product
+      // document.write(s)
+      // document.write(`Total = ${product.getTotalPrice()}`)
+      // product.increacePrice(20)
+      // document.write(`Total = ${product.getTotalPrice()}`)
+
+      //=====================================================
+      //       Приклад. Описати об’єкт «Інвойс»
+      // ----- Властивості-характеристики (дані) ----
+      // номер інвойса
+      // перелік виконаних робіт
+      // сума грошей
+      // ----- Методи --------------------
+      // перетворення у рядок (вивести номер інвойса, кількість виконаних робіт, сума грошей
+      // перетворення у число (повертається сума грошей)
+
+      // Використовуючи такий опис створити масив інвойсів. Вивести інформацію про інвойси у формі нумерованого списку
+      //  та знайти загальну вартість використовуючи метод перетворення об’єкта у число
+      //=====================================================
+
+      //=====================================================
+      //       Приклад. Гра «Рулетка»
+      // ----- Властивості -------
+      // кількість полів рулетки
+      // мінімальне значення балів
+      // максимальне значення балів
+      // список згенерованих значень
+
+      // ----- Методи ----------
+      // генерування полів рулетки
+      // виведення списку згенерованих значень
+      // приведення до рядка
+      // крутити рулетку (отримання випадкового балу)
+      // метод гри (користувач крутить рулетку поки не відмовиться)
+      //           поки користувач хоче крутити
+      //                визначаємо рандомне значення рулетки
+      //                додаємо до загальної суми
+      //                повідомляємо користувача про результат та загальну кількість балів
+
+      //=====================================================
+      //       Дано два об’єкта. Обидва містять масив цілих чисел. При цьому у одному з них є функція знаходження суми, а у
+      // іншому – функція для знаходження добутку тих, які знаходяться між заданими мінімальним і максимальних значенням.
+      // Використати обидва методи стосовно обидвох об’єктів.
+
+      //=====================================================
+      // Приклад. Дано функцію без формальних параметрів. Знайти суму усіх аргументів, які буде передано у функцію,
+      // використатавши reduce стосовно argumnets
+
+      //=====================================================
+      //   Дано об’єкт, що містить масив чисел. Кожну секунду виводити випадкове число з цього масиву
+      // const arrHolder = {
+      //   arr: [11, 22, 33, 44, 55],
+      //   getRandomArrdValue: function () {
+      //     console.log('--- this')
+      //     console.log(this)
+
+      //     const randIndex = Math.floor(Math.random() * this.arr.length)
+      //     return this.arr[randIndex]
+      //   },
+      // }
+
+      // const f1 = arrHolder.getRandomArrdValue.bind(arrHolder)
+      // setInterval(() => {
+      //   console.log(f1())
+      // }, 1000)
+
+      //=====================================================
+
+      // Приклад. Розробити клас «Передбачувач». Дозволяє кожні вказані кількість секунд отримувати передбачення
+      // Властивості :
+      //      масив можливоих передбачень,
+      //      інтервал між передбаченнями
+      // Методи:
+      //      вибір випадкового передбачення
+      //      метод run, що ініціює запуск таймера і генерування передбачень
+      class Predictor {
+        constructor(initPredictionList, intervalValue) {
+          //---- властивості характеристики
+          this.predictionList = initPredictionList //      масив можливоих передбачень,
+          this.intervalValue = intervalValue //      інтервал між передбаченнями
+        }
+        //----- методи
+        //      вибір випадкового передбачення
+        getRandomPrediction() {
+          const randomIndex = Math.floor(
+            Math.random() * this.predictionList.length
+          )
+          return this.predictionList[randomIndex]
+        }
+        //      метод run, що ініціює запуск таймера і генерування передбачень
+        run() {
+          setInterval(() => {
+            const predition = this.getRandomPrediction()
+            document.write(`${predition}<br>`)
+          }, this.intervalValue)
+        }
+      }
+
+      // //-------------
+      const initialPredictionsList = [
+        'PEACE',
+        'LOVE',
+        'MONEY',
+        'BIG MONEY',
+        'BEER',
+        'Шовдарь',
+        'Пікниця',
+      ]
+
+      let superPredictor = new Predictor(initialPredictionsList, 2000)
+      superPredictor.run()
+
+      //=====================================================
+      //Приклад. Розробити клас, що приймає масив імен і дозволяє вивести якийсь список з використанням маркованого або нумерованого списку. Передбачити методи фільтрації списку за якимись фрагментом тексту.
+      //=====================================================
+      //=====================================================
+      //=====================================================
+    </script>
+  </body>
+</html>
