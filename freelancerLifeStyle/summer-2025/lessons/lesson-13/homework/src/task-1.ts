@@ -65,9 +65,10 @@ if (confirm("Почати тестування?")) {
   }
 
   generatesSubsets(inputArray);
-  // сортуємо елементи масиву за спаданням.
-  tempArray.sort((array1: any, array2: any) => array1 - array2);
+  // сортуємо елементи масиву за розміром довжини підмножини.
+  tempArray.sort((array1: any, array2: any) => array1.length - array2.length);
 
+  // showTwoDimensionalArray(tempArray, "Масив можливих підмножин");
   showTwoDimensionalArray(tempArray, "Масив можливих підмножин");
 
   /**

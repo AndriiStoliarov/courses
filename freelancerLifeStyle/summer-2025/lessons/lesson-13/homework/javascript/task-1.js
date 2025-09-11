@@ -17,7 +17,7 @@ document.write(`
         <div class="tasks__inner">
           <ul class="tasks__items">
             <li class="tasks__item">
-              <p><span class="tasks__title">Задача 1.</span> <span class="tasks__text  tasks__text--weight">Генерація всіх підмножин:</span> Реалізуйте рекурсивну функцію, яка генерує всі можливі підмножини заданого масиву. Наприклад, для масиву [1, 2, 3] можливі підмножини: [], [1], [2], [3], [1, 2], [1, 3], [2, 3], [1, 2, 3].
+              <p><span class="tasks__title">Задача 1.</span> <span class="tasks__text  tasks__text--weight">Генерація всіх підмножин: </span>Реалізуйте рекурсивну функцію, яка генерує всі можливі підмножини заданого масиву. Наприклад, для масиву [1, 2, 3] можливі підмножини: [], [1], [2], [3], [1, 2], [1, 3], [2, 3], [1, 2, 3].
               </p>
             </li>
 `);
@@ -53,8 +53,9 @@ if (confirm("Почати тестування?")) {
         }
     }
     generatesSubsets(inputArray);
-    // сортуємо елементи масиву за спаданням.
-    tempArray.sort((array1, array2) => array1 - array2);
+    // сортуємо елементи масиву за розміром довжини підмножини.
+    tempArray.sort((array1, array2) => array1.length - array2.length);
+    // showTwoDimensionalArray(tempArray, "Масив можливих підмножин");
     showTwoDimensionalArray(tempArray, "Масив можливих підмножин");
     /**
      * Функція повертає масив випадкових елементів.
