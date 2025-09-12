@@ -5,7 +5,7 @@ document.write(`
   <header class="header" id="up">
     <div class="header__container">
       <div class="header__inner">
-        <h1 class="header__title">Домашне завдання № 13</h1>
+        <h1 class="header__title">Домашне завдання № 15</h1>
       </div><!-- /. header__inner -->
     </div><!-- /. header__container -->
   </header>
@@ -17,59 +17,87 @@ document.write(`
         <div class="tasks__inner">
           <ul class="tasks__items">
             <li class="tasks__item">
-              <p><span class="tasks__title">Задача 5.</span> З використанням замикань розробити ітератор, тобто функцію, що буде поступово за окремими викликами видавати по одне значення від заданого мінімального до заданого максимального. Якщо значення досягне максимального, то наступним буде мінімальне значення. З використанням цієї функції реалізувати перебір номерів місяців.
+              <p><span class="tasks__title">Задача 5.</span> Розробити клас «Керівник танців».
               </p>
+              <img class="tasks__image" src="../images/class-dance-director.png" alt="shooting gallery table">
             </li>
 `);
 if (confirm("Почати тестування?")) {
+    const BOYS_NAMES = [
+        "Andrii",
+        "Oleksandr",
+        "Ivan",
+        "Dmytro",
+        "Serhii",
+        "Yevhen",
+        "Taras",
+        "Mykola",
+        "Yaroslav",
+        "Roman",
+    ];
+    const GIRLS_NAMES = [
+        "Olena",
+        "Iryna",
+        "Tetiana",
+        "Kateryna",
+        "Svitlana",
+        "Natalia",
+        "Oksana",
+        "Viktoriia",
+        "Anna",
+        "Mariia",
+    ];
+    class DanceDirector {
+        constructor(boysName, girlsName) {
+            this.boysName = boysName;
+            this.girlsName = girlsName;
+        }
+        // methods
+        // метод для вибору випадкового імені хлопця.
+        getRandomBoysName() {
+            const randomIndex = Math.floor(Math.random() * this.boysName.length);
+            return this.boysName[randomIndex];
+        }
+        // метод для вибору випадкового імені дівчини.
+        getRandomGirlsName() {
+            const randomIndex = Math.floor(Math.random() * this.girlsName.length);
+            return this.girlsName[randomIndex];
+        }
+        // метод для виведення парі для танців.
+        showCoupleForDancing() {
+            const dancePartner1 = this.getRandomBoysName();
+            const dancePartner2 = this.getRandomGirlsName();
+            console.log("Пара для танців :>> ", dancePartner1 + " & " + dancePartner2 + ".");
+        }
+        // метод для виведення нової парі для танців, кожні 5 секунд.
+        showNewCoupleForDancing() {
+            const timerFiveSecond = setInterval(() => {
+                this.showCoupleForDancing();
+            }, 5000);
+            setTimeout(() => {
+                clearInterval(timerFiveSecond);
+            }, 60000);
+        }
+    }
     document.write(`
     <li>
       <p>
         <span class="tasks__title">Відповідь:</span>
         <ul class="list">
   `);
-    let numberMonth = numbersIterator(1, 12);
     document.write(`
     <li class="list__item">
-      <span>Перебір номерів місяців:</span>
-      <span>${numberMonth()}</span>
-      <span>${numberMonth()}</span>
-      <span>${numberMonth()}</span>
-      <span>${numberMonth()}</span>
-      <span>${numberMonth()}</span>
-      <span>${numberMonth()}</span>
-      <span>${numberMonth()}</span>
-      <span>${numberMonth()}</span>
-      <span>${numberMonth()}</span>
-      <span>${numberMonth()}</span>
-      <span>${numberMonth()}</span>
-      <span>${numberMonth()}</span>
-      <span>${numberMonth()}</span>
-      <span>${numberMonth()}</span>
-      <span>${numberMonth()}</span>
+      <span>Пара для танців: дивіться консоль.</span>
     </li>
   `);
+    const coupleForDancing = new DanceDirector(BOYS_NAMES, GIRLS_NAMES);
+    coupleForDancing.showCoupleForDancing();
+    coupleForDancing.showNewCoupleForDancing();
     document.write(`
         </ul>
       </p>
     <li>
   `);
-    // функция, яка поступово за окремими викликами повертає по одному значенню від заданого мінімального до заданого максимального.
-    function numbersIterator(min, max) {
-        let currentNumber = min - 1;
-        function innerFunction() {
-            // currentNumber =
-            //   currentNumber < max ? currentNumber + 1 : (currentNumber = min);
-            if (currentNumber < max) {
-                currentNumber++;
-            }
-            else {
-                currentNumber = min;
-            }
-            return currentNumber;
-        }
-        return innerFunction;
-    }
 }
 document.write(`
             </ul>
