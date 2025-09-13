@@ -21,113 +21,170 @@ document.write(`
             </li>
 `);
 
-// if (confirm("Почати тестування?")) {
-interface IMathObject1 {
-  // properties
-  numbers: number[];
-  // methods
-  sum(): number;
-}
+if (confirm("Почати тестування?")) {
+  interface IMathObject2 {
+    // properties
+    numbers: number[];
+    // methods
+    multiplication(min: number, max: number): number;
+    show(): void;
+  }
 
-const mathObject1: IMathObject1 = {
-  // properties
-  numbers: [],
-  // methods
-  sum() {
-    const sum = this.numbers.reduce(
-      (prevNumber, number) => prevNumber + number,
-      0
-    );
+  interface IMathObject1 {
+    // properties
+    numbers: number[];
+    // methods
+    sum(): number;
+    show(): void;
+  }
 
-    return sum;
-  },
-  // show() {
-  //   document.write(`
-  //   <li class="list__item">
-  //     <span>Ігрове поле: [</span>
-  // `);
+  const mathObject2: IMathObject2 = {
+    // properties
+    numbers: [],
+    // methods
+    // метод, який повертає добуток елементів які знаходяться між заданими мінімальним і максимальних значенням.
+    multiplication(min: number, max: number) {
+      const multiplication = this.numbers.reduce(
+        (prevNumber, number) =>
+          number >= min && number <= max ? prevNumber * number : prevNumber,
+        1
+      );
 
-  //   for (const cell of this.field) {
-  //     document.write(`
-  //     <span>${cell}</span>
-  //   `);
-  //   }
+      return multiplication;
+    },
+    // метод, який виводить масив.
+    show() {
+      document.write(`
+        <li class="list__item">
+          <span>Масив чисел другого об'єкта: [</span>
+      `);
 
-  //   document.write(`
-  //     <span>].</span>
-  //   </li>
-  // `);
-  // },
-};
+      for (const number of this.numbers) {
+        document.write(`<span>${number}</span>`);
+      }
 
-const HARES_AMOUNT: number = 5,
-  BULLETS_AMOUNT: number = 10;
+      document.write(`
+          <span>].</span>
+        </li>
+      `);
+    },
+  };
 
-// створюємо масив заданої довжини та заповнюємо його нулями
-// shootingGallery.field = new Array(20).fill(0);
-// додаємо зайців на поле
-// setHareOnField(shootingGallery.field, HARES_AMOUNT);
+  const mathObject1: IMathObject1 = {
+    // properties
+    numbers: [],
+    // methods
+    // метод, який повертає сумму всіх елементів.
+    sum() {
+      const sum = this.numbers.reduce(
+        (prevNumber, number) => prevNumber + number
+      );
 
-document.write(`
-    <li>
-      <p>
-        <span class="tasks__title">Відповідь:</span>
-        <ul class="list">
+      return sum;
+    },
+    // метод, який виводить масив.
+    show() {
+      document.write(`
+        <li class="list__item">
+          <span>Масив чисел першого об'єкта: [</span>
+      `);
+
+      for (const number of this.numbers) {
+        document.write(`<span>${number}</span>`);
+      }
+
+      document.write(`
+          <span>].</span>
+        </li>
+      `);
+    },
+  };
+
+  document.write(`
+  <li>
+    <p>
+      <span class="tasks__title">Відповідь:</span>
+      <ul class="list">
   `);
 
-// shootingGallery.show();
-
-document.write("<br>");
-
-// shootingGallery.shoot(HARES_AMOUNT, BULLETS_AMOUNT);
-// shootingGallery.show();
-
-// console.log("Об'єкт 'Тир' :>> ", shootingGallery);
-
-// document.write(`
-//     <li class="list__item">
-//       <span>Об'єкт 'Тир' (дивіться консоль).</span>
-//     </li>
-//   `);
-
-/**
- * Функція повертає масив випадкових числ в заданому інтервалі.
- *
- * @param {number} arrayLength - Довжина нового масиву.
- * @param {number} numberFrom - Число для початку интервала.
- * @param {number} numberTo - Число для кінця интервала.
- * @returns {number[]} Масив випадкових чисел в заданому інтервалі.
- */
-function getRandomNumbersArray(
-  arrayLength: number,
-  numberFrom: number,
-  numberTo: number
-): number[] {
-  return Array.from({ length: arrayLength }, () =>
-    generateRandomNumber(numberFrom, numberTo)
+  mathObject1.numbers = getRandomNumbersArray(10, 1, 9);
+  mathObject1.show();
+  const sumObject1 = mathObject1.sum();
+  const multiplicationMathObject1 = mathObject2.multiplication.call(
+    mathObject1,
+    3,
+    7
   );
-}
 
-/**
- * Функція повертає випадкове число в заданому інтервалі.
- *
- * @param {number} numberFrom - Число для початку интервала.
- * @param {number} numberTo - Число для кінця интервалу.
- * @returns {number} Випадково згенероване число.
- */
-function generateRandomNumber(numberFrom: number, numberTo: number): number {
-  const randomNumber: number =
-    numberFrom + Math.floor(Math.random() * (numberTo - numberFrom + 1));
+  document.write(`
+    <li class="list__item">
+      <span>Сума елементів першого об'єкта: ${sumObject1}.</span>
+    </li>
+  `);
 
-  return randomNumber;
-}
+  document.write(`
+    <li class="list__item">
+      <span>Добуток елементів першого об'єкта: ${multiplicationMathObject1}.</span>
+    </li>
+  `);
 
-document.write(`
+  document.write("<br>");
+
+  mathObject2.numbers = getRandomNumbersArray(10, 1, 9);
+  mathObject2.show();
+  const multiplicationMathObject2 = mathObject2.multiplication(3, 7);
+  const sumObject2 = mathObject1.sum.call(mathObject2);
+
+  document.write(`
+    <li class="list__item">
+      <span>Добуток елементів другого об'єкта: ${multiplicationMathObject2}.</span>
+    </li>
+  `);
+
+  document.write(`
+    <li class="list__item">
+      <span>Сума елементів другого об'єкта: ${sumObject2}.</span>
+    </li>
+  `);
+
+  /**
+   * Функція повертає масив випадкових числ в заданому інтервалі.
+   *
+   * @param {number} arrayLength - Довжина нового масиву.
+   * @param {number} numberFrom - Число для початку интервала.
+   * @param {number} numberTo - Число для кінця интервала.
+   * @returns {number[]} Масив випадкових чисел в заданому інтервалі.
+   */
+  function getRandomNumbersArray(
+    arrayLength: number,
+    numberFrom: number,
+    numberTo: number
+  ): number[] {
+    return Array.from({ length: arrayLength }, () =>
+      generateRandomNumber(numberFrom, numberTo)
+    );
+  }
+
+  /**
+   * Функція повертає випадкове число в заданому інтервалі.
+   *
+   * @param {number} numberFrom - Число для початку интервала.
+   * @param {number} numberTo - Число для кінця интервалу.
+   * @returns {number} Випадково згенероване число.
+   */
+  function generateRandomNumber(numberFrom: number, numberTo: number): number {
+    const randomNumber: number =
+      numberFrom + Math.floor(Math.random() * (numberTo - numberFrom + 1));
+
+    return randomNumber;
+  }
+
+  document.write(`
         </ul>
       </p>
     <li>
   `);
-// }
+}
 
 document.write(`
             </ul>
