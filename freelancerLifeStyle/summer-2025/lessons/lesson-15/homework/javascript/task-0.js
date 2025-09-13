@@ -38,7 +38,9 @@ if (confirm("Почати тестування?")) {
           <span>Масив чисел другого об'єкта: [</span>
       `);
             for (const number of this.numbers) {
-                document.write(`<span>${number}</span>`);
+                document.write(`
+          <span>${number}</span>
+        `);
             }
             document.write(`
           <span>].</span>
@@ -62,7 +64,9 @@ if (confirm("Почати тестування?")) {
           <span>Масив чисел першого об'єкта: [</span>
       `);
             for (const number of this.numbers) {
-                document.write(`<span>${number}</span>`);
+                document.write(`
+          <span>${number}</span>
+        `);
             }
             document.write(`
           <span>].</span>
@@ -71,10 +75,10 @@ if (confirm("Почати тестування?")) {
         },
     };
     document.write(`
-  <li>
-    <p>
-      <span class="tasks__title">Відповідь:</span>
-      <ul class="list">
+    <li>
+      <p>
+        <span class="tasks__title">Відповідь:</span>
+        <ul class="list">
   `);
     mathObject1.numbers = getRandomNumbersArray(10, 1, 9);
     mathObject1.show();

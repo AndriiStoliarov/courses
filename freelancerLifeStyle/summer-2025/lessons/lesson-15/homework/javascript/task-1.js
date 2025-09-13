@@ -50,25 +50,25 @@ if (confirm("Почати тестування?")) {
                 }
             }
             document.write(`
-      <li class="list__item">
-        <span>Кінець гри.</span>
-      </li>
-    `);
+        <li class="list__item">
+          <span>Кінець гри.</span>
+        </li>
+      `);
         },
         show() {
             document.write(`
-    <li class="list__item">
-      <span>Ігрове поле: [</span>
-  `);
+        <li class="list__item">
+          <span>Ігрове поле: [</span>
+      `);
             for (const cell of this.field) {
                 document.write(`
-      <span>${cell}</span>
-    `);
+          <span>${cell}</span>
+        `);
             }
             document.write(`
-      <span>].</span>
-    </li>
-  `);
+          <span>].</span>
+        </li>
+      `);
         },
     };
     const HARES_AMOUNT = 5, BULLETS_AMOUNT = 10;

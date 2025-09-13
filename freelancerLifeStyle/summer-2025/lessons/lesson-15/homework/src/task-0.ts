@@ -60,7 +60,9 @@ if (confirm("Почати тестування?")) {
       `);
 
       for (const number of this.numbers) {
-        document.write(`<span>${number}</span>`);
+        document.write(`
+          <span>${number}</span>
+        `);
       }
 
       document.write(`
@@ -90,7 +92,9 @@ if (confirm("Почати тестування?")) {
       `);
 
       for (const number of this.numbers) {
-        document.write(`<span>${number}</span>`);
+        document.write(`
+          <span>${number}</span>
+        `);
       }
 
       document.write(`
@@ -101,10 +105,10 @@ if (confirm("Почати тестування?")) {
   };
 
   document.write(`
-  <li>
-    <p>
-      <span class="tasks__title">Відповідь:</span>
-      <ul class="list">
+    <li>
+      <p>
+        <span class="tasks__title">Відповідь:</span>
+        <ul class="list">
   `);
 
   mathObject1.numbers = getRandomNumbersArray(10, 1, 9);
