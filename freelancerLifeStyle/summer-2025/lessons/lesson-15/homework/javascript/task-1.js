@@ -27,6 +27,25 @@ if (confirm("Почати тестування?")) {
         // properties
         field: [],
         // methods
+        // метод, який створюємо масив заданої довжини та заповнюємо його нулями
+        setSizeZeroArray(sizeArray) {
+            this.field = new Array(sizeArray).fill(0);
+        },
+        // метод, який в розташовує/додає зайців на поле
+        setHareOnField(haresAmountOnField) {
+            let haresAmountCounter = 0;
+            while (haresAmountCounter < haresAmountOnField) {
+                const randomIndex = generateRandomNumber(0, 19);
+                // перевірка сусідніх комірок, щоб зайці не розміщувалися поряд один до одному.
+                if (this.field[randomIndex - 1] !== 1 &&
+                    this.field[randomIndex] !== 1 &&
+                    this.field[randomIndex + 1] !== 1) {
+                    this.field[randomIndex] = 1;
+                    haresAmountCounter++;
+                }
+            }
+        },
+        // метод, в якому реалізований алгоритм гри.
         shoot(hares, bullets) {
             let bulletsAmount = bullets, haresAmount = hares;
             while (bulletsAmount > 0 && haresAmount > 0) {
@@ -55,6 +74,7 @@ if (confirm("Почати тестування?")) {
         </li>
       `);
         },
+        // метод, який виводить ігрове поле на екран.
         show() {
             document.write(`
         <li class="list__item">
@@ -73,9 +93,9 @@ if (confirm("Почати тестування?")) {
     };
     const HARES_AMOUNT = 5, BULLETS_AMOUNT = 10;
     // створюємо масив заданої довжини та заповнюємо його нулями
-    shootingGallery.field = new Array(20).fill(0);
+    shootingGallery.setSizeZeroArray(20);
     // додаємо зайців на поле
-    setHareOnField(shootingGallery.field, HARES_AMOUNT);
+    shootingGallery.setHareOnField(HARES_AMOUNT);
     document.write(`
     <li>
       <p>
@@ -92,20 +112,6 @@ if (confirm("Почати тестування?")) {
       <span>Об'єкт 'Тир' (дивіться консоль).</span>
     </li>
   `);
-    // функция, яка в розташовує/додає зайців на поле
-    function setHareOnField(field, haresAmountOnField) {
-        let haresAmountCounter = 0;
-        while (haresAmountCounter < haresAmountOnField) {
-            const randomIndex = generateRandomNumber(0, 19);
-            // перевірка сусідніх комірок, щоб зайці не розміщувалися поряд один до одному.
-            if (field[randomIndex - 1] !== 1 &&
-                field[randomIndex] !== 1 &&
-                field[randomIndex + 1] !== 1) {
-                field[randomIndex] = 1;
-                haresAmountCounter++;
-            }
-        }
-    }
     /**
      * Функція повертає випадкове число в заданому інтервалі.
      *
