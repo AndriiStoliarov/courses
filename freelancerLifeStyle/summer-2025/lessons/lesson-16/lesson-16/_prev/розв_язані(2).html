@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //=====================================================
+      //   Дано об’єкт, що містить масив чисел. Кожну секунду виводити випадкове число з цього масиву
+      //=====================================================
+
+      // Приклад. Розробити клас «Передбачувач». Дозволяє кожні вказані кількість секунд отримувати передбачення
+      // Властивості :
+      //      масив можливоих передбачень,
+      //      інтервал між передбаченнями
+      // Методи:
+      //      вибір випадкового передбачення
+      //      метод run, що ініціює запуск таймера і генерування передбачень
+      // class Predictor {
+
+      // }
+
+      // let pr1 = new Predictor(1000, [
+      //   'PEACE',
+      //   'LOVE',
+      //   'MONEY',
+      //   'BIG MONEY',
+      //   'BEER',
+      //   'Шовдарь',
+      //   'Пікниця',
+      // ])
+      // // console.log(pr1)
+      // pr1.run()
+
+      //=====================================================
+      //Приклад. Розробити клас, що приймає масив імен і дозволяє вивести якийсь список з використанням маркованого або нумерованого списку.
+      //Передбачити методи фільтрації списку за якимись фрагментом тексту.
+      //----  властивості
+      // namesList
+      // listTag
+      //---  методи
+      // getFilteredList
+      // printList
+      // class ListCreator {
+      //   constructor(names, listTag) {
+      //     //----  властивості
+      //     this.names = names
+      //     this.listTag = listTag
+      //   }
+      //   //---  методи
+      //   getFilteredList(searchText) {
+      //     searchText = searchText.toLowerCase()
+      //     return this.names.filter((el) =>
+      //       el.toLowerCase().includes(searchText)
+      //     )
+      //   }
+      //   printList(searchText) {
+      //     let listToPrint = this.names
+      //     if (searchText) listToPrint = this.getFilteredList(searchText)
+      //     document.write(`<${this.listTag}>`)
+      //     if (listToPrint.length > 0) {
+      //       listToPrint.forEach((name) => {
+      //         document.write(`<li>${name}</li>`)
+      //       })
+      //       document.write(`</${this.listTag}>`)
+      //     } else document.write('Список порожній!')
+      //   }
+      // }
+      // //---
+      // let testNamesList = ['Olga', 'Ivan', 'Petro', 'Oksana']
+      // let list1 = new ListCreator(testNamesList, 'ul')
+      // list1.printList('pEt')
+
+      // let list2 = new ListCreator(['aa', 'bbb', 'tttt', 'qqqq'], 'ol')
+      // list2.printList()
+
+      //=====================================================
+      //=====================================================
+      //=====================================================
+      //Дано об’єкт, що містить масив чисел. Кожну секунду виводити випадкове число з цього масиву
+
+      //=====================================================
+      // Задача. Створити клас TTime для роботи із часом у форматі “години:хвилини”. Час представляється структурою із двома полями. Реалізувати методи збільшення/зменшення  часу на певну кількість годин чи хвилин.
+      //---- Властивості
+      //  * години
+      //  * хвилини
+      //---- Методи (дії, які треба робити)
+      //   * метод збільшення годин
+      //   * метод зменшення годин
+      //   * метод збільшення хвилин
+      //   * метод зменшення хвилин
+      // class TTime {
+      //   constructor(initialHours, initialMinutes) {
+      //     //---- Властивості
+      //     this.hours = initialHours
+      //     this.minutes = initialMinutes
+      //   }
+      //   //---- Методи
+      //   //--- метод корекції годин і хвилин
+      //   correctTime() {
+      //     // 32.89 => 13.29
+      //     if (this.minutes >= 0) {
+      //       const addHours = Math.floor(this.minutes / 60)
+      //       this.minutes = this.minutes % 60
+      //       this.hours += addHours
+      //     } else {
+      //       this.minutes = 59
+      //       this.hours--
+      //     }
+      //     if (this.hours < 0) this.hours = 23
+      //     else this.hours = this.hours % 24
+      //   }
+      //   //   * метод збільшення годин
+      //   increaceHours() {
+      //     this.hours++
+      //     this.correctTime()
+      //   }
+      //   //   * метод зменшення годин
+      //   decreaceHours() {
+      //     this.hours--
+      //     this.correctTime()
+      //   }
+      //   //   * метод збільшення хвилин
+      //   increaceMinutes() {
+      //     this.minutes++
+      //     this.correctTime()
+      //   }
+      //   //   * метод зменшення хвилин
+      //   decreaceMinutes() {
+      //     this.minutes--
+      //     this.correctTime()
+      //   }
+      //   toString() {
+      //     return `${this.hours} : ${this.minutes}`
+      //   }
+      // }
+      // //----
+      // const time1 = new TTime(-9, 789)
+      // // time1.decreaceMinutes()
+      // document.write(time1)
+
+      //======== Для створення якогось об"єкта потрібно знати
+      // - початкове значення години
+      // - початкове значення хвилин
+
+      // class Pupil {
+      //   //--- описав приватне (закрете) поле
+      //   #age //1.Описумєо приватне поле
+      //   #averageScore
+      //   constructor(initialName, initialAge, initialAverageScore) {
+      //     this.name = initialName
+      //     this.Age = initialAge
+      //     this.AverageScore = initialAverageScore
+      //   }
+
+      //   //---- 2. Описуємо відповідну властивість з геттерами і сеттерами
+      //   get Age() {
+      //     return this.#age
+      //   }
+      //   set Age(newAge) {
+      //     //---- спочатку перевіряємо валідність нового значення
+      //     if (newAge < 7 || newAge > 30) throw new Error('Вік не є коректним')
+      //     //--- якщо значення коректне, то дозволяємо зберігання у закритому полі
+      //     this.#age = newAge
+      //   }
+      //   //----
+      //   get AverageScore() {
+      //     return this.#averageScore
+      //   }
+      //   set AverageScore(val) {
+      //     //---- спочатку перевіряємо валідність нового значення
+      //     if (val < 0 || val > 12)
+      //       throw new Error('Середній бал не є коректним')
+      //     //--- якщо значення коректне, то дозволяємо зберігання у закритому полі
+      //     this.#averageScore = val
+      //   }
+
+      //   toString() {
+      //     return `${this.name} : ${this.Age}, average ${this.AverageScore}`
+      //   }
+      // }
+      // //---
+      // let p1 = new Pupil('Ivan', 12, 68)
+
+      // document.write(p1)
+
+      //=====================================================
+      //       Приклад. Створити клас «Клієнт»
+      // (ім’я – довільний доступ (відкрите поле),
+      // номер рахунку – тільки для читання (генерується рандомно),
+      // кількість грошей – контрольований доступ (і читання і запис))
+      // class Client {
+      //   #account
+      //   #money
+      //   constructor(name, money) {
+      //     this.name = name //відкрите (захищати не потрібно)
+      //     this.#account = Math.floor(Math.random() * 10000) // генерується рандомно
+      //     this.Money = money
+      //   }
+      //   //------ Властивість Money для читання і запису (є і get, і set)
+      //   get Money() {
+      //     return this.#money
+      //   }
+      //   set Money(newMoney) {
+      //     //---- спочатку перевіряємо валідність нового значення
+      //     if (newMoney < 0)
+      //       throw new Error('Кількість грошей не може бути від"ємною')
+      //     //--- якщо значення коректне, то дозволяємо зберігання у закритому полі
+      //     this.#money = newMoney
+      //   }
+      //   //---- Властивість Account тільки для читання (є тільки get)
+      //   get Account() {
+      //     return this.#account
+      //   }
+      //   //-----------------
+      //   toString() {
+      //     return `${this.Account} -  ${this.name} : ${this.Money} `
+      //   }
+      // }
+      // //----
+      // const cl1 = new Client('Ivan', 200000)
+      // // cl1.Money = 900000
+      // let r = cl1.Account
+
+      // document.write(r)
+
+      //=====================================================
+      let obj1 = {
+        myVar: 77,
+        method1: function () {
+          let func = () => {
+            console.log(this)
+            console.log(this.myVar)
+          }
+          return func
+        },
+      }
+      //-----
+      let f = obj1.method1()
+      f()
+      //=====================================================
+      //       Задача 2. Створити клас Product, що представляє товар на складі
+      // поля:
+      // 	Назва товару
+      // 	Кількість одиниць
+      // 	Ціна одиниці
+      // методи:
+      // 	зменшення кількості товару
+      // 	збільшення кількості товару
+      // 	визначення вартості вказаної кількості товару
+      // 	нарахування вказаної знижки (у відсотках)
+      // 	визначення загальної вартості товару
+      class Product {
+        // 	Назва товару
+        #title
+        //----
+        get Title() {
+          return this.#title
+        }
+        set Title(newTitle) {
+          if (newTitle.length === 0)
+            throw new Error('назва не може бути порожньою')
+          this.#title = newTitle
+        }
+        // 	Кількість одиниць
+        #amount
+        get Amount() {
+          return this.#amount
+        }
+        set Amount(newAmount) {
+          if (newAmount < 0) throw new Error('кількість не може бути від"ємною')
+          this.#amount = newAmount
+        }
+        // 	Ціна одиниці
+        #price
+        get Price() {
+          return this.#price
+        }
+        set Price(newPrice) {
+          if (newPrice < 0) throw new Error('ціна не може бути від"ємною')
+          this.#price = newPrice
+        }
+        //------------------
+        constructor(title, amount, price) {
+          this.Title = title
+          this.Amount = amount
+          this.Price = price
+        }
+        //------------------
+
+        // методи:
+        // 	зменшення кількості товару
+        reduceProdAmount(reduceVal) {
+          if (this.Amount < reduceVal)
+            throw new Error('немає такої кількості товарів')
+          this.Amount -= reduceVal
+        }
+        // 	збільшення кількості товару
+        addProductAmount(val) {
+          if (val < 0)
+            throw new Error('ви не можете збільшувати на від"ємну величину')
+          this.Amount += val
+        }
+        // 	визначення загальної вартості товару
+        //--- описати як метод (функція)
+        getTotalPrice() {
+          return this.Amount * this.Price
+        }
+        //---- описати як геттер (так краще) (властивість, що обчислюється на основі інших властивостей)
+        get TotalPrice() {
+          return this.Amount * this.Price
+        }
+        // 	нарахування вказаної знижки (у відсотках)
+        setDiscount(percentage) {
+          if (percentage < 0)
+            throw new Error('ви не можете вказати знижку як від"ємну величину')
+          this.Price *= 1 - percentage / 100
+        }
+        // 	визначення вартості вказаної кількості товару
+        getPriceOfProductAmount(productAmount) {
+          if (productAmount < 0)
+            throw new Error(
+              'ви не можете вказати як від"ємну величину кількість товару'
+            )
+          return productAmount * this.Price
+        }
+        toString() {
+          return `${this.Title}: ${this.TotalPrice}`
+        }
+      }
+      //===============
+      try {
+        let prod1 = new Product('Tea', 234, 37)
+        prod1.setDiscount(10)
+        // document.write(prod1.getTotalPrice())
+        document.write(prod1)
+      } catch (error) {
+        document.write('Щось пішло не так <br>')
+        document.write(error.message)
+      }
+      //=====================================================
+      // Створити клас TMoney для роботи з грошовими сумами. Сума повинна зберігатися у вигляді доларового еквіваленту. Реалізувати методи додавання/вилучення грошової маси, вказуючи необхідну суму у гривнях, та визначення курсу долара, при якому сума у гривнях збільшиться на 100. Курс долара зберігати в окремому полі.
+
+      //=====================================================
+
+      //=====================================================
+    </script>
+  </body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //------------------------
+      // Описати клас подія (назва події (не може бути порожньою), номер дня (має бути робчим днем 1-5))
+      // class MyEvent {
+      //   constructor(title, dayNum) {
+      //     this.Title = title
+      //     this.DayNum = dayNum
+      //     this.daysTitles = [
+      //       'Monday',
+      //       'Tuesday',
+      //       'Wednesday',
+      //       'Thursday',
+      //       'Friday',
+      //       'Saturday',
+      //       'Sunday',
+      //     ]
+      //   }
+      //   //---- назва події
+      //   #title
+      //   get Title() {
+      //     return this.#title
+      //   }
+      //   set Title(newTitle) {
+      //     //---перевірка
+      //     if (newTitle.length === 0)
+      //       throw new Error('Назва не може бути порожньою!')
+      //     //---присвоєння
+      //     this.#title = newTitle
+      //   }
+      //   //------ номер дня
+      //   #dayNum
+      //   get DayNum() {
+      //     return this.daysTitles[this.#dayNum - 1]
+      //   }
+      //   set DayNum(newDay) {
+      //     //---перевірка
+      //     if (newDay < 1 || newDay > 5)
+      //       throw new Error('День має бути робочим!')
+      //     //---присвоєння
+      //     this.#dayNum = newDay
+      //   }
+      //   toString() {
+      //     return `${this.DayNum}:${this.Title}`
+      //   }
+      // }
+      // //----------------
+      // try {
+      //   const e1 = new MyEvent('Drink coffee', 2)
+
+      //   const msg = 'Мої події: ' + e1
+      //   document.write(msg)
+      // } catch (error) {
+      //   document.write(error.message)
+      // }
+      // document.write(' Bye!')
+      //------------------------
+
+      //   var myVar = 11
+      //   function test() {
+      //     let myVar = 22
+      //     console.log(this)
+      //     console.log(this.myVar)
+      //   }
+      //   test()
+
+      //   let myObj = {
+      //     prop1: 11,
+      //     show: function () {
+      //       alert(this.prop1)
+      //     },
+      //     meth1: function () {
+      //       let myFunc = () => {
+      //         console.log(this.prop1)
+      //       }
+
+      //       return myFunc
+      //     },
+      //   }
+
+      //   let f1 = myObj.meth1()
+
+      //   f1()
+      //=====================================================
+      //   function getSum() {
+      //     // let s = 0
+      //     // for (let i = 0; i < arguments.length; i++) {
+      //     //   s += arguments[i]
+      //     // }
+      //     // let s = arguments.reduce((prevSum, num) => prevSum + num) - ПОМИЛКА!!!!! arguments - псевдомасив
+      //     //--- викликаємо метод reduce для arguments
+      //     let s = [].reduce.call(arguments, (prevSum, num) => prevSum + num)
+      //     return s
+      //   }
+
+      //   function getSum(...arr) {
+      //     return arr.reduce((prevSum, num) => prevSum + num)
+      //   }
+
+      //   let sum = getSum(2, 1, 4, 6, 32, 34, 56, 768)
+
+      //   document.write(sum)
+      //=====================================================
+      //   Дано об’єкт, що містить масив чисел. Кожну секунду виводити випадкове число з цього масиву
+      //=====================================================
+
+      //=====================================================
+      //Приклад. Розробити клас, що приймає масив імен і дозволяє вивести якийсь список з використанням маркованого або нумерованого списку.
+      //Передбачити методи фільтрації списку за якимись фрагментом тексту.
+      //----  властивості
+      // namesList
+      // listTag
+      //---  методи
+      // getFilteredList
+      // printList
+      // class ListCreator {
+
+      // }
+      // //---
+      // let testNamesList = ['Olga', 'Ivan', 'Petro', 'Oksana']
+      // let list1 = new ListCreator(testNamesList, 'ul')
+      // list1.printList('pEt')
+
+      // let list2 = new ListCreator(['aa', 'bbb', 'tttt', 'qqqq'], 'ol')
+      // list2.printList()
+
+      //=====================================================
+      //=====================================================
+      //=====================================================
+      //Дано об’єкт, що містить масив чисел. Кожну секунду виводити випадкове число з цього масиву
+
+      //=====================================================
+      // Задача. Створити клас TTime для роботи із часом у форматі “години:хвилини”. Час представляється структурою із двома полями. Реалізувати методи збільшення/зменшення  часу на певну кількість годин чи хвилин.
+      //---- Властивості
+      //  * години
+      //  * хвилини
+      //---- Методи (дії, які треба робити)
+      //   * метод збільшення годин
+      //   * метод зменшення годин
+      //   * метод збільшення хвилин
+      //   * метод зменшення хвилин
+
+      // class TTime {}
+      // //-----
+      // try {
+      //   // ---- пробуємо виконати код, який може згенерувати виключну ситуацію
+      //   const time = new TTime(23, -59)
+      //   time.Minutes = -45
+      //   document.write(time)
+      // } catch (error) {
+      //   //--- що робити, якщо сталася виключна ситуація
+      //   console.log(error.message)
+      // }
+
+      //======== Для створення якогось об"єкта потрібно знати
+      // - початкове значення години
+      // - початкове значення хвилин
+
+      // class Pupil {
+      //   //--- описав приватне (закрете) поле
+      //   #age //1.Описумєо приватне поле
+      //   #averageScore
+      //   constructor(initialName, initialAge, initialAverageScore) {
+      //     this.name = initialName
+      //     this.Age = initialAge
+      //     this.AverageScore = initialAverageScore
+      //   }
+
+      //   //---- 2. Описуємо відповідну властивість з геттерами і сеттерами
+      //   get Age() {
+      //     return this.#age
+      //   }
+      //   set Age(newAge) {
+      //     //---- спочатку перевіряємо валідність нового значення
+      //     if (newAge < 7 || newAge > 30) throw new Error('Вік не є коректним')
+      //     //--- якщо значення коректне, то дозволяємо зберігання у закритому полі
+      //     this.#age = newAge
+      //   }
+      //   //----
+      //   get AverageScore() {
+      //     return this.#averageScore
+      //   }
+      //   set AverageScore(val) {
+      //     //---- спочатку перевіряємо валідність нового значення
+      //     if (val < 0 || val > 12)
+      //       throw new Error('Середній бал не є коректним')
+      //     //--- якщо значення коректне, то дозволяємо зберігання у закритому полі
+      //     this.#averageScore = val
+      //   }
+
+      //   toString() {
+      //     return `${this.name} : ${this.Age}, average ${this.AverageScore}`
+      //   }
+      // }
+      // //---
+      // let p1 = new Pupil('Ivan', 12, 68)
+
+      // document.write(p1)
+
+      //=====================================================
+      //       Приклад. Створити клас «Клієнт»
+      // (ім’я – довільний доступ (відкрите поле),
+      // номер рахунку – тільки для читання (генерується рандомно),
+      // кількість грошей – контрольований доступ (і читання і запис))
+      class Client {
+        constructor(userName, initialBalance = 0) {
+          //-- відкрите поле, просто створюємо додавши у this
+          this.userName = userName
+          //--- захищене поле, використовуємо приватне поле і setter
+          this.Balance = initialBalance
+          //--- приватне, але тільки для читання (немає setter)
+          this.#accountNumber = Math.random()
+        }
+        //---- номер рахунку
+        #accountNumber
+        get AccountNumber() {
+          return this.#accountNumber
+        }
+        //-- кількість грошей
+        //--приватне поле
+        #balance
+        //--getter - для читання значення приватного поля
+        get Balance() {
+          return this.#balance
+        }
+        //--setter - для встановлення нового значення (з контролем)
+        set Balance(newBalance) {
+          if (newBalance < 0) throw new Error('Не може бути баланс від"ємним')
+          this.#balance = newBalance
+        }
+        //-----------
+        toString() {
+          return `${this.userName} : ${this.AccountNumber} - ${this.Balance}`
+        }
+      }
+      //----------
+      const cl1 = new Client('Ivan', 798000)
+
+      document.write(cl1.AccountNumber)
+
+      //=====================================================
+      //       Задача 2. Створити клас Product, що представляє товар на складі
+      // поля:
+      // 	Назва товару
+      // 	Кількість одиниць
+      // 	Ціна одиниці
+      // методи:
+      // 	зменшення кількості товару
+      // 	збільшення кількості товару
+      // 	визначення вартості вказаної кількості товару
+      // 	нарахування вказаної знижки (у відсотках)
+      // 	визначення загальної вартості товару
+
+      //=====================================================
+      // Створити клас TMoney для роботи з грошовими сумами. Сума повинна зберігатися у вигляді доларового еквіваленту. Реалізувати методи додавання/вилучення грошової маси, вказуючи необхідну суму у гривнях, та визначення курсу долара, при якому сума у гривнях збільшиться на 100. Курс долара зберігати в окремому полі.
+
+      //=====================================================
+
+      //=====================================================
+    </script>
+  </body>
+</html>

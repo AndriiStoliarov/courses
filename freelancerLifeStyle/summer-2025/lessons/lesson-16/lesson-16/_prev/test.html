@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //=====================================================
+
+      //  Задача 0. Дано два об’єкта. Обидва містять масив цілих чисел. При цьому у одному з них є функція знаходження суми, а у іншому – функція для знаходження добутку тих, які знаходяться між заданими мінімальним і максимальних значенням.
+      // Використати обидва методи стосовно обидвох об’єктів (використати call, apply)
+      // let obj1 = {
+      //   numbers: [2, 1, 45, 5, 2, 3],
+
+      //   getSum: function () {
+      //     return this.numbers.reduce((prevSum, element) => prevSum + element)
+      //   },
+      // }
+
+      // let obj2 = {
+      //   numbers: [22, 11, 5, 45, 5, 23],
+      //   getProduct: function (minValue, maxValue) {
+      //     return this.numbers.reduce(
+      //       (prevProduct, num) =>
+      //         num >= minValue && num <= maxValue
+      //           ? prevProduct * num
+      //           : prevProduct,
+      //       1
+      //     )
+      //   },
+      // }
+      // // власник_функції . функції. call ( для_якого_об"єкта_застосувати, пар1, пар2, .. )
+      // let sum2 = obj1.getSum.call(obj2)
+
+      // let prod1 = obj2.getProduct.call(obj1, 3, 7)
+      // // власник_функції . функції. apply ( для_якого_об"єкта_застосувати, [пар1, пар2, ..] )
+      // let sum2a = obj1.getSum.apply(obj2)
+
+      // let prod1a = obj2.getProduct.apply(obj1, [3, 7])
+
+      // document.write(`1) Sum = ${obj1.getSum()} Product = ${prod1}  <br>`)
+      // document.write(
+      //   `2) Product = ${obj2.getProduct(10, 22)}   Sum = ${sum2}<br>`
+      // )
+
+      //=====================================================
+      // Задача. Створити клас TTime для роботи із часом у форматі “години:хвилини”. Час представляється структурою із двома полями. Реалізувати методи збільшення/зменшення  часу на певну кількість годин чи хвилин.
+      //---- Властивості
+      //  * години
+      //  * хвилини
+      //---- Методи (дії, які треба робити)
+      //   * метод збыльшення годин
+      //   * метод зменшення годин
+      //   * метод збыльшення хвилин
+      //   * метод зменшення хвилин
+      //======== Для створення якогось об"єкта потрібно знати
+      // - початкове значення години
+      // - початкове значення хвилин
+      // class TTime {
+      //   constructor(initHours, initMinutes) {
+      //     //---- Властивості
+      //     //  * години
+      //     this.hours = initHours
+      //     //  * хвилини
+      //     this.minutes = initMinutes
+      //   }
+      //   //---- Методи (дії, які треба робити)
+      //   //   * метод збільшення годин
+      //   increaseHours(value) {
+      //     this.hours = (this.hours + value) % 24
+      //   }
+      //   //   * метод зменшення годин
+      //   decreaseHours(value) {
+      //     this.hours -= value //завершити
+      //   }
+      //   //   * метод збільшення хвилин
+      //   increaseMinutes(value) {
+      //     this.minutes += value //minutes = 135 = 60+60+15
+      //     this.increaseHours(Math.floor(this.minutes / 60)) //this.increaseHours(2)
+      //     this.minutes = this.minutes % 60 //15
+      //   }
+      //   //   * метод зменшення хвилин
+      //   decreaseMinutes(value) {
+      //     this.minutes -= value //завершити
+      //   }
+      //   toString() {
+      //     return `${this.hours} : ${this.minutes}`
+      //   }
+      // }
+      // //-----------
+      // let t1 = new TTime(3, 45)
+      // t1.increaseHours(7)
+      // t1.increaseMinutes(20)
+      // document.write(t1)
+
+      //=====================================================
+      // let pupil = {
+      //   name: 'Ivan',
+      //   age: 14,
+      //   class_: 8,
+      //   score: 8,
+      //   toString: function () {
+      //     return `${this.name} : ${this.age}`
+      //   },
+      // }
+
+      // pupil.age = -15
+      // document.write(pupil)
+      //=====================================================
+      //       Задача. Розробити клас «Бронювання автомобіля»
+      // ------  Поля
+      //Вартість одного дня
+      //Розмір знижки (знижка на кожен день після 10-го дня 5%)
+      // ------- Методи
+      //Визначення вартості
+      // render
+
+      //=====================================================
+      //       Приклад. Створити об’єкт учень.
+      //        ----------- Властивості - характеристики ---------
+      //        ПІБ (прізвище, ім"я, по-батькові)
+      //        клас, у якому навчається
+      //        вік
+      //        середній бал
+
+      //        ------------ Методи (функіональні можливості) -------------
+
+      //        визначення того, ким він є (відмінник, хорошист, ...)
+      //        визначити кількості років до закінчення школи
+      // class Pupil {
+      //   //1)
+      //   #userName
+      //   #class
+      //   #age
+      //   #_averageScore
+      //   constructor(
+      //     initName,
+      //     initClass,
+      //     initAge,
+      //     initScore,
+      //     minAge = 7,
+      //     maxAge = 17
+      //   ) {
+      //     this.minAge = minAge
+      //     this.maxAge = maxAge
+      //     //4
+      //     this.UserName = initName
+      //     this.Age = initAge
+      //     this.Class = initClass
+      //     this.averageScore = initScore
+      //   }
+      //   //2
+      //   get UserName() {
+      //     return this.#userName
+      //   }
+      //   get Class() {
+      //     return this.#class
+      //   }
+      //   get Age() {
+      //     return this.#age
+      //   }
+      //   get averageScore() {
+      //     return this.#_averageScore
+      //   }
+
+      //   //3
+      //   set UserName(newName) {
+      //     if (newName.length === 0) throw new Error("Name can't be empty")
+      //     this.#userName = newName
+      //   }
+      //   set Class(newClass) {
+      //     if (newClass < 1 || newClass > 11)
+      //       throw new Error('class is incorrect')
+      //     this.#class = newClass
+      //   }
+      //   set Age(newValue) {
+      //     if (newValue < this.minAge || newValue > this.maxAge)
+      //       throw new Error('Age is incorrect')
+      //     else this.#age = newValue
+      //   }
+      //   set averageScore(val) {
+      //     if (val < 0 || val > 12) throw new Error('score is incorrect')
+      //     this.#_averageScore = val
+      //   }
+      //   //-----------------
+      //   //        ------------ Методи (функіональні можливості) -------------
+
+      //   //        визначення того, ким він є (відмінник, хорошист, ...)
+      //   get Category() {
+      //     if (this.averageScore < 4) return 'Двійочник'
+      //     if (this.averageScore < 7) return 'Трійочник'
+      //     if (this.averageScore < 10) return 'хорошист'
+      //     return 'Відмінник'
+      //   }
+
+      //   //        визначити кількості років до закінчення школи
+      //   get YearsToComplete() {
+      //     return 11 - this.Class
+      //   }
+      // }
+
+      // let p1 = new Pupil('Ivan', 7, 13, 10)
+      // let r = p1.Age //get
+      // p1.Age = 11 //set
+      // document.write(`Category${p1.Category} <br>`)
+      // document.write(`To complete : ${p1.YearsToComplete} <br>`)
+
+      // console.log(p1)
+
+      //=====================================================
+      //       Приклад. Створити клас «Клієнт»
+      // (ім’я – довільний доступ (відкрите поле),
+      // номер рахунку – тільки для читання,
+      // кількість грошей – контрольований доступ (і читання і запис))
+      class Client {
+        //1
+        #accountNumber
+        #money = 0
+        constructor(initName, accountNumber, initMoney) {
+          this.name = initName
+          this.#accountNumber = accountNumber
+          this.Money = initMoney
+        }
+        //2
+        get AccountNumber() {
+          // номер рахунку – тільки для читання,
+          return this.#accountNumber
+        }
+        get Money() {
+          return this.#money
+        }
+
+        //3
+        set Money(val) {
+          if (val < 0) throw new Error('Немає стілки коштів на рахунку')
+          this.#money = val
+        }
+
+        toString() {
+          return `${this.name}, account: ${this.AccountNumber}, Balance:${this.Money}`
+        }
+      }
+
+      let user = new Client('Ivan', '23434556', 20000)
+      document.write(user)
+      document.write('<br>')
+      user.Money = 230001
+      document.write(user)
+      document.write('<br>')
+      user.Money = -100
+
+      //=====================================================
+      //       Задача 2. Створити клас Product, що представляє товар на складі
+      // поля:
+      // 	Назва товару
+      // 	Кількість одиниць
+      // 	Ціна одиниці
+      // методи:
+      // 	зменшення кількості товару
+      // 	збільшення кількості товару
+      // 	визначення вартості вказаної кількості товару
+      // 	нарахування вказаної знижки (у відсотках)
+      // 	визначення загальної вартості товару
+
+      //=====================================================
+      //=====================================================
+      //=====================================================
+    </script>
+  </body>
+</html>
