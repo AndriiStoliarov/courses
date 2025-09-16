@@ -86,10 +86,12 @@ if (confirm("Почати тестування?")) {
     monthsAmount: number
   ): number {
     const fullYearsAmount = Math.floor(monthsAmount / 12);
+    const remainingMonths = monthsAmount % 12;
 
-    const yearOfFuture = dateObject.year + fullYearsAmount;
+    dateObject.month += remainingMonths;
+    dateObject.year += fullYearsAmount;
 
-    return yearOfFuture;
+    return dateObject.year;
   }
 }
 

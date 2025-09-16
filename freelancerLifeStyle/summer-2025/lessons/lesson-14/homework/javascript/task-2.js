@@ -63,8 +63,10 @@ if (confirm("Почати тестування?")) {
     // функция, яка визначає рік через визначену кількість місяців.
     function getYearDurationMonths(dateObject, monthsAmount) {
         const fullYearsAmount = Math.floor(monthsAmount / 12);
-        const yearOfFuture = dateObject.year + fullYearsAmount;
-        return yearOfFuture;
+        const remainingMonths = monthsAmount % 12;
+        dateObject.month += remainingMonths;
+        dateObject.year += fullYearsAmount;
+        return dateObject.year;
     }
 }
 document.write(`
