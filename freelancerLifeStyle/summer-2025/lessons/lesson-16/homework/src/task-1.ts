@@ -1,15 +1,42 @@
 // if (confirm("Почати тестування?")) {
-type TypeDate = {
+interface ITypeDate {
+  // properties:
   day: number;
   month: number;
   year: number;
-};
+  // methods:
+  toString(): string;
+}
 
-const beginning2025: TypeDate = {
-  day: 1,
-  month: 1,
-  year: 2025,
-};
+class TDate {
+  // properties:
+  private day: number = 0;
+  private month: number = 0;
+  private year: number = 0;
+
+  // constructor
+  constructor(initialDay: number, initialMonth: number, initialYear: number) {
+    this.day = initialDay;
+    this.month = initialMonth;
+    this.year = initialYear;
+  }
+  // methods:
+  // функция, яка визначає рік через визначену кількість місяців.
+  setYearDurationMonths(
+    monthsAmount: number
+  ): number {
+    const fullYearsAmount = Math.floor(monthsAmount / 12);
+    const remainingMonths = monthsAmount % 12;
+
+    this.month += remainingMonths;
+    this.year += fullYearsAmount;
+
+    return this.year;
+  },
+  public toString(): string {
+    return `${this.day}.${this.month}.${this.year}`;
+  }
+}
 
 document.write(`
     <li>
@@ -18,15 +45,15 @@ document.write(`
         <ul class="list">
   `);
 
-document.write(`
-    <li class="list__item">
-      <span>Вхідний об'ект: {</span><br>
-      <span>&ensp;</span><span>&ensp;</span><span>День: ${beginning2025.day},</span><br>
-      <span>&ensp;</span><span>&ensp;</span><span>Місяць: ${beginning2025.month},</span><br>
-      <span>&ensp;</span><span>&ensp;</span><span>Рік: ${beginning2025.year}</span><br>
-      <span>}.</span>
-    </li>
-  `);
+// document.write(`
+//     <li class="list__item">
+//       <span>Вхідний об'ект: {</span><br>
+//       <span>&ensp;</span><span>&ensp;</span><span>День: ${beginning2025.day},</span><br>
+//       <span>&ensp;</span><span>&ensp;</span><span>Місяць: ${beginning2025.month},</span><br>
+//       <span>&ensp;</span><span>&ensp;</span><span>Рік: ${beginning2025.year}</span><br>
+//       <span>}.</span>
+//     </li>
+//   `);
 
 document.write("<br>");
 
@@ -53,20 +80,6 @@ document.write(`
       </p>
     <li>
   `);
-
-// функция, яка визначає рік через визначену кількість місяців.
-function getYearDurationMonths(
-  dateObject: TypeDate,
-  monthsAmount: number
-): number {
-  const fullYearsAmount = Math.floor(monthsAmount / 12);
-  const remainingMonths = monthsAmount % 12;
-
-  dateObject.month += remainingMonths;
-  dateObject.year += fullYearsAmount;
-
-  return dateObject.year;
-}
 
 /**
  * Функція повертає випадкове число в заданому інтервалі.
