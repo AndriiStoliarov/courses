@@ -22,9 +22,7 @@ class TDate {
   }
   // methods:
   // функция, яка визначає рік через визначену кількість місяців.
-  setYearDurationMonths(
-    monthsAmount: number
-  ): number {
+  setYearDurationMonths(monthsAmount: number): number {
     const fullYearsAmount = Math.floor(monthsAmount / 12);
     const remainingMonths = monthsAmount % 12;
 
@@ -32,7 +30,8 @@ class TDate {
     this.year += fullYearsAmount;
 
     return this.year;
-  },
+  }
+
   public toString(): string {
     return `${this.day}.${this.month}.${this.year}`;
   }
@@ -67,11 +66,11 @@ if (isNaN(monthsAmount) || !isFinite(monthsAmount)) {
   monthsAmount = 0;
 }
 
-const yearOfFuture: number = getYearDurationMonths(beginning2025, monthsAmount);
+// const yearOfFuture: number = getYearDurationMonths(beginning2025, monthsAmount);
 
 document.write(`
     <li class="list__item">
-      <span>Через ${monthsAmount} міс. буде ${yearOfFuture} рік.</span>
+      <span>Через ${monthsAmount} міс. буде     рік.</span>
     </li>
   `);
 
