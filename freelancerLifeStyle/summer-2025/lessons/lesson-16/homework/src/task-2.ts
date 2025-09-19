@@ -120,7 +120,7 @@ if (confirm("Почати тестування?")) {
 
     document.write(`
     <li class="list__item">
-      <span>Курсу долара, при якому сума у гривнях збільшиться на 100 грн.: ${rateIncreaseSumBy100.toFixed(
+      <span>Курс долара, при якому сума у гривнях збільшиться на 100 грн.: ${rateIncreaseSumBy100.toFixed(
         2
       )}</span>
     </li>

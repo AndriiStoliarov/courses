@@ -83,7 +83,7 @@ if (confirm("Почати тестування?")) {
         const rateIncreaseSumBy100 = wallet.determineRateMoneyIncreaseBy100();
         document.write(`
     <li class="list__item">
-      <span>Курсу долара, при якому сума у гривнях збільшиться на 100 грн.: ${rateIncreaseSumBy100.toFixed(2)}</span>
+      <span>Курс долара, при якому сума у гривнях збільшиться на 100 грн.: ${rateIncreaseSumBy100.toFixed(2)}</span>
     </li>
   `);
     }
