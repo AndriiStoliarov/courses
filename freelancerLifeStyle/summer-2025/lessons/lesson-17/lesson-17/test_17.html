@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //=====================================================
+      // Створити клас Time, у якому є статичне поле для збереження формату часу 24/12.
+      //=====================================================
+      // Створити клас TMoney для роботи з грошовими сумами. Сума повинна зберігатися у вигляді доларового еквіваленту. Реалізувати методи додавання/вилучення грошової маси, вказуючи необхідну суму у гривнях, та визначення курсу долара, при якому сума у гривнях збільшиться на 100. Курс долара зберігати в окремому полі.
+      //----- TMoney
+      //--- Властивості
+      // сума в доларах
+      // курс долара
+      //--- Методи1
+      // додвання суми
+      // вилучення суми
+      // курсу долара, при якому сума у гривнях збільшиться на 100
+
+      //=============================================
+      // Задача 4. Створити клас Bankomat, який моделює роботу банкомата. Клас повинен містити поля для зберігання кількості купюр кожного із номіналів від 5 до 200 гривень. Реалізувати методи знаходження максимальної та мінімальної сум, які може видати банкомат, та метод зняття деякої суми.
+
+      //=====================================================
+      //Задача. Команда. Дано список студентів (ім"я, кількість балів). По черзі випадковим чином вибирають дві команди. Виграє той, у кого середній бал менше. Також є поле у якому зберігаємо інформацію про університет, де навчаються
+      // студенти (Назва, рік заснування)
+      // class Student {
+      //   constructor(studentData) {
+      //     Object.assign(this, studentData)
+      //   }
+      //   toString() {
+      //     return `${this.name} - ${this.score}`
+      //   }
+      // }
+      // //----
+      // class University {
+      //   constructor(initData) {
+      //     Object.assign(this, initData)
+      //   }
+      //   toString() {
+      //     return `${this.title} (${this.year})`
+      //   }
+      // }
+      // //---------
+      // class Team {
+      //   constructor(uniniversityData, studentsList = []) {
+      //     this.uniniversityData = new University(uniniversityData)
+      //     this.studentsList = [...studentsList]
+      //   }
+      //   add(studentObj) {
+      //     this.studentsList.push(studentObj)
+      //   }
+      //   remove(studentNameToRemove) {
+      //     this.studentsList = this.studentsList.filter(
+      //       (student) => student.name !== studentNameToRemove
+      //     )
+      //   }
+      //   getRandomGroup(studentsNumberInGroup) {
+      //     const copyStudentsList = [...this.studentsList]
+      //     const groupList = []
+      //     for (let i = 0; i < studentsNumberInGroup; i++) {
+      //       const randIndex = Math.floor(
+      //         Math.random() * copyStudentsList.length
+      //       )
+      //       groupList.push(copyStudentsList[randIndex])
+      //       copyStudentsList.splice(randIndex, 1)
+      //     }
+      //     return groupList
+      //   }
+      //   getAverageScore(groupList) {
+      //     return (
+      //       groupList.reduce((prevSum, student) => prevSum + student.score, 0) /
+      //       groupList.length
+      //     )
+      //   }
+      //   generateGroups(studentsNumberInGroup) {
+      //     return {
+      //       firstGroup: this.getRandomGroup(studentsNumberInGroup),
+      //       secondGroup: this.getRandomGroup(studentsNumberInGroup),
+      //     }
+      //   }
+      //   doTestSelection(studentsNumberInGroup) {
+      //     const testGroups = this.generateGroups(studentsNumberInGroup)
+      //     const group1Score = this.getAverageScore(testGroups.firstGroup)
+      //     const group2Score = this.getAverageScore(testGroups.secondGroup)
+      //     if (group1Score < group2Score) return testGroups.firstGroup
+      //     else if (group2Score < group1Score) return testGroups.secondGroup
+      //     else return []
+      //   }
+      // }
+      // //------------
+      // const team1 = new Team({ title: 'KPK', year: 1900 })
+      // const student1 = new Student({ name: 'Ivan', score: 10 })
+      // team1.add(student1)
+      // team1.add(new Student({ name: 'Olga', score: 11 }))
+      // team1.add(new Student({ name: 'Peter', score: 12 }))
+      // team1.add(new Student({ name: 'Vasil', score: 9 }))
+      // const winner = team1.doTestSelection(2)
+      // document.write(winner)
+      //=====================================================
+
+      // Задача. Склад. База товарів, які зберігаються на складі: назва товару, одиниця виміру, кількість, фірма виробник (назва, реєстраційний номер). Організувати реєстрацію/відвантаження товарів, фільтрація за назвою товару,
+      // фільтрація за назвою фірми.
+      // class Company {
+      //   constructor({ title, registryNumber }) {
+      //     this.title = title
+      //     this.registryNumber = registryNumber
+      //   }
+      //   toString() {
+      //     return `${this.title} - ${this.registryNumber}`
+      //   }
+      // }
+      //---------------
+      // class Company {
+      //   static owner = 'Ivan'
+      //   constructor({ title, registryNumber }) {
+      //     this.title = title
+      //     this.registryNumber = registryNumber
+      //   }
+
+      //   static changeOwner(newOwner) {
+      //     // Company.owner = newOwner
+      //     this.owner = newOwner
+      //   }
+
+      //   toString() {
+      //     return `${Company.owner} : ${this.title} - ${this.registryNumber}`
+      //   }
+      // }
+      // const c1 = new Company({ title: 'Sun', registryNumber: 111 })
+      // const c2 = new Company({ title: 'Motor', registryNumber: 234 })
+
+      // Company.changeOwner('Oleg')
+
+      // document.write(c1)
+
+      // class Product {
+      //   constructor(initData) {
+      //     Object.assign(this, initData)
+      //   }
+      //   toString() {
+      //     return `${this.title} - ${this.count}`
+      //   }
+      // }
+      // //----
+      // class Store {
+      //   constructor(initProductsList = []) {
+      //     this.productsList = [...initProductsList]
+      //   }
+      //   add(productObj) {
+      //     this.productsList.push({
+      //       id: productObj.title + new Date().getTime(),
+      //       data: productObj,
+      //     })
+      //   }
+      //   remove(productIdToRemove) {
+      //     this.productsList = this.productsList.filter(
+      //       (productItem) => productItem.id !== productIdToRemove
+      //     )
+      //   }
+      //   filterByProductName(productName){
+      //     return this.productsList.filter(prodItem=>prodItem.data.title===productName)
+      //   }
+      // }
+
+      // //-----------
+      // const company1 = new Company({ title: 'Sun', registryNumber: 11113 })
+      // const pr1 = new Product({
+      //   title: 'Tea',
+      //   measureUnits: 'kg',
+      //   count: 1222,
+      //   company: company1,
+      // })
+
+      //назва товару, одиниця виміру, кількість, фірма виробник
+      //=====================================================
+      //       Задача 2. Створити клас Product, що представляє товар на складі
+      // поля:
+      // 	Назва товару
+      // 	Кількість одиниць
+      // 	Ціна одиниці
+      // методи:
+      // 	зменшення кількості товару
+      // 	збільшення кількості товару
+      // 	визначення вартості вказаної кількості товару
+      // 	нарахування вказаної знижки (у відсотках)
+      // 	визначення загальної вартості товару
+
+      //=====================================================
+      // Створити клас TMoney для роботи з грошовими сумами. Сума повинна зберігатися у вигляді доларового еквіваленту. Реалізувати методи додавання/вилучення грошової маси, вказуючи необхідну суму у гривнях, та визначення курсу долара, при якому сума у гривнях збільшиться на 100. Курс долара зберігати в окремому полі.
+      //----- TMoney
+      //--- Властивості
+      // сума в доларах
+      // курс долара
+      //--- Методи1
+      // додвання суми
+      // вилучення суми
+      // курсу долара, при якому сума у гривнях збільшиться на 100
+      //=====================================================
+
+      // Задача.  Описати клієнта банку
+      // ----- Властивості ------
+      // ПІБ
+      //       * прізвище
+      //       * ім’я
+      // адреса
+      //       * код
+      //       * місто
+      //       * вулиця
+      //       * номер будинку
+      // номер рахунку
+      // кількість грошей
+      //-----------------------------
+
+      //============================================= static
+      // class Test {
+      //   //статичне поле (для всіх об"єктів єдине)
+      //   static statField = 10
+
+      //   static counter = 0 //кількість створених об"єктів
+
+      //   constructor(value) {
+      //     // звичайне поле (у кожного об"єкта своє)
+      //     this.field2 = value
+      //     Test.counter++
+      //   }
+      //   toString() {
+      //     return `${this.field2} - ${Test.statField} <br>`
+      //   }
+      // }
+
+      // let t1 = new Test(77)
+      // let t2 = new Test(88)
+      // let t3 = new Test(88)
+      // let t4 = new Test(88)
+
+      // document.write(Test.counter)
+      //=============================================
+      // Задача. Реалізувати конвертер валют. Курси валют та методи перетвоення повинні бути статичними
+      // class Converter {
+      //   static dollarRate = 49
+      //   static euroRate = 52
+      //   static grnToDollar(grnAmont) {
+      //     return grnAmont / this.dollarRate
+      //   }
+      //   static grnToEuro(grnAmont) {
+      //     return grnAmont / this.euroRate
+      //   }
+      // }
+
+      // document.write(Converter.grnToDollar(122323))
+
+      // ==================================
+      // Задача. Черговий. Дано спосок студентів одного курсу (ПІБ, курс). Розробити менеджер чергових, який
+      // дозволяє випадковим чином обирати і запам’ятовувати обраного чергового студента (один раз обрали і не змінюємо)
+
+      //=============================================
+      //   Задача. Розробити "Рекламний агент". Випадковим чином у зададному діапазоні задається інтервал,  і через згенеровану кількість секунд виводиться деяка реклама. Після цього знову генерується випадковий інтервал. У процесі роботи для усіх раніше створених об"єктів - рекламних агентів мінімальне/максимальне значення інтевалу можуть змінюватись. Мінмальне і максимальне значення інтервалу - статичні
+
+      // class AdItem {
+      //   static minMs = 1000
+      //   static maxMs = 3000
+      //   constructor(msg) {
+      //     this.msg = msg
+      //   }
+      //   getRandomInterval() {
+      //     return (
+      //       AdItem.minMs +
+      //       Math.floor(Math.random() * (AdItem.maxMs - AdItem.minMs))
+      //     )
+      //   }
+      //   setAdv() {
+      //     const interval = this.getRandomInterval()
+      //     setTimeout(() => {
+      //       document.write(`${this.msg} - ${interval} ms<br>`)
+      //       this.setAdv()
+      //     }, interval)
+      //   }
+
+      //   run() {
+      //     this.setAdv()
+      //   }
+      // }
+      // const adv1 = new AdItem('Adv-1111')
+      // const adv2 = new AdItem('Adv-2222')
+      // adv1.run()
+      // adv2.run()
+
+      // setTimeout(() => {
+      //   AdItem.minMs = 5000
+      //   AdItem.maxMs = 7000
+      // }, 4000)
+
+      //=============================================
+      //---- підрахунок кількості створених об"єктів
+      // class Test {
+      //   static objCount = 0
+      //   constructor(msg) {
+      //     this.msg = msg
+      //     Test.objCount++
+      //   }
+      // }
+
+      // const t1 = new Test('ok')
+      // const t2 = new Test('hello')
+      // const t3 = new Test('bye')
+      // const t4 = new Test('like')
+
+      // document.write(Test.objCount)
+      //=============================================
+      //Задача. Статистика методів.Дано клас Масив, який зберігає масив і має методи для знаходження суми, добутку, максимального.
+      // Користувач може створити довільну кількість об’єктів даного класу. Підрахувати загальну кількість викликів
+      // кожного із  методів (незалежно від об’єкта)
+      //Потрібно описати статичні каунтери для кожного метода
+      // class MyArray {
+      //   static sumCallsCount = 0
+      //   static productCallsCount = 0
+      //   constructor(numbersList) {
+      //     this.numbersList = numbersList
+      //   }
+      //   get Sum() {
+      //     MyArray.sumCallsCount++
+      //     return this.numbersList.reduce((prevSum, el) => prevSum + el)
+      //   }
+      //   get Product() {
+      //     MyArray.productCallsCount++
+      //     return this.numbersList.reduce((prevSum, el) => prevSum * el)
+      //   }
+      //   static showStatistics() {
+      //     document.write(
+      //       `Sum: ${this.sumCallsCount},  Product:${this.productCallsCount}`
+      //     )
+      //   }
+      // }
+
+      // //---
+      // const arr1 = new MyArray([2, 1, 6, 3, 32, 3])
+      // const arr2 = new MyArray([8, 23, 1])
+      // document.write(arr1.Sum)
+      // document.write(arr1.Sum)
+      // document.write(arr2.Sum)
+      // document.write(arr2.Product)
+      // document.write('<br>')
+      // MyArray.showStatistics()
+
+      //=============================================
+      //Задача. Черговий. Дано список студентів одного курсу (ПІБ). Розробити менеджер чергових, який дозволяє випадковим чином обирати і запам’ятовувати обраного чергового студента (один раз обрали і не змінюємо)
+      class OnDuty {
+        //--- поле для зберігання єдиного екземпляра об"єкта
+        static onDutyRef
+        constructor(studentsList) {
+          //--- якщо раніше був створений, то повертаємо його адресу
+          if (OnDuty.onDutyRef) return OnDuty.onDutyRef
+
+          //--- інакше - створюємо новий об"єкт
+          this.studentsList = studentsList
+          this.onDuty = this.getRandomStudent()
+          //-- запам"ятовуємо його адресу
+          OnDuty.onDutyRef = this
+        }
+        getRandomStudent() {
+          const randIndex = Math.floor(Math.random() * this.studentsList.length)
+          return this.studentsList[randIndex]
+        }
+      }
+      //-----
+      const st1 = new OnDuty(['Olga', 'Peter', 'Irina', 'Oleh'])
+      const st2 = new OnDuty(['Olga', 'Peter', 'Irina', 'Oleh'])
+      document.write(`${st1.onDuty}<br>`)
+      document.write(`${st2.onDuty}<br>`)
+
+      //=============================================
+
+      //=============================================
+
+      //Команда. Дано список студентів (ім"я, кількість балів). По черзі випадковим чином вибирають дві команди. Виграє той, у кого середній бал менше
+      //Порівняння статичний метод
+
+      //================
+
+      //=============================================
+      //   Склад. База товарів, які зберігаються на складі: назва товару, одиниця виміру, кількість, фірма виробник (назва, реєстраційний номер). Організувати реєстрацію/відвантаження товарів, філтрація за назвою товару, фільтрація за назвою фірми
+
+      //=============================================
+      //Особиста бібліотека. Картотека домашньої бібліотеки: дані книги (автори (піб, рік народження, короткий опис), назва книги, жанр, видавництво (назва, реєстраційний номер, рік засування)). Реалізувати розділи бібліотеки (спеціальна література, хобі, домашнє господарство і т.д.), походження книги і наявність на даний час. Організувати додавання/вилучення книг та  вибір книг за назвою, за ПІБ автора, за видавництвом.
+      //=============================================
+      // Задача. Створити клас TBankomat, який моделює роботу банкомата. Клас повинен містити поля для зберігання кількості купюр кожного із номіналів від 5 до 200 гривень. Реалізувати методи знаходження максимальної та мінімальної сум, які може видати банкомат, та метод зняття деякої суми.
+      //=============================================
+
+      //=============================================
+    </script>
+  </body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //=============================================
+      // Задача 4. Створити клас Bankomat, який моделює роботу банкомата. Клас повинен містити поля для зберігання кількості купюр кожного із номіналів від 5 до 200 гривень. Реалізувати методи знаходження максимальної та мінімальної сум, які може видати банкомат, та метод зняття деякої суми.
+      //--- купюра ----
+      // class Note {
+      //   constructor(noteValue, noteNumber) {
+      //     // noteValue -  номінал, noteNumber - кількість штук купюр
+      //     this.value = noteValue
+      //     this.number = noteNumber
+      //   }
+      //   get totalValue() {
+      //     return this.value * this.number
+      //   }
+      //   toString() {
+      //     return `${this.value} : ${this.number}`
+      //   }
+      // }
+      // class Bankomat {
+      //   constructor(notesList) {
+      //     this.notesList = notesList
+      //   }
+      //   get minSum() {
+      //     let minNote = this.notesList.reduce(
+      //       (prevNoteValue, note) =>
+      //         note.number > 0 && note.value < prevNoteValue
+      //           ? note.value
+      //           : prevNoteValue,
+      //       Infinity
+      //     )
+      //     return isFinite(minNote) ? minNote : 0
+      //   }
+      //   get maxSum() {
+      //     let sum = this.notesList.reduce(
+      //       (prevSum, note) => prevSum + note.totalValue,
+      //       0
+      //     )
+      //     return sum
+      //   }
+      //   //----- метод визначення чи можна видати потрібну суму ---
+      //   getPossibleNotesList(userMoney) {
+      //     let possibleNotes = []
+      //     for (let i = 0; i < this.notesList.length && userMoney > 0; i++) {
+      //       let note = this.notesList[i]
+      //       if (userMoney >= note.value && note.number > 0) {
+      //         let notesNum = Math.floor(userMoney / note.value)
+      //         let notesToGive = Math.min(notesNum, note.number)
+      //         possibleNotes.push({
+      //           note,
+      //           notesToGive,
+      //         })
+      //         userMoney -= notesToGive * note.value
+      //       }
+      //     }
+      //     if (userMoney > 0) return false
+      //     return possibleNotes
+      //   }
+      //   //----- метод зняття деякої суми ---
+      //   getMoney(userMoney) {
+      //     if (userMoney > this.maxSum) {
+      //       document.write('У банкоматі немає такої суми ')
+      //       return
+      //     }
+      //     let possibleNotes = this.getPossibleNotesList(userMoney)
+      //     console.log(possibleNotes)
+      //     if (possibleNotes) {
+      //       for (const { note, notesToGive } of possibleNotes) {
+      //         document.write(`${note.value} : ${notesToGive}<br>`)
+      //         note.number -= notesToGive
+      //       }
+      //       document.write('Заберіть Ваші гроші!')
+      //     } else {
+      //       document.write('Не можна видати таку суму бо немає таких купюр ')
+      //     }
+      //   }
+      // }
+
+      // let notesList = [
+      //   new Note(200, 1),
+      //   new Note(100, 40),
+      //   new Note(50, 12),
+      //   new Note(20, 19),
+      //   new Note(10, 9),
+      //   new Note(5, 0),
+      // ]
+
+      // let bankomat = new Bankomat(notesList)
+      // bankomat.getMoney(51)
+      //=====================================================
+      //       Задача. Команда. Дано список студентів (ім"я, кількість балів). По черзі випадковим чином вибирають дві команди. Виграє той, у кого середній бал менше
+      // class Student {
+      //   constructor(initData) {
+      //     Object.assign(this, initData)
+      //   }
+      //   // constructor({ name, score }) {
+      //   //   this.name = name
+      //   //   this.score = score
+      //   // }
+      //   toString() {
+      //     return ` ${this.name} - ${this.score}`
+      //   }
+      // }
+
+      // class Team {
+      //   constructor(title, studentsList, membersNumber) {
+      //     this.title = title
+      //     //----- АГРЕГАЦІЯ -----------
+      //     this.members = this.selectMembers([...studentsList], membersNumber)
+      //   }
+      //   selectMembers(studentsList, membersNumber) {
+      //     let arr = []
+      //     for (let i = 0; i < membersNumber; i++) {
+      //       let randIndex = Math.floor(Math.random() * studentsList.length)
+      //       arr.push(studentsList[randIndex])
+      //       studentsList.splice(randIndex, 1)
+      //     }
+      //     return arr
+      //   }
+      //   get averageScore() {
+      //     let sum = this.members.reduce(
+      //       (prevSum, stud) => prevSum + stud.score,
+      //       0
+      //     )
+      //     return sum / this.members.length
+      //   }
+      //   toString() {
+      //     let str = `${this.title} <br>`
+      //     this.members.forEach((stud) => {
+      //       str += `${stud} <br>`
+      //     })
+      //     return str
+      //   }
+      // }
+      // class Game {
+      //   constructor(studentsList, membersNumber) {
+      //     //------- Композиція -------------------
+      //     this.team1 = new Team('Team1', studentsList, membersNumber)
+      //     this.team2 = new Team('Team2', studentsList, membersNumber)
+      //   }
+      //   getWinner() {
+      //     if (this.team1.averageScore > this.team2.averageScore)
+      //       return this.team1.title
+      //     else if (this.team1.averageScore < this.team2.averageScore)
+      //       return this.team2.title
+      //     else return 'Нічия'
+      //   }
+      // }
+      // //----------------
+
+      // let studentsList = [
+      //   new Student({ name: 'Ivan1', score: 10 }),
+      //   new Student({ name: 'Ivan2', score: 11 }),
+      //   new Student({ name: 'Ivan3', score: 9 }),
+      //   new Student({ name: 'Ivan4', score: 6 }),
+      //   new Student({ name: 'Ivan5', score: 8 }),
+      //   new Student({ name: 'Ivan6', score: 12 }),
+      // ]
+
+      // let game = new Game(studentsList, 3)
+      // document.write(game.getWinner())
+      //=====================================================
+
+      // Задача. Склад. База товарів, які зберігаються на складі: назва товару, одиниця виміру, кількість, фірма виробник
+      // (назва, реєстраційний номер). Організувати реєстрацію/відвантаження товарів, фільтрація за назвою товару,
+      // фільтрація за назвою фірми.
+
+      //=====================================================
+      //       Задача 2. Створити клас Product, що представляє товар на складі
+      // поля:
+      // 	Назва товару
+      // 	Кількість одиниць
+      // 	Ціна одиниці
+      // методи:
+      // 	зменшення кількості товару
+      // 	збільшення кількості товару
+      // 	визначення вартості вказаної кількості товару
+      // 	нарахування вказаної знижки (у відсотках)
+      // 	визначення загальної вартості товару
+
+      //=====================================================
+      // Створити клас TMoney для роботи з грошовими сумами. Сума повинна зберігатися у вигляді доларового еквіваленту. Реалізувати методи додавання/вилучення грошової маси, вказуючи необхідну суму у гривнях, та визначення курсу долара, при якому сума у гривнях збільшиться на 100. Курс долара зберігати в окремому полі.
+      //----- TMoney
+      //--- Властивості
+      // сума в доларах
+      // курс долара
+      //--- Методи1
+      // додвання суми
+      // вилучення суми
+      // курсу долара, при якому сума у гривнях збільшиться на 100
+      //=====================================================
+
+      // Задача.  Описати клієнта банку
+      // ----- Властивості ------
+      // ПІБ
+      //       * прізвище
+      //       * ім’я
+      // адреса
+      //       * код
+      //       * місто
+      //       * вулиця
+      //       * номер будинку
+      // номер рахунку
+      // кількість грошей
+      //-----------------------------
+
+      //============================================= static
+      // class Test {
+      //   //статичне поле (для всіх об"єктів єдине)
+      //   static statField = 10
+
+      //   static counter = 0 //кількість створених об"єктів
+
+      //   constructor(value) {
+      //     // звичайне поле (у кожного об"єкта своє)
+      //     this.field2 = value
+      //     Test.counter++
+      //   }
+      //   toString() {
+      //     return `${this.field2} - ${Test.statField} <br>`
+      //   }
+      // }
+
+      // let t1 = new Test(77)
+      // let t2 = new Test(88)
+      // let t3 = new Test(88)
+      // let t4 = new Test(88)
+
+      // document.write(Test.counter)
+      //=============================================
+      // Задача. Реалізувати конвертер валют. Курси валют та методи перетвоення повинні бути статичними
+      // class Converter {
+      //   static rate = 32 //курс валюти
+      //   static grnToDollar(grn) {
+      //     return grn / Converter.rate
+      //   }
+      //   static dollarToGrn(dollarSum) {
+      //     return dollarSum * Converter.rate
+      //   }
+      // }
+      // //----
+      // // document.write(Converter.grnToDollar(3200))
+      // Converter.rate = 37
+      // document.write(Converter.grnToDollar(3200))
+
+      //=============================================
+      //   Задача. Розробити "Рекламний агент". Випадковим чином у зададному діапазоні задається інтервал,
+      //   і через згенеровану кількість секунд виводиться деяка реклама. Після цього знову генерується випадковий інтервал.
+      //   У процесі роботи для усіх раніше створених об"єктів - рекламних агентів мінімальне/максимальне значення інтевалу можуть змінюватись.
+      //Мінмальне і максимальне значення інтервалу - статичні
+
+      //=============================================
+      //Задача. Статистика методів.Дано клас Масив, який зберігає масив і має методи для знаходження суми, добутку, максимального.
+      // Користувач може створити довільну кількість об’єктів даного класу. Підрахувати загальну кількість викликів
+      // кожного із  методів (незалежно від об’єкта)
+      //Потрібно описати статичні каунтери для кожного метода
+
+      //=============================================
+      //Задача. Черговий. Дано список студентів одного курсу (ПІБ). Розробити менеджер чергових, який
+      // дозволяє випадковим чином обирати і запам’ятовувати обраного чергового студента (один раз обрали і не змінюємо)
+
+      // class OnDutyPerson {
+
+      //   static onDutyPersonRef //поле, де будемо збрерігати адресу створеного об"єкта
+
+      //   constructor(studentsList) {
+
+      //     //спочатку перевіряємо чи вже не було створено об"єктів
+      //     if (OnDutyPerson.onDutyPersonRef)
+      //       //якщо об"єкт вже було створено
+      //       return OnDutyPerson.onDutyPersonRef // то повертаємо його адресу (а не створюємо новий об"єкт)
+
+      //     this.name = this.getDutyPerson(studentsList)
+      //     OnDutyPerson.onDutyPersonRef = this
+      //   }
+      //   getDutyPerson(studentsList) {
+      //     let randIndex = Math.floor(Math.random() * studentsList.length)
+      //     return studentsList[randIndex]
+      //   }
+      //   toString() {
+      //     return this.name
+      //   }
+      // }
+      // //-----
+      // let studentsList = ['Olga', 'Piter', 'Sem', 'Ivan']
+      // let d1 = new OnDutyPerson(studentsList)
+      // document.write(d1)
+      // document.write('<br>')
+      // let d2 = new OnDutyPerson(studentsList)
+      // document.write(d2)
+      // document.write('<br>')
+      // document.write(d1 === d2)
+
+      //=============================================
+
+      //=============================================
+
+      //Команда. Дано список студентів (ім"я, кількість балів). По черзі випадковим чином вибирають дві команди. Виграє той, у кого середній бал менше
+      //Порівняння статичний метод
+
+      //================
+
+      //=============================================
+      //   Склад. База товарів, які зберігаються на складі: назва товару, одиниця виміру, кількість, фірма виробник (назва, реєстраційний номер). Організувати реєстрацію/відвантаження товарів, філтрація за назвою товару, фільтрація за назвою фірми
+
+      //=============================================
+      //Особиста бібліотека. Картотека домашньої бібліотеки: дані книги (автори (піб, рік народження, короткий опис), назва книги, жанр, видавництво (назва, реєстраційний номер, рік засування)). Реалізувати розділи бібліотеки (спеціальна література, хобі, домашнє господарство і т.д.), походження книги і наявність на даний час. Організувати додавання/вилучення книг та  вибір книг за назвою, за ПІБ автора, за видавництвом.
+      //=============================================
+      // Задача. Створити клас TBankomat, який моделює роботу банкомата. Клас повинен містити поля для зберігання кількості купюр кожного із номіналів від 5 до 200 гривень. Реалізувати методи знаходження максимальної та мінімальної сум, які може видати банкомат, та метод зняття деякої суми.
+      //=============================================
+
+      //=============================================
+    </script>
+  </body>
+</html>
