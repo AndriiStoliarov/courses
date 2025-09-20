@@ -1,55 +1,31 @@
 "use strict";
-class MathOperations {
-    constructor() { }
-    static set numbers(inputArray) {
-        if (inputArray.length !== 0) {
-            this._numbers = inputArray;
-        }
-        else {
-            throw new Error("Array is empty.");
-        }
-    }
-    static get numbers() {
-        return this._numbers;
+class CompanyCar {
+    constructor(initialMake, initialNumber, initialDriver) {
+        this.make = "";
+        this.number = "";
+        this.driver = "";
+        if (CompanyCar.instance)
+            return CompanyCar.instance;
+        this.driver = initialDriver;
+        this.make = initialMake;
+        this.number = initialNumber;
+        CompanyCar.instance = this;
     }
     // methods:
-    static toString() {
-        return `Numbers:[${this._numbers}]`;
+    toString() {
+        return `CompanyCar:[${this.make}, ${this.number}, ${this.driver}]`;
     }
-    // метод для знаходження кількості додатних.
-    static getPositiveAmount() {
-        const positiveAmount = this._numbers.reduce((amount, number) => (number > 0 ? amount + 1 : amount), 0);
-        return positiveAmount;
-    }
-    // метод для знаходження кількості від’ємних.
-    static getNegativeAmount() {
-        const negativeAmount = this._numbers.reduce((amount, number) => (number < 0 ? amount + 1 : amount), 0);
-        return negativeAmount;
-    }
-    // метод для підрахунку кількості входжень деякого числа.
-    static getCertainAmount(inputNumber) {
-        const certainAmount = this._numbers.reduce((amount, number) => (number === inputNumber ? amount + 1 : amount), 0);
-        return certainAmount;
-    }
-    // метод для виводу масиву.
-    static showArray() {
+    // метод для виводу властивостей.
+    showCompanyCar() {
         document.write(`
     <li class="list__item">
-      <span>Вхідний масив: [</span>
-  `);
-        for (const number of this._numbers) {
-            document.write(`
-      <span>${number}</span>
-    `);
-        }
-        document.write(`
-      <span>].</span>
+      <span>&ensp;</span><span>&ensp;</span><span>Марка: ${this.make},</span><br>
+      <span>&ensp;</span><span>&ensp;</span><span>Номер: ${this.number},</span><br>
+      <span>&ensp;</span><span>&ensp;</span><span>Водій: ${this.driver}.</span>
     </li>
   `);
     }
 }
-// properties:
-MathOperations._numbers = [];
 document.write(`
     <li>
       <p>
@@ -57,27 +33,21 @@ document.write(`
         <ul class="list">
   `);
 try {
-    MathOperations.numbers = createArray(20, -20, 20);
-    MathOperations.showArray();
+    const companyCar1 = new CompanyCar("BMW", "A258HP", "Ivan");
+    document.write(`
+    <li class="list__item">
+      <span>Властивості першого екземпляра класу:</span>
+    </li>
+  `);
+    companyCar1.showCompanyCar();
     document.write("<br>");
-    const positiveAmount = MathOperations.getPositiveAmount();
+    const companyCar2 = new CompanyCar("Audi", "P366NH", "Max");
     document.write(`
     <li class="list__item">
-      <span>Кількість додатних чисел в масиві: ${positiveAmount}.</span>
+      <span>Властивості класу при спробі створити ще один екземпляр:</span>
     </li>
   `);
-    const negativeAmount = MathOperations.getNegativeAmount();
-    document.write(`
-    <li class="list__item">
-      <span>Кількість від’ємних чисел в масиві: ${negativeAmount}.</span>
-    </li>
-  `);
-    const certainAmount = MathOperations.getCertainAmount(10);
-    document.write(`
-    <li class="list__item">
-      <span>Кількість входжень числа (деякого) 10 в масив: ${certainAmount}.</span>
-    </li>
-  `);
+    companyCar2.showCompanyCar();
 }
 catch (error) {
     document.write(`

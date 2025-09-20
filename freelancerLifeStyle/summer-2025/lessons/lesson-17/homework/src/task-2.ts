@@ -1,78 +1,47 @@
 // if (confirm("Почати тестування?")) {
 interface ICompanyCar {
   // properties:
-  numbers: number[];
+  driver: string;
+  make: string;
+  number: string;
   // methods:
   toString(): string;
-  getPositiveAmount(): number;
-  getNegativeAmount(): number;
-  getCertainAmount(inputNumber: number): number;
-  showArray(): void;
+  showCompanyCar(): void;
 }
 
-class MathOperations {
+class CompanyCar {
   // properties:
-  static _numbers: number[] = [];
+  private static instance: CompanyCar;
 
-  constructor() {}
+  private make: string = "";
+  private number: string = "";
+  private driver: string = "";
 
-  static set numbers(inputArray: number[]) {
-    if (inputArray.length !== 0) {
-      this._numbers = inputArray;
-    } else {
-      throw new Error("Array is empty.");
-    }
+  constructor(
+    initialMake: string,
+    initialNumber: string,
+    initialDriver: string
+  ) {
+    if (CompanyCar.instance) return CompanyCar.instance;
+
+    this.driver = initialDriver;
+    this.make = initialMake;
+    this.number = initialNumber;
+
+    CompanyCar.instance = this;
   }
 
-  static get numbers() {
-    return this._numbers;
-  }
   // methods:
-  static toString(): string {
-    return `Numbers:[${this._numbers}]`;
+  toString(): string {
+    return `CompanyCar:[${this.make}, ${this.number}, ${this.driver}]`;
   }
-  // метод для знаходження кількості додатних.
-  static getPositiveAmount(): number {
-    const positiveAmount: number = this._numbers.reduce(
-      (amount, number) => (number > 0 ? amount + 1 : amount),
-      0
-    );
-
-    return positiveAmount;
-  }
-  // метод для знаходження кількості від’ємних.
-  static getNegativeAmount(): number {
-    const negativeAmount: number = this._numbers.reduce(
-      (amount, number) => (number < 0 ? amount + 1 : amount),
-      0
-    );
-
-    return negativeAmount;
-  }
-  // метод для підрахунку кількості входжень деякого числа.
-  static getCertainAmount(inputNumber: number): number {
-    const certainAmount: number = this._numbers.reduce(
-      (amount, number) => (number === inputNumber ? amount + 1 : amount),
-      0
-    );
-
-    return certainAmount;
-  }
-  // метод для виводу масиву.
-  static showArray(): void {
+  // метод для виводу властивостей.
+  public showCompanyCar(): void {
     document.write(`
     <li class="list__item">
-      <span>Вхідний масив: [</span>
-  `);
-
-    for (const number of this._numbers) {
-      document.write(`
-      <span>${number}</span>
-    `);
-    }
-
-    document.write(`
-      <span>].</span>
+      <span>&ensp;</span><span>&ensp;</span><span>Марка: ${this.make},</span><br>
+      <span>&ensp;</span><span>&ensp;</span><span>Номер: ${this.number},</span><br>
+      <span>&ensp;</span><span>&ensp;</span><span>Водій: ${this.driver}.</span>
     </li>
   `);
   }
@@ -86,35 +55,27 @@ document.write(`
   `);
 
 try {
-  MathOperations.numbers = createArray(20, -20, 20);
+  const companyCar1 = new CompanyCar("BMW", "A258HP", "Ivan");
 
-  MathOperations.showArray();
+  document.write(`
+    <li class="list__item">
+      <span>Властивості першого екземпляра класу:</span>
+    </li>
+  `);
+
+  companyCar1.showCompanyCar();
 
   document.write("<br>");
 
-  const positiveAmount: number = MathOperations.getPositiveAmount();
+  const companyCar2 = new CompanyCar("Audi", "P366NH", "Max");
 
   document.write(`
     <li class="list__item">
-      <span>Кількість додатних чисел в масиві: ${positiveAmount}.</span>
+      <span>Властивості класу при спробі створити ще один екземпляр:</span>
     </li>
   `);
 
-  const negativeAmount: number = MathOperations.getNegativeAmount();
-
-  document.write(`
-    <li class="list__item">
-      <span>Кількість від’ємних чисел в масиві: ${negativeAmount}.</span>
-    </li>
-  `);
-
-  const certainAmount: number = MathOperations.getCertainAmount(10);
-
-  document.write(`
-    <li class="list__item">
-      <span>Кількість входжень числа (деякого) 10 в масив: ${certainAmount}.</span>
-    </li>
-  `);
+  companyCar2.showCompanyCar();
 } catch (error: any) {
   document.write(`
     <li class="list__item">
