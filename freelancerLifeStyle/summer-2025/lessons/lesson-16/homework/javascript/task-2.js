@@ -17,29 +17,25 @@ if (confirm("Почати тестування?")) {
             // конвертуємо всю суму в гривні
             const currentMoneyUAH = this._moneyUSD * this.currentRate;
             // збільшуємо суму на 100 грн.
-            const currentMoneyUAHPlus100 = currentMoneyUAH + 100;
             // знаходимо на скільки відсотків збільшилася сума
-            const moneyPercentIncrease = (currentMoneyUAHPlus100 * 100) / currentMoneyUAH - 100;
+            const moneyPercentIncrease = ((currentMoneyUAH + 100) * 100) / currentMoneyUAH - 100;
             // знаходимо на скільки доларів треба збільшити поточний курс
-            const partOfRateIncreaseSumBy100 = (this.currentRate * moneyPercentIncrease) / 100;
             // збільшуємо поточній курс на знайдений відсоток в доларах
-            const rateIncreaseSumBy100 = this.currentRate + partOfRateIncreaseSumBy100;
+            const rateIncreaseSumBy100 = this.currentRate + (this.currentRate * moneyPercentIncrease) / 100;
             return rateIncreaseSumBy100;
         }
         // метод для додавання грошової маси з конвертацією в доларовий еквівалент.
         addMoney(currentMoneyUAH) {
             // знаходимо скільки коштує доларів одна гривня
-            const currentRateUAHtoUSD = 1 / this.currentRate;
             // конвертуємо внесені гривні в долари
-            const currentMoneyUSD = currentMoneyUAH * currentRateUAHtoUSD;
+            const currentMoneyUSD = currentMoneyUAH * (1 / this.currentRate);
             this._moneyUSD += currentMoneyUSD;
         }
         // метод для вилучення грошової маси з конвертацією в доларовий еквівалент.
         withdrawalMoney(currentMoneyUAH) {
             // знаходимо скільки коштує доларів одна гривня
-            const currentRateUAHtoUSD = 1 / this.currentRate;
             // конвертуємо в долари гривні, які треба вилучити
-            const currentMoneyUSD = currentMoneyUAH * currentRateUAHtoUSD;
+            const currentMoneyUSD = currentMoneyUAH * (1 / this.currentRate);
             this._moneyUSD -= currentMoneyUSD;
         }
         // гетер для поля moneyUSD.
@@ -49,13 +45,13 @@ if (confirm("Почати тестування?")) {
         // метод для виводу об'єкта.
         showObject() {
             document.write(`
-    <li class="list__item">
-      <span>Вхідний об'ект: {</span><br>
-      <span>&ensp;</span><span>&ensp;</span><span>сума грошей у доларах: ${this._moneyUSD.toFixed(2)},</span><br>
-      <span>&ensp;</span><span>&ensp;</span><span>поточній курс: ${this.currentRate}</span><br>
-      <span>}.</span>
-    </li>
-  `);
+        <li class="list__item">
+          <span>Вхідний об'ект: {</span><br>
+          <span>&ensp;</span><span>&ensp;</span><span>сума грошей у доларах: ${this._moneyUSD.toFixed(2)},</span><br>
+          <span>&ensp;</span><span>&ensp;</span><span>поточній курс: ${this.currentRate}</span><br>
+          <span>}.</span>
+        </li>
+      `);
         }
     }
     document.write(`
