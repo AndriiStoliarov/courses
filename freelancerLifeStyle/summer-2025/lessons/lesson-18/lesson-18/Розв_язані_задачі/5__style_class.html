@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .selected {
+        border: 2px solid green;
+      }
+      .danger {
+        color: red;
+      }
+    </style>
+
+    <script>
+      window.onload = function () {
+        document.querySelector('input').type = 'number'
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <label>
+        Age
+        <input type="text" value="99" />
+      </label>
+    </div>
+    <div id="my" class="selected">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem magnam,
+      tempora repellat facere sunt veniam. Molestiae aperiam, voluptate eaque
+      eius maiores, commodi hic illum possimus vitae corporis officia culpa
+      voluptatibus.
+    </div>
+
+    <script>
+      //замінити повністю клас
+      // setTimeout(() => {
+      //   document.getElementById('my').className = 'danger'
+      // }, 3000)
+      //додати клас до існуючих
+      // setTimeout(() => {
+      //   document.getElementById('my').classList.add('danger')
+      // }, 3000)
+      //динамічно додавати/видаляти (зелена рамка повинна то зникати, то з"являтися кожну секунду)
+      // setInterval(() => {
+      //   document.getElementById('my').classList.toggle('selected')
+      // }, 1000)
+      //Задача. Інупут спочатку з атрибутом type = "text" а через 3 секунди "number"
+      // setTimeout(() => {
+      //   // document.querySelector('input').setAttribute('type', 'number')
+      //   document.querySelector('input').type = 'number'
+      // }, 3000)
+    </script>
+  </body>
+</html>

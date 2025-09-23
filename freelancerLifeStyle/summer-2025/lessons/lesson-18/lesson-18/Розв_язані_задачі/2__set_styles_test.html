@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <div id="myFirstDiv">111111111111111111111111111111111111</div>
+
+    <div id="test1">
+      <div>Base div</div>
+    </div>
+    <div>2222222222222222</div>
+    <div id="test2">
+      <div>Base div 2</div>
+    </div>
+    <!-- <hr />
+    <div>
+      <h1>Title</h1>
+      <p class="edge">
+        Hello. Hello. Hello. Hello. Hello. Hello. Hello. Hello. Hello. Hello.
+        Hello. Hello. Hello. Hello. Hello. Hello. Hello. Hello. Hello. Hello.
+        Hello. Hello. Hello. Hello. Hello. Hello.
+      </p>
+      <h1>Title</h1>
+      <section>
+        <p id="MyTitle2" class="middle">
+          222222222222222222 From From From From From From From From From From
+          From From From From From From From From From From From From From From
+          From From From From From From From From
+        </p>
+      </section>
+
+      <h1 id="First">Title first</h1>
+      <p>
+        From From From From From From From From From From From From From From
+        From From From From From From From From From From From From From From
+        From From From From
+      </p>
+      <section>
+        <p class="middle">
+          <b> Text Text Text Text Text Text </b>
+          <b> Text Text Text Text Text Text </b>
+          <b> Text Text Text Text Text Text </b>
+          <input type="text" name="age" />
+        </p>
+      </section> -->
+    </div>
+
+    <script>
+      // const el = document.getElementById('myFirstDiv')
+      // el.style.border = '2px solid red'
+      // document.getElementById('myFirstDiv').style.border = '2px solid red'
+      // const el = document.querySelectorAll('#myFirstDiv')[0]
+      // console.log(el)
+
+      // el.style.border = '2px solid red'
+      // const h1List = document.querySelectorAll('h1')
+      // for (const element of h1List) {
+      //   element.style.border = '2px solid red'
+      // }
+      // console.log(h1List)
+
+      //-------------------- створення елементів ---------------
+      // //1. створюємо елемент
+      const myDiv = document.createElement('div')
+      myDiv.style.border = '2px solid red'
+      // //2. знаходимо базовий елемент орієнтир
+      const myParent = document.getElementById('test1')
+      // //3. вставляємо створений елемент
+      myParent.append(myDiv)
+      //--------------- видалення
+      setTimeout(() => {
+        const my2 = myDiv.cloneNode(true)
+        my2.style.border = '2px solid blue'
+        document.getElementById('test2').append(my2)
+      }, 2000);
+    </script>
+  </body>
+</html>

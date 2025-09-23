@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function getSum() {
+        const num1 = parseInt(document.getElementById('first').value)
+        const num2 = parseInt(document.getElementById('second').value)
+        const sum = num1 + num2
+        document.getElementById('result').innerText = sum
+      }
+
+      window.onload = function () {
+        document.querySelector('button').onclick = getSum
+      }
+    </script>
+
+    <div>
+      <label>
+        Перше число
+        <input type="number" id="first" />
+      </label>
+    </div>
+    <div>
+      <label>
+        Друге число
+        <input type="number" id="second" />
+      </label>
+    </div>
+    <button>Додати</button>
+    <div>Результат : <span id="result"></span></div>
+  </body>
+</html>

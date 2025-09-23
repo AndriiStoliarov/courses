@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="myContainer">111111111111111111</div>
+    <script>
+      // Задача. Створити 4 діви з рандомними числами
+
+      // const myContainer = document.getElementById('myContainer')
+      // for (let i = 0; i < 4; i++) {
+      //   const myDiv = document.createElement('div')
+      //   myDiv.innerText = Math.random()
+      //   myContainer.append(myDiv)
+      // }
+      //==========================
+      // Задача. Створити 4 інпути для введення чисел
+      // for (let i = 0; i < 4; i++) {
+      //   const element = document.createElement('input')
+      //   myContainer.append(element)
+      // }
+
+      //==================================
+      // Задача. Створити таблицю з 3 ряками і 4 стовпцями з рандомними числами
+      // const table = document.createElement('table')
+      // table.style.border = '2px solid red'
+      // for (let i = 0; i < 3; i++) {
+      //   const tr = document.createElement('tr')
+      //   for (let j = 0; j < 4; j++) {
+      //     const td = document.createElement('td')
+      //     td.innerText = Math.random()
+      //     tr.append(td)
+      //   }
+      //   table.append(tr)
+      // }
+      // myContainer.append(table)
+      //==================
+      const myDiv = document.createElement('div')
+      // myDiv.innerText = '<b>ok</b> <br><h1>Test!</h1>'
+      myDiv.innerHTML = '<b>ok</b> <br><h1>Test!</h1>'
+      myContainer.append(myDiv)
+    </script>
+  </body>
+</html>

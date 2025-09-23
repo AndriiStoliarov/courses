@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function func1() {
+        const num1 = parseFloat(document.getElementById('first').value)
+        const num2 = parseFloat(document.getElementById('second').value)
+        const sum = num1 + num2
+        document.getElementById('result').value = sum
+      }
+    </script>
+  </head>
+  <body>
+    <label>
+      First number
+      <input
+        id="first"
+        type="number"
+        placeholder="Type first number here"
+        value="0"
+      />
+    </label>
+    <label>
+      Second number
+      <input
+        id="second"
+        type="number"
+        placeholder="Type second number here"
+        value="0"
+      />
+    </label>
+    <div id="container">
+      <button onclick="func1()">Go</button>
+    </div>
+    <label>
+      Sum
+      <input id="result" type="number" placeholder="Result" />
+    </label>
+  </body>
+</html>

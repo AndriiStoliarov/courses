@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // Задача. Знайти загальну суму обіду. Вибирається тільки перше і друге
+
+      // -----перше ---
+      // • суп – 45 грн
+      // • борщ - 37 грн.
+      // ---- друге –
+      // • паста – 60 грн.
+      // • картопля з катлетою – 55 грн.
+      // • гречка з грибами – 49 грн.  if (inp.checked)
+      function findTotalSum() {
+        const selectList = document.querySelectorAll('select')
+        let sum = 0
+        for (const select of selectList) {
+          sum += parseFloat(select.value)
+        }
+        document.getElementById('result').innerText = sum
+      }
+      window.onload = function () {
+        document.querySelector('button').onclick = findTotalSum
+      }
+    </script>
+  </head>
+  <body>
+  <div>
+    <!-- // -----перше ---
+    // • суп – 45 грн
+    // • борщ - 37 грн.-->
+    <h1>Перша страва</h1>
+    <select id="firstScore">
+      <option value="45">суп</option>
+      <option value="37">борщ</option>
+    </select>
+    <!--
+    // ---- друге –
+    // • паста – 60 грн.
+    // • картопля з катлетою – 55 грн.
+    // • гречка з грибами – 49 грн.  if (inp.checked) -->
+    <h1>Друга страва</h1>
+    <select id="secondScore">
+      <option value="60">паста</option>
+      <option value="55">картопля з катлетою</option>
+      <option value="49">гречка з грибами</option>
+    </select>
+  </div>
+
+      <button>Розрахувати загальну вартість</button>
+    </div>
+    <div>Загалом : <span id="result"></span></div>
+  </body>
+</html>

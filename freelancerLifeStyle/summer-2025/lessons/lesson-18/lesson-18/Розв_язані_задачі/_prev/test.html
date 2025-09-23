@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>Title</h1>
+      <p id="First" class="edge">
+        Hello. Hello. Hello. Hello. Hello. Hello. Hello. Hello. Hello. Hello.
+        Hello. Hello. Hello. Hello. Hello. Hello. Hello. Hello. Hello. Hello.
+        Hello. Hello. Hello. Hello. Hello. Hello.
+      </p>
+      <h1>Title</h1>
+      <section>
+        <p id="MyTitle2" class="middle">
+          From From From From From From From From From From From From From From
+          From From From From From From From From From From From From From From
+          From From From From
+        </p>
+      </section>
+      <h1>Title</h1>
+      <p>
+        From From From From From From From From From From From From From From
+        From From From From From From From From From From From From From From
+        From From From From
+      </p>
+      <section>
+        <p class="middle">
+          <b> Text Text Text Text Text Text </b>
+          <b> Text Text Text Text Text Text </b>
+          <b> Text Text Text Text Text Text </b>
+        </p>
+      </section>
+    </div>
+
+    <script>
+      //Задача. Доступ до елементів з використанням різних підходів
+      //   document.getElementById('First').style.color = 'red'
+      document.querySelector('#First').style.color = 'red'
+      document.getElementById('MyTitle2').style.backgroundColor = 'green'
+      const itemsList = document.getElementsByClassName('middle')
+      console.log(itemsList)
+      for (const item of itemsList) {
+        item.style.backgroundColor = 'yellow'
+      }
+      //   document.querySelector('h1').style.backgroundColor = 'blue'
+
+      const h1List = document.querySelectorAll('h1')
+      for (const h1Item of h1List) {
+        h1Item.style.backgroundColor = 'blue'
+      }
+      document.querySelector('.edge').style.backgroundColor = 'red'
+    </script>
+  </body>
+</html>

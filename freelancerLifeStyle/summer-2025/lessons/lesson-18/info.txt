@@ -1,0 +1,10 @@
+🤟 Урок №18. DOM, BOM, Document. Події - початок.
+
+🟢 Посилання на урок:
+https://youtube.com/live/k724GYbF_Xs?feature=share
+
+
+🤓 Домашнє завдання №18.
+1. Повторити HTML, CSS.
+2. Виконати "ДЗ":
+https://drive.google.com/drive/folders/127AwfXRs-6F4_RTLx4bNX5fghZyK2ZZk?usp=sharing
