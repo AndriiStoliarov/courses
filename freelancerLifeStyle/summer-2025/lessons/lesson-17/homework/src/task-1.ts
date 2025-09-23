@@ -1,39 +1,10 @@
 if (confirm("Почати тестування?")) {
-  interface IMathOperations {
-    // properties:
-    numbers: number[];
-    // methods:
-    toString(): string;
-    getPositiveAmount(): number;
-    getNegativeAmount(): number;
-    getCertainAmount(inputNumber: number): number;
-    showArray(): void;
-  }
-
   class MathOperations {
-    // properties:
-    static _numbers: number[] = [];
-
     constructor() {}
-
-    static set numbers(inputArray: number[]) {
-      if (inputArray.length !== 0) {
-        this._numbers = inputArray;
-      } else {
-        throw new Error("Array is empty.");
-      }
-    }
-
-    static get numbers() {
-      return this._numbers;
-    }
     // methods:
-    static toString(): string {
-      return `Numbers:[${this._numbers}]`;
-    }
     // метод для знаходження кількості додатних.
-    static getPositiveAmount(): number {
-      const positiveAmount: number = this._numbers.reduce(
+    static getPositiveAmount(numbers: number[]): number {
+      const positiveAmount: number = numbers.reduce(
         (amount, number) => (number > 0 ? amount + 1 : amount),
         0
       );
@@ -41,8 +12,8 @@ if (confirm("Почати тестування?")) {
       return positiveAmount;
     }
     // метод для знаходження кількості від’ємних.
-    static getNegativeAmount(): number {
-      const negativeAmount: number = this._numbers.reduce(
+    static getNegativeAmount(numbers: number[]): number {
+      const negativeAmount: number = numbers.reduce(
         (amount, number) => (number < 0 ? amount + 1 : amount),
         0
       );
@@ -50,8 +21,8 @@ if (confirm("Почати тестування?")) {
       return negativeAmount;
     }
     // метод для підрахунку кількості входжень деякого числа.
-    static getCertainAmount(inputNumber: number): number {
-      const certainAmount: number = this._numbers.reduce(
+    static getCertainAmount(numbers: number[], inputNumber: number): number {
+      const certainAmount: number = numbers.reduce(
         (amount, number) => (number === inputNumber ? amount + 1 : amount),
         0
       );
@@ -59,13 +30,13 @@ if (confirm("Почати тестування?")) {
       return certainAmount;
     }
     // метод для виводу масиву.
-    static showArray(): void {
+    static showArray(numbers: number[]): void {
       document.write(`
     <li class="list__item">
       <span>Вхідний масив: [</span>
   `);
 
-      for (const number of this._numbers) {
+      for (const number of numbers) {
         document.write(`
       <span>${number}</span>
     `);
@@ -86,13 +57,13 @@ if (confirm("Почати тестування?")) {
   `);
 
   try {
-    MathOperations.numbers = createArray(20, -20, 20);
+    const numbers = createArray(20, -20, 20);
 
-    MathOperations.showArray();
+    MathOperations.showArray(numbers);
 
     document.write("<br>");
 
-    const positiveAmount: number = MathOperations.getPositiveAmount();
+    const positiveAmount: number = MathOperations.getPositiveAmount(numbers);
 
     document.write(`
     <li class="list__item">
@@ -100,7 +71,7 @@ if (confirm("Почати тестування?")) {
     </li>
   `);
 
-    const negativeAmount: number = MathOperations.getNegativeAmount();
+    const negativeAmount: number = MathOperations.getNegativeAmount(numbers);
 
     document.write(`
     <li class="list__item">
@@ -108,7 +79,7 @@ if (confirm("Почати тестування?")) {
     </li>
   `);
 
-    const certainAmount: number = MathOperations.getCertainAmount(10);
+    const certainAmount: number = MathOperations.getCertainAmount(numbers, 10);
 
     document.write(`
     <li class="list__item">

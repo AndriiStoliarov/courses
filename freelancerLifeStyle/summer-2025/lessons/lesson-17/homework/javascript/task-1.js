@@ -2,43 +2,29 @@
 if (confirm("Почати тестування?")) {
     class MathOperations {
         constructor() { }
-        static set numbers(inputArray) {
-            if (inputArray.length !== 0) {
-                this._numbers = inputArray;
-            }
-            else {
-                throw new Error("Array is empty.");
-            }
-        }
-        static get numbers() {
-            return this._numbers;
-        }
         // methods:
-        static toString() {
-            return `Numbers:[${this._numbers}]`;
-        }
         // метод для знаходження кількості додатних.
-        static getPositiveAmount() {
-            const positiveAmount = this._numbers.reduce((amount, number) => (number > 0 ? amount + 1 : amount), 0);
+        static getPositiveAmount(numbers) {
+            const positiveAmount = numbers.reduce((amount, number) => (number > 0 ? amount + 1 : amount), 0);
             return positiveAmount;
         }
         // метод для знаходження кількості від’ємних.
-        static getNegativeAmount() {
-            const negativeAmount = this._numbers.reduce((amount, number) => (number < 0 ? amount + 1 : amount), 0);
+        static getNegativeAmount(numbers) {
+            const negativeAmount = numbers.reduce((amount, number) => (number < 0 ? amount + 1 : amount), 0);
             return negativeAmount;
         }
         // метод для підрахунку кількості входжень деякого числа.
-        static getCertainAmount(inputNumber) {
-            const certainAmount = this._numbers.reduce((amount, number) => (number === inputNumber ? amount + 1 : amount), 0);
+        static getCertainAmount(numbers, inputNumber) {
+            const certainAmount = numbers.reduce((amount, number) => (number === inputNumber ? amount + 1 : amount), 0);
             return certainAmount;
         }
         // метод для виводу масиву.
-        static showArray() {
+        static showArray(numbers) {
             document.write(`
     <li class="list__item">
       <span>Вхідний масив: [</span>
   `);
-            for (const number of this._numbers) {
+            for (const number of numbers) {
                 document.write(`
       <span>${number}</span>
     `);
@@ -49,8 +35,6 @@ if (confirm("Почати тестування?")) {
   `);
         }
     }
-    // properties:
-    MathOperations._numbers = [];
     document.write(`
     <li>
       <p>
@@ -58,22 +42,22 @@ if (confirm("Почати тестування?")) {
         <ul class="list">
   `);
     try {
-        MathOperations.numbers = createArray(20, -20, 20);
-        MathOperations.showArray();
+        const numbers = createArray(20, -20, 20);
+        MathOperations.showArray(numbers);
         document.write("<br>");
-        const positiveAmount = MathOperations.getPositiveAmount();
+        const positiveAmount = MathOperations.getPositiveAmount(numbers);
         document.write(`
     <li class="list__item">
       <span>Кількість додатних чисел в масиві: ${positiveAmount}.</span>
     </li>
   `);
-        const negativeAmount = MathOperations.getNegativeAmount();
+        const negativeAmount = MathOperations.getNegativeAmount(numbers);
         document.write(`
     <li class="list__item">
       <span>Кількість від’ємних чисел в масиві: ${negativeAmount}.</span>
     </li>
   `);
-        const certainAmount = MathOperations.getCertainAmount(10);
+        const certainAmount = MathOperations.getCertainAmount(numbers, 10);
         document.write(`
     <li class="list__item">
       <span>Кількість входжень числа (деякого) 10 в масив: ${certainAmount}.</span>
