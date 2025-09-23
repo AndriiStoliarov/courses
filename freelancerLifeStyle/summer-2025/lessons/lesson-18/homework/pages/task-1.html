@@ -8,7 +8,7 @@
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="../css/style.css">
 		<link rel="icon" href="../favicon.svg" type="image/svg+xml">
-		<title>Урок 17</title>
+		<title>Урок 18</title>
 	</head>
 	<body>
 		<div class="wrapper">
@@ -16,7 +16,7 @@
 			<header class="header" id="up">
 				<div class="header__container">
 					<div class="header__inner">
-						<h1 class="header__title">Домашне завдання № 17</h1>
+						<h1 class="header__title">Домашне завдання № 18</h1>
 					</div><!-- /. header__inner -->
 				</div><!-- /. header__container -->
 			</header>
@@ -28,32 +28,72 @@
 						<div class="tasks__inner">
 							<ul class="tasks__items">
 								<li class="tasks__item">
-									<p><span class="tasks__title">Задача 1.</span> Створити клас, що дозволяє виконувати такі операції над масивами: знаходження
-										кількості додатних, кількості від’ємних, кількість входжень деякого числа (статичні методи)
+									<p><span class="tasks__title">Задача 1.</span> Розробити калькулятор.
 									</p>
+									<img class="tasks__image" src="../images/calculator.jpg" alt="calculator form image">
 								</li>
-								<!-- The content is inserted from *.js file. -->
-								<script src="../javascript/task-1.js"></script>
-							</ul>
-						</div><!-- /.tasks__inner -->
-					</div><!-- /.tasks__container -->
-				</div><!-- /.tasks -->
+								<li class="tasks__item">
+									<p>
+										<span class="tasks__title">Відповідь:</span>
+										<ul class="list">
+											<li class="list__item">
+												<form class="calculator__form  form" name="form[]" action="#" method="post" target="_blank">
+													<!-- <div class="form__body"> -->
+													<div class="form__row">
+														<div class="form__item">
+															<label class="form__label  form__label--green" for="form-item-type-text">type="text"</label>
+															<input class="form__input  form__input--green" id="form-item-type-text" name="data[]" type="text"
+																placeholder="Placeholder">
+														</div>
+													</div>
+													<div class="form__row">
+														<div class="form__item">
+															<label class="form__label  form__label--green" for="form-item-type-text">type="text"</label>
+															<input class="form__input  form__input--green" id="form-item-type-text" name="data[]" type="text"
+																placeholder="Placeholder">
+														</div>
+													</div>
+													<div class="form__row  form__row--flex">
+														<button class="form__button" type="button">Додати</button>
+														<button class="form__button" type="button">Відняти</button>
+														<button class="form__button" type="button">Помножити</button>
+														<button class="form__button" type="button">Поділити</button>
+													</div>
+													<!-- </div> -->
+													<div class="form__line">line</div>
+													<!-- <div class="form__footer"> -->
+													<div class="form__row">
+														<div class="form__item">
+															<label class="form__label  form__label--green" for="form-item-type-text">type="text"</label>
+															<input class="form__input  form__input--green" id="form-item-type-text" name="data[]" type="text"
+																placeholder="Placeholder">
+														</div>
+													</div>
+													<!-- </div> -->
+												</form>
+											</li>
+										</ul>
+									</p>
+								</div><!-- /.tasks__inner -->
+							</div><!-- /.tasks__container -->
+						</div><!-- /.tasks -->
 
-				<div class="up  up--left">
-					<div class="up__container">
-						<a class="up__link" href="../index.html">на головну</a>
-					</div>
-				</div>
-			</main><!-- /.page -->
+						<div class="up  up--left">
+							<div class="up__container">
+								<a class="up__link" href="../index.html">на головну</a>
+							</div>
+						</div>
+					</main><!-- /.page -->
 
-			<!-- Footer -->
-			<footer class="footer">
-				<div class="footer__container">
-					<div class="footer__inner">
-						<div class="footer__text"><span>&#169; </span>2025 Andrii Stoliarov</div>
-					</div>
-				</div><!-- /.footer__inner-->
-			</footer>
-		</div><!-- /.wrapper -->
-	</body>
-</html>
+					<!-- Footer -->
+					<footer class="footer">
+						<div class="footer__container">
+							<div class="footer__inner">
+								<div class="footer__text"><span>&#169; </span>2025 Andrii Stoliarov</div>
+							</div>
+						</div><!-- /.footer__inner-->
+					</footer>
+				</div><!-- /.wrapper -->
+				<script src="../javascript/task-1.js"></script>
+			</body>
+		</html>

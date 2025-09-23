@@ -167,6 +167,141 @@ figcaption {
   padding-left: 3.125rem;
 }
 
+/* .form__button ============ */
+.calculator__form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  max-width: 680px;
+  padding: 20px;
+
+  border: 2px solid #000;
+  border-radius: 6px;
+}
+
+/* .form__body {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+
+  border-bottom: 2px solid #000;
+} */
+
+.form__row--flex {
+  display: flex;
+  gap: 20px;
+  /* flex-wrap: wrap; */
+}
+
+.form__line {
+  font-size: 0;
+  color: transparent;
+
+  height: 2px;
+  background-color: #000;
+}
+
+.form__item--grow {
+  flex-grow: 1;
+}
+
+.form__item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.form__label {
+  font-size: 18px;
+  color: #000;
+}
+
+.form__input {
+  padding: 10px;
+
+  font-size: 18px;
+  color: #000;
+
+  border: 2px solid #000;
+  border-radius: 6px;
+}
+
+.form__input:focus {
+  outline: 2px solid #000;
+  outline-offset: -2px;
+}
+
+.form__input::placeholder {
+  color: #999;
+
+  transition: opacity 0.3s;
+}
+
+.form__input:focus::placeholder {
+  opacity: 0;
+}
+
+.form__input:disabled {
+  opacity: 0.2;
+}
+
+.form__label--green {
+  color: #7a956b;
+}
+
+.form__input--green {
+  border-color: #7a956b;
+}
+
+.form__label--brown {
+  color: #794f45;
+}
+
+.form__input--brown {
+  border-color: #794f45;
+}
+
+.form__label--purple {
+  color: #77608d;
+}
+
+.form__input--purple {
+  border-color: #77608d;
+}
+
+.form__input--disabled:hover {
+  cursor: not-allowed;
+}
+
+.form__input--height {
+  min-height: 45px;
+}
+
+/* .form__button ============ */
+.form__button {
+  width: 100%;
+  padding: 10px 10px;
+  /* flex-grow: 1; */
+
+  font-size: 18px;
+  color: #7a956b;
+  font-weight: 500;
+  line-height: 1.4;
+
+  background-color: #fff;
+  border: 2px solid #7a956b;
+  border-radius: 43px;
+
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.form__button:hover {
+  background-color: #7a956b;
+  color: #fff;
+}
+
 /* @media ============================== */
 @media (any-hover: hover), (pointer: fine) {
   .tasks__link:hover {
