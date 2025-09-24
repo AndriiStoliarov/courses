@@ -171,35 +171,24 @@ figcaption {
 .calculator__form {
   display: flex;
   flex-direction: column;
-  row-gap: 20px;
-  max-width: 680px;
-  padding: 20px;
+  row-gap: 1.25rem;
+  max-width: 42.5rem;
+  padding: 1.25rem;
 
-  border: 2px solid #000;
-  border-radius: 6px;
+  border: 0.125rem solid #000;
+  border-radius: 0.375rem;
 }
-
-/* .form__body {
-  display: flex;
-  flex-direction: column;
-  row-gap: 20px;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-
-  border-bottom: 2px solid #000;
-} */
 
 .form__row--flex {
   display: flex;
-  gap: 20px;
-  /* flex-wrap: wrap; */
+  gap: 1.25rem;
 }
 
 .form__line {
   font-size: 0;
   color: transparent;
 
-  height: 2px;
+  height: 0.125rem;
   background-color: #000;
 }
 
@@ -210,27 +199,30 @@ figcaption {
 .form__item {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 1.25rem;
 }
 
 .form__label {
-  font-size: 18px;
+  min-width: 7.25rem;
+  font-size: 1.125rem;
   color: #000;
+
+  flex-shrink: 0;
 }
 
 .form__input {
-  padding: 10px;
+  padding: 0.625rem;
 
-  font-size: 18px;
+  font-size: 1.125rem;
   color: #000;
 
-  border: 2px solid #000;
-  border-radius: 6px;
+  border: 0.125rem solid #000;
+  border-radius: 0.375rem;
 }
 
 .form__input:focus {
-  outline: 2px solid #000;
-  outline-offset: -2px;
+  outline: 0.125rem solid #000;
+  outline-offset: -0.125rem;
 }
 
 .form__input::placeholder {
@@ -247,58 +239,33 @@ figcaption {
   opacity: 0.2;
 }
 
-.form__label--green {
-  color: #7a956b;
-}
-
-.form__input--green {
-  border-color: #7a956b;
-}
-
-.form__label--brown {
-  color: #794f45;
-}
-
-.form__input--brown {
-  border-color: #794f45;
-}
-
-.form__label--purple {
-  color: #77608d;
-}
-
-.form__input--purple {
-  border-color: #77608d;
-}
-
 .form__input--disabled:hover {
   cursor: not-allowed;
 }
 
 .form__input--height {
-  min-height: 45px;
+  min-height: 2.8125rem;
 }
 
 /* .form__button ============ */
 .form__button {
   width: 100%;
-  padding: 10px 10px;
-  /* flex-grow: 1; */
+  padding: 0.625rem 0.625rem;
 
-  font-size: 18px;
-  color: #7a956b;
+  font-size: 1.125rem;
+  color: #000;
   font-weight: 500;
   line-height: 1.4;
 
   background-color: #fff;
-  border: 2px solid #7a956b;
-  border-radius: 43px;
+  border: 0.125rem solid #000;
+  border-radius: 2.6875rem;
 
   transition: background-color 0.3s, color 0.3s;
 }
 
 .form__button:hover {
-  background-color: #7a956b;
+  background-color: #000;
   color: #fff;
 }
 
@@ -311,6 +278,12 @@ figcaption {
   .button:hover {
     color: #fff;
     background-color: #ff0000;
+  }
+}
+
+@media (max-width: 599.98px) {
+  .form__row {
+    flex-wrap: wrap;
   }
 }
 
