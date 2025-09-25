@@ -285,6 +285,14 @@ figcaption {
   .form__row {
     flex-wrap: wrap;
   }
+
+  .form__item {
+    display: block;
+  }
+
+  .form__label {
+    margin-bottom: 0.25rem;
+  }
 }
 
 /** .up ============ */

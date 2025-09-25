@@ -1,30 +1,35 @@
 "use strict";
-// if (confirm("Почати тестування?")) {
-
-document.write(`
-    <li>
-      <p>
-        <span class="tasks__title">Відповідь:</span>
-        <ul class="list">
-  `);
-
-try {
-  document.write(`
-    <li class="list__item">
-      <span>Кількість додатних чисел в масиві: ${positiveAmount}.</span>
-    </li>
-  `);
-} catch (error) {
-  document.write(`
-    <li class="list__item">
-      <span>Текст повідомлення помилки: ${error.message}</span>
-    </li>
-  `);
+if (confirm("Почати тестування?")) {
 }
 
-document.write(`
-        </ul>
-      </p>
-    <li>
-  `);
-// }
+function getSummation() {
+  const firstNumber = parseInt(document.getElementById("first-number").value);
+  const secondNumber = parseInt(document.getElementById("second-number").value);
+  const result = firstNumber + secondNumber;
+
+  document.getElementById("result").value = result;
+}
+
+function getSubtraction() {
+  const firstNumber = parseInt(document.getElementById("first-number").value);
+  const secondNumber = parseInt(document.getElementById("second-number").value);
+  const result = firstNumber - secondNumber;
+
+  document.getElementById("result").value = result;
+}
+
+function getMultiplication() {
+  const firstNumber = parseInt(document.getElementById("first-number").value);
+  const secondNumber = parseInt(document.getElementById("second-number").value);
+  const result = firstNumber * secondNumber;
+
+  document.getElementById("result").value = result;
+}
+
+function getDivision() {
+  const firstNumber = parseInt(document.getElementById("first-number").value);
+  const secondNumber = parseInt(document.getElementById("second-number").value);
+  const result = firstNumber / secondNumber;
+
+  document.getElementById("result").value = result;
+}

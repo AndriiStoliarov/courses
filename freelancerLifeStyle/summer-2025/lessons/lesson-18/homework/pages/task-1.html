@@ -19,6 +19,7 @@
 						<h1 class="header__title">Домашне завдання № 18</h1>
 					</div><!-- /. header__inner -->
 				</div><!-- /. header__container -->
+
 			</header>
 
 			<main class="page">
@@ -38,38 +39,34 @@
 										<ul class="list">
 											<li class="list__item">
 												<form class="calculator__form  form" name="form[]" action="#" method="post" target="_blank">
-													<!-- <div class="form__body"> -->
 													<div class="form__row">
 														<div class="form__item">
-															<label class="form__label" for="form-item-type-text">Перше число:</label>
-															<input class="form__input" id="form-item-type-text" name="data[]" type="text"
+															<label class="form__label" for="first-number">Перше число:</label>
+															<input id="first-number" class="form__input" name="data[]" type="number"
 																placeholder="Введіть перший операнд">
 														</div>
 													</div>
 													<div class="form__row">
 														<div class="form__item">
-															<label class="form__label  form__label--green" for="form-item-type-text">Друге число:</label>
-															<input class="form__input  form__input--green" id="form-item-type-text" name="data[]" type="text"
+															<label class="form__label  form__label--green" for="second-number">Друге число:</label>
+															<input id="second-number" class="form__input  form__input--green" name="data[]" type="number"
 																placeholder="Введіть другий операнд">
 														</div>
 													</div>
 													<div class="form__row  form__row--flex">
-														<button class="form__button" type="button">Додати</button>
-														<button class="form__button" type="button">Відняти</button>
-														<button class="form__button" type="button">Помножити</button>
-														<button class="form__button" type="button">Поділити</button>
+														<button class="form__button" type="button" onclick="getSummation()">Додати</button>
+														<button class="form__button" type="button" onclick="getSubtraction()">Відняти</button>
+														<button class="form__button" type="button" onclick="getMultiplication()">Помножити</button>
+														<button class="form__button" type="button" onclick="getDivision()">Поділити</button>
 													</div>
-													<!-- </div> -->
 													<div class="form__line">line</div>
-													<!-- <div class="form__footer"> -->
 													<div class="form__row">
 														<div class="form__item">
-															<label class="form__label  form__label--green" for="form-item-type-text">Результат:</label>
-															<input class="form__input  form__input--green" id="form-item-type-text" name="data[]" type="text"
+															<label class="form__label  form__label--green" for="result">Результат:</label>
+															<input id="result" class="form__input  form__input--green" name="data[]" type="text"
 																placeholder="Поле результату">
 														</div>
 													</div>
-													<!-- </div> -->
 												</form>
 											</li>
 										</ul>
