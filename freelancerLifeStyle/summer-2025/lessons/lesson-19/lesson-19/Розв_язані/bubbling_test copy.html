@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body * {
+        margin: 10px;
+        border: 1px solid blue;
+      }
+    </style>
+  </head>
+
+  <body id="bodyId">
+    <form id="formId">
+      FORM
+      <div id="divId">
+        DIV
+        <p id="pId">P</p>
+      </div>
+    </form>
+  </body>
+  <script>
+    function onClick(event) {
+      console.log(event)
+      alert(`${event.target.tagName}`)
+      event.stopPropagation()
+    }
+
+    document.getElementById('bodyId').onclick = onClick
+    document.getElementById('formId').onclick = onClick
+    document.getElementById('divId').onclick = onClick
+    document.getElementById('pId').onclick = onClick
+  </script>
+</html>

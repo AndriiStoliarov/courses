@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        border: 2px solid black;
+        margin: 20px;
+        padding: 20px;
+        width: 400px;
+      }
+      button {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+        margin: 20px;
+      }
+      strong {
+        margin: 20px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <button>1</button>
+    </div>
+
+    <div>
+      <span>Hello</span>
+    </div>
+
+    <div>
+      <button>2</button>
+    </div>
+
+    <strong id="operation">Select</strong>
+
+    <div>
+      <ul>
+        <li>111111</li>
+        <li>22222 <span id="ok">Ok</span> 33333</li>
+        <li>333333</li>
+      </ul>
+    </div>
+
+    <script>
+      //nav1. Дано елементи div. При натисненні на «Select» підсвічувати div, у якому знаходиться кнопка зеленою рамкою
+
+      function selectButtonsContainer() {
+        const btnList = document.querySelectorAll('button')
+        for (const btn of btnList) {
+          btn.parentElement.style.border = '4px solid green'
+        }
+      }
+
+      document.querySelector('strong').onclick = selectButtonsContainer
+      //----------------------
+      function okHandler() {
+        // ok.parentElement.style.color = 'red'
+        ok.parentElement.remove()
+      }
+
+      ok.onclick = okHandler
+    </script>
+  </body>
+</html>

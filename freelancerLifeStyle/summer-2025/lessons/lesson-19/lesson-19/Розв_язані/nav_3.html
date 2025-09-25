@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        border: 2px solid black;
+        margin: 20px;
+        padding: 20px;
+        width: 400px;
+      }
+      button {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+        margin: 20px;
+      }
+      strong {
+        margin: 20px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <button>1</button>
+      <button>1</button>
+      <button>1</button>
+      <button>1</button>
+      <button>1</button>
+      <button>2</button>
+      <button id="testRed">3</button>
+      <button>4</button>
+    </div>
+
+    <strong id="operation">Select</strong>
+    <script>
+      function makeRedBackground() {
+        let btn = testRed
+        while (btn.previousElementSibling) {
+          btn = btn.previousElementSibling
+          btn.style.backgroundColor = 'red'
+        }
+      }
+      testRed.onclick = makeRedBackground
+      //-------------------------
+      //nav3. Усім дочірнім елементам div зробити зелений фон:
+      const el = document.querySelector('div')
+      console.log(el.children)
+      for (const btn of el.children) {
+        btn.style.backgroundColor = 'green'
+      }
+    </script>
+  </body>
+</html>

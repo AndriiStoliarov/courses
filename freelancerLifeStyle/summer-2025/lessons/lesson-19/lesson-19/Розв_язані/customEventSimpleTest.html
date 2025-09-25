@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Дві кнопки для генрування випадкового числа (1-100) і (300-700) -->
+    <input type="text" id="screen" />
+    <div id="btnContainer">
+      <button id="btn1">random (1-100)</button>
+      <button id="btn2">random (300-700)</button>
+    </div>
+    <script>
+      function getRandomNumber(minValue, maxValue) {
+        return minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+      }
+
+      btn1.onclick = function (event) {
+        const myEvent = new CustomEvent('numberGenerated', {
+          detail: {
+            genNum: getRandomNumber(1, 100),
+          },
+          bubbles: true,
+        })
+        event.target.dispatchEvent(myEvent)
+        event.stopPropagation()
+        return false
+      }
+      btn2.onclick = function (event) {
+        const myEvent = new CustomEvent('numberGenerated', {
+          detail: {
+            genNum: getRandomNumber(300, 700),
+          },
+          bubbles: true,
+        })
+        event.target.dispatchEvent(myEvent)
+
+        event.stopPropagation()
+        return false
+      }
+      // ------------------
+      function func(evt) {
+        console.log(evt)
+        document.getElementById('screen').value = evt.detail.genNum
+      }
+      btnContainer.addEventListener('numberGenerated', func)
+      btnContainer.onclick = function () {
+        alert('click')
+      }
+    </script>
+  </body>
+</html>

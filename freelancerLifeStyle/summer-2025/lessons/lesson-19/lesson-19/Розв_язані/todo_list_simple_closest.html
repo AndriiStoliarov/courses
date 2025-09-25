@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .taskItem {
+        width: 200px;
+        border: 2px solid black;
+        margin: 20px;
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Додати задачу</h1>
+      <div>
+        <div>
+          <label>
+            Назва задачі
+            <input type="text" id="taskTitle" />
+          </label>
+        </div>
+        <div>
+          <label>
+            Пріоритетність задачі
+            <input type="number" id="taskPriority" />
+          </label>
+        </div>
+      </div>
+      <button id="addButton">Зберегти задачу</button>
+    </div>
+    <hr />
+
+    <div id="tasksContainer"></div>
+    <script>
+      function deleteTask() {
+        const btn = this //це кнопка, на яку натиснули
+        // btn.parentElement.remove()
+        //шуканаємо найближчий батьквіський ел. з класом task-item
+        btn.closest('.task-item').remove()
+      }
+      //--- функція для створення розмітки для задачі
+      function createTaskItemElement(title, priority) {
+        const container = document.createElement('div')
+        container.className = 'task-item'
+
+        const spanEl = document.createElement('span')
+        spanEl.innerText = `${title} - ${priority}`
+        container.append(spanEl)
+
+        const btn = document.createElement('button')
+        btn.innerText = 'Delete'
+        btn.onclick = deleteTask
+        container.append(btn)
+
+        return container
+      }
+      //---- функція для додавання нової задачі
+      function addTask() {
+        const taskTitle = document.getElementById('taskTitle').value
+        const taskPriority = document.getElementById('taskPriority').value
+
+        const taskEl = createTaskItemElement(taskTitle, taskPriority)
+
+        document.getElementById('tasksContainer').append(taskEl)
+      }
+
+      document.getElementById('addButton').onclick = addTask
+    </script>
+  </body>
+</html>

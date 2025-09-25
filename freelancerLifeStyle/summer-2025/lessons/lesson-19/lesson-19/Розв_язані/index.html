@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #dd {
+        width: 200px;
+      }
+      .cnt {
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+    <script>
+      //Задача. Дано два списки передбачувань на виграш авто, путівок і дві кнопки. При натисканні на першу- отримуємо передбачення на виграш авто, на другу- виграш путівки. Елементи додаються у загальний список передбачень.
+
+      const autoList = [
+        'Toyota Camry',
+        'Honda Accord',
+        'Tesla Model S',
+        'Ford Mustang',
+        'BMW X5',
+      ]
+      const tourList = ['Канкун', 'Балі', 'Мальдіви', 'Венеція', 'Санторіні']
+
+      //--функція, для вибору випадкового елемента з списку
+      function getRandomListItem(itemsList) {
+        const randIndex = Math.floor(Math.random() * itemsList.length)
+        return itemsList[randIndex]
+      }
+      function addPrediction(itemsList) {
+        const randomPrediction = getRandomListItem(itemsList)
+
+        const divEl = document.createElement('div')
+        divEl.innerText = randomPrediction
+        document.getElementById('predictionsContainer').append(divEl)
+      }
+
+      window.onload = function () {
+        document.getElementsByTagName('button')[0].onclick = () =>
+          addPrediction(autoList)
+        document.getElementsByTagName('button')[1].onclick = () =>
+          addPrediction(tourList)
+      }
+    </script>
+  </head>
+  <body>
+    <button>Зробити передбачення для авто</button>
+    <button>Зробити передбачення для турів на відпочинок</button>
+    <h1>Список передбачень</h1>
+
+    <div id="predictionsContainer"></div>
+  </body>
+</html>

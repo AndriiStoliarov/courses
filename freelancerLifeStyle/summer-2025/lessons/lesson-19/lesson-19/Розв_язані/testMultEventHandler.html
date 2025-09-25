@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">Test</button>
+
+    <script>
+      function f1(ev) {
+        console.log(ev)
+        alert('1111')
+      }
+      function f2() {
+        alert('222')
+      }
+      function f3() {
+        alert('333')
+      }
+
+      const btn = document.getElementById('btn')
+      //--- так можна присвоїти тільки одного обробника
+      // btn.onclick = f1
+      // btn.onclick = f2
+      //---- так можна присвоїти багато обробників
+      btn.addEventListener('click', f1)
+      btn.addEventListener('click', f2)
+      btn.addEventListener('click', f3)
+
+      //--- через 5секунд відклчити обробник f2
+      setTimeout(() => {
+        btn.removeEventListener('click', f2)
+      }, 5000)
+    </script>
+  </body>
+</html>
