@@ -80,6 +80,25 @@ body {
   list-style-type: disc;
 }
 
+.list__item--flex {
+  display: flex;
+  gap: 1.25rem;
+
+  flex-wrap: wrap;
+}
+
+.list__item--order {
+  list-style-type: decimal;
+
+  margin-left: 1.5rem;
+
+  border-bottom: 0.0625rem solid #000;
+}
+
+.list__item--margin-top {
+  margin-top: 1.25rem;
+}
+
 .button {
   padding: 0.5rem 1.875rem;
 
@@ -101,7 +120,12 @@ body {
   border-collapse: collapse;
 }
 
-.table__header {
+.table--border-red {
+  outline: 3px solid red;
+}
+
+.table__header,
+.table__footer {
   padding: 0 1rem;
 
   border: 0.0625rem solid #000;
@@ -110,12 +134,18 @@ body {
   text-align: center;
 }
 
+.table__footer {
+  text-align: left;
+}
+
 .table__data {
   padding: 0 1rem;
 
   text-align: center;
 
   border: 0.0625rem solid #000;
+
+  cursor: pointer;
 }
 
 .table-receipt {
@@ -262,6 +292,12 @@ figcaption {
   border-radius: 2.6875rem;
 
   transition: background-color 0.3s, color 0.3s;
+}
+
+.form__button--border-radius {
+  width: auto;
+
+  border-radius: 0.75rem;
 }
 
 .form__button:hover {
