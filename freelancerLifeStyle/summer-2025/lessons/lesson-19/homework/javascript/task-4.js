@@ -17,6 +17,17 @@ if (confirm("Почати тестування?")) {
       const parentResultNude = resultNude.closest(".table__header");
       resultNude.innerText = parentResultNude.getAttribute("counter");
     }
+
+    window.captureEvents(Event.CLICK);
+    window.onclick = (event) => {
+      if (event.target.tagName !== "TD") {
+        if (event.target.tagName !== "TH") {
+          for (const table of tableNodes) {
+            table.classList.remove("table--border-red");
+          }
+        }
+      }
+    };
   };
 
   function onTdClick(event) {

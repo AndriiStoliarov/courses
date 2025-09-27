@@ -72,6 +72,79 @@ body {
   padding-left: 3rem;
 }
 
+.list__item--border {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.625rem;
+
+  border: 0.125rem solid #000;
+}
+
+.board {
+  max-width: 57.5rem;
+  padding: 1.25rem;
+  display: flex;
+  gap: 1.25rem;
+
+  border: 0.25rem solid #000;
+}
+
+.board__column {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 0.375rem;
+  flex-wrap: wrap;
+}
+
+.board__list {
+  width: 100%;
+  padding: 0.625rem;
+
+  flex-grow: 1;
+
+  border: 0.25rem solid #000;
+
+  & > li:not(:last-child) {
+    margin-bottom: 0.625rem;
+  }
+}
+
+.board__list--right .list__icon {
+  stroke: #ff0000;
+  fill: transparent;
+
+  transition: fill 0.1s linear;
+  transform: rotateY(180deg);
+}
+
+.board__list--left .list__icon {
+  stroke: #008000;
+  fill: transparent;
+
+  transition: fill 0.1s linear;
+}
+
+.list__title {
+  font-weight: 700;
+}
+
+.list__icon {
+  height: 2.25rem;
+
+  cursor: pointer;
+}
+
+.list__order--red > li {
+  background-color: #ff0000;
+}
+
+.list__order--green > li {
+  background-color: #008000;
+}
+
 .list__item:has(.button) {
   margin-top: 0.75rem;
 }
@@ -121,7 +194,7 @@ body {
 }
 
 .table--border-red {
-  outline: 3px solid red;
+  outline: 0.1875rem solid red;
 }
 
 .table__header,
@@ -307,6 +380,14 @@ figcaption {
 
 /* @media ============================== */
 @media (any-hover: hover), (pointer: fine) {
+  .board__list--right .list__icon:hover {
+    fill: #ff0000;
+  }
+
+  .board__list--left .list__icon:hover {
+    fill: #008000;
+  }
+
   .tasks__link:hover {
     text-decoration-line: underline;
   }
@@ -318,6 +399,10 @@ figcaption {
 }
 
 @media (max-width: 599.98px) {
+  .board {
+    flex-wrap: wrap;
+  }
+
   .form__row {
     flex-wrap: wrap;
   }
