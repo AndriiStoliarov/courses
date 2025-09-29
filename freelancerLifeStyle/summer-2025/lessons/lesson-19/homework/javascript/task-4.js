@@ -18,8 +18,8 @@ if (confirm("Почати тестування?")) {
       resultNude.innerText = parentResultNude.getAttribute("counter");
     }
 
-    window.captureEvents(Event.CLICK);
-    window.onclick = (event) => {
+    document.captureEvents(Event.CLICK);
+    document.onclick = (event) => {
       if (event.target.tagName !== "TD") {
         if (event.target.tagName !== "TH") {
           for (const table of tableNodes) {
