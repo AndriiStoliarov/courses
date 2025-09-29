@@ -11,8 +11,11 @@ if (confirm("Почати тестування?")) {
 
   function onClockIcon(event) {
     const listItem = event.target.closest(".list__item");
+
     const cloneListItem = listItem.cloneNode(true);
-    cloneListItem.onclick = onClockIcon;
+    const listIconNode = cloneListItem.querySelector(".list__icon");
+    listIconNode.onclick = onClockIcon;
+
     const parentListItem = listItem.parentElement;
 
     if (parentListItem.classList.contains("board__list--left")) {
