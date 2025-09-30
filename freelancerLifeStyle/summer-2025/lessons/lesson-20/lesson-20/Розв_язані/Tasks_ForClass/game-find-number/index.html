@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // Задача. Гра «Вгадай число». Двоє користувачів вводять числа у діапазоні від 1 до 10. Комп’ютер генерує випадкове число. Виграє той, чиє число ближче до згенерованого.
+
+      window.onload = function () {
+        this.g1 = new GameNumber(1, 10)
+        g1.render('.game')
+      }
+    </script>
+  </head>
+  <body>
+    <div class="game"></div>
+  </body>
+</html>

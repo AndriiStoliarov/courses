@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        margin: 5px;
+        padding: 5px;
+      }
+      button {
+        height: 20px;
+      }
+      .product-container {
+        border: 2px solid blue;
+        width: 500px;
+        height: 50px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+      }
+      .product-image {
+        height: 40px;
+      }
+      .product-title {
+        width: 260px;
+        overflow: hidden;
+      }
+      .count-section {
+        width: 80px;
+        display: flex;
+      }
+      .total-price {
+        width: 250px;
+      }
+    </style>
+    <script>
+      // Приклад. Дано перелік товарів у кошику. При зміні кількості одиниць товару збільшувати загальну
+      // вартість. Створити клас Product, що призначений для маніпуляцій товаром та клас ProductManager
+      // що оперує з усіма товарами (через подію передвати ідентифікатор товару та операцію, що зроблена
+      class ProductItem {}
+      //-----------
+      class ProductsManager {}
+
+      const electronics = [
+        {
+          id: 1,
+          title: 'LED-індикатор рівня сигналу/заряду KA2284',
+          imageUrl:
+            'https://content2.rozetka.com.ua/goods/images/big/303013209.jpg',
+          price: 40.5,
+          count: 28,
+        },
+        {
+          id: 2,
+          title: 'USB Led лампа підсвічування клавіатури',
+          imageUrl:
+            'https://content2.rozetka.com.ua/goods/images/big/387707182.jpg',
+          price: 41.0,
+          count: 201,
+        },
+        {
+          id: 3,
+          title: 'Цифровий Терморегулятор W1401',
+          imageUrl:
+            'https://content.rozetka.com.ua/goods/images/big/343621355.jpg',
+          price: 158.9,
+          count: 73,
+        },
+      ]
+
+      window.onload = function () {
+        const manager = new ProductsManager(electronics, '.productsContainer')
+      }
+    </script>
+  </head>
+  <body>
+    <div class="productsContainer"></div>
+  </body>
+</html>

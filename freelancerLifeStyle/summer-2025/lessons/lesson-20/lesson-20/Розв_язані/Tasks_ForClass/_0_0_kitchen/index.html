@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .restaurant {
+        display: flex;
+        gap: 20px;
+        min-height: 200px;
+        > div {
+          border: 2px solid black;
+          min-width: 300px;
+          padding: 10px;
+          cursor: pointer;
+        }
+      }
+    </style>
+    <script>
+      // Задача. Кухня. Три секції:
+      //меню:  список страв, які може вибрати користувач (при кліку переміщується на кухню)
+      //кужня: список страв, які готуються (при кліку переноситься у секцію "на виніс")
+      //на виніс: страви, які вже приготовлені (при кліку переміщуються в історію)
+
+      //-----------------
+      function createDishElement(dishTitle) {
+        const dishElement = document.createElement('div')
+        dishElement.innerText = dishTitle
+        dishElement.className = 'item'
+        return dishElement
+      }
+      function addDish() {
+        const addDishInput = document.getElementById('newDish')
+        const newDish = addDishInput.value
+        if (newDish) {
+          const dishElement = createDishElement(newDish)
+          document.querySelector('.items').append(dishElement)
+          addDishInput.value = ''
+        }
+      }
+      function onSelect(e) {
+        const target = e.target
+        if (target.classList.contains('item')) {
+          const currentSection = target.closest('.section')
+          const nextSection = currentSection.nextElementSibling
+          if (nextSection) {
+            const targetItemsList = nextSection.querySelector('.items')
+            targetItemsList.append(target)
+          } else {
+            document.querySelector('.historyContainer').append(target)
+          }
+        }
+      }
+
+      window.onload = function () {
+        dishesList = ['Суп', 'Борщ', 'Катлети', 'Вареники']
+        //---------
+        document.getElementById('addDishBtn').onclick = addDish
+        document.querySelector('.restaurant').onclick = onSelect
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <div>
+        <label
+          >Нова страва
+          <input type="text" id="newDish" />
+        </label>
+      </div>
+      <button id="addDishBtn">Додати</button>
+    </div>
+    <div class="restaurant">
+      <div class="section">
+        <h1>Меню</h1>
+        <div class="items">
+          <div class="item">Суп</div>
+          <div class="item">Борщ</div>
+          <div class="item">Катлети</div>
+          <div class="item">Вареники</div>
+        </div>
+      </div>
+      <div class="section">
+        <h1>Кухня</h1>
+        <div class="items"></div>
+      </div>
+      <div class="section">
+        <h1>Зал</h1>
+        <div class="items"></div>
+      </div>
+    </div>
+    <hr />
+    <h1>Історія замовлень</h1>
+    <div class="historyContainer"></div>
+  </body>
+</html>

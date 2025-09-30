@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f3f4f6;
+      }
+      #container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .product-card {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        background: linear-gradient(135deg, #f8fafc 60%, #e0e7ff 100%);
+        border-radius: 18px;
+        box-shadow: 0 4px 16px rgba(60, 60, 120, 0.12);
+        padding: 48px 64px;
+        margin: 0;
+        width: 100%;
+        max-width: 900px;
+        min-height: 120px;
+        max-height: 176px; /* 80px img + 48px*2 padding */
+        transition: box-shadow 0.3s;
+        overflow: hidden;
+      }
+      .product-card:hover {
+        box-shadow: 0 8px 32px rgba(60, 60, 120, 0.18);
+      }
+      .img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(60, 60, 120, 0.1);
+        background: #fff;
+        border: 1px solid #e5e7eb;
+      }
+      .title {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #374151;
+        margin: 0 12px;
+        min-width: 100px;
+      }
+      .price {
+        font-size: 1.2rem;
+        color: #6366f1;
+        font-weight: 500;
+        margin: 0 12px;
+      }
+      .totalPrice {
+        font-size: 1.1rem;
+        color: #2563eb;
+        font-weight: 500;
+        margin: 0 12px;
+      }
+      button {
+        background: #6366f1;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        padding: 6px 16px;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        margin: 0 4px;
+        transition: background 0.2s;
+      }
+      button:disabled {
+        background: #c7d2fe;
+        color: #6b7280;
+        cursor: not-allowed;
+      }
+      button:hover:not(:disabled) {
+        background: #4338ca;
+      }
+      span {
+        display: inline-block;
+        vertical-align: middle;
+      }
+      /* Кнопки каунтера у рядок */
+      .counter-row {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+    </style>
+    <script>
+      // Задача. Розробити елемент для вводу кількості вибраного товару за зразком (мінімальна кількість 1, максимальна кількість 10, при перевищенні блокувати кнопку)
+      class Counter {
+        constructor(currentValue, minValue, maxValue) {
+          this.minValue = minValue
+          this.maxValue = maxValue
+          this.Value = currentValue
+        }
+        createValueEl() {
+          this.valueEl = document.createElement('span')
+          this.valueEl.innerText = this.currentValue
+          return this.valueEl
+        }
+
+        sendEvent() {
+          const changeEvent = new CustomEvent('counter-change', {
+            detail: {
+              value: this.currentValue,
+            },
+            bubbles: true,
+          })
+          this.valueEl.dispatchEvent(changeEvent)
+        }
+
+        get Value() {
+          return this.currentValue
+        }
+        set Value(newValue) {
+          if (newValue >= this.minValue && newValue <= this.maxValue) {
+            this.currentValue = newValue
+            if (this.valueEl) {
+              this.valueEl.innerText = newValue
+              this.sendEvent()
+            }
+          }
+        }
+
+        actionHandler(stepValue) {
+          this.Value = this.currentValue + stepValue
+        }
+        createActionBtn(title, stepValue) {
+          const btn = document.createElement('button')
+          btn.innerText = title
+          btn.onclick = this.actionHandler.bind(this, stepValue)
+          return btn
+        }
+        render() {
+          const containerEl = document.createElement('span')
+
+          containerEl.append(this.createActionBtn('-', -1))
+          containerEl.append(this.createValueEl())
+          containerEl.append(this.createActionBtn('+', 1))
+
+          return containerEl
+        }
+      }
+      //--------------
+      class ProductCard {
+        constructor(productData, cssObj) {
+          this.productData = { ...productData }
+          this.cssObj = cssObj
+        }
+        createImg() {
+          const img = document.createElement('img')
+          img.src = this.productData.imgSrc
+          img.className = this.cssObj.img
+          return img
+        }
+        createTitleSection() {
+          const titleEl = document.createElement('span')
+          titleEl.innerText = this.productData.title
+          titleEl.className = this.cssObj.title
+          return titleEl
+        }
+        createPriceSection() {
+          const priceEl = document.createElement('span')
+          priceEl.innerText = this.productData.price
+          priceEl.className = this.cssObj.price
+          return priceEl
+        }
+        createTotalSection() {
+          const totalPriceSectionEl = document.createElement('span')
+          totalPriceSectionEl.innerText = 'Total : '
+          totalPriceSectionEl.className = this.cssObj.totalPrice
+
+          const totalPriceEl = document.createElement('span')
+          totalPriceEl.innerText =
+            this.productData.price * this.productData.count
+
+          this.totalPriceEl = totalPriceEl
+
+          totalPriceSectionEl.append(totalPriceEl)
+          return totalPriceSectionEl
+        }
+        delActionHandler() {
+          this.sendEvent('product-delete')
+        }
+        createDeleteSection() {
+          const delEl = document.createElement('button')
+          delEl.innerText = 'X'
+          delEl.onclick = this.delActionHandler.bind(this)
+          return delEl
+        }
+
+        sendEvent(eventName) {
+          const changeEvent = new CustomEvent(eventName, {
+            detail: {
+              id: this.productData.id,
+              count: this.productData.count,
+              productObj: this.productData,
+              $el: this.$el,
+            },
+            bubbles: true,
+          })
+
+          this.$el.dispatchEvent(changeEvent)
+        }
+
+        countChangeHandler(e) {
+          const newCount = e.detail.value
+          this.productData.count = newCount
+          this.totalPriceEl.innerText = this.productData.price * newCount
+          this.sendEvent('product-count-changed')
+        }
+        createCounterSection() {
+          const counter = new Counter(
+            this.productData.count,
+            1,
+            this.productData.amount
+          )
+          const counterEl = counter.render()
+          counterEl.classList.add('counter-row')
+
+          counterEl.addEventListener(
+            'counter-change',
+            this.countChangeHandler.bind(this)
+          )
+
+          return counterEl
+        }
+
+        render() {
+          const containerEl = document.createElement('div')
+
+          containerEl.append(this.createImg())
+          containerEl.append(this.createTitleSection())
+          containerEl.append(this.createPriceSection())
+          containerEl.append(this.createCounterSection())
+          containerEl.append(this.createTotalSection())
+          containerEl.append(this.createDeleteSection())
+          this.$el = containerEl
+          containerEl.className = this.cssObj.productCard
+
+          return containerEl
+        }
+      }
+      //--------------
+      class ProductsManager {
+        constructor(productsListData, cssObj) {
+          this.productsListData = JSON.parse(JSON.stringify(productsListData))
+          this.cssObj = cssObj
+        }
+        createProductCard(productData) {
+          return new ProductCard(productData, this.cssObj).render()
+        }
+        updateTotalPrice() {
+          this.totalValueEl.innerText = this.TotalSum
+        }
+        productsChangeCountHandler(e) {
+          const { id, count } = e.detail
+          const prod = this.productsListData.find((p) => p.id === id)
+          prod.count = count
+
+          this.updateTotalPrice()
+        }
+        productDeleteHandler(e) {
+          const { id, $el: prodRef } = e.detail
+          this.productsListData = this.productsListData.filter(
+            (prod) => prod.id !== id
+          )
+          prodRef.remove()
+
+          this.updateTotalPrice()
+        }
+        createProductsListSection() {
+          const listEl = document.createElement('div')
+
+          this.productsListData.forEach((prodData) => {
+            listEl.append(this.createProductCard(prodData))
+          })
+
+          listEl.addEventListener(
+            'product-count-changed',
+            this.productsChangeCountHandler.bind(this)
+          )
+          listEl.addEventListener(
+            'product-delete',
+            this.productDeleteHandler.bind(this)
+          )
+
+          return listEl
+        }
+        get TotalSum() {
+          return this.productsListData.reduce(
+            (prevSum, prod) => prevSum + prod.count * prod.price,
+            0
+          )
+        }
+        createTotalSection() {
+          const totalContainerSection = document.createElement('div')
+          totalContainerSection.innerText = 'Total: '
+
+          const totalValueEl = document.createElement('span')
+          totalValueEl.innerText = this.TotalSum
+          this.totalValueEl = totalValueEl
+
+          totalContainerSection.append(totalValueEl)
+          return totalContainerSection
+        }
+        render() {
+          const containerEl = document.createElement('div')
+
+          containerEl.append(this.createProductsListSection())
+          containerEl.append(this.createTotalSection())
+
+          return containerEl
+        }
+      }
+
+      const electronics = [
+        {
+          id: 1,
+          title: 'LED-індикатор рівня сигналу/заряду KA2284',
+          imgSrc:
+            'https://content2.rozetka.com.ua/goods/images/big/303013209.jpg',
+          price: 40.5,
+          count: 8,
+          amount: 15,
+        },
+        {
+          id: 2,
+          title: 'USB Led лампа підсвічування клавіатури',
+          imgSrc:
+            'https://content2.rozetka.com.ua/goods/images/big/303013209.jpg',
+          price: 41.0,
+          count: 2,
+          amount: 5,
+        },
+        {
+          id: 3,
+          title: 'Цифровий Терморегулятор W1401',
+          imgSrc:
+            'https://content.rozetka.com.ua/goods/images/big/343621355.jpg',
+          price: 158.9,
+          count: 3,
+          amount: 6,
+        },
+      ]
+      //--------------
+      window.onload = function () {
+        const prod1Data = {
+          id: 1,
+          title: 'TV',
+          imgSrc: 'images/tv.jpg',
+          price: 200,
+          count: 2,
+          amount: 5,
+        }
+        const cssObj = {
+          img: 'img',
+          title: 'title',
+          price: 'price',
+          totalPrice: 'totalPrice',
+          productCard: 'product-card',
+        }
+
+        const cart = new ProductsManager(electronics, cssObj)
+        const cartEl = cart.render()
+
+        document.querySelector('#container').append(cartEl)
+      }
+    </script>
+  </head>
+  <body>
+    <div id="container"></div>
+  </body>
+</html>

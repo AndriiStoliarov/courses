@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .correct {
+        background-color: green;
+      }
+      .error {
+        background-color: red;
+      }
+    </style>
+    <script>
+      // Задача. Розробити клас, що дозволяє створювати текстове поле з написом для введення віку працівника (18-65). Якщо введений вік буде виходити за межі, тоді колір фону червоний, якщо в межах – зелений.
+      class RangeInput {
+        constructor(title, minValue, maxValue, cssObj) {
+          this.title = title
+          this.minValue = minValue
+          this.maxValue = maxValue
+          this.cssObj = cssObj
+        }
+        createLabel() {
+          const labelEl = document.createElement('label')
+          labelEl.innerText = this.title
+          return labelEl
+        }
+        createInputEl() {
+          const inpEl = document.createElement('input')
+          inpEl.type = 'number'
+          inpEl.onchange = this.onChangeHandler.bind(this)
+          return inpEl
+        }
+
+        onChangeHandler() {
+          console.log(this)
+
+          const value = this.inputEl.value
+          if (value >= this.minValue && value <= this.maxValue) {
+            // this.inputEl.style.backgroundColor = 'green'
+            this.inputEl.className = this.cssObj.correct
+          } else {
+            // this.inputEl.style.backgroundColor = 'red'
+            this.inputEl.className = this.cssObj.error
+          }
+        }
+
+        set Value(newVal) {
+          this.inputEl.value = newVal
+        }
+        get Value() {
+          return parseInt(this.inputEl.value)
+        }
+
+        render(targetContainerSelector) {
+          const elContainer = document.createElement('div')
+
+          const labelEl = this.createLabel()
+          this.inputEl = this.createInputEl()
+          labelEl.append(this.inputEl)
+
+          elContainer.append(labelEl)
+
+          if (targetContainerSelector) {
+            document.querySelector(targetContainerSelector)?.append(elContainer)
+          }
+
+          return elContainer
+        }
+      }
+      window.onload = function () {
+        const cssObj = {
+          correct: 'correct',
+          error: 'error',
+        }
+        const r1 = new RangeInput('Вік працівника', 18, 65, cssObj)
+        r1.render('#myContainer')
+
+        const r2 = new RangeInput('Вік школяра', 7, 17, cssObj)
+        r2.render('#myContainer2')
+        r2.Value = 17
+
+        setTimeout(() => {
+          alert(r2.Value)
+        }, 3000)
+      }
+    </script>
+  </head>
+  <body>
+    <div id="myContainer"></div>
+    <div id="myContainer2"></div>
+  </body>
+</html>
