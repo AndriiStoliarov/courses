@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #container {
+        position: relative;
+      }
+      button {
+        position: absolute;
+        left: 200px;
+        top: 200px;
+      }
+    </style>
+    <script>
+      // Задача. Crazy button. При наведенні кнопка повинна змінювати свій колір і позицію випадковим чином зміщаючись у деякому напрямку.
+      class CrazyButton {
+        constructor(bntTitle, maxStep, containerSelector) {
+          this.bntTitle = bntTitle
+          this.maxStep = maxStep
+          if (containerSelector) this.render(containerSelector)
+        }
+        getRandomStep() {
+          return -this.maxStep + Math.floor(Math.random() * 2 * this.maxStep)
+        }
+        jump() {
+          this.left += this.getRandomStep()
+          this.top += this.getRandomStep()
+          this.btn.style.left = this.left + '%'
+          this.btn.style.top = this.top + '%'
+        }
+        render(containerSelector) {
+          const btn = document.createElement('button')
+          btn.innerText = this.bntTitle
+          btn.style.position = 'fixed'
+
+          this.left = Math.random() * 100
+          this.top = Math.random() * 100
+
+          btn.style.left = `${this.left}%`
+          btn.style.top = `${this.top}%`
+          btn.onmouseover = this.jump.bind(this)
+          this.btn = btn
+          //--
+          document.querySelector(containerSelector).append(btn)
+        }
+      }
+
+      window.onload = function () {
+        for (let i = 0; i < 10; i++) {
+          const b1 = new CrazyButton('test', 5)
+          b1.render('#container')
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="container"></div>
+  </body>
+</html>

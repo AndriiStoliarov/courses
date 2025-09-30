@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        width: 520px;
+        padding: 10px;
+        border: 2px solid green;
+        border-radius: 8px;
+      }
+      .container div {
+        height: 15px;
+      }
+      .item {
+        width: 500px;
+        margin-bottom: 10px;
+      }
+      .item-2 {
+        width: 500px;
+        display: inline-block;
+        height: 20px;
+        margin-bottom: 10px;
+        border: 2px solid yellow;
+        div {
+          height: 20px;
+        }
+      }
+      .title {
+        width: 200px;
+        display: inline-block;
+      }
+
+      .title-2 {
+        width: 200px;
+        display: inline-block;
+        font-weight: bold;
+      }
+
+      .value-container {
+        width: 300px;
+        display: inline-block;
+      }
+    </style>
+    <script>
+      // Задача. Розробити Loader (задається title, value). Зімітувати завантаження за допомогою таймера.
+      let sectionsColorsList = ['red', 'blue', 'green']
+      let dataList = [
+        {
+          title: 'Ivan',
+          value: 7,
+        },
+        {
+          title: 'Petrov',
+          value: 54,
+        },
+        {
+          title: 'Olga',
+          value: 29,
+        },
+        {
+          title: 'Vlad',
+          value: 98,
+        },
+      ]
+
+      //-----------------
+      class Diagram {
+        constructor(diagramTitle, dataList, sectionsColorsList, cssObj) {
+          this.diagramTitle = diagramTitle
+          this.dataList = dataList
+          this.sectionsColorsList = sectionsColorsList
+          this.cssObj = cssObj
+        }
+        getColor(value) {
+          const rangeWidth = 100 / this.sectionsColorsList.length
+          const colorIndex = Math.floor(value / rangeWidth)
+          return this.sectionsColorsList[colorIndex]
+        }
+        renderItem(itemData) {
+          const itemContainer = document.createElement('div')
+
+          const titleDiv = document.createElement('div')
+          titleDiv.innerText = itemData.title
+          titleDiv.className = this.cssObj.title
+          itemContainer.append(titleDiv)
+
+          const valueContainer = document.createElement('div')
+          const valueBar = document.createElement('div')
+          valueBar.style.width = `${itemData.value}%`
+
+          valueBar.style.backgroundColor = this.getColor(itemData.value)
+          valueContainer.append(valueBar)
+          valueContainer.className = this.cssObj.value
+          itemContainer.append(valueContainer)
+
+          return itemContainer
+        }
+        renderList() {
+          const container = document.createElement('div')
+          this.dataList.forEach((itemData) => {
+            const itemEl = this.renderItem(itemData)
+            container.append(itemEl)
+          })
+          return container
+        }
+        render(containerId) {
+          const diagramContainer = document.createElement('div')
+
+          //--- створимо заголовок
+          const titleEl = document.createElement('h2')
+          titleEl.innerText = this.diagramTitle
+          diagramContainer.append(titleEl)
+          //-----
+          const listEl = this.renderList()
+          diagramContainer.append(listEl)
+          //--------------------
+          const targetContainer = document.getElementById(containerId)
+          targetContainer.append(diagramContainer)
+        }
+      }
+      //-----------------
+      window.onload = function () {
+        const cssObj = {
+          value: 'item-2',
+          title: 'title-2',
+        }
+
+        const d1 = new Diagram(
+          'Успішність учнів',
+          dataList,
+          sectionsColorsList,
+          cssObj
+        )
+        d1.render('dataContainer')
+        //---------------
+        const tasksList = [
+          {
+            title: 'Випити каву',
+            value: 50,
+          },
+          {
+            title: 'Попрацювати',
+            value: 90,
+          },
+          {
+            title: 'Відпочити',
+            value: 10,
+          },
+        ]
+
+        const d2 = new Diagram(
+          'Виконання задач',
+          tasksList,
+          sectionsColorsList,
+          cssObj
+        )
+        d2.render('tasksContainer')
+      }
+    </script>
+  </head>
+  <body>
+    <div id="dataContainer"></div>
+    <div id="tasksContainer"></div>
+  </body>
+</html>

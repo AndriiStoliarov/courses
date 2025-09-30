@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        width: 520px;
+        padding: 10px;
+        border: 2px solid green;
+        border-radius: 8px;
+      }
+      .container div {
+        height: 15px;
+      }
+      .item {
+        width: 500px;
+        margin-bottom: 10px;
+      }
+      .item-2 {
+        width: 500px;
+        margin-bottom: 10px;
+        border: 2px solid yellow;
+      }
+      .title {
+        width: 200px;
+        display: inline-block;
+      }
+
+      .title-2 {
+        width: 200px;
+        display: inline-block;
+        font-weight: bold;
+      }
+
+      .value-container {
+        width: 300px;
+        display: inline-block;
+      }
+    </style>
+    <script>
+      // Задача. Кухня. Три секції:
+      //меню:  список страв, які може вибрати користувач (при кліку переміщується на кухню)
+      //кужня: список страв, які готуються (при кліку переноситься у секцію "на виніс")
+      //на виніс: страви, які вже приготовлені (при кліку переміщуються в історію)
+
+      //-----------------
+      window.onload = function () {
+        dishesList = ['Суп', 'Борщ', 'Катлети', 'Вареники']
+        //---------
+        function createDishesEl(dishTitle) {
+          const divEl = document.createElement('div')
+          divEl.innerText = dishTitle
+          return divEl
+        }
+        function setDishes(dishesList, containerId) {
+          const containerEl = document.getElementById(containerId)
+          dishesList.forEach((dishTitle) => {
+            containerEl.append(createDishesEl(dishTitle))
+          })
+        }
+        setDishes(dishesList, 'menuContainer')
+        //-------
+        function orderDishes(e, kitchenId = 'kitchenContainer') {
+          const el = e.target.cloneNode(true)
+          document.getElementById(kitchenId).append(el)
+        }
+        document.getElementById('menuContainer').onclick = orderDishes
+        //-------
+        function completeDishes(e, targetContainerId = 'readyContainer') {
+          document.getElementById(targetContainerId).append(e.target)
+        }
+        document.getElementById('kitchenContainer').onclick = completeDishes
+        //-------------
+        document.getElementById('readyContainer').onclick = (event) =>
+          completeDishes(event, 'historyContainer')
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Меню</h1>
+    <div id="menuContainer"></div>
+    <h1>Кухня</h1>
+    <div id="kitchenContainer"></div>
+    <h1>Зал</h1>
+    <div id="readyContainer"></div>
+    <hr />
+    <h1>Історія замовлень</h1>
+    <div id="historyContainer"></div>
+  </body>
+</html>

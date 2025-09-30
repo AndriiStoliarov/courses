@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        width: 520px;
+        padding: 10px;
+        border: 2px solid green;
+        border-radius: 8px;
+      }
+      .container div {
+        height: 15px;
+      }
+      .item {
+        width: 500px;
+        margin-bottom: 10px;
+      }
+      .item-2 {
+        width: 500px;
+        margin-bottom: 10px;
+        border: 2px solid yellow;
+      }
+      .title {
+        width: 200px;
+        display: inline-block;
+      }
+
+      .title-2 {
+        width: 200px;
+        display: inline-block;
+        font-weight: bold;
+      }
+
+      .value-container {
+        width: 300px;
+        display: inline-block;
+      }
+    </style>
+    <script>
+      // Задача. Простий калькулятор для двох чисел. Кнопки для різних операцій : додавання, віднімання, множення, ділення
+
+      //----------------- Варіант 1. ДУЖЕ ПОГАНИЙ !!!! ---------
+      // window.onload = function () {
+      //   function calcOperationResult(e) {
+      //     let num1 = parseFloat(document.getElementById('firstNum').value)
+      //     let num2 = parseFloat(document.getElementById('secondNum').value)
+      //     //---- ДУЖЕ НЕБЕЗПЕЧНО !!!!!!! Так робити не рекомендується !!!!!! ----
+      //     const s = eval(`${num1} ${e.target.innerText} ${num2}`)
+      //     document.getElementById('res').innerText = s
+      //   }
+
+      //   document.getElementById('operationsContainer').onclick =
+      //     calcOperationResult
+      // }
+      // //----------------- Варіант 3. Вже кращий !!!! ---------
+      // window.onload = function () {
+      //   function calcOperationResult(operationCallback) {
+      //     let num1 = parseFloat(document.getElementById('firstNum').value)
+      //     let num2 = parseFloat(document.getElementById('secondNum').value)
+
+      //     let res = operationCallback(num1, num2)
+
+      //     document.getElementById('res').innerText = res
+      //   }
+
+      //   document.getElementById('add').onclick = () => {
+      //     calcOperationResult((n1, n2) => n1 + n2)
+      //   }
+      //   document.getElementById('subract').onclick = () => {
+      //     calcOperationResult((n1, n2) => n1 - n2)
+      //   }
+      //   document.getElementById('mult').onclick = () => {
+      //     calcOperationResult((n1, n2) => n1 * n2)
+      //   }
+      //   document.getElementById('div').onclick = () => {
+      //     calcOperationResult((n1, n2) => n1 / n2)
+      //   }
+      // }
+      //----------------- Варіант 4. Вже кращий !!!! ---------
+      window.onload = function () {
+        function calcOperationResult(operationCallback) {
+          let num1 = parseFloat(document.getElementById('firstNum').value)
+          let num2 = parseFloat(document.getElementById('secondNum').value)
+
+          let res = operationCallback(num1, num2)
+
+          document.getElementById('res').innerText = res
+        }
+
+        document.getElementById('add').onclick = calcOperationResult.bind(
+          null,
+          (n1, n2) => n1 + n2
+        )
+
+        document.getElementById('subract').onclick = calcOperationResult.bind(
+          null,
+          (n1, n2) => n1 - n2
+        )
+
+        document.getElementById('mult').onclick = calcOperationResult.bind(
+          null,
+          (n1, n2) => n1 * n2
+        )
+
+        document.getElementById('div').onclick = calcOperationResult.bind(
+          null,
+          (n1, n2) => n1 / n2
+        )
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <label>
+        Firs number
+        <input type="number" id="firstNum" />
+      </label>
+    </div>
+    <div>
+      <label>
+        Second number
+        <input type="number" id="secondNum" />
+      </label>
+    </div>
+    <div id="operationsContainer">
+      <button id="add">+</button>
+      <button id="subract">-</button>
+      <button id="mult">*</button>
+      <button id="div">/</button>
+    </div>
+    <div>Результат: <spa id="res"></spa></div>
+  </body>
+</html>

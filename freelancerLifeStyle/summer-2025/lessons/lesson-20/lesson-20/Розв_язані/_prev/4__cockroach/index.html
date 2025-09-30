@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .insect {
+        width: 80px;
+        position: fixed;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      class Cockroach {
+        constructor(imagesObj, maxStep, maxSpeed, cssObj) {
+          this.imagesObj = imagesObj
+          this.maxStep = maxStep
+          this.maxSpeed = maxSpeed
+          this.cssObj = cssObj
+          this.setRandomDirection()
+          this.setRandomPosition()
+        }
+        setRandomDirection() {
+          this.vx = -1 + Math.floor(Math.random() * 3)
+          this.vy = -1 + Math.floor(Math.random() * 3)
+        }
+        setRandomPosition() {
+          this.x = Math.random() * 100
+          this.y = Math.random() * 100
+        }
+
+        updatePosition() {
+          this.img.style.left = this.x + '%'
+          this.img.style.top = this.y + '%'
+        }
+        setNewPosition() {
+          this.x += this.vx * this.maxStep
+          this.y += this.vy * this.maxStep
+          if (this.x > 100 || this.x < 0) this.vx *= -1
+          if (this.y > 100 || this.y < 0) this.vy *= -1
+        }
+
+        move() {
+          this.setNewPosition()
+          this.updatePosition()
+        }
+        onClick() {
+          clearInterval(this.intervalId)
+          this.img.setAttribute('src', this.imagesObj.sleep)
+        }
+
+        render(containerSelector) {
+          const imgEl = document.createElement('img')
+          imgEl.setAttribute('src', this.imagesObj.alive)
+          imgEl.className = this.cssObj.containerClass
+          this.img = imgEl
+          this.img.onclick = this.onClick.bind(this)
+          this.updatePosition()
+          document.querySelector(containerSelector).append(this.img)
+
+          this.intervalId = setInterval(() => {
+            this.move()
+          }, this.maxSpeed)
+        }
+      }
+
+      //---------------
+      const imagesObj = {
+        alive: './images/cockroach_alive.jpg',
+        sleep: './images/cockroach_sleep.jpg',
+      }
+      for (let i = 0; i < 100; i++) {
+        const c1 = new Cockroach(
+          imagesObj,
+          Math.random() * 3,
+          Math.random() * 1000,
+          {
+            containerClass: 'insect',
+          }
+        )
+        c1.render('body')
+      }
+    </script>
+  </body>
+</html>
