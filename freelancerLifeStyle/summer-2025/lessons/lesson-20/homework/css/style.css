@@ -84,8 +84,8 @@ body {
 .board {
   max-width: 57.5rem;
   padding: 1.25rem;
-  display: flex;
-  gap: 1.25rem;
+  /* display: flex; */
+  /* gap: 1.25rem; */
 
   border: 0.25rem solid #000;
 }
@@ -99,6 +99,8 @@ body {
   flex-wrap: wrap;
 }
 
+.board__row {
+}
 .board__list {
   width: 100%;
   padding: 0.625rem;

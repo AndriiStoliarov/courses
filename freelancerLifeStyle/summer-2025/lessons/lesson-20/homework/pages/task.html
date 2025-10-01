@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="uk">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="../css/style.css">
+		<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+		<title>Урок 20</title>
+	</head>
+	<body>
+		<div class="wrapper">
+			<!-- Header -->
+			<header class="header" id="up">
+				<div class="header__container">
+					<div class="header__inner">
+						<h1 class="header__title">Домашне завдання № 20</h1>
+					</div><!-- /. header__inner -->
+				</div><!-- /. header__container -->
+			</header>
+
+			<main class="page">
+				<!-- Tasks -->
+				<div class="tasks">
+					<div class="tasks__container">
+						<div class="tasks__inner">
+							<ul class="tasks__items">
+								<li class="tasks__item">
+									<p><span class="tasks__title">Задача.</span> Дано список автомобілів (марка, рік випуску, ціна). Сформувати
+										елементи для фільтрування з використанням випадаючого списку (контент цих випадаючих списків сформувати у залежності від
+										переданого списку).
+									</p>
+									<img class="tasks__image" src="../images/filters.jpg" alt="two list image">
+								</li>
+								<li id="resultTitle" class="tasks__item">
+									<span class="tasks__title">Відповідь:</span>
+									<ul class="list">
+										<li id="resultItem" class="list__item">
+											<div class="list__board  board">
+												<div class="board__row">
+													<h2 class="list__title">Фільтри пошуку:</h2>
+													<ul class="board__list  board__list--left">
+														<li class="list__item  list__item--border">
+															<span class="list__name">John Depp</span>
+														</li>
+														<li class="list__item  list__item--border">
+															<span class="list__name">Sara Wik</span>
+														</li>
+														<li class="list__item  list__item--border">
+															<span class="list__name">Den Miro</span>
+														</li>
+														<li class="list__item  list__item--border">
+															<span class="list__name">Alan Woo</span>
+														</li>
+													</ul>
+												</div>
+												<div id="resultList" class="board__row">
+													<h2 class="list__title">Список:</h2>
+													<!-- The content is inserted from *.js file. -->
+
+													<!-- <ul class="board__list  board__list--right">
+														<li class="list__item  list__item--border">
+															<span class="list__name">Olga Sich</span>
+														</li>
+														<li class="list__item  list__item--border">
+															<span class="list__name">Ivan Hal</span>
+														</li>
+													</ul> -->
+												</div>
+											</div><!-- /.list__board -->
+										</li>
+									</ul>
+								</div><!-- /.tasks__inner -->
+							</div><!-- /.tasks__container -->
+						</div><!-- /.tasks -->
+
+						<div class="up  up--left">
+							<div class="up__container">
+								<a class="up__link" href="../index.html">на головну</a>
+							</div>
+						</div>
+					</main><!-- /.page -->
+
+					<!-- Footer -->
+					<footer class="footer">
+						<div class="footer__container">
+							<div class="footer__inner">
+								<div class="footer__text"><span>&#169; </span>2025 Andrii Stoliarov</div>
+							</div>
+						</div><!-- /.footer__inner-->
+					</footer>
+				</div><!-- /.wrapper -->
+				<script src="../javascript/task.js"></script>
+			</body>
+		</html>
