@@ -82,10 +82,8 @@ body {
 }
 
 .board {
-  max-width: 57.5rem;
+  max-width: 45rem;
   padding: 1.25rem;
-  /* display: flex; */
-  /* gap: 1.25rem; */
 
   border: 0.25rem solid #000;
 }
@@ -99,15 +97,13 @@ body {
   flex-wrap: wrap;
 }
 
-.board__row {
-}
 .board__list {
   width: 100%;
   padding: 0.625rem;
 
   flex-grow: 1;
 
-  border: 0.25rem solid #000;
+  border: 0.25rem solid darkred;
 
   & > li:not(:last-child) {
     margin-bottom: 0.625rem;
@@ -131,6 +127,14 @@ body {
 
 .list__title {
   font-weight: 700;
+}
+
+.list__title--green {
+  color: #008000;
+}
+
+.list__title--darkred {
+  color: #8b0000;
 }
 
 .list__icon {
@@ -272,6 +276,41 @@ figcaption {
   padding-left: 3.125rem;
 }
 
+/* .filter-form ============ */
+.filter-form {
+  display: flex;
+  gap: 1.25rem;
+  padding: 0.625rem;
+
+  flex-grow: 1;
+
+  border: 0.25rem solid green;
+
+  & > li:not(:last-child) {
+    margin-bottom: 0.625rem;
+  }
+}
+
+.filter-form__item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.filter-form__label {
+  flex-shrink: 0;
+}
+
+.filter-form__select {
+  width: 100%;
+  border: 2px solid #000;
+
+  font-size: 1.5rem;
+
+  background-color: #fff;
+}
+
 /* .form__button ============ */
 .calculator__form {
   display: flex;
@@ -284,9 +323,9 @@ figcaption {
   border-radius: 0.375rem;
 }
 
-.form__row--flex {
+.form__row {
   display: flex;
-  gap: 1.25rem;
+  gap: 20px;
 }
 
 .form__line {
@@ -405,7 +444,8 @@ figcaption {
     flex-wrap: wrap;
   }
 
-  .form__row {
+  .form__row,
+  .filter-form__item {
     flex-wrap: wrap;
   }
 
@@ -415,6 +455,12 @@ figcaption {
 
   .form__label {
     margin-bottom: 0.25rem;
+  }
+}
+
+@media (max-width: 479.98px) {
+  .filter-form {
+    flex-wrap: wrap;
   }
 }
 
