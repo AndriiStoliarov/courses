@@ -3,25 +3,21 @@
 if (confirm("Почати тестування?")) {
   const cars = [
     {
-      id: 1,
       make: "Mercedes",
       releaseYear: 2018,
       price: 25000,
     },
     {
-      id: 2,
       make: "Opel",
       releaseYear: 2000,
       price: 5000,
     },
     {
-      id: 3,
       make: "Opel",
       releaseYear: 2004,
       price: 15000,
     },
     {
-      id: 4,
       make: "Audi",
       releaseYear: 2000,
       price: 7000,
