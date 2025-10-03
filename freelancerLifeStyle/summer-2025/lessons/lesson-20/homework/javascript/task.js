@@ -48,9 +48,7 @@ class List {
   }
 
   set Value(newList) {
-    if (newList.length !== 0) {
-      this.list = JSON.parse(JSON.stringify(newList));
-    }
+    this.list = JSON.parse(JSON.stringify(newList));
   }
 
   createUlTag() {
@@ -60,6 +58,10 @@ class List {
     return ulTag;
   }
 
+  deleteUlTag() {
+    ulTag.remove();
+  }
+
   createLiTag() {
     const liTag = document.createElement("li");
 
@@ -67,7 +69,7 @@ class List {
   }
 
   render() {
-    let ulTag = this.createUlTag();
+    const ulTag = this.createUlTag();
 
     for (const car of this.list) {
       const liTag = this.createLiTag();
@@ -80,7 +82,12 @@ class List {
 }
 
 class Filter {
-  constructor() {}
+  constructor() {
+    this.currentInstance = new List(cars);
+    this.currentArray = this.currentInstance.Value;
+    this.selectedMake = "0";
+    this.selectedReleaseYear = "0";
+  }
 
   getObjectValues(key) {
     this.currentList = new List(cars).Value;
@@ -115,12 +122,42 @@ class Filter {
     return labelTag;
   }
 
-  createSelectTag(paramId) {
-    const selectTag = document.createElement("select");
-    selectTag.classList.add("filter-form__select");
-    selectTag.id = paramId;
+  filterChangeHandler(event) {
+    const targetId = event.target.id;
+    const targetValue = event.target.value;
 
-    return selectTag;
+    if (targetId === "makeCar") {
+      this.selectedMake = targetValue;
+    }
+    if (targetId === "releaseYearCar") {
+      this.selectedReleaseYear = targetValue;
+    }
+
+    const newArray = this.currentArray.filter((car) => {
+      const filterMake =
+        this.selectedMake === "0" || car.make === this.selectedMake;
+      const filterReleaseYear =
+        this.selectedReleaseYear === "0" ||
+        car.releaseYear === Number(this.selectedReleaseYear);
+      return filterMake && filterReleaseYear;
+    });
+
+    const newCars = new List(newArray);
+
+    const ulTemp = resultList.querySelector("ul");
+    ulTemp.remove();
+
+    resultList.append(newCars.render());
+  }
+
+  createSelectTag(paramId) {
+    this.selectTag = document.createElement("select");
+    this.selectTag.classList.add("filter-form__select");
+    this.selectTag.id = paramId;
+
+    this.selectTag.onchange = this.filterChangeHandler.bind(this);
+
+    return this.selectTag;
   }
 
   createOptionTag(value) {
