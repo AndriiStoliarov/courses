@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // Задача 0. Створити клас Range (діапазон)
+      // Властивості
+      // -  minValue
+      // -  maxValue
+      // Методи
+      // - inRange(value) – метод визначення того, чи є вказане значення у заданому діапазоні
+      // - toString
+      class Range {
+        constructor(minValue, maxValue) {
+          this.minValue = minValue
+          this.maxValue = maxValue
+        }
+        inRange(value) {
+          return this.minValue <= value && value <= this.maxValue
+        }
+        render() {
+          const titleEl = document.createElement('h1')
+          titleEl.innerText = this.toString()
+          return titleEl
+        }
+        toString() {
+          return `Range: (${this.minValue} ; ${this.maxValue})`
+        }
+      }
+
+      //-------------------------------------------------
+      // На основі класу Range створити клас PensionerChecker
+      // Властивості
+      // - minValue – мінімальний вік пенсіонера
+      // - maxValue – максимальний вік
+      // Методи
+      // - isPensioner(age) – метод визначення того, чи є пенсіонером
+      // - render(containerID) – метод виведення розмітки
+      // ToString
+      class PensionerChecker extends Range {
+        constructor(minPensionerAge, containerId) {
+          super(minPensionerAge, Infinity)
+          this.render(containerId)
+        }
+        isPensioner(age) {
+          return this.inRange(age)
+        }
+        createInput() {
+          const inp = document.createElement('input')
+          inp.type = 'number'
+          this.inpEl = inp
+          return inp
+        }
+        checkAge() {
+          const age = parseInt(this.inpEl.value)
+          if (age && this.isPensioner(age)) alert('Пенсіонер')
+          else alert('Не пенсіонер')
+        }
+        createActionBtn(title) {
+          const btn = document.createElement('button')
+          btn.innerText = title
+          btn.onclick = this.checkAge.bind(this)
+          return btn
+        }
+        render(containerID) {
+          const container = document.createElement('div')
+
+          container.append(this.createInput())
+          container.append(this.createActionBtn('Чи пенсіонер'))
+
+          if (containerID) {
+            document.getElementById(containerID)?.append(container)
+          }
+          return container
+        }
+        toString() {
+          return `PensionerChecker: ${super.toString()}`
+        }
+      }
+
+      //---------------
+      window.onload = function () {
+        let p1 = new PensionerChecker(65, 'cnt')
+        console.log(p1.toString())
+      }
+    </script>
+  </head>
+  <body>
+    <div id="cnt"></div>
+  </body>
+</html>

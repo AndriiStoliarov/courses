@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //         Задача . Реалізувати класи TTime (“години.хвилини”) та TMoney (“гривні.копійки”), які містять методи збільшення/зменшення величин на 1 та додавання двох величин. Згенерувати поступово випадковим чином   пар (час, гроші), де час – тривалість виконання роботи, а гроші – вартість однієї хвилини роботи працівників. Обчислити витрати на виконання кожної із робіт.
+
+      // Як бачимо, у обох класах є два поля, для кожного з яких можна задати мінімальне та мксимальне значення.. Тому, щоб не дублювати код можна описати спільного предка - клас TPair, який представляє пару чисел і містить методи для їх збільшення/зменшення  на 1 та додавання двох величин.
+
+      class CheckedNumber {
+        constructor(value, minValue, maxValue) {
+          this.value = value
+          this.minValue = minValue
+          this.maxValue = maxValue
+        }
+        increase() {
+          this.value++
+          let hasOverflow = false
+          if (this.value > this.maxValue) {
+            this.value = this.minValue
+            hasOverflow = true
+          }
+          return hasOverflow
+        }
+        decrease() {
+          this.value--
+          let hasOverflow = false
+          if (this.value < this.minValue) {
+            this.value = this.maxValue
+            hasOverflow = true
+          }
+          return hasOverflow
+        }
+        toString() {
+          return this.value
+        }
+      }
+
+      //       TPair
+      // --- властивості ---
+      //number1
+      // number2
+      // --- методи ----
+      // increase
+      // decrease
+      // add
+      class Pair {
+        constructor(
+          value1,
+          minValue1,
+          maxValue1,
+          value2,
+          minValue2,
+          maxValue2
+        ) {
+          this.number1 = new CheckedNumber(value1, minValue1, maxValue1)
+          this.number2 = new CheckedNumber(value2, minValue2, maxValue2)
+        }
+        increase() {
+          if (this.number1.increase()) {
+            this.number2.increase()
+          }
+        }
+        decrease() {
+          if (this.number1.decrease()) {
+            this.number2.decrease()
+          }
+        }
+      }
+      //------ TTime
+      class TTime extends Pair {
+        constructor(minutes, hours) {
+          super(minutes, 0, 59, hours, 0, 23)
+        }
+        get Minutes() {
+          return this.number1
+        }
+        get Hours() {
+          return this.number2
+        }
+        toString() {
+          return `${this.Hours} : ${this.Minutes}`
+        }
+      }
+      //---- TMoney
+      class TMoney extends Pair {
+        constructor(coins, grivnas) {
+          super(coins, 0, 99, grivnas, 0, Infinity)
+        }
+        get Coins() {
+          return this.number1
+        }
+        get Grivnas() {
+          return this.number2
+        }
+        toString() {
+          return `${this.Grivnas} грн. ${this.Coins}коп.`
+        }
+      }
+      // ------------------
+      // const t1 = new TTime(58, 8)
+      // t1.increase()
+      // t1.increase()
+      // document.write(t1)
+      const gr1 = new TMoney(99, 34)
+      gr1.increase()
+      document.write(gr1)
+    </script>
+  </body>
+</html>

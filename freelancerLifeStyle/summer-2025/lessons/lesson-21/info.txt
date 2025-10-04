@@ -1,0 +1,8 @@
+🤟 Урок №21. Успадкування. Обробка виключних ситуацій. Використання типу Date.
+
+🟢 Посилання на урок:
+https://youtube.com/live/Pr9cGFFaAQo?feature=share
+
+
+🤓 Домашнє завдання №21.
+https://drive.google.com/drive/folders/1cK2Mi9dwPUCgzQU1gQeCS95MO7lMIKLJ?usp=sharing

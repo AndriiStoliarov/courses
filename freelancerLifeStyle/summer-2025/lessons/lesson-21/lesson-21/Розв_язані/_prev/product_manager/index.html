@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .product-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: 2ps solid green;
+        margin: 20px;
+        padding: 10px;
+      }
+      .product-img {
+        height: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // ========= Counter =========
+      class ProductCounter {
+        constructor(value, minValue = 1, maxValue = 100) {
+          this.value = value
+          this.minValue = minValue
+          this.maxValue = maxValue
+        }
+
+        changeValue(diffValue) {
+          this.value += diffValue
+          this.valueSpan.innerText = this.value
+          this.updateButtonsState()
+        }
+
+        sendEvent(eventTitle) {
+          const event = new CustomEvent(eventTitle, {
+            detail: {
+              value: this.value,
+            },
+            bubbles: true,
+          })
+          this.containerElement.dispatchEvent(event)
+        }
+
+        reduceValue() {
+          if (this.value > this.minValue) {
+            this.changeValue(-1)
+            this.sendEvent('reduce')
+          }
+        }
+        increaseValue() {
+          if (this.value < this.maxValue) {
+            this.changeValue(1)
+            this.sendEvent('increase')
+          }
+        }
+
+        createBtn(title, callback) {
+          const btn = document.createElement('button')
+          btn.innerText = title
+          btn.onclick = callback
+          return btn
+        }
+
+        updateBtnState(btn, limitValue) {
+          if (this.value === limitValue) {
+            btn.setAttribute('disabled', 'true')
+          } else {
+            btn.removeAttribute('disabled')
+          }
+        }
+        updateButtonsState() {
+          this.updateBtnState(this.btnM, this.minValue)
+          this.updateBtnState(this.btnP, this.maxValue)
+        }
+
+        render(parentContainerSelector) {
+          const container = document.createElement('div')
+
+          this.btnM = this.createBtn('-', this.reduceValue.bind(this))
+          container.append(this.btnM)
+
+          this.valueSpan = document.createElement('span')
+          this.valueSpan.innerText = this.value
+          container.append(this.valueSpan)
+
+          this.btnP = this.createBtn('+', this.increaseValue.bind(this))
+          container.append(this.btnP)
+
+          this.updateButtonsState()
+
+          if (parentContainerSelector) {
+            document.querySelector(parentContainerSelector).append(container)
+          }
+          this.containerElement = container
+
+          return container
+        }
+      }
+      // ========= ProductCard ===============
+      class ProductCard {
+        constructor(productData) {
+          this.data = { ...productData }
+        }
+        //---- властивості
+
+        get TotalPrice() {
+          return this.data.price * this.Amount
+        }
+
+        get Amount() {
+          return this.data.amount
+        }
+        set Amount(val) {
+          this.data.amount = val
+          this.updateTotalPrice()
+          this.sendEvent('change')
+        }
+        //----
+
+        //----методи
+        sendEvent(eventTitle) {
+          const event = new CustomEvent(eventTitle, {
+            detail: {
+              id: this.data.id,
+              amount: this.Amount,
+            },
+            bubbles: true,
+          })
+          this.containerElement.dispatchEvent(event)
+        }
+        updateTotalPrice() {
+          this.priceEl.innerText = this.TotalPrice
+        }
+        onAmountChange(amountDiff) {
+          this.Amount += amountDiff
+        }
+        onDelete() {
+          this.sendEvent('delete')
+          this.containerElement.remove()
+        }
+        //---- розмітка
+        createImgLink() {
+          const aEl = document.createElement('a')
+          aEl.setAttribute('href', this.data.link)
+
+          const img = document.createElement('img')
+          img.src = this.data.srcImg
+          img.className = 'product-img'
+          aEl.append(img)
+
+          return aEl
+        }
+        createTitleEl() {
+          const div = document.createElement('span')
+          div.innerText = this.data.title
+          return div
+        }
+        createTotalContainer() {
+          const priceContainer = document.createElement('span')
+          priceContainer.innerText = 'До оплати : '
+
+          const priceEl = document.createElement('span')
+          priceContainer.append(priceEl)
+
+          const span = document.createElement('span')
+          span.innerText = ' грн.'
+          priceContainer.append(span)
+
+          return {
+            priceContainer,
+            priceEl,
+          }
+        }
+
+        render(parentContainerSelector) {
+          const container = document.createElement('div')
+          container.className = 'product-container'
+
+          container.append(this.createImgLink())
+          container.append(this.createTitleEl())
+
+          const counter = new ProductCounter(
+            this.data.amount,
+            1,
+            this.data.availableAmount
+          )
+          const containerEl = counter.render()
+          container.append(containerEl)
+          containerEl.addEventListener('reduce', () => this.onAmountChange(-1))
+          containerEl.addEventListener(
+            'increase',
+            this.onAmountChange.bind(this, 1)
+          )
+
+          const { priceContainer, priceEl } = this.createTotalContainer()
+          container.append(priceContainer)
+          this.priceEl = priceEl
+          this.updateTotalPrice()
+
+          const deleteBtn = document.createElement('button')
+          deleteBtn.innerText = 'X'
+          deleteBtn.onclick = this.onDelete.bind(this)
+          container.append(deleteBtn)
+          //-----
+          if (parentContainerSelector) {
+            document.querySelector(parentContainerSelector).append(container)
+          }
+
+          this.containerElement = container
+          return container
+        }
+      }
+
+      // ======== ProductsCart ===========
+      class ProductsCart {
+        constructor(productsList) {
+          this.productsList = productsList
+        }
+        //---- властивості
+        get Total() {
+          return this.productsList.reduce(
+            (prevSum, product) => prevSum + product.amount * product.price,
+            0
+          )
+        }
+        //--- методи
+        changeProductAmount(id, newAmount) {
+          const prod = this.productsList.find((pr) => pr.id == id)
+          prod.amount = newAmount
+        }
+        deleteProduct(prodId) {
+          this.productsList = this.productsList.filter((pr) => pr.id != prodId)
+        }
+        onProductDataChange(event) {
+          const { id, amount } = event.detail
+          this.changeProductAmount(id, amount)
+          this.updateTotalPrice()
+        }
+        onProductDelete(event) {
+          this.deleteProduct(event.detail.id)
+          this.updateTotalPrice()
+        }
+        sendOrder() {
+          console.log(this.productsList)
+          document.body.append(this.createOrder())
+        }
+        updateTotalPrice() {
+          this.priceEl.innerText = this.Total.toString()
+        }
+        //--- роззмітка
+        createOrder() {
+          const container = document.createElement('div')
+
+          this.productsList.forEach((prod) => {
+            const prodEl = document.createElement('div')
+            prodEl.innerText = `${prod.id} - ${prod.title} - ${prod.amount}`
+            container.append(prodEl)
+          })
+
+          const totalEl = document.createElement('div')
+          totalEl.innerText = `Загалом : ${this.Total}`
+          container.append(totalEl)
+          return container
+        }
+        createProductsSection() {
+          const prodContainer = document.createElement('div')
+
+          this.productsList.forEach((productData) => {
+            const prodCard = new ProductCard(productData)
+            prodContainer.append(prodCard.render())
+          })
+
+          prodContainer.addEventListener(
+            'change',
+            this.onProductDataChange.bind(this)
+          )
+          prodContainer.addEventListener(
+            'delete',
+            this.onProductDelete.bind(this)
+          )
+
+          return prodContainer
+        }
+        createTotalContainer() {
+          const priceContainer = document.createElement('span')
+          priceContainer.innerText = 'ЗАГАЛОМ : '
+
+          const priceEl = document.createElement('span')
+          priceContainer.append(priceEl)
+
+          const span = document.createElement('span')
+          span.innerText = ' грн.'
+          priceContainer.append(span)
+
+          return {
+            priceContainer,
+            priceEl,
+          }
+        }
+        createSummarySection() {
+          const summaryContainer = document.createElement('div')
+
+          const { priceContainer, priceEl } = this.createTotalContainer()
+          this.priceEl = priceEl
+          summaryContainer.append(priceContainer)
+
+          const orderBtn = document.createElement('button')
+          orderBtn.innerText = 'Оформити замовлення'
+          orderBtn.onclick = this.sendOrder.bind(this)
+          summaryContainer.append(orderBtn)
+
+          return summaryContainer
+        }
+        render(parentContainerSelector) {
+          const container = document.createElement('div')
+          container.className = 'cart-container'
+          //-----
+          container.append(this.createProductsSection())
+          container.append(this.createSummarySection())
+
+          this.updateTotalPrice()
+          //-----
+          if (parentContainerSelector) {
+            document.querySelector(parentContainerSelector).append(container)
+          }
+
+          this.containerElement = container
+          return container
+        }
+      }
+      // ==========================
+
+      // const counter = new ProductCounter(2, 1, 5)
+      // document.body.append(counter.render())
+
+      const productsList = [
+        {
+          id: 0,
+          title: 'Миша Logitech G102 Lightsync USB Black',
+          link: 'https://rozetka.com.ua/ua/logitech_910_005823/p213709267/',
+          srcImg:
+            'https://content1.rozetka.com.ua/goods/images/big/24709323.jpg',
+          amount: 1,
+          availableAmount: 5,
+          price: 1399,
+        },
+        {
+          id: 1,
+          title: 'Телевізор Hisense QLED 43E7KQ',
+          link: 'https://rozetka.com.ua/ua/hisense-43e7kq/p416904030/',
+          srcImg:
+            'https://content.rozetka.com.ua/goods/images/big/407199878.jpg',
+          amount: 2,
+          availableAmount: 3,
+          price: 15999,
+        },
+        {
+          id: 2,
+          title: 'Навушники Hator Hypergang 2 USB 7.1 Black',
+          link: 'https://rozetka.com.ua/ua/hator-hta-940/p391482618/',
+          srcImg:
+            'https://content2.rozetka.com.ua/goods/images/big/357433796.jpg',
+          amount: 1,
+          availableAmount: 15,
+          price: 2299,
+        },
+      ]
+
+      const card = new ProductsCart(productsList)
+      document.body.append(card.render())
+    </script>
+  </body>
+</html>

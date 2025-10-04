@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // Задача. Визначити привітання у залежності від часу доби (Доброго дня, Доброго ранку, Доброго вечора)
+      // function getGreeting() {
+      //   const hours = new Date().getHours()
+      //   if (hours < 11) return 'Morning'
+      //   else if (hours < 17) return 'day'
+      //   else return 'evening'
+      // }
+
+      // document.write(getGreeting())
+
+      // Задача. Вивести дату у форматі: (місяць – рік – вихідний/робочий)
+      // function isWeekendDay(dayNum) {
+      //   return dayNum === 0 || dayNum === 6
+      // }
+      // function getFormatDate() {
+      //   const date = new Date()
+      //   const dayNum = date.getDay()
+      //   const dayType = isWeekendDay(dayNum) ? 'вихідний' : 'робочий'
+      //   return `${date.getMonth() + 1} - ${date.getFullYear()} - ${dayType}`
+      // }
+
+      // document.write(getFormatDate())
+
+      // Задача. Визначити поточну пору року
+
+      // function getSeason() {
+      //   const monthNum = new Date().getMonth() + 1
+      //   let season
+      //   switch (monthNum) {
+      //     case 1:
+      //     case 2:
+      //     case 12:
+      //       season = 'Winter'
+      //       break
+      //     case 3:
+      //     case 4:
+      //     case 5:
+      //       season = 'Spring'
+      //       break
+      //     case 6:
+      //     case 7:
+      //     case 8:
+      //       season = 'Summer'
+      //       break
+      //     case 9:
+      //     case 10:
+      //     case 11:
+      //       season = 'Fall'
+      //       break
+      //   }
+      //   return season
+      // }
+      // document.write(getSeason())
+
+      // function getSeason() {
+      //   const month = new Date().getMonth() + 1 //додаємо 1 бо нумерація місяців від 0
+      //   let seasons = {
+      //     Spring: [3, 4, 5],
+      //     Summer: [6, 7, 8],
+      //     Fall: [9, 10, 11],
+      //     Winter: [1, 2, 12],
+      //   }
+      //   return Object.keys(seasons).find((s) => seasons[s].includes(month))
+      // }
+      // document.write(getSeason())
+
+      // Задача. Вивести назву дня
+      // function getWeekDayTitle() {
+      //     const dayNum =  new Date().getDay() //0 - sunday
+      //     const daysTitles = ['sun', 'mon','tue','wed','thu','fri','sat']
+      //     return daysTitles[dayNum]
+      // }
+
+      // document.write(getWeekDayTitle())
+
+      // Задача. Користувач вводить дату народження. Визначити, скільки йому повних років.
+      // function getFullYearsAge(year, month, day) {
+      //   const date = new Date()
+      //   const y = date.getFullYear()
+      //   const m = date.getMonth() + 1
+      //   const d = date.getDate()
+      //   if (year > y || month > 12 || day > 31)
+      //     throw new Error('Некоректна дата')
+
+      //   let age = y - year
+      //   if (month > m || (month <= m && day > d)) age--
+      //   return age
+      // }
+
+      // document.write(getFullYearsAge(1990, 10, 3))
+
+      // Задача. Користувач іде у відпустку на 56 днів. Визначити дату на момент його повернення.
+      // function getFinalRestDate(restDayNum) {
+      //   const date = new Date()
+      //   date.setDate(date.getDate() + restDayNum)
+      //   return date
+      // }
+
+      // document.write(getFinalRestDate(56))
+
+      // Задача. Користувач бере авто на вказану кількість годин. Визначити кінцевий час повернення.
+      // function getReturnHours(rentHoursNumber) {
+      //   const date = new Date()
+      //   date.setHours(date.getHours() + rentHoursNumber)
+      //   return date.getHours()
+      // }
+
+      // document.write(getReturnHours(2))
+
+      // Задача. Задаємо користувачу задачу з додавання двох чисел. Визначити скільки секунд було використано для розв’язання задачі.
+      // function getSecondsForTask(num1, num2) {
+      //   const startDate = new Date()
+      //   prompt(`Скільки буде ${num1} + ${num2}`)
+      //   const endDate = new Date()
+      //   return (endDate - startDate) / 1000
+      // }
+
+      // document.write(getSecondsForTask(2, 3))
+    </script>
+  </head>
+  <body></body>
+</html>

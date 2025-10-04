@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //---- КЛАС ПРЕДОК -----
+      class Class_parent {
+        constructor(initA) {
+          this.a = initA
+        }
+        meth1() {
+          document.write('1111')
+        }
+      }
+      //---- КЛАС НАЩАДОК -----
+      class Child1 extends Class_parent {
+        constructor(initA, initB) {
+          super(initA)
+          this.b = initB
+        }
+        meth2() {
+          this.meth1()
+          console.log(this.a)
+
+          document.write('2222')
+        }
+      }
+      //---- КЛАС НАЩАДОК -----
+      class Child2 extends Child1 {
+        constructor(initA, initB, initC, initD) {
+          super(initA, initB)
+          this.c = initC
+          this.d = initD
+        }
+        meth2() {
+          document.write('Hello!')
+        }
+      }
+      // ------
+      const ob = new Child2(11, 22, 33, 44)
+      ob.meth2()
+      console.log(ob)
+    </script>
+  </head>
+  <body></body>
+</html>

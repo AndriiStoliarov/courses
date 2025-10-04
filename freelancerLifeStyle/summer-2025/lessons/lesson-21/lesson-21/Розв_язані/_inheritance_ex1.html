@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class SimpleTime {
+        constructor(hours, minutes) {
+          this.hours = hours
+          this.minutes = minutes
+        }
+        showHours() {
+          alert(this.hours)
+        }
+        showMinutes() {
+          alert(this.minutes)
+        }
+        toString() {
+          return `${this.hours}:${this.minutes}`
+        }
+      }
+      //-----------------------
+      class ExtSimpleTime extends SimpleTime {
+        constructor(hours, minutes, seconds) {
+          super(hours, minutes)
+
+          this.seconds = seconds
+        }
+        showSeconds() {
+          alert(this.seconds)
+        }
+
+        toString() {
+          return super.toString() + `:${this.seconds}`
+        }
+      }
+      //----------------
+      const extEx = new ExtSimpleTime(12, 34, 12)
+      document.write(extEx)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #container {
+        position: relative;
+        width: 400px;
+        height: 400px;
+        border: 2px solid blue;
+      }
+      button {
+        position: absolute;
+        left: 200px;
+        top: 200px;
+      }
+    </style>
+    <script>
+      // Задача. Crazy button. При наведенні кнопка повинна змінювати свій колір і позицію випадковим чином зміщаючись у деякому напрямку.
+      class CrazyButton {
+        constructor(title, maxStep, containerSelector) {
+          this.title = title
+          this.maxStep = maxStep
+          this.el = this.render(containerSelector)
+        }
+        moveTo(stepLeft, stepTop) {
+          const newLeft = parseInt(this.el.style.left) + stepLeft
+          const newTop = parseInt(this.el.style.top) + stepTop
+
+          this.el.style.left = `${newLeft}px`
+          this.el.style.top = `${newTop}px`
+        }
+        jump() {
+          const stepLeft =
+            -this.maxStep + Math.floor(Math.random() * (2 * this.maxStep + 1))
+          const stepTop =
+            -this.maxStep + Math.floor(Math.random() * (2 * this.maxStep + 1))
+
+          this.moveTo(stepLeft, stepTop)
+        }
+        render(containerSelector) {
+          const btn = document.createElement('button')
+          btn.innerText = this.title
+          btn.onmouseenter = this.jump.bind(this)
+          btn.style.left = '100px'
+          btn.style.top = '100px'
+
+          if (containerSelector)
+            document.querySelector(containerSelector).append(btn)
+
+          return btn
+        }
+      }
+      //-------------------------
+      class MovableCrazyButton extends CrazyButton {
+        constructor(
+          title,
+          maxStep,
+          containerSelector,
+          speed,
+          vLeft,
+          vTop,
+          maxLeft,
+          maxTop
+        ) {
+          super(title, maxStep, containerSelector)
+          this.speed = speed
+          this.vLeft = vLeft
+          this.vTop = vTop
+          this.maxLeft = maxLeft
+          this.maxTop = maxTop
+          this.start()
+        }
+        move() {
+          const left = parseInt(this.el.style.left)
+          const top = parseInt(this.el.style.top)
+
+          if (left < 0 || left > this.maxLeft) this.vLeft = -this.vLeft
+          if (top < 0 || top > this.maxTop) this.vTop = -this.vTop
+
+          this.moveTo(this.vLeft, this.vTop)
+        }
+        start(containerSelector) {
+          setInterval(this.move.bind(this), this.speed)
+        }
+      }
+
+      window.onload = function () {
+        // const b1 = new CrazyButton('test', 50, '#container')
+        // const b1 = new MovableCrazyButton(
+        //   'test',
+        //   50,
+        //   '#container',
+        //   100,
+        //   5,
+        //   10,
+        //   400,
+        //   400
+        // )
+
+        for (let i = 0; i < 5; i++) {
+          new MovableCrazyButton('test', 50, '#container', 100, 5, 10, 400, 400)
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="container"></div>
+
+    <script>
+      container.onmouseover
+    </script>
+  </body>
+</html>

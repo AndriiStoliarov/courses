@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //---- КЛАС ПРЕДОК -----
+      /** Table. Дозволяє виводити переданий двовимірний масиву у формі таблиці
+       * Клас Table:
+       *     Властивості: двовимірний масив
+       *     Методи: render
+       */
+      class Table {
+        constructor(arrData) {
+          this.arrData = this.getArrDataCopy(arrData)
+        }
+        getArrDataCopy(arrData) {
+          return JSON.parse(JSON.stringify(arrData))
+        }
+        createCell(cellData) {
+          const tdEl = document.createElement('td')
+          tdEl.innerText = cellData
+          return tdEl
+        }
+        createRow(rowArrData) {
+          const trEl = document.createElement('tr')
+          for (const elData of rowArrData) {
+            trEl.append(this.createCell(elData))
+          }
+          return trEl
+        }
+        createTable(arrData) {
+          const tableEl = document.createElement('table')
+          for (const rowData of arrData) {
+            tableEl.append(this.createRow(rowData))
+          }
+          return tableEl
+        }
+        render(containerSelector) {
+          const containerEl = document.createElement('div')
+
+          const table = this.createTable(this.arrData)
+          containerEl.append(table)
+          this.$table = table
+
+          this.$el = containerEl
+          if (containerSelector) {
+            const parentContainer = document.querySelector(containerSelector)
+            if (!parentContainer)
+              throw new Error('Батьківський елемент не знайдено !')
+            parentContainer.append(containerEl)
+          }
+          return containerEl
+        }
+      }
+
+      //---- КЛАС НАЩАДОК -----
+      /*  ColoredMaxTable. Дозволяє виділяти максимальний елемент певним стилем
+       * Клас ColoredMaxTable:
+       *     Властивості: двовимірний масив, стилі для максимального
+       *     Методи: знаходження максимального, render, піднесення усіх елементів до вказаної степені,  виділення максимального
+       */
+      class ColoredMaxTable extends Table {
+        constructor(arrData, cssObj) {
+          super(arrData)
+          this.cssObj = cssObj
+        }
+        getMax() {
+          return Math.max(...this.arrData.flat())
+        }
+        getMaxElementsPositionsList() {
+          const maxValue = this.getMax()
+          const maxElementsPositionsList = []
+          for (let i = 0; i < this.arrData.length; i++) {
+            for (let j = 0; j < this.arrData[i].length; j++) {
+              if (this.arrData[i][j] === maxValue)
+                maxElementsPositionsList.push({
+                  rowIndex: i,
+                  colIndex: j,
+                })
+            }
+          }
+          return maxElementsPositionsList
+        }
+        usePowerForItems(powerValue) {
+          for (let i = 0; i < this.arrData.length; i++) {
+            for (let j = 0; j < this.arrData[i].length; j++) {
+              this.arrData[i][j] = Math.pow(this.arrData[i][j], powerValue)
+            }
+          }
+          return this
+        }
+        highlightMax(maxPosition, rowsRefsList) {
+          const row = rowsRefsList[maxPosition.rowIndex]
+          const cellsList = row.querySelectorAll('td')
+          const cell = cellsList[maxPosition.colIndex]
+          cell.style.color = 'red'
+        }
+        highlightMaxElements() {
+          const maxElementsPositionsList = this.getMaxElementsPositionsList()
+
+          const rowsRefsList = this.$table.querySelectorAll('tr')
+
+          for (const pos of maxElementsPositionsList) {
+            this.highlightMax(pos, rowsRefsList)
+          }
+        }
+      }
+      //=================
+      const arr = [
+        [1, 2, 300],
+        [10, 2000, 30],
+        [100, 200, 300],
+      ]
+      window.onload = function () {
+        const t1 = new ColoredMaxTable(arr)
+        t1.usePowerForItems(2).render('.cnt')
+        t1.highlightMaxElements()
+      }
+    </script>
+  </head>
+  <body>
+    <div class="cnt"></div>
+  </body>
+</html>
