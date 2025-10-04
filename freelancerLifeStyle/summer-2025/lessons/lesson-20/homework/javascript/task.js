@@ -86,9 +86,7 @@ if (confirm("Почати тестування?")) {
     }
 
     getObjectValues(key) {
-      this.currentList = new List(cars).Value;
-
-      const values = this.currentList
+      const values = this.currentArray
         .map((car) => car[key])
         .filter((item, index, array) => array.indexOf(item) === index);
 
@@ -139,7 +137,6 @@ if (confirm("Почати тестування?")) {
       });
 
       const newCars = new List(newArray);
-
       const ulTemp = resultList.querySelector("ul");
       ulTemp.remove();
 
