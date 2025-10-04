@@ -170,31 +170,30 @@ if (confirm("Почати тестування?")) {
       return optionTag;
     }
 
+    createFilter(labelTitle, filterId, key) {
+      const fieldsetTag = this.createFieldsetTag();
+      fieldsetTag.append(this.createLabelTag(labelTitle, filterId));
+      const selectTag = this.createSelectTag(filterId);
+      selectTag.append(this.createOptionTag());
+      for (const item of this.getObjectValues(key)) {
+        selectTag.append(this.createOptionTag(item));
+      }
+      fieldsetTag.append(selectTag);
+
+      return fieldsetTag;
+    }
+
     render() {
       const formTag = this.createFormTag();
 
-      // створюємо фильтр "Марка" та додаем його до загальної форми
-      const fieldsetTagMake = this.createFieldsetTag();
-      fieldsetTagMake.append(this.createLabelTag("Марка:", "makeCar"));
-      const selectTagMake = this.createSelectTag("makeCar");
-      selectTagMake.append(this.createOptionTag());
-      for (const make of this.getObjectValues("make")) {
-        selectTagMake.append(this.createOptionTag(make));
-      }
-      fieldsetTagMake.append(selectTagMake);
+      const fieldsetTagMake = this.createFilter("Марка:", "makeCar", "make");
       formTag.append(fieldsetTagMake);
 
-      // створюємо фильтр "Рік випуску" та додаем його до загальної форми
-      const fieldsetTagReleaseYear = this.createFieldsetTag();
-      fieldsetTagReleaseYear.append(
-        this.createLabelTag("Рік випуску:", "releaseYearCar")
+      const fieldsetTagReleaseYear = this.createFilter(
+        "Рік випуску:",
+        "releaseYearCar",
+        "releaseYear"
       );
-      const selectTagReleaseYear = this.createSelectTag("releaseYearCar");
-      selectTagReleaseYear.append(this.createOptionTag());
-      for (const releaseYear of this.getObjectValues("releaseYear")) {
-        selectTagReleaseYear.append(this.createOptionTag(releaseYear));
-      }
-      fieldsetTagReleaseYear.append(selectTagReleaseYear);
       formTag.append(fieldsetTagReleaseYear);
 
       return formTag;
