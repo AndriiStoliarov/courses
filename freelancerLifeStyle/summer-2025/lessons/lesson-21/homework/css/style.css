@@ -364,6 +364,10 @@ figcaption {
   border-radius: 0.375rem;
 }
 
+.form__input--time {
+  width: auto;
+}
+
 .form__input:focus {
   outline: 0.125rem solid #000;
   outline-offset: -0.125rem;
@@ -406,6 +410,10 @@ figcaption {
   border-radius: 2.6875rem;
 
   transition: background-color 0.3s, color 0.3s;
+}
+
+.form__button--time {
+  width: auto;
 }
 
 .form__button--border-radius {
