@@ -364,7 +364,8 @@ figcaption {
   border-radius: 0.375rem;
 }
 
-.form__input--time {
+.form__input--time,
+.form__input--datetime {
   width: auto;
 }
 
