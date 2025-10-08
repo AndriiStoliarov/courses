@@ -13,6 +13,8 @@ window.onload = function () {
   task4();
   task5();
   task6();
+  task7();
+  task8();
 };
 
 // Задача 1. Виводити на екран скільки хвилин користувач вже на сайті.
@@ -139,6 +141,9 @@ function task4() {
 
 // Задача 5. При заході на сайт вітати користувача або відображати повідомлення про те, скільки хвилин залишилось до початку робочого дня (початок о 8:00).
 function task5() {
+  const resultItem5 = document.getElementById("resultItem-5");
+  if (!resultItem5) return;
+
   const START_WORKING_DAY_TIME = "08:00";
 
   const [hours, minutes] = START_WORKING_DAY_TIME.split(":").map((figure) =>
@@ -151,7 +156,9 @@ function task5() {
   const currentDatetime = new Date();
   const nextDatetime = new Date(currentDatetime);
 
-  if (currentDatetime.getDay() !== 5) {
+  if (currentDatetime.getHours() <= 8) {
+    nextDatetime.setDate(currentDatetime.getDate());
+  } else if (currentDatetime.getDay() !== 5) {
     nextDatetime.setDate(currentDatetime.getDate() + 1);
   } else {
     nextDatetime.setDate(currentDatetime.getDate() + 3);
@@ -163,7 +170,6 @@ function task5() {
   const differenceMinutes = Math.floor((differenceTotalSeconds % 3600) / 60);
   const differenceHours = Math.floor(differenceTotalSeconds / 3600);
 
-  const resultItem5 = document.getElementById("resultItem-5");
   resultItem5.innerText = `До початку робочого дня залишилось: ${formatSingleDigitNumber(
     differenceHours
   )} год., ${formatSingleDigitNumber(differenceMinutes)} хв.`;
@@ -171,14 +177,29 @@ function task5() {
 
 // Задача 6. Вивести скільки зараз годин у Лондоні, Парижі, Сіднеї.
 function task6() {
+  const resultItem6 = document.getElementById("resultItem-6");
+  if (!resultItem6) return;
+
   const WORLD_TIMEZONES = {
     london: "Europe/London",
     paris: "Europe/Paris",
     sydney: "Australia/Sydney",
   };
 
-  const london = getCityTimeZone(WORLD_TIMEZONES.london);
-  console.log("london :>> ", london);
+  const londonTime = getCityTimeZone(WORLD_TIMEZONES.london);
+  const [londonHours] = londonTime.split(":").map((figure) => Number(figure));
+
+  const parisTime = getCityTimeZone(WORLD_TIMEZONES.paris);
+  const [parisHours] = parisTime.split(":").map((figure) => Number(figure));
+
+  const sydneyTime = getCityTimeZone(WORLD_TIMEZONES.sydney);
+  const [sydneyHours] = sydneyTime.split(":").map((figure) => Number(figure));
+
+  resultItem6.innerText = `У Лондоні: ${formatSingleDigitNumber(
+    londonHours
+  )} год., у Парижі: ${formatSingleDigitNumber(
+    parisHours
+  )} год., у Сіднеї: ${formatSingleDigitNumber(sydneyHours)} год..`;
 
   function getCityTimeZone(cityTimeZone) {
     const currentTime = new Date();
@@ -191,5 +212,56 @@ function task6() {
 
     return city;
   }
+}
+
+// Задача 7. Дано список студентів (ім’я і дата народження: у формі тексту (день.місяць.рік). Знайти найстаршого студента.
+function task7() {
+  const resultItem7 = document.getElementById("resultItem-7");
+  if (!resultItem7) return;
+
+  const students = [
+    { name: "Oleksandr Bondar", dob: "23.11.2000" },
+    { name: "Iryna Melnyk", dob: "17.02.2003" },
+    { name: "Dmytro Horbunov", dob: "30.06.2001" },
+    { name: "Tetiana Horobets", dob: "08.01.2002" },
+    { name: "Serhii Petrov", dob: "14.07.1999" },
+    { name: "Kateryna Sydorenko", dob: "29.03.2000" },
+    { name: "Yaroslav Koval", dob: "02.12.2002" },
+    { name: "Mariia Lysenko", dob: "19.05.2001" },
+    { name: "Mykola Tkachenko", dob: "25.08.1998" },
+    { name: "Oksana Romanenko", dob: "11.10.1999" },
+  ];
+
+  console.log("Задача 7. Список студентів :>> ", students);
+
+  if (students.length > 0) {
+    const oldestStudent = students.reduce((previousStudent, student) => {
+      const previousStudentDob = convertToDateObject(previousStudent.dob);
+      const studentDob = convertToDateObject(student.dob);
+
+      return previousStudentDob < studentDob ? previousStudent : student;
+    });
+
+    resultItem7.innerText = `Найстарший студент: ${oldestStudent.name}, дата народження: ${oldestStudent.dob}. Список студентів (дивіться консоль).`;
+  }
+
+  // функция, яка створює об'єкт типу Date на основі текстового формату.
+  function convertToDateObject(dateString) {
+    const [day, month, year] = dateString
+      .split(".")
+      .map((figure) => Number(figure));
+    return new Date(year, month - 1, day);
+  }
+}
+
+// Задача 8. Визначити скільки пройшло секунд після заходу на сайт перш ніж користувач зробив рух мишкою.
+function task8() {
+  const start = Date.now();
+  document.addEventListener("mousemove", function () {
+    const end = Date.now();
+    const difference = end - start;
+    const totalSeconds = Math.floor(difference / 1000);
+    console.log("totalSeconds :>> ", totalSeconds);
+  });
 }
 // }

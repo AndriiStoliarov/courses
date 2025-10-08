@@ -367,6 +367,7 @@ figcaption {
 .form__input--time,
 .form__input--datetime {
   width: auto;
+  padding: 0 0.625rem;
 }
 
 .form__input:focus {
