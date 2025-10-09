@@ -276,6 +276,10 @@ figcaption {
   padding-left: 3.125rem;
 }
 
+.tasks__text {
+  padding-left: 3.3125rem;
+}
+
 /* .filter-form ============ */
 .filter-form {
   display: flex;
@@ -365,7 +369,9 @@ figcaption {
 }
 
 .form__input--time,
-.form__input--datetime {
+.form__input--date,
+.form__input--datetime,
+.form__input--number {
   width: auto;
   padding: 0 0.625rem;
 }
