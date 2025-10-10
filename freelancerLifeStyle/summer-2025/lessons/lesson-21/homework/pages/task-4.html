@@ -28,17 +28,23 @@
 						<div class="tasks__inner">
 							<ul class="tasks__items">
 								<li class="tasks__item">
-									<p><span class="tasks__title">Задача 1. </span>Створити клас Client.
-										<img class="tasks__image" src="../images/class-client.png" alt="class client image">
-										<span class="tasks__text">На основі цього класу створити клас GoldenClient.</span>
-										<img class="tasks__image" src="../images/class-golden-client.png" alt="class golden client image">
+									<p><span class="tasks__title">Задача 4. </span>Користувач задає місяць навчання учня (перевіряти чи є числом, чи
+										від 1 до 12, чи не канікули) та оцінку (перевіряти чи є числом, чи від 1 до 100). Вивести чи зможе він виправити оцінку (якщо
+										оцінка погана і це не останній місяць у семестрі). Обробку усіх помилок зробити з використанням відповідних класів.
 									</p>
 								</li>
 								<li id="resultTitle" class="tasks__item">
 									<span class="tasks__title">Відповідь:</span>
 									<ul class="list">
-										<li id="resultItem" class="list__item">
-											<!-- The content is inserted from *.js file. -->
+										<li class="list__item">
+											<span>Введіть місяць навчання: </span>
+											<input class="form__input  form__input--month" type="text">
+											<span>та оцінку: </span>
+											<input class="form__input  form__input--make" type="text">
+											<span>|</span>
+											<button class="form__button  form__button--student">перевірити</button>
+											<span>.</span>
+											<span id="resultItem"></span>
 										</li>
 									</ul>
 								</div><!-- /.tasks__inner -->
@@ -61,6 +67,6 @@
 						</div><!-- /.footer__inner-->
 					</footer>
 				</div><!-- /.wrapper -->
-				<script src="../javascript/task-1.js"></script>
+				<script src="../javascript/task-4.js"></script>
 			</body>
 		</html>

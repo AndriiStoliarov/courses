@@ -371,9 +371,16 @@ figcaption {
 .form__input--time,
 .form__input--date,
 .form__input--datetime,
-.form__input--number {
+.form__input--number,
+.form__input--month,
+.form__input--make {
   width: auto;
   padding: 0 0.625rem;
+}
+
+.form__input--month,
+.form__input--make {
+  max-width: 4.125rem;
 }
 
 .form__input:focus {
@@ -426,6 +433,13 @@ figcaption {
 
 .form__button--border-radius {
   width: auto;
+
+  border-radius: 0.75rem;
+}
+
+.form__button--student {
+  width: auto;
+  padding: 1px 0.625rem;
 
   border-radius: 0.75rem;
 }
