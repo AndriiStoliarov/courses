@@ -373,7 +373,8 @@ figcaption {
 .form__input--datetime,
 .form__input--number,
 .form__input--month,
-.form__input--make {
+.form__input--make,
+.form__input--task {
   width: auto;
   padding: 0 0.625rem;
 }
@@ -381,6 +382,20 @@ figcaption {
 .form__input--month,
 .form__input--make {
   max-width: 4.125rem;
+}
+
+.form__input--color,
+.form__input--text {
+  padding: 0 0.125rem;
+  max-width: 7%;
+
+  background-color: #fff;
+}
+
+.form__input--text {
+  max-width: 3%;
+
+  text-align: center;
 }
 
 .form__input:focus {
@@ -437,7 +452,8 @@ figcaption {
   border-radius: 0.75rem;
 }
 
-.form__button--student {
+.form__button--student,
+.form__button--add {
   width: auto;
   padding: 1px 0.625rem;
 
