@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //Задача. Користувач вводить ім’я. Створити рядок з 15 повторень цього рядка (рядок.repeat(кількість)).
+      // let userName = prompt('Name')
+      // document.write(userName.repeat(15))
+      //-----------------------------------------------
+      //Задача. Вводиться кількість годин і хвилин. Вивести у форматі "години:хвилини" при цьому додати 0 якщо величини менше 10
+      // (рядок.padStart(кількість, заповнювач)).
+      // let hours = prompt('hours')
+      // let minutes = prompt('minutes')
+      // let res = `${hours.padStart(2, 0)}:${minutes.padStart(2, 0)}`
+      // document.write(res)
+
+      //-----------------------------------------------
+      // Задача. Дано масив імен. Вирівняти усі імена за довжиною найбільшого (рядок.padStart(довжина)).
+      // let arr = ['John', 'Bob', 'Ali', 'Sandra']
+      // let maxLength =
+      // let res =
+      // document.write(res)
+      //-----------------------------------------------
+      // Вивести чек (імена-зліва, ціни-справа)
+      // const products = [
+      //   { name: 'Ноутбук', price: 25000 },
+      //   { name: 'Смартфон', price: 15000 },
+      //   { name: 'Навушники', price: 2000 },
+      //   { name: 'Смарт-годинник', price: 5000 },
+      // ]
+      // document.write('<pre>')
+      // products.forEach((prod) => {
+      //   document.write(
+      //     `${prod.name.padEnd(20)}${prod.price.toString().padStart(10)}<br>`
+      //   )
+      // })
+      // document.write('</pre>')
+
+      //Задача. Вивести на екран символ ('\u код_символа')
+      //https://en.wikipedia.org/wiki/List_of_Unicode_characters
+      // alert('\u270C')
+      // alert('\u2764')
+      //-----------------------------------------------
+      //Задача. Дано ім’я користувача, стать і вік. З використанням шаблонів вивести на екран рядок за шаблоном
+      // `{пан/пані}  {ім’я}  : {пенсіонер/не пенсіонер}`
+      // function getMessage(fixedParts, gender, name, age) {
+      //   const genderLabel = gender === 'm' ? 'пан' : 'пані'
+      //   const pensionerTitle =
+      //     (gender === 'm' && age >= 65) || (gender === 'w' && age >= 60)
+      //       ? 'пенсіонер'
+      //       : 'не пенсіорен'
+      //   return `${genderLabel}${fixedParts[0]}${name}${fixedParts[1]}${pensionerTitle}`
+      // }
+      // let userName = 'Ivan'
+      // let gender = 'm'
+      // let age = 31
+      // let message = getMessage` ${gender} ${userName}  : ${age}`
+      // document.write(message)
+      //-----------------------------------------------
+      // Задача. Користувач вводить логін. Перевірити правильність логіна('winner') (регістр не враховується)
+      // const correctLogin = 'winner'
+      // const login = prompt('Login')
+
+      //-----------------------------------------------
+      // Задача. Шифр Цезаря.
+
+      //   const letterCode = letter.charCodeAt(0)
+      //   const minLetterCode = 'A'.charCodeAt(0) // код літери 'A'
+      //   const maxLetterCode = 'Z'.charCodeAt(0) // код літери 'Z'
+
+      //   // min - max,        (value - min +shift)%(max-min+1) + min
+      //   // 65 - 91,        (letterCode - min +shift)%(max-min+1) + min
+
+      //-----------------------------------------------
+      // Задача. Отримати першу і другу половину введеного рядка
+      // let s = 'Hello world'
+
+      //-----------------------------------------------
+      // Задача. Отримати рядок, у якому немає першого і останнього символу
+      //-----------------------------------------------
+      //Задача. Дано адресу сайту. Перевірити, чи є він з шифруванням (починаєтсья з «https»)
+      //-----------------------------------------------
+      // let url = 'Https://test.test'
+      // if (url.toLowerCase().startsWith('https')) alert('ok')
+      // else alert('no')
+
+      // Задача. Дано адресу сайту. Перевірити, чи закінчується шлях з «edu».
+      // let url = 'https://test.test.edu'
+      // if (url.toLowerCase().endsWith('edu')) alert('ok')
+      // else alert('no')
+      //-----------------------------------------------
+      // Задача. Дано номер телефону. Перевірити, чи є цей телефон телефоном з України (починаєтсья на «+38»)
+      // const phone = '+3805012213324'
+      // if (phone.startsWith('+38')) alert('ok')
+      // else alert('no')
+      //-----------------------------------------------
+
+      // Задача. Користувач вводить прізвище та ім’я в одному рядку через пробіл.  Замінити пробіл на дефіс.
+      // const str1 = prompt('Name')
+      // const str2 = str1.replace(' ', '-')
+      // document.write(str2)
+      //-----------------------------------------------
+      // Задача. Користувач вводить дату у форматі «день.місяць.рік». Отримати рядкове представлення дати
+      //  у форматі «день/місяць/рік»
+      // const date1 = prompt('Date').trim()
+      // const date2 = date1.replaceAll('.', '/')
+      // document.write(date2)
+      //-----------------------------------------------
+      // Задача. Користувач вводить прізвище, ім’я, та по-батькі через пробіл. Отримати рядок згідно формату «ім’я ПРІЗВИЩЕ» .
+      // const str1 = prompt('Name').trim()
+      // const parts = str1.split(' ')
+      // const str2 = `${parts[1]} ${parts[0].toUpperCase()}`
+      // document.write(str2)
+      //-----------------------------------------------
+      // Задача. Дано масив цін. Сформувати 2 окремих рядки з цін розділених через кому які більші за 1000 і менші за 1000.
+      // const arr = [2, 1111, 3, 4545, 4, 43545, 2]
+      // const arrG100 = arr.filter((p) => p > 100)
+      // const arrL100 = arr.filter((p) => p < 100)
+
+      // document.write(arrG100.join('-'))
+      // document.write('<br>')
+      // document.write(arrL100.join('-'))
+
+      //-----------------------------------------------
+      // const str = 'Hello my friend'
+      // if (/hello/i.test(str)) alert('yes')
+      // else alert('no')
+      //-----------------------------------------------
+      // Задача. Користувач вводить текст. Визначити, чи є там цифри і отримати список усіх цифр.
+      // let str = 'Anna is 10, and she has 20 friends'
+      // if (/[0-9]/.test(str)) {
+      //   document.write('Є цифри <br>')
+      //   const digitList = str.match(/[0-9]/g)
+      //   console.log(digitList)
+
+      //   document.write(digitList)
+      // } else document.write('Нема цифр')
+
+      //-----------------------------------------------
+      // Задача. Користувач вводить день «sun,mon,tue,wed,thu,fri,sat»). Визначити, чи  є це день вихідним
+      // const str = prompt('Day')
+      // if (/(sun|sat)/i.test(str)) alert('yes')
+      // else alert('no')
+      //-----------------------------------------------
+
+      //Задача. Рядок тексту, у якому згадуються різні моделі автомобілів.
+      // «Іван Opel купив , а Оленка Audi. Їх товариш купив Mersedes. На підприємстві ж є Toyota, Nissan та Volkswagen»
+      // Визначити чи є «BMW» там або «Audi». Та сформувати список усіх таких авто.
+      // let str =
+      //   'Іван Audi купив , а Оленка Audi. Їх товариш купив Mersedes. На підприємстві ж є Toyota, Nissan, BMW та Volkswagen'
+      // if (/(BMW|Audi)/i.test(str)) {
+      //   alert('yes')
+      //   document.write(str.match(/(BMW|Audi)/gi))
+      // } else alert('no')
+
+      //-----------------------------------------------
+
+      // Задача. Дано перелік адрес ресурсів.
+      // “ftp://test.test, http://sometest.test, https://sometest.test”
+      // Перевірити, чи є там адреси сайтів (починаються з “http” або “https”).
+      // const str = 'ftp://test.test, http://sometest.test, https://sometest.test'
+      // if (/(http|https)/i.test(str)) alert('yes')
+      // else alert('no')
+
+      //-----------------------------------------------
+      //-----------------------------------------------
+      //-----------------------------------------------
+      // Задача. Дано повідомлення від користувача. Визначити, чи є всередині (не на початку і не у кінці) повідомлення рік, що починається з «19».
+      // let str = 'In 1987 we found 19 dogs and 21904 cats 1945 sssss 1988'
+      // if (/\s19\d{2}\s/.test(str)) {
+      //   document.write('Є  <br>')
+      //   const autoList = str.match(/\s19\d{2}\s/g)
+      //   document.write(autoList)
+      // } else document.write('Нема ')
+
+      // //-----------------------------------------------
+      // Задача. Дано повідомлення від користувача. Визначити, чи є у середині (не на початку і не у кінці) повідомлення номер телефону форматі    «0-800-***-***» (приклад: 0-800-500-415).
+      // let str = 'I call 0-800-500-415 every day, but 0-800-500-789 is better'
+      // if (/\s0-800-\d{3}-\d{3}\s/.test(str)) {
+      //   document.write('Є  <br>')
+      //   const autoList = str.match(/\s0-800-\d{3}-\d{3}\s/g)
+      //   document.write(autoList)
+      // } else document.write('Нема ')
+      //-----------------------------------------------
+      //-----------------------------------------------
+      // Задача. Визначити чи може бути рядок тексту номером банківської картки (приклад: «4142-3433-2323-3434»)
+      // let str = '  4142-3433-2323-3434   '
+      // if (/\b\d{4}-\d{4}-\d{4}-\d{4}\b/.test(str)) {
+      //   document.write('Є  <br>')
+      // } else document.write('Нема ')
+      //-----------------------------------------------
+      // Задача. Дано адресу сайту. Визначити, чи є він урядовим (містить домен “gov”)
+      // let source = 'Я відвідав https:\\my.super.gov.site.NGOV для реєстрації'
+      // // // if (source.toLowerCase().endsWith('.gov')) document.write('Так')
+      // // // else document.write('Ні')
+
+      // if (/\.gov[^\.]/i.test(source)) {
+      //   document.write('Так')
+      //   console.log(source.match(/\.gov[^\.]/i))
+      // } else document.write('Ні')
+
+      //-----------------------------------------------
+      // Задача. Вибрати усі роки після 2021 року з отриманого повідомлення
+      // let s =
+      //   '2001 - рік купівлі телефона, я придбав телевізор AK2334545 у 2000 році, пральну sd2024 машину у 2023 році, а чайник sdsd3021 у 2021 р, машину планує у році 2031'
+      // // //--- вибрати усі роки
+      // // let list = s.match(/\b\d{4}\b/g)
+      // //----
+      // let list = s.match(
+      //   /\b((202[2-9])|(20[3-9]\d)|(2[19]\d{2})|([3-9]\d{3}))\b/g
+      // )
+      // document.write(list)
+      //-----------------------------------------------
+
+      // // 1. $n – заміна формату дати
+      // let text1 = "Дати: 12-05-2025, 03-10-2024";
+      // let result1 = text1.replace(/(\d{2})-(\d{2})-(\d{4})/g, "$3/$2/$1");
+      // console.log(result1); // "Дати: 2025/05/12, 2024/10/03"
+
+      // // 2. $& – обгортка знайденого слова
+      // let text2 = 'Я вчу JavaScript і люблю JavaScript'
+      // let result2 = text2.replace(/JavaScript/g, '<strong>$&</strong>')
+      // document.write(result2) // "Я вчу <strong>JavaScript</strong> і люблю <strong>JavaScript</strong>"
+
+      // // 3. $` – текст перед знайденим словом
+      // let log = "Line1 OK\nLine2 error\nLine3 OK";
+      // let result3 = log.replace(/error/, (match) => {
+      //   return `(${match} знайдено після "${RegExp.leftContext}")`;
+      // });
+      // console.log(result3);
+      // // "Line1 OK\nLine2 (error знайдено після "Line2 ") \nLine3 OK"
+
+      // // 4. $' – текст після знайденого символу
+      // let line = "User: John Doe";
+      // let result4 = line.replace(/:/, (match) => {
+      //   return `:${RegExp.rightContext}`; // text after ':'
+      // });
+      // console.log(result4); // "User: John Doe"
+
+      // // 5. $+ – остання група
+      // let text5 = "Дата: 12-05-2025";
+      // let result5 = text5.replace(/(\d{2})-(\d{2})-(\d{4})/, "Місяць: $2");
+      // console.log(result5); // "Місяць: 05"
+
+      // // 6. $_ – увесь рядок
+      // let text6 = "Помилка на сервері";
+      // let result6 = text6.replace(/сервері/, (match) => {
+      //   return `В рядку "${RegExp.input}" знайдено '${match}'`;
+      // });
+      // console.log(result6); // "В рядку "Помилка на сервері" знайдено 'сервері'"
+
+      // // 7. $$ – символ $
+      // let text7 = "Ціна: $50, $100";
+      // let result7 = text7.replace(/\$/g, "$$$$");
+      // console.log(result7); // "Ціна: $$50, $$100"
+
+      //   Задача. Дано рядкове представлення дати у форматі «день.місяць.рік». Створити рядок у форматі «місяць/день/рік»
+      // let s1 = '21.11.2024'
+      // let s2 = s1.replace()
+      // document.write(s2)
+      //-----------------------------------------------
+      //   Задача. Дано рядок програми, яка містить звертання до властивості об’єкта за іменем (у лапках). Визначити чи коректно закрита лапка.
+      // let s = `obj['prop1"]`
+      // if (/(['"])(.*?)\1/.test(s)) document.write('ok')
+      // else document.write('no')
+      //-----------------------------------------------
+      //   Задача. Дано рядок тексту, що містить фрагмент розмітки з таблицею.
+      //   “<table><tr><td>aa</td><td>bb</td><td>cc</td></tr></table>”
+      //   Сформувати список значень елементів (контенту, що міститься у середині тегу «td»)
+      // let s = '<table><tr><td>aa</td><td>bb</td><td>cc</td></tr></table>'
+      // let list = s.match(/<td>(.*)<\/td>/g)
+      // document.write(list)
+      //-----------------------------------------------
+      //Задача. Дано повідомлення. Отримати окремі речення (речення закінується якимось розділовим знаком)
+      //-----------------------------------------------
+
+      // Задача. У тексті замінити усі «грн.» та «грн »  на «grn»
+      // let str = ' Купили за 23 грн і також за 56 грн. собі морозива'
+      // let res = str.replaceAll()
+      // document.write(res)
+      //-----------------------------------------------
+      // Задача. Дано номер кредитної картки. Розділити кожні 4 цифри через пробіл.
+      // let s = '1234567812345678'
+
+      // console.log(s.replace()
+
+      //-----------------------------------------------
+      //   Задача. Отримати усі елементи тегів, що знаходяться у трикутних дужках “<….>”
+      // «<ol>        <li>11</li>        <li>22</li>        <li>33</li>    </ol>»
+      // let s =
+      //   '<ol>        <li>11</li>        <li>22</li>        <li>33</li>    </ol>'
+      // let list = s.match(/(?<=<)(.*?)(?=>)/g)
+      // document.write(list)
+      //-----------------------------------------------
+
+      //-----------------------------------------------
+    </script>
+  </head>
+  <body>
+    <!-- <table border="">
+      <tr>
+        <td>aa</td>
+        <td>bb</td>
+        <td>cc</td>
+      </tr>
+    </table> -->
+  </body>
+</html>

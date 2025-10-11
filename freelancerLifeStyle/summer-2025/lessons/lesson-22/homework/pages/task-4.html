@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="uk">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="../css/style.css">
+		<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+		<title>Урок 21</title>
+	</head>
+	<body>
+		<div class="wrapper">
+			<!-- Header -->
+			<header class="header" id="up">
+				<div class="header__container">
+					<div class="header__inner">
+						<h1 class="header__title">Домашне завдання № 21</h1>
+					</div><!-- /. header__inner -->
+				</div><!-- /. header__container -->
+			</header>
+
+			<main class="page">
+				<!-- Tasks -->
+				<div class="tasks">
+					<div class="tasks__container">
+						<div class="tasks__inner">
+							<ul class="tasks__items">
+								<li class="tasks__item">
+									<p><span class="tasks__title">Задача 4. </span>Користувач задає місяць навчання учня (перевіряти чи є числом, чи
+										від 1 до 12, чи не канікули) та оцінку (перевіряти чи є числом, чи від 1 до 100). Вивести чи зможе він виправити оцінку (якщо
+										оцінка погана і це не останній місяць у семестрі). Обробку усіх помилок зробити з використанням відповідних класів.
+									</p>
+								</li>
+								<li id="resultTitle" class="tasks__item">
+									<span class="tasks__title">Відповідь:</span>
+									<ul class="list">
+										<li class="list__item">
+											<span>Введіть місяць навчання: </span>
+											<input class="form__input  form__input--month" type="text">
+											<span>та оцінку: </span>
+											<input class="form__input  form__input--make" type="text">
+											<span>|</span>
+											<button class="form__button  form__button--student">перевірити</button>
+											<span>.</span>
+											<span id="resultItem"></span>
+										</li>
+									</ul>
+								</div><!-- /.tasks__inner -->
+							</div><!-- /.tasks__container -->
+						</div><!-- /.tasks -->
+
+						<div class="up  up--left">
+							<div class="up__container">
+								<a class="up__link" href="../index.html">на головну</a>
+							</div>
+						</div>
+					</main><!-- /.page -->
+
+					<!-- Footer -->
+					<footer class="footer">
+						<div class="footer__container">
+							<div class="footer__inner">
+								<div class="footer__text"><span>&#169; </span>2025 Andrii Stoliarov</div>
+							</div>
+						</div><!-- /.footer__inner-->
+					</footer>
+				</div><!-- /.wrapper -->
+				<script src="../javascript/task-4.js"></script>
+			</body>
+		</html>

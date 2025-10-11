@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // Задача 2. Зберігати колір фону (можна змінювати за допомогою кнопок) та кількість змін (протягом одного сеансу і загальну кількість).
+      function setColor(color) {}
+      function onSetColor() {}
+
+      window.onload = function () {
+        document.getElementById('colorSelector').oninput = onSetColor
+        let color = localStorage.getItem('bkgColor')
+        if (color) setColor(color)
+      }
+    </script>
+  </head>
+  <body>
+    <input type="color" id="colorSelector" />
+    <div id="changeNumber"></div>
+  </body>
+</html>

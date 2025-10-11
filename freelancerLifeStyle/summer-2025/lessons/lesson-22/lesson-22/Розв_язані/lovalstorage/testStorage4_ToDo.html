@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .addForm {
+        width: 200px;
+        border: 2px solid black;
+        margin: 20px;
+        padding: 5px;
+      }
+      .item {
+        width: 200px;
+        border: 2px solid black;
+        margin: 20px;
+        padding: 5px;
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+    <script>
+      // Приклад. Реалізувати ToDo list з можливістю збереження
+      // [
+      // {
+      //   id:1,
+      //   title:'Drink coffee',
+      //   priority:1
+      // },
+      // {
+      //   id:2,
+      //   title:'Eat something',
+      //   priority:2
+      // },
+      // ]
+      class StorageDB {
+        constructor(storageKey) {
+          this.storageKey = storageKey
+        }
+        loadData() {
+          if (localStorage.getItem(this.storageKey))
+            return JSON.parse(localStorage.getItem(this.storageKey))
+          else return []
+        }
+        saveData(list) {
+          localStorage.setItem(this.storageKey, JSON.stringify(list))
+        }
+        addItem(item) {
+          const list = this.loadData()
+          list.push(item)
+          this.saveData(list)
+        }
+        deleteItem(id) {
+          let list = this.loadData()
+          list = list.filter((el) => el.id != id)
+          this.saveData(list)
+        }
+        updateItem(item) {
+          const list = this.loadData()
+          const elIndex = list.findIndex((el) => el.id == item.id)
+          list[elIndex] = item
+          this.saveData(list)
+        }
+        getItem(id) {
+          const list = this.loadData()
+          return list.find((el) => el.id == id)
+        }
+      }
+      //-----------
+
+      function createTaskEl(taskObj) {
+        const container = document.createElement('div')
+        container.innerText = `${taskObj.title} - ${taskObj.priority}`
+        return container
+      }
+      function printTasks(storageKey, targetContainerSelector) {
+        const list = new StorageDB(storageKey).loadData()
+        const targetContainer = document.querySelector(targetContainerSelector)
+        targetContainer.innerHTML = ''
+        for (const task of list) {
+          targetContainer.append(createTaskEl(task))
+        }
+      }
+
+      function addTask(storageKey, targetContainerSelector) {
+        const title = document.getElementById('title').value
+        const priority = document.getElementById('priority').value
+        new StorageDB(storageKey).addItem({
+          id: new Date().getTime(),
+          title,
+          priority,
+        })
+        printTasks(storageKey, targetContainerSelector)
+      }
+      //---------------
+      window.onload = function () {
+        printTasks('tasks', '.tasks')
+
+        document.getElementById('addBtn').onclick = addTask.bind(
+          null,
+          'tasks',
+          '.tasks'
+        )
+      }
+    </script>
+  </head>
+  <body>
+    <div id="manager">
+      <div>
+        <h1>Add task form</h1>
+        <div>
+          <label>
+            Title
+            <input type="text" id="title" />
+          </label>
+        </div>
+        <div>
+          <label>
+            Priority
+            <input type="text" id="priority" />
+          </label>
+        </div>
+        <button id="addBtn">Add task</button>
+      </div>
+
+      <hr />
+
+      <div>
+        <h1>Tasks list</h1>
+
+        <div class="tasks"></div>
+      </div>
+    </div>
+  </body>
+</html>

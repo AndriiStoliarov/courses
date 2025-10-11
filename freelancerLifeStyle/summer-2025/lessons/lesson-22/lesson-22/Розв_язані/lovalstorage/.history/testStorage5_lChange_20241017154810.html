@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <script>
+      function onLoad() {
+        let locale = localStorage.getItem('lang')
+        if (!locale) {
+          locale = 'ua'
+          localStorage.setItem('lang', locale)
+        }
+        document.getElementById('lang').innerText = locale
+      }
+
+      function onChangeStorage(event) {
+        console.log('event')
+        console.log(event)
+        document.getElementById('lang').innerText = localStorage.getItem('lang')
+      }
+
+      function onSelectorChange() {
+        const locale = document.getElementById('localeSelector').value
+        localStorage.setItem('lang', locale)
+        // потрібно для деяких браузерів
+        window.dispatchEvent(
+          new StorageEvent('storage', {
+            key: 'lang',
+            newValue: locale,
+          })
+        )
+      }
+
+      window.onload = function () {
+        onLoad()
+        document.getElementById('localeSelector').onchange = onSelectorChange
+        window.addEventListener('storage', onChangeStorage)
+      }
+    </script>
+  </head>
+  <body>
+    <div>Locale: <span id="lang"></span></div>
+
+    <select id="localeSelector">
+      <option value="">Обрати мову</option>
+      <option value="ua">Українська</option>
+      <option value="en">Англійська</option>
+    </select>
+  </body>
+</html>
