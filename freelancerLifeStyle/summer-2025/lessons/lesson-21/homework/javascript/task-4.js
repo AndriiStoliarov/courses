@@ -12,22 +12,7 @@ if (confirm("Почати тестування?")) {
         const makeElement = document.querySelector(".form__input--make");
         const month = monthElement.value;
         const make = makeElement.value;
-        const student = new Student(month, make);
-        student.isNumber();
-        student.isNumberRange();
-
-        const isHolidayMonths = student.isHolidayMonths();
-        const isLastMonth = student.isLastMonth();
-        const isBadMake = student.isBadMake();
-        if (isHolidayMonths) {
-          resultItem.innerText = "Зараз тривають каникули.";
-        } else if (isLastMonth && isBadMake) {
-          resultItem.innerText = "Оцінка погана, виправити оцінку не зможе.";
-        } else if (!isLastMonth && isBadMake) {
-          resultItem.innerText = "Оцінка погана, виправити оцінку зможе.";
-        } else {
-          resultItem.innerText = "Оцінка хороша.";
-        }
+        new Student(month, make);
       } catch (error) {
         resultItem.innerText = error.message;
       }
@@ -128,11 +113,30 @@ if (confirm("Почати тестування?")) {
         return false;
       }
     }
+
+    totalChecking() {
+      const isHolidayMonths = this.isHolidayMonths();
+      const isLastMonth = this.isLastMonth();
+      const isBadMake = this.isBadMake();
+
+      if (isHolidayMonths) {
+        resultItem.innerText = "Зараз тривають каникули.";
+      } else if (isLastMonth && isBadMake) {
+        resultItem.innerText = "Оцінка погана, виправити оцінку не зможе.";
+      } else if (!isLastMonth && isBadMake) {
+        resultItem.innerText = "Оцінка погана, виправити оцінку зможе.";
+      } else {
+        resultItem.innerText = "Оцінка хороша.";
+      }
+    }
   }
 
   class Student extends Pair {
     constructor(month, make) {
       super(month, 1, 12, make, 1, 100);
+      super.isNumber();
+      super.isNumberRange();
+      super.totalChecking();
     }
     get Month() {
       return this.number1.value;
