@@ -8,7 +8,7 @@
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="../css/style.css">
 		<link rel="icon" href="../favicon.svg" type="image/svg+xml">
-		<title>Урок 21</title>
+		<title>Урок 22</title>
 	</head>
 	<body>
 		<div class="wrapper">
@@ -16,7 +16,7 @@
 			<header class="header" id="up">
 				<div class="header__container">
 					<div class="header__inner">
-						<h1 class="header__title">Домашне завдання № 21</h1>
+						<h1 class="header__title">Домашне завдання № 22</h1>
 					</div><!-- /. header__inner -->
 				</div><!-- /. header__container -->
 			</header>
@@ -31,49 +31,53 @@
 									<span class="tasks__title">Задачи.</span>
 									<ul class="list">
 										<li class="list__item">
-											<p><span class="list__title">Задача 1.</span> Виводити на екран скільки хвилин користувач вже на сайті.</p>
+											<p><span class="list__title">Задача 1.</span> Дано масив рядків. Вивести ті, у яких є цифри (використати метод test та регулярні
+												вирази).</p>
 										</li>
 										<li class="list__item">
-											<p><span class="list__title">Задача 2.</span> Вводимо час початку процедури (процедура триває 30 хв.). Визначити, чи процедура ще
-												триває.</p>
+											<p><span class="list__title">Задача 2.</span> Дано масив рядків. Вивести ті, у яких немає цифр.</p>
 										</li>
 										<li class="list__item">
-											<p><span class="list__title">Задача 3.</span> Визначити скільки залишилось до кінця робочого дня (до 17:00).</p>
+											<p><span class="list__title">Задача 3.</span> Дано масив рядків. Вивести ті, у яких є голосні літери.</p>
 										</li>
 										<li class="list__item">
-											<p><span class="list__title">Задача 4.</span> Створити функцію, яка дозволяє визначити, чи знаходиться вказана дата і час у межах
-												поточного тижня (від понеділка 0 год., 0 хв., до неділі 23 год. 59 хв.).</p>
+											<p><span class="list__title">Задача 4.</span> Дано масив рядків. Вивести ті, у яких немає голосних літер.</p>
 										</li>
 										<li class="list__item">
-											<p><span class="list__title">Задача 5.</span> При заході на сайт вітати користувача або відображати повідомлення про те, скільки
-												хвилин залишилось до
-												початку робочого дня (початок о 8:00).</p>
+											<p><span class="list__title">Задача 5.</span></p>
 										</li>
 										<li class="list__item">
-											<p><span class="list__title">Задача 6.</span> Вивести скільки зараз годин у Лондоні, Парижі, Сіднеї.</p>
+											<p><span class="list__title">Задача 6.</span></p>
 										</li>
 										<li class="list__item">
-											<p><span class="list__title">Задача 7.</span> Дано список студентів (ім’я і дата народження: у формі тексту (день.місяць.рік).
-												Знайти найстаршого
-												студента.</p>
+											<p><span class="list__title">Задача 7.</span></p>
 										</li>
 										<li class="list__item">
-											<p><span class="list__title">Задача 8.</span> Визначити скільки пройшло секунд після заходу на сайт перш ніж користувач зробив
-												рух мишкою.</p>
+											<p><span class="list__title">Задача 8.</span></p>
 										</li>
 										<li class="list__item">
-											<p><span class="list__title">Задача 9.</span> Користувачка планувала оформила декретну відпустку на 200 днів (дата початку
-												відпустки вводиться).
-												Визначити чи відпустка вже триває і чи не закінчилась.</p>
+											<p><span class="list__title">Задача 9.</span></p>
 										</li>
 										<li class="list__item">
-											<p><span class="list__title">Задача 10.</span> Дано дата виробництва йогурта (вводимо рік, місяць, день) та кількість днів
-												придатності. Визначити чи
-												є він придатним на даний момент.</p>
+											<p><span class="list__title">Задача 10.</span></p>
 										</li>
 										<li class="list__item">
-											<p><span class="list__title">Задача 11.</span> Сформувати масив з 1000 елементів від 1 до 800. Порівняти час сортування
-												бульбашкою і вставкою.</p>
+											<p><span class="list__title">Задача 11.</span></p>
+										</li>
+										<li class="list__item">
+											<p><span class="list__title">Задача 12.</span></p>
+										</li>
+										<li class="list__item">
+											<p><span class="list__title">Задача 13.</span></p>
+										</li>
+										<li class="list__item">
+											<p><span class="list__title">Задача 14.</span></p>
+										</li>
+										<li class="list__item">
+											<p><span class="list__title">Задача 15.</span></p>
+										</li>
+										<li class="list__item">
+											<p><span class="list__title">Задача 16.</span></p>
 										</li>
 									</ul><!-- /.list -->
 								</li>
@@ -82,35 +86,27 @@
 									<!-- The content is inserted from *.js file. -->
 									<ul class="list">
 										<li class="list__item">
-											<p>
+											<p id="resultItem"></p>
+										</li>
+										<br>
+										<li class="list__item">
+											<p id="resultItem-1">
 												<span class="list__title">Задача 1. </span>
-												<span>Користувач знаходиться на сайті:</span>
-												<span id="resultItem-1">...</span>
 											</p>
 										</li>
 										<li class="list__item">
-											<p>
+											<p id="resultItem-2">
 												<span class="list__title">Задача 2. </span>
-												<span>Введіть час початку процедури: </span>
-												<input class="form__input  form__input--time"
-													type="time">
-												<span>.</span>
-												<span id="resultItem-2"></span>
 											</p>
 										</li>
 										<li class="list__item">
-											<p>
+											<p id="resultItem-3">
 												<span class="list__title">Задача 3. </span>
-												<span id="resultItem-3">...</span>
 											</p>
 										</li>
 										<li class="list__item">
-											<p>
+											<p id="resultItem-4">
 												<span class="list__title">Задача 4. </span>
-												<span>Вкажіть дату та час: </span>
-												<input class="form__input  form__input--datetime" type="datetime-local">
-												<span>.</span>
-												<span id="resultItem-4"></span>
 											</p>
 										</li>
 										<li class="list__item">
