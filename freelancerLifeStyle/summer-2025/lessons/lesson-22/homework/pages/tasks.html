@@ -44,28 +44,32 @@
 											<p><span class="list__title">Задача 4.</span> Дано масив рядків. Вивести ті, у яких немає голосних літер.</p>
 										</li>
 										<li class="list__item">
-											<p><span class="list__title">Задача 5.</span></p>
+											<p><span class="list__title">Задача 5.</span> Дано масив рядків. Вивести ті, у яких є або цифра 1 або цифра 3.</p>
 										</li>
 										<li class="list__item">
-											<p><span class="list__title">Задача 6.</span></p>
+											<p><span class="list__title">Задача 6.</span> Дано рядок тексту, вивести усі числа, які є у тексті.</p>
 										</li>
 										<li class="list__item">
-											<p><span class="list__title">Задача 7.</span></p>
+											<p><span class="list__title">Задача 7.</span> Дано рядок тексту. Знайти усі знаки пунктуації, які були використано.</p>
 										</li>
 										<li class="list__item">
-											<p><span class="list__title">Задача 8.</span></p>
+											<p><span class="list__title">Задача 8.</span> Дано рядок тексту. Вивести усі складові, які розділені розділовими знаками.</p>
 										</li>
 										<li class="list__item">
-											<p><span class="list__title">Задача 9.</span></p>
+											<p><span class="list__title">Задача 9.</span> Дано рядок тексту. Перевірити, чи містить він дату у форматі dd.mm.yyyy (dd - день,
+												mm - місяць, yyyy - рік).</p>
 										</li>
 										<li class="list__item">
-											<p><span class="list__title">Задача 10.</span></p>
+											<p><span class="list__title">Задача 10.</span> Дано рядок тексту. Підрахувати кількість двоцифрових чисел у рядку.</p>
 										</li>
 										<li class="list__item">
-											<p><span class="list__title">Задача 11.</span></p>
+											<p><span class="list__title">Задача 11.</span> Визначити чи може бути рядок тексту номером банківської картки (приклад:
+												«4142-3433-2323-3434» ). Знайти усі такі номери (при цьому символи “-” можуть бути, а можуть і не бути, тобто так
+												«4142343323233434»).</p>
 										</li>
 										<li class="list__item">
-											<p><span class="list__title">Задача 12.</span></p>
+											<p><span class="list__title">Задача 12.</span> Дано адресу сайту. Визначити, чи є він урядовим (містить домен “gov”, але не
+												обов'язково у кінці). Наприклад: “https://company.gov.ua”.</p>
 										</li>
 										<li class="list__item">
 											<p><span class="list__title">Задача 13.</span></p>
@@ -86,7 +90,10 @@
 									<!-- The content is inserted from *.js file. -->
 									<ul class="list">
 										<li class="list__item">
-											<p id="resultItem"></p>
+											<p id="resultItemArray"></p>
+											<p id="resultItemString"></p>
+											<p id="resultItemCardNumbers"></p>
+											<p id="resultItemSites"></p>
 										</li>
 										<br>
 										<li class="list__item">
@@ -110,41 +117,44 @@
 											</p>
 										</li>
 										<li class="list__item">
-											<span class="list__title">Задача 5. </span>
-											<span id="resultItem-5">...</span>
+											<p id="resultItem-5">
+												<span class="list__title">Задача 5. </span>
+											</p>
 										</li>
 										<li class="list__item">
-											<span class="list__title">Задача 6. </span>
-											<span id="resultItem-6">...</span>
+											<p id="resultItem-6">
+												<span class="list__title">Задача 6. </span>
+											</p>
 										</li>
 										<li class="list__item">
-											<span class="list__title">Задача 7. </span>
-											<span id="resultItem-7">...</span>
+											<p id="resultItem-7">
+												<span class="list__title">Задача 7. </span>
+											</p>
 										</li>
 										<li class="list__item">
-											<span class="list__title">Задача 8. </span>
-											<span>Після заходу на сайт, перш ніж користувач зробив рух мишкою, пройшло:</span>
-											<span id="resultItem-8">...</span>
+											<p id="resultItem-8">
+												<span class="list__title">Задача 8. </span>
+											</p>
 										</li>
 										<li class="list__item">
-											<span class="list__title">Задача 9. </span>
-											<span>Введіть дату початку відпустки: </span>
-											<input class="form__input  form__input--date" type="date">
-											<span>.</span>
-											<span id="resultItem-9"></span>
+											<p id="resultItem-9">
+												<span class="list__title">Задача 9. </span>
+											</p>
 										</li>
 										<li class="list__item">
-											<span class="list__title">Задача 10. </span>
-											<span>Введіть дату виробництва йогурта: </span>
-											<input class="form__input  form__input--date  form__input--yogurt-date" type="date">
-											<span>та термін придатності: </span>
-											<input class="form__input  form__input--number form__input--yogurt-shelf-life" type="number" min="0" max="60">
-											<span>.</span>
-											<span id="resultItem-10">...</span>
+											<p id="resultItem-10">
+												<span class="list__title">Задача 10. </span>
+											</p>
 										</li>
 										<li class="list__item">
-											<span class="list__title">Задача 11. </span>
-											<span id="resultItem-11">...</span>
+											<p id="resultItem-11">
+												<span class="list__title">Задача 11. </span>
+											</p>
+										</li>
+										<li class="list__item">
+											<p id="resultItem-12">
+												<span class="list__title">Задача 12. </span>
+											</p>
 										</li>
 									</ul>
 								</div><!-- /.tasks__inner -->

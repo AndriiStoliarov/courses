@@ -2,8 +2,8 @@
 
 // if (confirm("Почати тестування?")) {
 window.onload = function () {
-  const resultItem = document.getElementById("resultItem");
-  if (!resultItem) return;
+  const resultItemArray = document.getElementById("resultItemArray");
+  if (!resultItemArray) return;
 
   const strings = [
     "hello",
@@ -12,27 +12,56 @@ window.onload = function () {
     "no_digits",
     "user1",
     "room 404",
-    "price: 100$",
+    // "price: 100$",
     "test",
     "v2.0",
     "ID007",
     "zero0",
-    "plaintext",
+    // "plaintext",
   ];
 
-  resultItem.append(showArray(strings, "Вхідний масив рядків"));
+  resultItemArray.append(showArray(strings, "Вхідний масив рядків"));
+
+  const resultItemString = document.getElementById("resultItemString");
+  if (!resultItemString) return;
+
+  const string =
+    "Замовлення №42: сума 15,30 грн; кількість — 12 шт.; знижка 03%; доставка: 08.11.2025. Примітки: код 99, контакт +380-67-45-12-34...";
+
+  resultItemString.append(showString(string, "Вхідний рядок"));
+
+  const resultItemCardNumbers = document.getElementById(
+    "resultItemCardNumbers"
+  );
+  if (!resultItemCardNumbers) return;
+
+  const cardNumbers =
+    "Мої картки: 4142-3433-2323-3434, 5555666677778888, 1234 5678 9012 3456, 4000.1111.2222.3333, 5440*8999*1205*1123.";
+
+  resultItemCardNumbers.append(
+    showString(cardNumbers, "Вхідний рядок з номерами карток")
+  );
+
+  const resultItemSites = document.getElementById("resultItemSites");
+  if (!resultItemSites) return;
+
+  const sites =
+    "Офіційні сайти: https://company.gov.ua, http://school.edu.ua, https://bank.com, https://minfin.gov, http://example.org, https://cabinet.gov.ua, https://university.edu.ua.";
+
+  resultItemSites.append(showString(sites, "Вхідний рядок з адресами сайтів"));
 
   task1(strings);
   task2(strings);
   task3(strings);
   task4(strings);
-  // task5();
-  // task6();
-  // task7();
-  // task8();
-  // task9();
-  // task10();
-  // task11();
+  task5(strings);
+  task6(string);
+  task7(string);
+  task8(string);
+  task9(string);
+  task10(string);
+  task11(cardNumbers);
+  task12(sites);
 };
 
 // Задача 1. Дано масив рядків. Вивести ті, у яких є цифри (використати метод test та регулярні вирази).
@@ -94,300 +123,145 @@ function task3(array) {
   );
 }
 
-//TODO Задача 4. Дано масив рядків. Вивести ті, у яких немає голосних літер.
+// Задача 4. Дано масив рядків. Вивести ті, у яких немає голосних літер.
 function task4(array) {
   const resultItem4 = document.getElementById("resultItem-4");
   if (!resultItem4) return;
 
-  const exp = /[aeiou]/i;
+  // const exp = /^[^aeiou]{1,}$/i;
+  const exp = /^[^aeiou]+$/i;
   const newArray = array.filter((string) => exp.test(string));
-  console.log("newArray :>> ", newArray);
 
   resultItem4.append(
     showArray(newArray, "Масив рядків у яких немає голосних літер")
   );
 }
 
-// Задача 5. При заході на сайт вітати користувача або відображати повідомлення про те, скільки хвилин залишилось до початку робочого дня (початок о 8:00).
-function task5() {
+// Задача 5. Дано масив рядків. Вивести ті, у яких є або цифра 1 або цифра 3.
+function task5(array) {
   const resultItem5 = document.getElementById("resultItem-5");
   if (!resultItem5) return;
 
-  const START_WORKING_DAY_TIME = "08:00";
+  // const exp = /[13]/;
+  const exp = /(1|3)/;
+  const newArray = array.filter((string) => exp.test(string));
 
-  const [hours, minutes] = START_WORKING_DAY_TIME.split(":").map((figure) =>
-    Number(figure)
+  resultItem5.append(
+    showArray(newArray, "Масив рядків у яких є або цифра 1 або цифра 3")
   );
-
-  const startTime = new Date();
-  startTime.setHours(hours, minutes, 0, 0);
-
-  const currentDatetime = new Date();
-  const nextDatetime = new Date(currentDatetime);
-
-  if (currentDatetime.getHours() <= 8) {
-    nextDatetime.setDate(currentDatetime.getDate());
-  } else if (currentDatetime.getDay() !== 5) {
-    nextDatetime.setDate(currentDatetime.getDate() + 1);
-  } else {
-    nextDatetime.setDate(currentDatetime.getDate() + 3);
-  }
-  nextDatetime.setHours(hours, minutes, 0, 0);
-
-  const difference = nextDatetime - currentDatetime;
-  const differenceTotalSeconds = Math.floor(difference / 1000);
-  const differenceMinutes = Math.floor((differenceTotalSeconds % 3600) / 60);
-  const differenceHours = Math.floor(differenceTotalSeconds / 3600);
-
-  resultItem5.innerText = `До початку робочого дня залишилось: ${formatSingleDigitNumber(
-    differenceHours
-  )} год., ${formatSingleDigitNumber(differenceMinutes)} хв.`;
 }
 
-// Задача 6. Вивести скільки зараз годин у Лондоні, Парижі, Сіднеї.
-function task6() {
+// Задача 6. Дано рядок тексту, вивести усі числа, які є у тексті.
+function task6(string) {
   const resultItem6 = document.getElementById("resultItem-6");
   if (!resultItem6) return;
 
-  const WORLD_TIMEZONES = {
-    london: "Europe/London",
-    paris: "Europe/Paris",
-    sydney: "Australia/Sydney",
-  };
+  const exp = /\d+/g;
+  const newArray = string.match(exp) ?? [];
+  // newArray === null ? (newArray = []) : newArray;
+  resultItem6.append(showArray(newArray, "Усі числа, які є у тексті"));
+}
+/**
+ * Функція, яка виводить рядок.
+ */
+function showString(string, caption) {
+  const spanParentTag = document.createElement("span");
 
-  const londonTime = getCityTimeZone(WORLD_TIMEZONES.london);
-  const [londonHours] = londonTime.split(":").map((figure) => Number(figure));
+  const spanTagStart = document.createElement("span");
+  spanTagStart.innerText = `${caption}: "`;
+  spanParentTag.append(spanTagStart);
 
-  const parisTime = getCityTimeZone(WORLD_TIMEZONES.paris);
-  const [parisHours] = parisTime.split(":").map((figure) => Number(figure));
+  spanParentTag.append(string);
 
-  const sydneyTime = getCityTimeZone(WORLD_TIMEZONES.sydney);
-  const [sydneyHours] = sydneyTime.split(":").map((figure) => Number(figure));
+  const spanTagEnd = document.createElement("span");
+  spanTagEnd.innerText = '".';
+  spanParentTag.append(spanTagEnd);
 
-  resultItem6.innerText = `У Лондоні: ${formatSingleDigitNumber(
-    londonHours
-  )} год., у Парижі: ${formatSingleDigitNumber(
-    parisHours
-  )} год., у Сіднеї: ${formatSingleDigitNumber(sydneyHours)} год..`;
-
-  function getCityTimeZone(cityTimeZone) {
-    const currentTime = new Date();
-
-    const city = currentTime.toLocaleString("uk-UA", {
-      timeZone: cityTimeZone,
-      hour: "2-digit",
-      minute: "2-digit",
-    });
-
-    return city;
-  }
+  return spanParentTag;
 }
 
-// Задача 7. Дано список студентів (ім’я і дата народження: у формі тексту (день.місяць.рік). Знайти найстаршого студента.
-function task7() {
+// Задача 7. Дано рядок тексту. Знайти усі знаки пунктуації, які були використано.
+function task7(string) {
   const resultItem7 = document.getElementById("resultItem-7");
   if (!resultItem7) return;
 
-  const students = [
-    { name: "Oleksandr Bondar", dob: "23.11.2000" },
-    { name: "Iryna Melnyk", dob: "17.02.2003" },
-    { name: "Dmytro Horbunov", dob: "30.06.2001" },
-    { name: "Tetiana Horobets", dob: "08.01.2002" },
-    { name: "Serhii Petrov", dob: "14.07.1999" },
-    { name: "Kateryna Sydorenko", dob: "29.03.2000" },
-    { name: "Yaroslav Koval", dob: "02.12.2002" },
-    { name: "Mariia Lysenko", dob: "19.05.2001" },
-    { name: "Mykola Tkachenko", dob: "25.08.1998" },
-    { name: "Oksana Romanenko", dob: "11.10.1999" },
-  ];
+  // const exp = /\.{3}|\p{P}/gu;
+  const exp = /\.{3}|[.,:;—]/g;
+  const newArray = string.match(exp) ?? [];
 
-  console.log("Задача 7. Список студентів :>> ", students);
-
-  if (students.length > 0) {
-    const oldestStudent = students.reduce((previousStudent, student) => {
-      const previousStudentDob = convertToDateObject(previousStudent.dob);
-      const studentDob = convertToDateObject(student.dob);
-
-      return previousStudentDob < studentDob ? previousStudent : student;
-    });
-
-    resultItem7.innerText = `Найстарший студент: ${oldestStudent.name}, дата народження: ${oldestStudent.dob}. Список студентів (дивіться консоль).`;
-  }
-
-  // функция, яка створює об'єкт типу Date на основі текстового формату.
-  function convertToDateObject(dateString) {
-    const [day, month, year] = dateString
-      .split(".")
-      .map((figure) => Number(figure));
-    return new Date(year, month - 1, day);
-  }
+  resultItem7.append(
+    showArray(newArray, "Усі знаки пунктуації, які були використано")
+  );
 }
 
-// Задача 8. Визначити скільки пройшло секунд після заходу на сайт перш ніж користувач зробив рух мишкою.
-function task8() {
+// Задача 8. Дано рядок тексту. Вивести усі складові, які розділені розділовими знаками.
+function task8(string) {
   const resultItem8 = document.getElementById("resultItem-8");
   if (!resultItem8) return;
 
-  const start = Date.now();
-  document.addEventListener("mousemove", handlerMousemove);
+  // const exp = /\.{3}|\p{P}/gu;
+  // const exp = /\.{3}|[.,:;—\-!?«»“”„“()<>\*]/g;
+  const exp = /\.{3}|[.,:;—\-]/g;
+  const newArray = string.split(exp);
 
-  function handlerMousemove() {
-    const end = Date.now();
-    const difference = end - start;
-    const totalSeconds = Math.floor(difference / 1000);
-
-    resultItem8.innerText = `${totalSeconds} сек..`;
-
-    document.removeEventListener("mousemove", handlerMousemove);
-  }
+  resultItem8.append(
+    showArray(newArray, "Усі складові, які розділені розділовими знаками")
+  );
 }
 
-// Задача 9. Користувачка планувала оформила декретну відпустку на 200 днів (дата початку відпустки вводиться). Визначити чи відпустка вже триває і чи не закінчилась.
-function task9() {
+// Задача 9. Дано рядок тексту. Перевірити, чи містить він дату у форматі dd.mm.yyyy (dd - день, mm - місяць, yyyy - рік).
+function task9(string) {
   const resultItem9 = document.getElementById("resultItem-9");
   if (!resultItem9) return;
 
-  const appointedDate = document.querySelector(".form__input--date");
-  appointedDate.addEventListener("change", function (event) {
-    const MATERNITY_LEAVE_DURATION = 200;
-
-    const value = event.target.value;
-    const [year, month, day] = value.split("-").map((figure) => Number(figure));
-
-    const startDate = new Date(year, month - 1, day);
-
-    const timestamp =
-      startDate.getTime() + MATERNITY_LEAVE_DURATION * 24 * 60 * 60 * 1000;
-    const endDate = new Date(timestamp);
-
-    const currentDate = new Date();
-
-    if (currentDate < startDate) {
-      resultItem9.innerText = "Відпустка ще не почалася.";
-    } else if (currentDate > startDate && currentDate < endDate) {
-      resultItem9.innerText = "Відпустка ще триває...";
-    } else {
-      resultItem9.innerText = "Відпустка вже закінчилася.";
-    }
-  });
+  // const exp = /\d{2}\.\d{2}\.\d{4}/;
+  const exp = /\b\d{2}\.\d{2}\.\d{4}\b/;
+  if (exp.test(string)) {
+    resultItem9.append(
+      showString(exp.exec(string), "Текст містить дату у форматі dd.mm.yyyy")
+    );
+  }
 }
 
-// Задача 10. Дано дата виробництва йогурта (вводимо рік, місяць, день) та кількість днів придатності. Визначити чи є він придатним на даний момент.
-function task10() {
+// Задача 10. Дано рядок тексту. Підрахувати кількість двоцифрових чисел у рядку.
+function task10(string) {
   const resultItem10 = document.getElementById("resultItem-10");
   if (!resultItem10) return;
 
-  const productionDate = document.querySelector(".form__input--yogurt-date");
-  const shelfLifeValue = document.querySelector(
-    ".form__input--yogurt-shelf-life"
+  // const exp = /(?<!\d,)\b\d{2}\b(?!,\d)/g;
+  const exp = /\b\d{2}\b/g;
+  const newArray = string.match(exp) ?? [];
+  const digitsAmount = newArray.length ?? 0;
+
+  resultItem10.append(
+    showArray(newArray, `У рядку ${digitsAmount} двоцифрових чисел`)
   );
-
-  let productionDateYogurt = "";
-
-  productionDate.addEventListener("change", function (event) {
-    const value = event.target.value;
-    const [year, month, day] = value.split("-").map((figure) => Number(figure));
-
-    productionDateYogurt = new Date(year, month - 1, day);
-
-    resultItem10.innerText = "";
-    shelfLifeValue.value = 0;
-  });
-
-  shelfLifeValue.addEventListener("change", function (event) {
-    const shelfLifeDays = event.target.value;
-
-    const timestamp =
-      productionDateYogurt.getTime() + shelfLifeDays * 24 * 60 * 60 * 1000;
-    const expirationDate = new Date(timestamp);
-
-    const currentDate = new Date();
-
-    if (currentDate < productionDateYogurt) {
-      resultItem10.innerText = "Йогурт знаходиться в процесі виробництва.";
-    } else if (
-      currentDate > productionDateYogurt &&
-      currentDate < expirationDate
-    ) {
-      resultItem10.innerText = "Йогурт на даний момент э придатним.";
-    } else {
-      resultItem10.innerText = "Термін придатності йогурту вже закінчився.";
-    }
-  });
 }
 
-// Задача 11. Сформувати масив з 1000 елементів від 1 до 800. Порівняти час сортування бульбашкою і вставкою.
-function task11() {
+// Задача 11. Визначити чи може бути рядок тексту номером банківської картки (приклад: «4142-3433-2323-3434» ). Знайти усі такі номери (при цьому символи “-” можуть бути, а можуть і не бути, тобто так «4142343323233434»).
+function task11(string) {
   const resultItem11 = document.getElementById("resultItem-11");
   if (!resultItem11) return;
 
-  const ELEMENTS_AMOUNT = 1000;
-  const array = getRandomNumbersArray(ELEMENTS_AMOUNT, 1, 800);
-  console.log("Задача 11. Масив з 1000 елементів від 1 до 800. :>> ", array);
+  // const exp = /\b(\d{4}.?){4}\b/g;
+  const exp = /\b(\d{4}[-\s]?){4}\b/g;
+  const newArray = string.match(exp) ?? [];
 
-  const durationBubbleSort = getDurationBubbleSort(array);
-  const durationInsertSort = getDurationInsertSort(array);
+  resultItem11.append(showArray(newArray, "Усі номери банківських карток"));
+}
 
-  resultItem11.innerText = `Час сортування бульбашкою: ${durationBubbleSort} сек.. Час сортування вставкою: ${durationInsertSort} сек.. Масив з 1000 елементів від 1 до 800 (дивіться консоль).`;
+// Задача 12. Дано адресу сайту. Визначити, чи є він урядовим (містить домен “gov”, але не обов'язково у кінці). Наприклад: “https://company.gov.ua”.
+function task12(string) {
+  const resultItem12 = document.getElementById("resultItem-12");
+  if (!resultItem12) return;
 
-  // функция, повертає час, який було витрачено на обмін елементів при бульбашковому сортуванні массива.
-  function getDurationBubbleSort(array) {
-    let arrayCopy = [...array];
-    const start = new Date();
-    let endIndexLimit = arrayCopy.length;
-    let change = false;
+  // const exp = /\b(\d{4}[-\s]?){4}\b/g;
+  // /\.gov[^\.]/i.test(source);
+  const exp = /\b(\d{4}[-\s]?){4}\b/g;
+  const newArray = string.match(exp) ?? [];
 
-    do {
-      change = false;
-      for (let index = 1; index < endIndexLimit; index++) {
-        if (arrayCopy[index - 1] > arrayCopy[index]) {
-          const temp = arrayCopy[index - 1];
-          arrayCopy[index - 1] = arrayCopy[index];
-          arrayCopy[index] = temp;
-          change = true;
-        }
-      }
-      endIndexLimit--;
-    } while (change);
+  console.log("newArray :>> ", newArray);
 
-    const end = new Date();
-    const difference = (end - start) / 1000;
-
-    return difference;
-  }
-
-  // функция, повертає час, який було витрачено на обмін елементів при сортуванні массива вставкою.
-  function getDurationInsertSort(array) {
-    let arrayCopy = [...array];
-    const start = new Date();
-
-    for (let k = 1; k < arrayCopy.length; k++) {
-      const currentElement = arrayCopy[k];
-      let i = k - 1;
-      while (i >= 0 && arrayCopy[i] > currentElement) {
-        arrayCopy[i + 1] = arrayCopy[i];
-        i = i - 1;
-      }
-      arrayCopy[i + 1] = currentElement;
-    }
-
-    const end = new Date();
-    const difference = (end - start) / 1000;
-
-    return difference;
-  }
-
-  // функція повертає масив заповнений випадковими числами в заданому інтервалі.
-  function getRandomNumbersArray(sizeArray, numberFrom, numberTo) {
-    return Array.from({ length: sizeArray }, () =>
-      getRangeNumber(numberFrom, numberTo)
-    );
-
-    function getRangeNumber(numberFrom, numberTo) {
-      const randomNumber =
-        numberFrom + Math.floor(Math.random() * (numberTo - numberFrom + 1));
-      return randomNumber;
-    }
-  }
+  resultItem12.append(showArray(newArray, "Усі номери банківських карток"));
 }
 // }
