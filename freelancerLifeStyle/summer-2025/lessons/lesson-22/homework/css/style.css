@@ -392,6 +392,11 @@ figcaption {
   background-color: #fff;
 }
 
+.form__input--full-name {
+  padding: 0 0.125rem;
+  width: 25%;
+}
+
 .form__input--text {
   max-width: 3%;
 
