@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //--- test 1
+      // let m = new Map([
+      //   [1, 'aa'],
+      //   [2, 'bb'],
+      //   [3, 'cc'],
+      //   ['1', 'aa'],
+      // ])
+
+      // // for (const [key, value] of m) {
+      // //   document.write(`${key} - ${value}`)
+      // // }
+      // m.forEach((val, key, mapRef) => {
+      //   document.write(`${key} - ${val}<br>`)
+      // })
+
+      // for (const [k, v] of m) {
+      //   console.log(k)
+      //   console.log(v)
+      // }
+
+      //Задача. Підрахувати кількість входжень кожного із значень
+      // let arr = [12, 'hello', '12', 45, true, 12, 'false', 'true', '12', 12]
+      // let map = new Map()
+
+      // for (const item of arr) {
+      //   let count = map.get(item) ?? 0
+      //   map.set(item, count + 1)
+      // }
+
+      // console.log(map)
+      // map.forEach((val, key, mapRef) => {
+      //   console.log(`${key} - ${val}<br>`)
+      // })
+
+      //=========================================
+      //Приклад. Дано список з віком учнів. Підрахувати скільки разів кожне значення зустрічається у списку і максимальне.
+      let ages = [12, 13, 15, 12, 15, 12]
+
+      let map = new Map()
+      for (const age of ages) {
+        count = map.get(age) ?? 0
+        map.set(age, count + 1)
+      }
+
+      map.forEach((count, age, mapRef) => {
+        document.write(`${age} - ${count}<br>`)
+      })
+
+      let max = Math.max(...map.keys())
+      document.write(`Max  age = ${max}`)
+
+      console.log(map)
+    </script>
+  </head>
+  <body></body>
+</html>

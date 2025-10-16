@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Задача. Створити генератор, у який передається список і генератор поступово видає випадкове знаення з цього  списку поки вони не закінчаться
+
+      let arr = [7, 11, 9, 34, 2, 7, 78, 21]
+      function* rnd(arr) {
+        let copyArr = [...arr]
+        while (copyArr.length > 0) {
+          let randIndex = Math.floor(Math.random() * copyArr.length)
+          const val = copyArr[randIndex]
+          copyArr.splice(randIndex, 1)
+          yield val
+        }
+      }
+      document.write('<hr>')
+      for (const el of rnd(arr)) {
+        document.write(el)
+        document.write(', ')
+      }
+      document.write('<hr>')
+      for (const el of rnd(arr)) {
+        document.write(el)
+        document.write(', ')
+      }
+    </script>
+  </body>
+</html>

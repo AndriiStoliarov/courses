@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //З клавіатури поступово вводить користувач числа. Пірахувати кількість різних
+      //введедних чисел. Приняє введення тоді, коли введе 0
+      // let set = new Set()
+      // let num
+      // do {
+      //   num = parseInt(prompt('Num ='))
+      //   set.add(num)
+      // } while (num !== 0)
+
+      // document.write(set.size)
+
+      //З клавіатури поступово вводить користувач числа. Введення припинити коле буде введено 3 різних числа
+      // let set = new Set()
+      // let num
+      // do {
+      //   num = parseInt(prompt('Num ='))
+      //   set.add(num)
+      // } while (set.size < 3)
+      // console.log(set)
+      // document.write(set.size)
+
+      //Підрахувати кількість різних імен
+      // let studentsNames = [
+      //   'Ivan',
+      //   'Olga',
+      //   'Petro',
+      //   'Ivan',
+      //   'Olga',
+      //   'Petro',
+      //   'Jack',
+      // ]
+      // const set = new Set(studentsNames)
+      // document.write(set.size)
+
+      // Приклад. Дано список з віком учнів. Підразувати скільки є різних значень.
+      // let ages = [12, 14, 16, 12, 14, 18, 16, 12]
+      // document.write(new Set(ages).size)
+
+      // Приклад. Дано масив книг (назва, рік видання, автор (ПІБ, рік народження). Підрахувати кількість різних авторів
+      let books = [
+        { id: 1, title: 'Title1', author: 'Author1' },
+        { id: 2, title: 'Title2', author: 'Author2' },
+        { id: 3, title: 'Title3', author: 'Author3' },
+        { id: 4, title: 'Title4', author: 'Author2' },
+        { id: 5, title: 'Title5', author: 'Author1' },
+      ]
+      let authSet = new Set(books.map((book) => book.author))
+      document.write(authSet.size)
+      document.write('<hr>')
+      for (const author of authSet) {
+        document.write(`${author} <br>`)
+      }
+    </script>
+  </head>
+  <body>
+    <!-- <input type="color" /> -->
+  </body>
+</html>

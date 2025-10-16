@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Задача. Дано об’єкт - Student (піб, масив оцінок). При приведення до рядка повертати «піб».
+      // При приведенні до числа повертати мінімальну оцінку
+      let stud = {
+        name: 'Ivan',
+        scores: [10, 11, 9],
+        [Symbol.toPrimitive](hint) {
+          console.log('---hint')
+          console.log(hint)
+          switch (hint) {
+            case 'number':
+              return Math.min(...this.scores)
+            case 'string':
+              return this.name
+
+            default:
+              return this.name
+          }
+        },
+      }
+      document.write(stud)
+      document.write('<br>')
+      document.write(3 * stud)
+      document.write('<br>')
+      document.write(stud == 'ok')
+    </script>
+  </body>
+</html>
