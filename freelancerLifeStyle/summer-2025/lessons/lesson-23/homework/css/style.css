@@ -403,6 +403,13 @@ figcaption {
   text-align: center;
 }
 
+.form__input--amount {
+  padding: 0 0.125rem;
+  max-width: 5%;
+
+  text-align: center;
+}
+
 .form__input:focus {
   outline: 0.125rem solid #000;
   outline-offset: -0.125rem;
