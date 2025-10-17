@@ -8,7 +8,7 @@
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="../css/style.css">
 		<link rel="icon" href="../favicon.svg" type="image/svg+xml">
-		<title>Урок 22</title>
+		<title>Урок 23</title>
 	</head>
 	<body>
 		<div class="wrapper">
@@ -16,7 +16,7 @@
 			<header class="header" id="up">
 				<div class="header__container">
 					<div class="header__inner">
-						<h1 class="header__title">Домашне завдання № 22</h1>
+						<h1 class="header__title">Домашне завдання № 23</h1>
 					</div><!-- /. header__inner -->
 				</div><!-- /. header__container -->
 			</header>
@@ -31,8 +31,8 @@
 									<span class="tasks__title">Задачи.</span>
 									<ul class="list">
 										<li class="list__item">
-											<p><span class="list__title">Задача 1.</span> Дано масив рядків. Вивести ті, у яких є цифри (використати метод test та регулярні
-												вирази).</p>
+											<p><span class="list__title">Задача 5.</span> Дано список з віком учнів. Підрахувати скільки разів кожне значення зустрічається у
+												списку і максимальне.</p>
 										</li>
 										<li class="list__item">
 											<p><span class="list__title">Задача 2.</span> Дано масив рядків. Вивести ті, у яких немає цифр.</p>
@@ -49,43 +49,6 @@
 										<li class="list__item">
 											<p><span class="list__title">Задача 6.</span> Дано рядок тексту, вивести усі числа, які є у тексті.</p>
 										</li>
-										<li class="list__item">
-											<p><span class="list__title">Задача 7.</span> Дано рядок тексту. Знайти усі знаки пунктуації, які були використано.</p>
-										</li>
-										<li class="list__item">
-											<p><span class="list__title">Задача 8.</span> Дано рядок тексту. Вивести усі складові, які розділені розділовими знаками.</p>
-										</li>
-										<li class="list__item">
-											<p><span class="list__title">Задача 9.</span> Дано рядок тексту. Перевірити, чи містить він дату у форматі dd.mm.yyyy (dd - день,
-												mm - місяць, yyyy - рік).</p>
-										</li>
-										<li class="list__item">
-											<p><span class="list__title">Задача 10.</span> Дано рядок тексту. Підрахувати кількість двоцифрових чисел у рядку.</p>
-										</li>
-										<li class="list__item">
-											<p><span class="list__title">Задача 11.</span> Визначити чи може бути рядок тексту номером банківської картки (приклад:
-												«4142-3433-2323-3434» ). Знайти усі такі номери (при цьому символи “-” можуть бути, а можуть і не бути, тобто так
-												«4142343323233434»).</p>
-										</li>
-										<li class="list__item">
-											<p><span class="list__title">Задача 12.</span> Дано адресу сайту. Визначити, чи є він урядовим (містить домен “gov”, але не
-												обов'язково у кінці). Наприклад: “https://company.gov.ua”.</p>
-										</li>
-										<li class="list__item">
-											<p><span class="list__title">Задача 13.</span> Вибрати усі роки між 2020 та 2049 з отриманого повідомлення.</p>
-										</li>
-										<li class="list__item">
-											<p><span class="list__title">Задача 14.</span> Дано номер телефону. Перевірити, чи є цей телефон телефоном оператора
-												Київстар.</p>
-										</li>
-										<li class="list__item">
-											<p><span class="list__title">Задача 15.</span> Користувач вводить прізвище та ім’я в одному рядку через пробіл. Замінити пробіл
-												на дефіс.</p>
-										</li>
-										<li class="list__item">
-											<p><span class="list__title">Задача 16.</span> Користувач вводить дату у форматі «день.місяць.рік». Отримати рядкове
-												представлення дати у форматі «місяць/рік».</p>
-										</li>
 									</ul><!-- /.list -->
 								</li>
 								<li id="resultTitle" class="tasks__item">
@@ -93,16 +56,10 @@
 									<!-- The content is inserted from *.js file. -->
 									<ul class="list">
 										<li class="list__item">
-											<p id="resultItemArray"></p>
-											<p id="resultItemString"></p>
-											<p id="resultItemCardNumbers"></p>
-											<p id="resultItemSites"></p>
-											<p id="resultItemYears"></p>
-										</li>
-										<br>
-										<li class="list__item">
-											<p id="resultItem-1">
-												<span class="list__title">Задача 1. </span>
+											<p>
+												<span class="list__title">Задача 5. </span>
+												<span id="resultItem-ages"></span>
+												<ul class="list" id="resultItem-5"></ul>
 											</p>
 										</li>
 										<li class="list__item">
@@ -118,56 +75,6 @@
 										<li class="list__item">
 											<p id="resultItem-4">
 												<span class="list__title">Задача 4. </span>
-											</p>
-										</li>
-										<li class="list__item">
-											<p id="resultItem-5">
-												<span class="list__title">Задача 5. </span>
-											</p>
-										</li>
-										<li class="list__item">
-											<p id="resultItem-6">
-												<span class="list__title">Задача 6. </span>
-											</p>
-										</li>
-										<li class="list__item">
-											<p id="resultItem-7">
-												<span class="list__title">Задача 7. </span>
-											</p>
-										</li>
-										<li class="list__item">
-											<p id="resultItem-8">
-												<span class="list__title">Задача 8. </span>
-											</p>
-										</li>
-										<li class="list__item">
-											<p id="resultItem-9">
-												<span class="list__title">Задача 9. </span>
-											</p>
-										</li>
-										<li class="list__item">
-											<p id="resultItem-10">
-												<span class="list__title">Задача 10. </span>
-											</p>
-										</li>
-										<li class="list__item">
-											<p id="resultItem-11">
-												<span class="list__title">Задача 11. </span>
-											</p>
-										</li>
-										<li class="list__item">
-											<p id="resultItem-12">
-												<span class="list__title">Задача 12. </span>
-											</p>
-										</li>
-										<li class="list__item">
-											<p id="resultItem-13">
-												<span class="list__title">Задача 13. </span>
-											</p>
-										</li>
-										<li class="list__item">
-											<p id="resultItem-14">
-												<span class="list__title">Задача 14. </span>
 											</p>
 										</li>
 										<li class="list__item">
