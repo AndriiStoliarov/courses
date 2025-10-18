@@ -12,11 +12,6 @@ if (confirm("Почати тестування?")) {
 
       const newArray = [...generateRandomEvenNumber(currentAmount, 2, 100)];
 
-      console.log(
-        "generateRandomEvenNumber(currentAmount, 2, 100) :>> ",
-        JSON.stringify(generateRandomEvenNumber(currentAmount, 2, 100).next())
-      );
-
       resultItem3.append(showArray(newArray, "Масив парних чисел"));
     });
   };
