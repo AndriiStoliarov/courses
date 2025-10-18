@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="myApp">
+      <div>
+        <label>
+          First
+          <input type="number" v-model="num1" />
+        </label>
+      </div>
+      <div>
+        <label>
+          Second
+          <input type="number" v-model="num2" />
+        </label>
+      </div>
+      <div>Sum : <span id="sum"> {{ num1+num2 }} </span></div>
+      <div>Prod : <span id="prod">{{ num1*num2 }}</span></div>
+      <button @click="onClear">Clear</button>
+    </div>
+
+    <script>
+      const { createApp } = Vue
+
+      const app = createApp({
+        data() {
+          return {
+            num1: 0,
+            num2: 0,
+          }
+        },
+        methods: {
+          onClear() {
+            this.num1 = 0
+            this.num2 = 0
+          },
+        },
+      })
+
+      app.mount('#myApp')
+    </script>
+  </body>
+</html>

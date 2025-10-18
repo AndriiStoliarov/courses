@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let data = {
+        num1: 0,
+        num2: 0,
+      }
+      function calcResults() {
+        const sum = data.num1 + data.num2
+        const prod = data.num1 * data.num2
+        document.getElementById('sum').innerText = sum
+        document.getElementById('prod').innerText = prod
+      }
+      function changeNum1() {
+        let num1Val = parseInt(document.getElementById('num1').value)
+        data.num1 = num1Val
+        calcResults()
+      }
+      function changeNum2() {
+        let num2Val = parseInt(document.getElementById('num2').value)
+        data.num2 = num2Val
+        calcResults()
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <label>
+        First
+        <input type="number" id="num1" value="0" onchange="changeNum1()" />
+      </label>
+    </div>
+    <div>
+      <label>
+        Second
+        <input type="number" id="num2" value="0" onchange="changeNum2()" />
+      </label>
+    </div>
+    <div>Sum : <span id="sum">0</span></div>
+    <div>Prod : <span id="prod">0</span></div>
+  </body>
+</html>

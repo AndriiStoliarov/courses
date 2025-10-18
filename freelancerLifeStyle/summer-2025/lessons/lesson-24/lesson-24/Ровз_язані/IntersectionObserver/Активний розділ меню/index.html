@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>IntersectionObserver — Навігація</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 0;
+      }
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: #333;
+        color: white;
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        padding: 10px;
+        z-index: 10;
+      }
+      nav a {
+        color: white;
+        text-decoration: none;
+      }
+      nav a.active {
+        border-bottom: 2px solid #ff9800;
+      }
+      section {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: white;
+      }
+      #home {
+        background: #607d8b;
+      }
+      #about {
+        background: #03a9f4;
+      }
+      #services {
+        background: #4caf50;
+      }
+      #contact {
+        background: #9c27b0;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="#home">Головна</a>
+      <a href="#about">Про нас</a>
+      <a href="#services">Послуги</a>
+      <a href="#contact">Контакти</a>
+    </nav>
+
+    <section id="home">Головна</section>
+    <section id="about">Про нас</section>
+    <section id="services">Послуги</section>
+    <section id="contact">Контакти</section>
+
+    <script>
+      const sections = document.querySelectorAll('section')
+      const navLinks = document.querySelectorAll('nav a')
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              navLinks.forEach((link) => link.classList.remove('active'))
+              const id = entry.target.getAttribute('id')
+              document
+                .querySelector(`nav a[href="#${id}"]`)
+                .classList.add('active')
+            }
+          })
+        },
+        { threshold: 0.6 }
+      )
+
+      sections.forEach((sec) => observer.observe(sec))
+    </script>
+  </body>
+</html>

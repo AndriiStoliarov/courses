@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img src="" id="imgPreview" />
+    <label>
+      Picture:
+      <input type="file" name="picture" id="fileInput" accept="image/*" />
+    </label>
+    <script>
+      let url = 'https://jsonplaceholder.typicode.com/posts'
+      fileInput.addEventListener('change', (event) => {
+        const files = event.target.files //файли, що було вибрано
+        readImageAsDataURL(files[0])
+        uploadFile(files[0]) //викликаємо функцію, для надсилання файлу
+      })
+      //функція для зчитування даних і отримання як base64
+      function readImageAsDataURL(file) {
+        let reader = new FileReader()
+        reader.onload = (e) => {
+          imgPreview.src = e.target.result
+        }
+        reader.readAsDataURL(file)
+      }
+      //функція для надсилання файлу
+      async function uploadFile(file) {
+        let formData = new FormData()
+        formData.append('file', file)
+        let response = await fetch(url, {
+          method: 'POST',
+          body: formData,
+        })
+      }
+    </script>
+  </body>
+</html>

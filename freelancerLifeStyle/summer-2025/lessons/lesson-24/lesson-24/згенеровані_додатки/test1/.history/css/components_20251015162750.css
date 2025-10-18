@@ -1,0 +1,23 @@
+.site-header .nav a.active { color: var(--text); }
+.site-header .nav a { color: var(--muted); }
+
+.dog-card {
+  display: flex; flex-direction: column;
+}
+.dog-card img {
+  width: 100%; height: 220px; object-fit: cover; display: block;
+}
+.dog-card .dog-card__body { padding: 12px; }
+.dog-card .dog-card__title { font-weight: 600; margin: 0 0 4px; }
+.dog-card .dog-card__subtitle { color: var(--muted); font-size: 14px; margin: 0; }
+
+.detail-hero {
+  display: grid; grid-template-columns: 1fr; gap: 16px;
+}
+.detail-hero img { width: 100%; border-radius: var(--radius); }
+.detail-hero .meta { background: var(--panel); padding: 16px; border-radius: var(--radius); }
+
+@media (min-width: 800px) {
+  .detail-hero { grid-template-columns: 1.2fr 0.8fr; }
+}
+

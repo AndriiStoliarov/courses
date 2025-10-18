@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function checkDiv(mutationRecords) {
+        console.log(1111)
+        const record = mutationRecords[0]
+        console.log(record)
+
+        if (record.target.textContent.length > 5)
+          document.getElementById('test').style.color = 'green'
+        else document.getElementById('test').style.color = 'red'
+      }
+
+      window.onload = function () {
+        let observer = new MutationObserver(checkDiv)
+
+        const config = {
+          childList: true,
+          subtree: true,
+          characterData: true,
+          attributes: true,
+          characterDataOldValue: true,
+        }
+
+        observer.observe(document.getElementById('test'), config)
+        setTimeout(() => {
+          observer.disconnect() //для відключення
+        }, 4000)
+        // observer.disconnect() //для відключення
+      }
+    </script>
+  </head>
+  <body>
+    <div contenteditable="true" id="test"></div>
+  </body>
+</html>

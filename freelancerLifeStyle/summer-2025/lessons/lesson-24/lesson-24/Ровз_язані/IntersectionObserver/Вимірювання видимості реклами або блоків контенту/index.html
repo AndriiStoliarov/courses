@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>IntersectionObserver — Реклама</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        height: 200vh;
+      }
+      #ad {
+        width: 300px;
+        height: 250px;
+        background: linear-gradient(135deg, #ff9800, #f44336);
+        margin: 800px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Скроль, щоб побачити рекламу 👇</h1>
+    <div id="ad">Реклама</div>
+
+    <script>
+      const adBlock = document.querySelector('#ad')
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.intersectionRatio > 0.5) {
+              console.log('✅ Реклама видима більше ніж на 50%')
+            } else {
+              console.log('🚫 Реклама менш ніж на 50% у полі зору')
+            }
+          })
+        },
+        { threshold: [0, 0.5, 1] }
+      )
+
+      observer.observe(adBlock)
+    </script>
+  </body>
+</html>

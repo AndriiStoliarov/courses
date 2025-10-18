@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IntersectionObserver Lazy Loading Example</title>
+    <style>
+      /* CSS для створення контейнера зі скролом */
+      #scroll-container {
+        height: 400px; /* Обмежена висота */
+        width: 80%;
+        margin: 20px auto;
+        border: 2px solid #3498db;
+        overflow-y: scroll; /* Смуга прокрутки */
+        background-color: #f7f7f7;
+        padding: 10px;
+      }
+
+      /* Стилі для простору між зображеннями */
+      .spacer {
+        height: 500px; /* Великий простір для скролу */
+        text-align: center;
+        padding-top: 50px;
+        color: #555;
+      }
+
+      /* Стилі для зображень */
+      img {
+        display: block;
+        width: 100%;
+        height: 300px; /* Фіксована висота для демонстрації */
+        object-fit: cover;
+        border-radius: 8px;
+        transition: opacity 0.5s;
+      }
+
+      /* Початковий стан 'лінивих' зображень */
+      img.lazy {
+        opacity: 0.1; /* Зробимо його ледь видимим */
+        background-color: #ccc; /* Тимчасовий фон */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Ліниве завантаження у контейнері</h1>
+    <p>
+      Прокрутіть синій контейнер нижче, щоб побачити, як зображення з'являються.
+    </p>
+
+    <div id="scroll-container">
+      <h2>Зображення 1</h2>
+      <img
+        class="lazy"
+        alt="Image 1"
+        data-src="https://picsum.photos/id/10/800/300"
+        src=""
+      />
+
+      <div class="spacer">
+        Прокрутіть, щоб побачити наступне зображення... (500px)
+      </div>
+
+      <h2>Зображення 2</h2>
+      <img
+        class="lazy"
+        alt="Image 2"
+        data-src="https://picsum.photos/id/20/800/300"
+        src=""
+      />
+
+      <div class="spacer">Кінець контейнера.</div>
+    </div>
+
+    <script>
+      //Отримуємо DOM-елементи
+      const images = document.querySelectorAll('img.lazy')
+      // Отримуємо кореневий елемент
+      const scrollContainer = document.getElementById('scroll-container')
+
+      const callback = (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Коли елемент потрапив у зону видимості root:
+
+            // 1. Встановлюємо реальне джерело зображення
+            entry.target.src = entry.target.dataset.src
+
+            // 2. Прибираємо клас 'lazy' (для зміни стилів)
+            entry.target.classList.remove('lazy')
+
+            // 3. Припиняємо спостереження, оскільки зображення завантажено
+            observer.unobserve(entry.target)
+          }
+        })
+      }
+
+      const options = {
+        // !!! Вказуємо контейнер як кореневий елемент !!!
+        root: scrollContainer,
+        // Розпочати завантаження за 200px до появи в зоні видимості контейнера
+        rootMargin: '0px 0px 200px 0px',
+        // 10% елемента має бути видимим, щоб спрацював callback
+        threshold: 0.1,
+      }
+
+      const observer = new IntersectionObserver(callback, options)
+
+      // Починаємо спостереження за кожним зображенням
+      images.forEach((img) => observer.observe(img))
+    </script>
+  </body>
+</html>

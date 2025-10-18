@@ -1,0 +1,23 @@
+{
+  "name": "dog-gallery",
+  "version": "1.0.0",
+  "description": "Dog Gallery - веб-додаток для перегляду фотографій собак",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "dogs",
+    "gallery",
+    "api",
+    "javascript",
+    "html",
+    "css"
+  ],
+  "author": "Dog Gallery Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=12.0.0"
+  }
+}

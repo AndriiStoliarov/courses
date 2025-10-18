@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!---- що відобразити поки завантажуєтсья--------->
+    <div id="loader">Loading ......</div>
+    <!-----що відобразити коли успішно завантажились дані -------->
+    <div id="content" style="display: none">
+      <img src="" alt="fox" height="200" id="foxImage" />
+      <a href="" id="foxLink">Fox page</a>
+    </div>
+    <!---- що відобразити коли помилка--------->
+    <div id="errorBlock" style="display: none">Нажаль сталась помилка!</div>
+    <!------------->
+    <script>
+      fetch('https://randomfox.ca/floof/')
+        .then((res) => res.json())
+        .then((data) => {
+          foxImage.src = data.image
+          foxLink.href = data.link
+          content.style.display = 'block'
+        })
+        .catch((err) => {
+          console.log(err)
+          errorBlock.style.display = 'block'
+        })
+        .finally(() => {
+          loader.style.display = 'none'
+        })
+    </script>
+  </body>
+</html>
