@@ -20,17 +20,17 @@
       fetch('https://randomfox.ca/floof/')
         .then((res) => res.json())
         .then((data) => {
-          foxImage.src = data.image
-          foxLink.href = data.link
-          content.style.display = 'block'
+          foxImage.src = data.image;
+          foxLink.href = data.link;
+          content.style.display = 'block';
         })
         .catch((err) => {
           console.log(err)
-          errorBlock.style.display = 'block'
+          errorBlock.style.display = 'block';
         })
         .finally(() => {
-          loader.style.display = 'none'
-        })
+          loader.style.display = 'none';
+        });
     </script>
   </body>
 </html>

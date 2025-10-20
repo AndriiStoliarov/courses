@@ -1,71 +1,26 @@
 "use strict";
 
-if (confirm("Почати тестування?")) {
-  window.onload = function () {
-    const resultItem1 = document.getElementById("resultItem-1");
-    if (!resultItem1) return;
+import { getData } from "modules/fetch.js";
 
-    const phoneNumberInput = document.querySelector(".form__input--number");
-    phoneNumberInput.onchange = (event) => {
-      try {
-        const currentPhoneNumber = event.target.value;
+// if (confirm("Почати тестування?")) {
+window.onload = function () {
+  const resultItem = document.getElementById("resultItem");
+  if (!resultItem) return;
 
-        const phoneNumber = new PhoneNumber(currentPhoneNumber);
+  // const phoneNumberInput = document.querySelector(".form__input--number");
+  // phoneNumberInput.onchange = (event) => {
+  //   try {
+  //     const currentPhoneNumber = event.target.value;
 
-        resultItem1.innerText = `${phoneNumber.Number} -> ${phoneNumber}.`;
-      } catch (error) {
-        resultItem1.innerText = error.message;
-      }
-    };
-  };
+  //     const phoneNumber = new PhoneNumber(currentPhoneNumber);
 
-  class PhoneNumber {
-    constructor(initNumber) {
-      this.Number = initNumber;
-    }
+  //     resultItem1.innerText = `${phoneNumber.Number} -> ${phoneNumber}.`;
+  //   } catch (error) {
+  //     resultItem1.innerText = error.message;
+  //   }
+  // };
 
-    set Number(value) {
-      if (/^0\d{9}$/.test(value)) {
-        this.number = value;
-      } else {
-        throw new Error("Номер не відповідає формату.");
-      }
-    }
+  const API_URL = "hhttps://randomfox.ca/floof/";
+};
 
-    get Number() {
-      return this.number;
-    }
-
-    [Symbol.toPrimitive](hint) {
-      if (hint === "string") {
-        const prefix = this.Number.slice(1, 3);
-        let operator;
-
-        switch (prefix) {
-          case "50":
-          case "66":
-          case "95":
-          case "99":
-            operator = "MTC";
-            break;
-          case "67":
-          case "68":
-          case "96":
-          case "97":
-          case "98":
-            operator = "Kyivstar";
-            break;
-          case "63":
-          case "73":
-          case "93":
-            operator = "Lifecell";
-            break;
-          default:
-            operator = "Unknown operator";
-        }
-
-        return operator;
-      }
-    }
-  }
-}
+// }
