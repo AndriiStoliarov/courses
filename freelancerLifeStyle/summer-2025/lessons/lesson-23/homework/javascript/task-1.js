@@ -19,6 +19,15 @@ if (confirm("Почати тестування?")) {
     };
   };
 
+  class IsValidPhoneNumber extends Error {
+    constructor() {
+      super();
+      this.message = "Номер не відповідає формату.";
+      // this.message = "Phone number is not valid!";
+      this.name = "IsValidPhoneNumber";
+    }
+  }
+
   class PhoneNumber {
     constructor(initNumber) {
       this.Number = initNumber;
@@ -28,7 +37,7 @@ if (confirm("Почати тестування?")) {
       if (/^0\d{9}$/.test(value)) {
         this.number = value;
       } else {
-        throw new Error("Номер не відповідає формату.");
+        throw new IsValidPhoneNumber();
       }
     }
 
