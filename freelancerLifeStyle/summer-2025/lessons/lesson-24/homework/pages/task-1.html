@@ -37,12 +37,23 @@
 									<li class="tasks__item">
 										<span class="tasks__title">Відповідь:</span>
 									</li>
-									<li id="resultTitle" class="tasks__item">
-										<span>Введіть номер телефону: </span>
+									<li id="resultItem" class="tasks__item  result">
+										<span class="result__title">Нескінченна галерея лисиць</span>
+										<!-- The content is inserted from *.js file. -->
 									</li>
+									<li id="load-trigger"></li>
 								</div><!-- /.tasks__inner -->
 							</div><!-- /.tasks__container -->
 						</div><!-- /.tasks -->
+
+						<!-- Modal -->
+						<div class="modal">
+							<div class="modal__container">
+								<div class="modal__inner">
+									<img class="modal__image" src="https://randomfox.ca/images/1.jpg" alt="current fox image">
+								</div>
+							</div><!-- /.modal__container -->
+						</div><!-- /.modal -->
 
 						<div class="up">
 							<div class="up__container">
@@ -66,6 +77,6 @@
 						</div><!-- /.footer__inner-->
 					</footer>
 				</div><!-- /.wrapper -->
-				<script src="../javascript/task-1.js"></script>
+				<script type="module" src="../javascript/task-1.js"></script>
 			</body>
 		</html>

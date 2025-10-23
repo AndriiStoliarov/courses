@@ -1,26 +1,69 @@
 "use strict";
 
-import { getData } from "modules/fetch.js";
+import { Fetch } from "./modules/fetch.js";
+import { Gallery } from "./modules/gallery.js";
 
 // if (confirm("Почати тестування?")) {
-window.onload = function () {
+window.addEventListener("load", windowLoad);
+
+function windowLoad() {
   const resultItem = document.getElementById("resultItem");
   if (!resultItem) return;
 
-  // const phoneNumberInput = document.querySelector(".form__input--number");
-  // phoneNumberInput.onchange = (event) => {
-  //   try {
-  //     const currentPhoneNumber = event.target.value;
+  const API_URL = "https://randomfox.ca/floof/";
 
-  //     const phoneNumber = new PhoneNumber(currentPhoneNumber);
+  const data = new Fetch(API_URL);
 
-  //     resultItem1.innerText = `${phoneNumber.Number} -> ${phoneNumber}.`;
-  //   } catch (error) {
-  //     resultItem1.innerText = error.message;
-  //   }
-  // };
+  async function loadMore() {
+    const gallery = new Gallery(data);
+    resultItem.append(gallery.render());
 
-  const API_URL = "hhttps://randomfox.ca/floof/";
-};
+    const galleryList = document.querySelectorAll(".gallery");
+    const modal = document.querySelector(".modal");
+    const modalImg = document.querySelector(".modal__image");
 
+    for (const gallery of galleryList) {
+      gallery.addEventListener("click", (event) => {
+        if (event.target.tagName === "IMG") {
+          const currentSrc = event.target.getAttribute("src");
+
+          modalImg.setAttribute("src", currentSrc);
+          modal.classList.add("show");
+          document.body.classList.add("no-scroll");
+
+          setTimeout(() => (modalImg.style.opacity = "1"), 300);
+        }
+      });
+    }
+
+    modal.addEventListener("click", () => {
+      modalImg.style.opacity = "0";
+
+      setTimeout(() => {
+        modal.classList.remove("show");
+        document.body.classList.remove("no-scroll");
+      }, 300);
+    });
+
+    modalImg.addEventListener("click", (event) => {
+      event.stopPropagation();
+    });
+  }
+
+  const trigger = document.querySelector("#load-trigger");
+
+  const observer = new IntersectionObserver(
+    async (entries) => {
+      if (entries[0].isIntersecting) {
+        await loadMore();
+      }
+    },
+    {
+      rootMargin: "0px 0px 200px 0px",
+      threshold: 0,
+    }
+  );
+
+  observer.observe(trigger);
+}
 // }

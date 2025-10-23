@@ -1,18 +1,21 @@
 "use strict";
 
-export async function getData(url = "") {
-  try {
-    const response = await fetch(url);
+export class Fetch {
+  constructor(initURL) {
+    this.URL = initURL;
+  }
 
-    if (!response.ok)
-      throw new Error(`HTTP error! status: ${response.status}.`);
+  async getData() {
+    try {
+      const response = await fetch(this.URL);
 
-    const data = await response.json();
+      if (!response.ok)
+        throw new Error(`HTTP error! status: ${response.status}.`);
 
-    return data;
-  } catch (error) {
-    throw new Error("Error fetching data:", error);
+      this.data = await response.json();
+      return this.data;
+    } catch (error) {
+      console.log("Error fetching data:", error);
+    }
   }
 }
-
-// export const val = 5;
