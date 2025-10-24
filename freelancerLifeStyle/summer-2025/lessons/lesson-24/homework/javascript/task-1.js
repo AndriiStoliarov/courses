@@ -21,13 +21,16 @@ if (confirm("Почати тестування?")) {
       const galleryList = document.querySelectorAll(".gallery");
       const modal = document.querySelector(".modal");
       const modalImg = document.querySelector(".modal__image");
+      let currentScrollY = 0;
 
       for (const gallery of galleryList) {
         gallery.addEventListener("click", (event) => {
           if (event.target.tagName === "IMG") {
             const currentSrc = event.target.getAttribute("src");
-
             modalImg.setAttribute("src", currentSrc);
+
+            currentScrollY = window.scrollY;
+
             modal.classList.add("show");
             document.body.classList.add("no-scroll");
 
@@ -42,6 +45,8 @@ if (confirm("Почати тестування?")) {
         setTimeout(() => {
           modal.classList.remove("show");
           document.body.classList.remove("no-scroll");
+
+          window.scrollTo(0, currentScrollY);
         }, 300);
       });
 
