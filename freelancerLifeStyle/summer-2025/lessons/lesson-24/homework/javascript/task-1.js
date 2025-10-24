@@ -3,67 +3,67 @@
 import { Fetch } from "./modules/fetch.js";
 import { Gallery } from "./modules/gallery.js";
 
-// if (confirm("Почати тестування?")) {
-window.addEventListener("load", windowLoad);
+if (confirm("Почати тестування?")) {
+  window.addEventListener("load", windowLoad);
 
-function windowLoad() {
-  const resultItem = document.getElementById("resultItem");
-  if (!resultItem) return;
+  function windowLoad() {
+    const resultItem = document.getElementById("resultItem");
+    if (!resultItem) return;
 
-  const API_URL = "https://randomfox.ca/floof/";
+    const API_URL = "https://randomfox.ca/floof/";
 
-  const data = new Fetch(API_URL);
+    const data = new Fetch(API_URL);
 
-  async function loadMore() {
-    const gallery = new Gallery(data);
-    resultItem.append(gallery.render());
+    async function loadMore() {
+      const gallery = new Gallery(data);
+      resultItem.append(gallery.render());
 
-    const galleryList = document.querySelectorAll(".gallery");
-    const modal = document.querySelector(".modal");
-    const modalImg = document.querySelector(".modal__image");
+      const galleryList = document.querySelectorAll(".gallery");
+      const modal = document.querySelector(".modal");
+      const modalImg = document.querySelector(".modal__image");
 
-    for (const gallery of galleryList) {
-      gallery.addEventListener("click", (event) => {
-        if (event.target.tagName === "IMG") {
-          const currentSrc = event.target.getAttribute("src");
+      for (const gallery of galleryList) {
+        gallery.addEventListener("click", (event) => {
+          if (event.target.tagName === "IMG") {
+            const currentSrc = event.target.getAttribute("src");
 
-          modalImg.setAttribute("src", currentSrc);
-          modal.classList.add("show");
-          document.body.classList.add("no-scroll");
+            modalImg.setAttribute("src", currentSrc);
+            modal.classList.add("show");
+            document.body.classList.add("no-scroll");
 
-          setTimeout(() => (modalImg.style.opacity = "1"), 300);
-        }
+            setTimeout(() => (modalImg.style.opacity = "1"), 300);
+          }
+        });
+      }
+
+      modal.addEventListener("click", () => {
+        modalImg.style.opacity = "0";
+
+        setTimeout(() => {
+          modal.classList.remove("show");
+          document.body.classList.remove("no-scroll");
+        }, 300);
+      });
+
+      modalImg.addEventListener("click", (event) => {
+        event.stopPropagation();
       });
     }
 
-    modal.addEventListener("click", () => {
-      modalImg.style.opacity = "0";
+    const trigger = document.querySelector("#load-trigger");
 
-      setTimeout(() => {
-        modal.classList.remove("show");
-        document.body.classList.remove("no-scroll");
-      }, 300);
-    });
-
-    modalImg.addEventListener("click", (event) => {
-      event.stopPropagation();
-    });
-  }
-
-  const trigger = document.querySelector("#load-trigger");
-
-  const observer = new IntersectionObserver(
-    async (entries) => {
-      if (entries[0].isIntersecting) {
-        await loadMore();
+    const observer = new IntersectionObserver(
+      async (entries) => {
+        if (entries[0].isIntersecting) {
+          await loadMore();
+        }
+      },
+      {
+        rootMargin: "0px 0px 200px 0px",
+        threshold: 0,
       }
-    },
-    {
-      rootMargin: "0px 0px 200px 0px",
-      threshold: 0,
-    }
-  );
+    );
 
-  observer.observe(trigger);
+    observer.observe(trigger);
+  }
 }
-// }
