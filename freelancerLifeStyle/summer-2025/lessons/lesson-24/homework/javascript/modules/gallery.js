@@ -17,7 +17,7 @@ export class Gallery {
     const ulTag = this.createUlTag();
     ulTag.className = "gallery";
 
-    for (let index = 0; index < 15; index++) {
+    for (let item = 0; item < 15; item++) {
       this.data.getData().then((data) => {
         const card = new Card(data.image);
         ulTag.append(card.render());
